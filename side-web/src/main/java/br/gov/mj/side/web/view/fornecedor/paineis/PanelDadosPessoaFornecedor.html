@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<wicket:panel>
+
+	<div class="form-horizontal">
+		<form wicket:id="formPessoa">
+			<div class="form-group">
+				<label class="col-sm-3 control-label"> </label>
+				<div class="col-sm-6">
+					<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemErroRepresentante"></div>
+				</div>
+			</div>
+
+			<div wicket:id="panelPrincipal">
+				<script>
+					$(document).ready(function() {
+						$("#dropDownAtivo").select2();
+					});
+				</script>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="cpf"> <span class="obrigatorio">*</span> CPF
+					</label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="CPF" class="form-control mask-cpf" id="cpf" wicket:id="pessoa.numeroCpf" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="nomeRepresentante"> <span class="obrigatorio">*</span> Nome
+					</label>
+					<div class="col-sm-6">
+						<input type="text" placeholder="Nome do Representante" class="form-control" id="nomeRepresentante" wicket:id="pessoa.nomePessoa" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="telefone"> <span class="obrigatorio">*</span> Telefone
+					</label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="Telefone" class="form-control mask-telefone" id="telefone" wicket:id="pessoa.numeroTelefone" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="email"> <span class="obrigatorio">*</span> Email
+					</label>
+					<div class="col-sm-2">
+						<input type="text" placeholder="Email" class="form-control" id="email" wicket:id="pessoa.email" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="email"><span class="obrigatorio">*</span> Ativar</label>
+					<div class="col-sm-2">
+						<select wicket:id="dropAtivo" class="js-example-basic-single" id="dropDownAtivo" style="width: 100%;"></select>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="panel-body">
+					<div class="form-group" wicket:id="panelBotoes">
+						<div class="col-sm-4 col-sm-offset-8 col-xs-offset-5">
+							<div class="col-sm-3">
+								<button title="Adicionar" class="btn btn-success btn-sm" wicket:id="btnAdicionar">
+									<i class="fa fa-plus"></i>
+								</button>
+								<button title="Adicionar" class="btn btn-success btn-sm" wicket:id="btnAdicionarNovo">
+									<i class="fa fa-plus"></i><span wicket:id="lblNome"></span>
+								</button>
+								<button title="Salvar Alteração" class="btn btn-success btn-sm" wicket:id="btnSalvarEdicao">
+									<i class="fa fa-floppy-o"></i>
+								</button>
+								<button title="Cancelar" class="btn btn-warning btn-sm" wicket:id="btnCancelarEdicao">
+									<i class="fa fa-undo"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar</span>
+
+					<div wicket:id="panelDataView">
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Nome</th>
+										<th>CPF</th>
+										<th>Telefone</th>
+										<th>E-Mail</th>
+										<th>Situação</th>
+										<th style="width: 100px;">Ações</th>
+									</tr>
+								</thead>
+								<tbody wicket:id="dataTitulares">
+									<tr>
+										<td><span wicket:id="pessoa.nomePessoa"></span></td>
+										<td><span wicket:id="pessoa.numeroCpf"></span></td>
+										<td><span wicket:id="pessoa.numeroTelefone" class="mask-telefone"></span></td>
+										<td><span wicket:id="pessoa.email"></span></td>
+										<td><span wicket:id="situacao"></span></td>
+										<td>
+											<button class="btn btn btn-info btn-sm" title="Alterar" wicket:id="btnEditar">
+												<i class="fa fa-pencil fa-fw"></i>
+											</button>
+											<button class="btn btn-danger btn-sm" title="Excluir" wicket:id="btnRemover">
+												<i class="fa fa-trash-o"></i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="panel-footer">
+							<div wicket:id="pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</wicket:panel>

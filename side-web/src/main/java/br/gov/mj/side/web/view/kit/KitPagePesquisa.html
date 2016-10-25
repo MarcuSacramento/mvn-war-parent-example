@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form id="validate" name="my_form" wicket:id="form" class="form-horizontal">
+		<div class="pull-right">
+			<a wicket:id="btnNovo" title="Cadastrar novo Kit" id="btnNovo" class="btn btn-primary btn-sm"> <i class="fa fa-file-o"></i> Novo Kit
+			</a>
+		</div>
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="" wicket:id="lnkDashboard">Dashboard</a></li>
+				<li class="active">Pesquisar Kit de Bens</li>
+			</ul>
+		</div>
+
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados da Pesquisa</h3>
+			</div>
+			<div class="box-body">
+				<div id="pesquisar" wicket:id="panelPesquisa">
+					<script type="text/javascript" src="js/mj.js"></script>
+					<div>
+						<section id="responsive">
+							<div class="form-group">
+								<label class="col-sm-2 col-sm-offset-1 control-label" for="nomeKitAuto">Kit</label>
+								<div class="col-sm-5">
+									<select class="basic-single" wicket:id="nomeKitAuto" style="width: 100%">
+										<option>Selecione...</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 col-sm-offset-1 control-label" for="nomeBemAuto">Bem</label>
+								<div class="col-sm-5">
+									<select class="basic-single" wicket:id="nomeBemAuto" style="width: 100%">
+										<option>Selecione...</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 col-sm-offset-1 control-label" for="nomeElementoAuto">Elemento</label>
+								<div class="col-sm-5">
+									<select class="basic-single" wicket:id="nomeElementoAuto" style="width: 100%">
+										<option>Selecione...</option>
+									</select>
+								</div>
+							</div>
+						</section>
+						<div class="form-group">
+							<button class="col-sm-offset-5 col-xs-offset-4 btn btn-success btn-sm" wicket:id="btnPesquisar" title="Pesquisar">
+								<i class="fa fa-search"></i> Pesquisar
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<span id="ancoraPesquisa"></span>
+		
+		<div wicket:id="panelDataView">
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<span>Lista de Kits</span>
+					<div class="pull-right">
+						Qtd de itens exibidos &nbsp;<select id="valoresPaginator" wicket:id="valoresPaginator" title="Número de registros por página">
+							<option>Selecione...</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="box-body">
+
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th><span wicket:id="lblOrderNome">.</span><a href="" wicket:id="btnOrdenarNome">Nome</a></th>
+								<th class="hidden-xs"><span wicket:id="lblOrderDescricao">.</span><a href="" wicket:id="btnOrdenarDescricao">Descrição</a></th>
+								<th class="hidden-xs"><span wicket:id="lblOrderValor">.</span><a href="" wicket:id="btnOrdenarValor">Valor Estimado</a></th>
+								<th style="width: 140px;">Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="dataBens">
+							<tr>
+								<td><span wicket:id="nomeKit"></span></td>
+								<td class="hidden-xs"><span wicket:id="descricao"></span></td>
+								<td class="hidden-xs"><span wicket:id="valorEstimado"></span></td>
+								<td><a wicket:id="btnVisualizar" title="Visualizar" id="btnVisualizar" class="btn btn-primary btn-sm"> <i class="fa fa-search"></i>
+								</a> <a wicket:id="btnEditar" title="Alterar" id="btnEditar" class="btn btn-info btn-sm"> <i class="fa fa-pencil fa-fw"></i>
+								</a>
+									<button wicket:id="btnExcluir" title="Excluir" class="btn btn-danger btn-sm">
+										<i class="fa fa-trash-o"></i>
+									</button></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="box-footer">
+						<div class="pull-left">
+							<button wicket:id="btnExportarCsv" title="Exportar para CSV" class="btn btn-success btn-sm">
+								<i class="fa fa-file-text-o"></i> Exportar CSV
+							</button>
+							&nbsp;&nbsp;
+						</div>
+						<div wicket:id="paginator"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

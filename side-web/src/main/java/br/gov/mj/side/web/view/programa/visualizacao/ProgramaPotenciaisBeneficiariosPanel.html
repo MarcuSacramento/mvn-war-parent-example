@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title">Potenciais Beneficiários</h3>
+		</div>
+
+		<div class="box-body">
+			<div class="row" wicket:enclosure="nacional">
+				<div class="col-md-2">
+					<label>Limitação Geográfica</label>
+				</div>
+				<div class="col-md-6">
+					<span wicket:id="nacional"></span>
+				</div>
+			</div>
+
+			<div class="row" wicket:enclosure="potenciaisBeneficiariosUf">
+				<div class="col-md-12">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th width="15%">UF</th>
+								<th width="85%">Municípios</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="potenciaisBeneficiariosUf">
+								<td><span wicket:id="uf.nomeUf"></span></td>
+								<td><span wicket:id="municipios"></span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-2">
+					<label>Regime Jurídico</label>
+				</div>
+				<div class="col-md-6">
+					<span wicket:id="tipoPersonalidadeJuridica"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

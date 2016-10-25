@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<script type="text/javascript">
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+
+	<form id="validate" name="my_form" class="form-horizontal" wicket:id="form">
+
+		<wicket:container wicket:id="panelFasePrograma" />
+		<wicket:container wicket:id="execucaoPanelPotoes" />
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> </label>
+			<div class="col-sm-6">
+				<div class="col-sm-6 feedbackPanelERROR"></div>
+			</div>
+		</div>
+
+		<!-- Painel Filtros de Pesquisa -->
+		<div wicket:id="panelPesquisa" class="box box-primary collapsed-box">
+			<div class="box-header with-border ui-sortable-handle">
+				<!-- tools box -->
+				<div class="pull-right box-tools">
+					<button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="" style="margin-right: 5px;"
+						data-original-title="Abrir / Fechar formulário de pesquisa">
+						<i class="fa fa-plus"></i>
+					</button>
+				</div>
+				<!-- /. tools -->
+				<i class="fa fa-search"></i>
+				<h3 class="box-title">Filtros de Pesquisa</h3>
+			</div>
+			<div class="box-body">
+
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="beneficiario">Beneficiário </label>
+					<div class="col-sm-3">
+						<select wicket:id="beneficiario" class="basic-single" style="width: 100%;" id="beneficiario"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="cnpj">CNPJ </label>
+					<div class="col-sm-3">
+						<select wicket:id="cnpj" class="basic-single" style="width: 100%;" id="cnpj"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="estado">Estado </label>
+					<div class="col-sm-3">
+						<select wicket:id="estado" class="basic-single" style="width: 100%;" id="estado"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="item">Item</label>
+					<div class="col-sm-3">
+						<select wicket:id="item" class="basic-single" style="width: 100%;" id="item"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-2 col-md-offset-4">
+						<a class="btn btn-success btn-sm" wicket:id="btnPesquisar" title="Pesquisar"><i class="fa fa-search"></i>Pesquisar</a> <a class="btn btn-warning btn-sm"
+							wicket:id="btnLimpar" title="Limpar"><i class="fa fa-eraser"></i>Limpar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<span id="ancoraPainelTRD"></span>
+
+		<!-- Painel Termo de Recebimento Definitivo -->
+		<div>
+			<div wicket:id="panelTermoRecebimentoDefinitivo" class="box box-primary form-horizontal">
+				<script type="text/javascript">
+					$(document).ready(function($) {
+					$('[data-toggle="popover"]').popover({ html: true});
+					});
+				</script>
+				<div class="box-header with-border">
+					<h3 class="box-title">Termo de Recebimento Definitivo</h3>
+					<div class="pull-right">
+						Qtd de itens exibidos &nbsp;<select title="Número de registros por página" wicket:id="itensPorPaginaTermoRecebimentoDefinitivo"></select>
+					</div>
+				</div>
+
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th><input wicket:id="checkTRDSelectedTodos" type="checkbox" /></th>
+								<th>Beneficiário</th>
+								<th>Nº TRD</th>
+								<th><center>Item</center></th>
+								<th>Data Geração</th>
+								<th>Processo SEI</th>
+								<th>Nº Documento SEI</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="listaTRD">
+							<tr>
+								<td><input wicket:id="checkTRDSelected" type="checkbox" /></td>
+								<td><span wicket:id="nomeBeneficiario"></span></td>
+								<td><span wicket:id="nomeAnexo"></span></td>
+								<td align="center"><span wicket:id="itens"></span></td>
+								<td><span wicket:id="dataGeracao"></span></td>
+								<td><input type="text" placeholder="Processo SEI" class="form-control mask-numero-sei" wicket:id="numeroProcessoSei" /></td>
+								<td><input type="text" placeholder="Nº Documento SEI" class="form-control" wicket:id="numeroDocumentoSei" onkeypress='return somenteNumero(event)' /></td>
+								<td>
+									<button wicket:id="btnDownloadTRD" title="Baixar Termo de Recebimento Definitivo" class="btn btn-success btn-sm">
+										<i class="fa fa-download"></i>
+									</button>
+									<button wicket:id="btnDownloadNF" title="Baixar Nota Fiscal" class="btn btn-warning btn-sm">
+										<i class="fa fa-download"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="panel-footer">
+						<div wicket:id="paginationTRD"></div>
+					</div>
+				</div>
+
+				<!-- Painel Gerar Termo de Doação -->
+				<div class="box-footer clearfix">
+					<div class="pull-right">
+						<a class="btn btn-primary btn-sm" title="Gerar Termo de Doação" wicket:id="btnGerarTermoDoacao"><i class="fa fa-refresh"></i>Gerar Termo de Doação</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Painel Doações -->
+		<div>
+			<div wicket:id="panelDoacoes" class="box box-primary form-horizontal">
+				<script type="text/javascript">
+					$(document).ready(function($) {
+					$('[data-toggle="popover"]').popover({ html: true});
+					});
+				</script>
+				<div class="box-header with-border">
+					<h3 class="box-title">Termos de Doação Gerados</h3>
+					<div class="pull-right">
+						Qtd de itens exibidos &nbsp;<select title="Número de registros por página" wicket:id="itensItensPorPaginaDoacoes"></select>
+					</div>
+				</div>
+
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th>Beneficiário</th>
+								<th>CNPJ</th>
+								<th><center>Item</center></th>
+								<th>Data Geração</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="listaDoacoes">
+							<tr>
+								<td><span wicket:id="nomeBeneficiario"></span></td>
+								<td><span wicket:id="numeroCnpj"></span></td>
+								<td align="center"><span wicket:id="itens1"></span></td>
+								<td><span wicket:id="dataGeracao"></span></td>
+								<td>
+									<button wicket:id="btnDownloadTD" title="Baixar Termo de Doação" class="btn btn-success btn-sm">
+										<i class="fa fa-download"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="panel-footer">
+						<div wicket:id="paginationDoacoes"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Painel Botão -->
+		<div class="box-footer clearfix">
+			<div class="pull-right" wicket:id="panelButton">
+				<a class="btn btn-warning btn-sm" wicket:id="btnVoltar"><i class="fa fa-undo"></i>Voltar</a>
+			</div>
+		</div>
+
+	</form>
+
+</wicket:extend>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<script>
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}	
+	</script>
+
+	<form wicket:id="form" id="form" class="form-horizontal">
+
+		<div class="pull-right"></div>
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="" wicket:id="homePage">Dashboard</a></li>
+				<li><a href="" wicket:id="kitPagePesquisa">Pesquisar Kit de Bens</a></li>
+				<li><a href="" wicket:id="kitPage">Kit de Bens</a></li>
+				<li class="active">Vincular Bem</li>
+			</ul>
+		</div>
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Pesquisa de Bem</h3>
+			</div>
+			<div class="box-body">
+				<div class="form-group">
+					<label for="nome" class="col-sm-2 col-sm-offset-1 control-label">Nome</label>
+					<div class="col-sm-5">
+						<input wicket:id="nomeBem" id="nome" type="text" class="form-control" tabindex="1" title="Nome do Bem" placeholder="Nome do Bem" />
+					</div>
+				</div>
+
+				<div wicket:id="panelSubelemento">
+
+					<div class="form-group">
+						<label for="elemento" class="col-sm-2 col-sm-offset-1 control-label">Elemento</label>
+						<div class="col-sm-5">
+							<select wicket:id="elemento" id="elemento" class="basic-single" style="width: 100%" tabindex="2" title="Elemento"></select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="subelemento" class="col-sm-2 col-sm-offset-1 control-label">Subelemento</label>
+						<div class="col-sm-5">
+							<select wicket:id="subElemento" id="subelemento" class="basic-single" style="width: 100%" tabindex="3" title="Subelemento"></select>
+						</div>
+					</div>
+				</div>
+				<div>
+
+					<div class="form-group">
+						<button type="submit" wicket:id="btnPesquisar" title="Pesquisar" id="btnPesquisar" class="col-sm-offset-5 col-xs-offset-4 btn btn-success btn-sm">
+							<i class="fa fa-search"></i> Pesquisar
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="ancoraPesquisa" class="box box-primary panel-footer clearfix">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="row-height">
+						<div class="col-xs-6 col-height" wicket:id="panelGridResultados">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<span>Resultado da Pesquisa</span>
+									<div class="pull-right mj_botoes_acao_tabela">
+										Qtd de itens exibidos &nbsp;<select name="valoresPaginator" id="valoresPaginator2" title="Número de registros por página" wicket:id="itensPorPagina">
+											<option>Selecione...</option>
+										</select>
+									</div>
+								</div>
+								<div class="panel-body">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th width="24%" wicket:id="orderByNomeBemResult" style="vertical-align: text-top;">Nome</th>
+												<th width="70%" wicket:id="orderByDescricaoBemResult" style="vertical-align: text-top;">Descrição</th>
+												<th width="6%"><a wicket:id="btnPick1" title="Todos Bens para a direita" id="btnPick5" class="btn btn-success btn-sm"> <i
+														class="glyphicon glyphicon-fast-forward"></i></a></th>
+											</tr>
+										</thead>
+										<tbody wicket:id="bens">
+											<tr>
+												<td><span wicket:id="nomeBem"></span></td>
+												<td><span wicket:id="descricaoBem"></span></td>
+												<td><button class="btn btn-success btn-sm" title="Adicionar este Bem" wicket:id="btnAdicionarBem">
+														<i class="glyphicon glyphicon-chevron-right"></i>
+													</button></td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="panel-footer">
+										<div wicket:id="pagination"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-6 col-height" wicket:id="panelDataViewAdicionado">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<span>Lista de Bens Selecionados</span>
+									<div class="pull-right mj_botoes_acao_tabela">
+										<select name="valoresPaginatorAdicionado" class="form-control" id="valoresPaginatorAdicionado" title="Número de registros por página"
+											wicket:id="valoresPaginatorAdicionado">
+											<option>Selecione...</option>
+										</select>
+									</div>
+								</div>
+								<div class="panel-body">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th width="6%"><a wicket:id="btnPick2" title="Todos os Bens para a Esquerda" id="btnPick2" class="btn btn-danger btn-sm"> <i
+														class="glyphicon glyphicon-fast-backward"></i>
+												</a></th>
+												<th width="22%" wicket:id="orderByNomeBem" style="vertical-align: text-top;">Nome</th>
+												<th width="50%" wicket:id="orderByDescricao" style="vertical-align: text-top;">Descrição</th>
+												<th width="22%">Quantidade</th>
+											</tr>
+										</thead>
+										<tbody wicket:id="dataBensAdicionado">
+											<tr>
+												<td><button class="btn btn-danger btn-sm" title="Remover este Bem" wicket:id="btnRemoverBem">
+														<i class="glyphicon glyphicon-chevron-left"></i>
+													</button></td>
+												<td><span wicket:id="nomeBemAdicionado"></span></td>
+												<td><span wicket:id="descricaoBemAdicionado"></span></td>
+												<td>
+													<div wicket:id="quantidadeItemPanel">
+														<input type="text" placeholder="Quantidade" wicket:id="quantidade" onkeypress='return somenteNumero(event)' class="form-control" />
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="panel-footer">
+										<div>
+											<span wicket:id="paginatorAdicionado"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pull-right">
+				<div>
+					<button wicket:id="btnAvancar" title="Vincular" id="btnAvancar" class="btn btn-success btn-sm">
+						<i class="fa fa-file-o"></i> Vincular
+					</button>
+					<a wicket:id="btnVoltar" title="Voltar" id="btnVoltar" class="btn btn-warning btn-sm"> <i class="fa fa-undo"></i> Voltar
+					</a>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title">Suspender Programa</h3>
+		</div>
+		<div class="box-body">
+			<div class="form-group">
+				<label for="dataPublicacaoDOU" class="col-sm-2 control-label"><span>*</span> Data Publicação DOU</label>
+				<div class="col-sm-5">
+					<input wicket:id="dataPublicacaoDOU" id="dataPublicacaoDOU" type="text" class="form-control" placeholder="DD/MM/AAAA" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="elemento" class="col-sm-2 control-label"><span>*</span>Motivo</label>
+				<div class="col-sm-5">
+					<textarea wicket:id="motivo" class="form-control" id="motivo"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

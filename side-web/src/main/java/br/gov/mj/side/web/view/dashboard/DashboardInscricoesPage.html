@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+	<form id="formulario" class="form-horizontal" wicket:id="form">
+
+		<!-- PAINEL BOTOES DE CONTROLE -->
+		<wicket:container wicket:id="dashboardPessoasPanel" />
+		<br />
+
+		<div class="box box-primary" wicket:id="panelDataviewResultados">
+			<div class="box-header with-border">
+				<h3 class="box-title">Lista de Propostas</h3>
+				<div class="pull-right mj_botoes_acao_tabela">
+					Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPagina" id="itensPorPagina" title="Número de registros por página"></select>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th wicket:id="orderByCodigo">Código</th>
+								<th wicket:id="orderByNomePrograma">Nome Programa</th>
+								<th wicket:id="orderByDataInscricao">Data de Inscrição</th>
+								<th wicket:id="orderBySituacaoPriograma">Situação do Programa</th>
+								<th wicket:id="orderBySituacao">Situação da Inscrição</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="dataInscricoes">
+							<tr>
+								<td><span wicket:id="programa.identificadorProgramaPublicado"></span></td>
+								<td><span wicket:id="programa.nomePrograma"></span></td>
+								<td><span wicket:id="dataCadastro"></span></td>
+								<td><span wicket:id="situacaoPrograma"></span></td>
+								<td><span wicket:id="situacao"></span></td>
+								<td>
+									<button class="btn btn-primary btn-sm" title="Visualizar" wicket:id="btnVisualizarInscricao">
+										<i class="fa fa-search"></i>
+									</button>
+									<button class="btn btn btn-info btn-sm" title="Alterar" wicket:id="btnDetalhesInscricao">
+										<i class="fa fa-pencil fa-fw"></i>
+									</button>
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="box-footer">
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

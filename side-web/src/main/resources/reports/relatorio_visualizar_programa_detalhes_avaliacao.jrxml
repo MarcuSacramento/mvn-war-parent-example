@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_visualizar_programa_detalhes_avaliacao" pageWidth="539" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="539" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0538e7ea-7b58-485b-8e46-65d146445aad">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="600"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nomeCriterioAvaliacao" class="java.lang.String"/>
+	<field name="descricaoCriterioAvaliacao" class="java.lang.String"/>
+	<field name="formaVerificacao" class="java.lang.String"/>
+	<field name="tipoResposta" class="java.lang.String"/>
+	<field name="pesoResposta" class="java.lang.String"/>
+	<field name="utilizadoParaCriterioDesempate" class="java.lang.String"/>
+	<field name="possuiObrigatoriedadeDeAnexo" class="java.lang.String"/>
+	<field name="criteriosAvaliacaoOpcaoResposta" class="java.lang.String"/>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="69" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="21ce752f-2efa-4d5c-987e-b087c71775e2"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="69" y="0" width="67" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="92ac93a8-7c75-4bb8-b093-8e380ac299ca"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="136" y="0" width="67" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="48d60dc5-cdb4-4d87-ac9d-fa582ba32d41"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="203" y="0" width="67" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="2cab4e50-bd28-4e70-9435-b67075363b7f"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="270" y="0" width="168" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="b0acdc6f-b063-434f-a59e-458c225b36e5"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="438" y="0" width="22" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="fd637cba-328e-4443-97c7-340ba41f11d6"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="460" y="0" width="32" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="11137ac7-1ff9-4154-b0a4-45ace9b38388"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="492" y="0" width="47" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="8f5e794c-8cbd-4d04-9b2c-f1e5a79638f4"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="0" width="68" height="13" uuid="f65eadff-f4ae-43cb-b8e9-b76944e6c5ed"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="0" width="65" height="15" uuid="d8230ffc-5384-45bb-a8f8-fad7f10a1717"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="0" width="65" height="15" uuid="26b72c38-e4b8-4d0d-9d0d-25a226dd96f1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Forma de Verificação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="0" width="65" height="15" uuid="a01a238d-485c-477c-a7ed-a235c89f5f3a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Tipo de Resposta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="0" width="168" height="15" uuid="485c2d81-729b-45fd-8741-0e57718aa632"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[ Opções de Resposta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="0" width="22" height="15" uuid="14ebc6e9-7509-4330-918a-1655e3f4c9c9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Peso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="0" width="32" height="15" uuid="014ce6d0-c12a-42fe-a40e-b67c46a1b0a0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Anexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="0" width="47" height="15" uuid="47c38663-05a5-4e86-9cd0-a5af6c5aa410"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Desempate]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="2" width="68" height="25" isPrintWhenDetailOverflows="true" uuid="ca43777e-b3af-4cbd-bc78-5be7e3f73ec2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeCriterioAvaliacao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="70" y="2" width="65" height="25" isPrintWhenDetailOverflows="true" uuid="1dea57ae-077e-42c8-907e-89d53df46932"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricaoCriterioAvaliacao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="137" y="2" width="66" height="25" isPrintWhenDetailOverflows="true" uuid="bd748705-3040-4e32-a511-71edd2d82244"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{formaVerificacao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="204" y="2" width="66" height="25" isPrintWhenDetailOverflows="true" uuid="df2c7b65-dd74-48a3-b041-a8449feb733a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoResposta}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="271" y="2" width="167" height="25" isPrintWhenDetailOverflows="true" uuid="b58e5f88-57e6-47df-a617-0cc162f1687b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{criteriosAvaliacaoOpcaoResposta}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="438" y="2" width="22" height="25" isPrintWhenDetailOverflows="true" uuid="b4b45b9e-fcbc-468f-a647-ececab94531e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pesoResposta}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="460" y="2" width="32" height="25" isPrintWhenDetailOverflows="true" uuid="2996fd35-e780-45e8-9ea8-6112784e1dd1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{possuiObrigatoriedadeDeAnexo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="492" y="2" width="46" height="25" isPrintWhenDetailOverflows="true" uuid="e8d2145c-b5ae-42f3-8f86-f6c688490b91"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{utilizadoParaCriterioDesempate}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="0" y="0" width="69" height="29" isPrintWhenDetailOverflows="true" uuid="76a06e77-c7b0-4863-baa3-747d036a079d"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="69" y="0" width="67" height="29" isPrintWhenDetailOverflows="true" uuid="e780366d-d243-4db5-9cdc-65496fb38388"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="136" y="0" width="67" height="29" isPrintWhenDetailOverflows="true" uuid="39213894-2002-4a25-8fe6-14e346f690bd"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="203" y="0" width="67" height="29" isPrintWhenDetailOverflows="true" uuid="dc520431-a303-40ca-b234-ddab362afc04"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="270" y="0" width="168" height="29" isPrintWhenDetailOverflows="true" uuid="664d514f-2c3b-423f-8379-95505eb87271"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="438" y="0" width="22" height="29" isPrintWhenDetailOverflows="true" uuid="83d9bfe9-45e5-4c71-bd0c-99dcd5dbc526"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="460" y="0" width="32" height="29" isPrintWhenDetailOverflows="true" uuid="533982dd-1316-4c9c-a82c-4d383395ff8c"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="492" y="0" width="47" height="29" isPrintWhenDetailOverflows="true" uuid="0872a4a0-a929-49cc-9fbb-47ba1e9cd32b"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29">
+			<printWhenExpression><![CDATA[($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="119" y="7" width="272" height="15" uuid="c8b89de8-56b0-4803-9647-a1faadfd3004"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nenhum Critério de Avaliação adicionado a este Programa]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

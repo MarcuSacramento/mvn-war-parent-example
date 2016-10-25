@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div wicket:id="panelInformacoesContrato">
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="vigenciaInicio"><span class="obrigatorio">*</span>Período de Vigência </label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input wicket:id="dataVigenciaInicioContrato" type="text" class="form-control" id="vigenciaInicio" placeholder="DD/MM/AAAA" />
+				</div>
+				<div class="col-sm-7">
+					<label class="col-sm-1 control-label" for="vigenciaFim"> a </label>
+					<div class="col-sm-8">
+						<input wicket:id="dataVigenciaFimContrato" type="text" class="form-control" id="vigenciaFim" placeholder="DD/MM/AAAA" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="telefone"><span class="obrigatorio">*</span>NUP - SEI </label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input wicket:id="numeroProcessoSEI" type="text" placeholder="NUP - SEI" class="form-control mask-numero-sei" id="nupSei" />
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

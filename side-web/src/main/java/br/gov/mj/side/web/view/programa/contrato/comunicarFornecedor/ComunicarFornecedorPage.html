@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<wicket:extend>
+
+	<script>
+
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+
+	<form id="validate" name="my_form" class="form-horizontal" wicket:id="form">
+		
+		<wicket:container wicket:id="panelFasePrograma"/>
+		<wicket:container wicket:id="execucaoPanelPotoes"/>
+		<br />
+		
+		
+		<div class="box box-primary form-horizontal" >
+			<div class="box-header with-border" wicket:id="panelDadosBasicos">
+				<h3 class="box-title">Comunicar Fornecedor</h3>
+		<div class="form-group">
+			<label class="col-sm-3 control-label"><span wicket:id="lblTituloEmail"></span></label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<strong><span wicket:id="lblEmail"></span></strong>
+				</div>
+			</div>
+		</div>	
+		
+		<div class="form-group">
+			<label class="col-sm-3 control-label"><span wicket:id="lblTituloData"></span></label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<strong><span wicket:id="lblData"></span></strong>
+				</div>
+			</div>
+		</div>	
+				
+				<div class="form-group">
+				<label class="col-sm-3 control-label"><span wicket:id="lblSei"></span></label>
+				<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input type="text" placeholder="Número Documento SEI" class="form-control" wicket:id="numeroSei" onkeypress='return somenteNumero(event)'/>
+				</div>
+				<div class="col-sm-8">
+					<label class="col-sm-1 control-label"></label>
+					<div class="col-sm-7">
+						<button class="btn btn-success btn-sm" title="Enviar Comunicado" wicket:id="btnComunicarFornecedor">
+							<i class="fa fa-envelope fa-fw"></i> Enviar Comunicado
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>	
+			</div>
+			
+			<div wicket:id="containerAviso" class="alert alert-warning">
+		<ul class="nav navbar-nav">
+						Antes de realizar a comunicação com o fornecedor é necessário que seja gerada a minuta da ordem de fornecimento.
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<button title="Gerar minuta" wicket:id="btnGerarMinuta" class="btn btn btn-default btn-sm">
+								<i class="fa fa-share"></i> Ir para a geração de minuta
+							</button>
+						</li>
+					</ul><br /><br />
+					</div>
+			
+		</div>
+		
+		<div class="box box-primary form-horizontal" wicket:id="panelHistorico">
+			<div class="box-header with-border">
+				<h3 class="box-title">Histórico de Comunicação</h3>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th>Data da Geração</th>
+								<th>Data da Comunicação</th>
+								<th>Status da Ordem de Fornecimento</th>
+								<th>Data do Cancelamento</th>
+								<th>Motivo Cancelamento </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="listaHistorico">
+								<td wicket:id="dataGeracao"></td>
+								<td wicket:id="dataComunicacao"></td>
+								<td wicket:id="statusOf"></td>
+								<td wicket:id="dataCancelamento"></td>
+								<td wicket:id="motivoCancelamento"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+		<div class="panel-footer clearfix">
+				<div class="pull-right">
+					<button title="Voltar" class="btn btn-warning btn-sm" wicket:id="btnVoltar">
+						<i class="fa fa-undo"></i>Voltar
+					</button>
+				</div>
+		</div>
+	</form>
+</wicket:extend>

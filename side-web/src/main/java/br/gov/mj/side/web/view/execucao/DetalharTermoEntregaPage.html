@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form id="validate" name="my_form" class="form-horizontal" wicket:id="form">
+
+		<wicket:container wicket:id="panelFasePrograma" />
+		<wicket:container wicket:id="execucaoPanelPotoes" />
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> </label>
+			<div class="col-sm-6">
+				<div class="col-sm-6 feedbackPanelERROR"></div>
+			</div>
+		</div>
+
+		<span id="ancorarVoltarDetalhamento"></span>
+		<div class="box box-primary form-horizontal" wicket:id="panelItensParaAnalisar">
+			<script type="text/javascript">
+			$(document).ready(function($) {
+				$('[data-toggle="popover"]').popover({ html: true});
+			});
+		    </script>
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					<b>Itens a Analisar</b>
+				</h3>
+				<div class="pull-right">
+					Qtd de itens exibidos &nbsp;<select title="Número de registros por página" wicket:id="itensPorPagina"></select>
+				</div>
+			</div>
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th><input wicket:id="checkItensAnalisarTodos" type="checkbox" /></th>
+								<th>Identificador</th>
+								<th>Item</th>
+								<th>Forma de Verificação</th>
+								<th><center>Situação Fornecedor</center></th>
+								<th><center>Situação Beneficiário</center></th>
+								<th>Avaliação Preliminar</th>
+								<th>Detalhe</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="listaDetalhamentoItens">
+							<tr>
+								<td><input wicket:id="checkItensAnalisar" type="checkbox" /></td>
+								<td wicket:id="numeroIdentificador"></td>
+								<td wicket:id="nomeDoBem"></td>
+								<td wicket:id="formaVerificacao"></td>
+								<td align="center"><span wicket:id="situacaoFornecedor"></span></td>
+								<td align="center"><span wicket:id="situacaoBeneficiario"></span></td>
+								<td><span wicket:id="avaliacaoPreliminar"></span><span wicket:id="infMotivo"></span></td>
+								<td><a class="btn btn btn-primary btn-sm" title="Detalhar Item" wicket:id="btnDetalharItem"> <i class="fa fa-plus fa"></i>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+
+			<div wicket:id="panelDetalhamentoCompararItens">
+				<span id="ancorarDetalhamento"></span> <br />
+				<div>
+					<a class="col-sm-offset-5 col-xs-offset-4 btn btn-danger btn-sm" wicket:id="btnFecharDetalhamento" title="Fechar o detalhamento do item"> <i
+						class="fa fa-times"></i>Fechar o detalhamento do item
+					</a>
+				</div>
+				<br />
+				<wicket:container wicket:id="panelCompararItens" />
+			</div>
+
+			<div class="panel-footer clearfix">
+				<textarea class="form-control" rows="5" placeholder="Motivo*" wicket:id="descricaoMotivo" title="Escreva o MOTIVO por escolher essa ação!"></textarea>
+				<br></br>
+				<div class="pull-right">
+					<a class="btn btn-success btn-sm" title="Não Aceito" wicket:id="btnNaoAceito"> <i class="fa fa-floppy-o"></i> Não Aceito
+					</a> <a class="btn btn-success btn-sm" title="Aceito com Ressalva" wicket:id="btnAceitoRessalva"> <i class="fa fa-floppy-o"></i> Aceito com Ressalva
+					</a> <a class="btn btn-success btn-sm" title="Não Aceito" wicket:id="btnNaoAceitoMotivo"> <i class="fa fa-floppy-o"></i> Não Aceito
+					</a> <a class="btn btn-success btn-sm" title="Aceito com Ressalva" wicket:id="btnAceitoRessalvaMotivo"> <i class="fa fa-floppy-o"></i> Aceito com Ressalva
+					</a> <a class="btn btn-success btn-sm" title="Aceito" wicket:id="btnAceito"> <i class="fa fa-floppy-o"></i> Aceito
+					</a> <a class="btn btn-warning btn-sm" title="Cancelar" wicket:id="btnCancelar"> <i class="fa fa-undo"></i></a>
+
+				</div>
+			</div>
+		</div>
+
+		<span id="ancorarVoltarDetalhamentoAnalisado"></span>
+		<div class="box box-primary form-horizontal" wicket:id="panelItensAnalisados">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					<b>Itens Analisados</b>
+				</h3>
+				<div class="pull-right">
+					Qtd de itens exibidos &nbsp;<select title="Número de registros por página" wicket:id="itensPorPaginaAnalisado"></select>
+				</div>
+			</div>
+			<div class="box-body">
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th><input wicket:id="checkItensAnalisadoTodos" type="checkbox" /></th>
+								<th>Identificador</th>
+								<th>Item</th>
+								<th>Forma de Verificação</th>
+								<th>Análise Final</th>
+								<th>Detalhe</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="listaDetalhamentoItensAnalisados">
+							<tr>
+								<td><input wicket:id="checkItensAnalisado" type="checkbox" /></td>
+								<td wicket:id="numeroIdentificador"></td>
+								<td wicket:id="nomeDoBem"></td>
+								<td wicket:id="formaVerificacao"></td>
+								<td wicket:id="analiseFinal"></td>
+								<td><a class="btn btn btn-primary btn-sm" title="Detalhar Item" wicket:id="btnDetalharItemAnalisado"> <i class="fa fa-plus fa"></i>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<div wicket:id="paginationAnalisados"></div>
+				</div>
+			</div>
+
+			<div wicket:id="panelDetalhamentoCompararItensAnalisado">
+				<span id="ancorarDetalhamentoAnalisado"></span> <br />
+				<div>
+					<a class="col-sm-offset-5 col-xs-offset-4 btn btn-danger btn-sm" wicket:id="btnFecharDetalhamentoAnalisado" title="Fechar o detalhamento do item"> <i
+						class="fa fa-times"></i>Fechar o detalhamento do item
+					</a>
+				</div>
+				<br />
+				<wicket:container wicket:id="panelCompararItensAnalisado" />
+			</div>
+
+			<div class="panel-footer clearfix">
+				<div class="pull-right">
+					<button class="btn btn-danger btn-sm" title="Devolver para Correção" wicket:id="btnDevolverCorrecao"> 
+						<i class="fa fa-reply"></i> Devolver para Correção
+					</button> 
+					<a class="btn btn-warning btn-sm" title="Devolver para Análise" wicket:id="btnDevolverAnalise"> <i class="fa fa-arrow-up"></i> Devolver para Análise</a>
+					<button class="btn btn-success btn-sm" title="Gerar termo de Recebimento Definitivo" wicket:id="btnGerarTermoRecebimentoDefinitivo">
+						<i class="fa fa-file-pdf-o"></i>Gerar termo de Recebimento Definitivo
+					</button>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="box box-primary form-horizontal" wicket:id="panelDataViewTermo">
+			<script type="text/javascript">
+			$(document).ready(function($) {
+				$('[data-toggle="popover"]').popover({ html: true});
+			});
+		    </script>
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					<b>Termo de Recebimento Definitivo</b>
+				</h3>
+				<div class="pull-right">
+					Qtd de itens exibidos &nbsp;<select title="Número de registros por página" wicket:id="itensPorPaginaTermo"></select>
+				</div>
+			</div>
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nº Termo de Recebimento Definitivo</th>
+								<th>Item</th>
+								<th>Data Geração</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="termos">
+							<tr>
+								<td wicket:id="ntrd"></td>
+								<td><span wicket:id="itemTermo"></span></td>
+								<td wicket:id="dtGeracao"></td>
+								<td>
+									<button wicket:id="btnDonwloadTermo" title="Baixar arquivo" class="btn btn-success btn-sm">
+										<i class="fa fa-download"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<div wicket:id="paginationTermo"></div>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div class="box box-primary form-horizontal" wicket:id="panelDataViewAnexos">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					<b>Anexos</b>
+				</h3>
+				<div class="pull-right">
+					Qtd de itens exibidos &nbsp;<select title="Número de registros por página" wicket:id="itensPorPaginaAnexo"></select>
+				</div>
+			</div>
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Tipo Arquivo</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="anexos">
+							<tr>
+								<td><span wicket:id="nomeAnexo"></span></td>
+								<td><span wicket:id="tipoArquivoTermoEntrega"></span></td>
+								<td>
+									<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm">
+										<i class="fa fa-download"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<div wicket:id="paginationAnexos"></div>
+				</div>
+			</div>
+		</div>
+		<div class="panel-footer clearfix" wicket:id="panelBotoes">
+			<div class="pull-right">
+				<div>
+					<a class="btn btn-warning btn-sm" wicket:id="btnVoltar" title="Voltar"> <i class="fa fa-undo fa"></i>Voltar
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</form>
+
+</wicket:extend>

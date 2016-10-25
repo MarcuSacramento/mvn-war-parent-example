@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="inscricao_bem" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e3a2dd66-7b20-4eb7-b5ef-d6692371e590">
+	<property name="ireport.zoom" value="1.4641000000000064"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="programaBem.bem.nomeBem" class="java.lang.String"/>
+	<field name="programaBem.bem.descricaoBem" class="java.lang.String"/>
+	<field name="programaBem.quantidade" class="java.lang.Integer"/>
+	<field name="programaBem.bem.valorEstimadoBem" class="java.math.BigDecimal"/>
+	<field name="quantidade" class="java.lang.Integer"/>
+	<field name="programaBem.quantidadePorProposta" class="java.lang.Integer"/>
+	<columnHeader>
+		<band height="19" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="0" width="111" height="19" uuid="959fa9bb-006a-4b18-81c1-544c2e86fbf6"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[BENS DO PEDIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="1" width="111" height="17" uuid="b7d3c161-482e-4121-a5e0-c6208613f7ca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[QUANTIDADE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="18" width="542" height="1" forecolor="#666666" uuid="f7a6475a-3c33-4d4e-af0e-9e56d5617beb"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="67" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="2" y="1" width="442" height="18" isPrintWhenDetailOverflows="true" uuid="05183c3f-9735-43d6-8390-6247e2e609e1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{programaBem.bem.nomeBem}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="2" y="19" width="442" height="24" isPrintWhenDetailOverflows="true" uuid="99ee7b8d-ff3e-4e92-839a-b8fd07ddb713"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{programaBem.bem.descricaoBem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="125" y="43" width="317" height="10" isPrintWhenDetailOverflows="true" uuid="b4ef15ad-9998-4e0f-a4ae-e7b302cd75c7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{programaBem.quantidadePorProposta}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement stretchType="RelativeToBandHeight" x="58" y="53" width="387" height="10" isPrintWhenDetailOverflows="true" uuid="7e7605dc-cbe8-4e2e-9136-1f2a0c33ea2a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{programaBem.bem.valorEstimadoBem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="2" width="111" height="63" uuid="f52b9292-8966-4b23-a493-9e6dc58eb6f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="64" width="542" height="1" forecolor="#666666" uuid="c5ffa783-837f-46cb-a23c-2af320556f78"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="3" y="43" width="122" height="10" uuid="a52d84ab-ecca-4c46-8bb0-1833e83b3c13"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantidade máxima por solicitação:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="53" width="55" height="10" uuid="9416eece-fada-4b9e-bdf9-871868d7eae6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor estimado:]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

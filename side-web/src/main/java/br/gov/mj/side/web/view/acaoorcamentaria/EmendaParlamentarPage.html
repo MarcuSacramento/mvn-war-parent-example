@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+    <script>
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+	<form class="form-horizontal" wicket:id="form">
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="" wicket:id="lnkDashboard">Dashboard</a></li>
+				<li><a href="" wicket:id="lnkPesquisar">Pesquisar Ação Orçamentária</a></li>
+				<li><a href="" wicket:id="lnkBackPage"><span wicket:id="lblBackPageTitulo">BackPage</span> </a></li>
+				<li class="active"><span wicket:id="lnkFinal"></span></li>
+			</ul>
+		</div>
+
+		<!-- INICIO PANEL PANEL FONTE-->
+		<div wicket:id="panelFonte">
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">Dados da Emenda Parlamentar</h3>
+				</div>
+				<div class="box-body">
+					<div class="form-group">
+						<label class="col-sm-1 col-sm-offset-2 control-label" for="numeroEmendaParlamantar"> <span class="obrigatorio">*</span> Nº
+						</label>
+						<div class="col-sm-2">
+							<input id="numeroEmendaParlamantar" type="text" placeholder="Número" class="form-control mask-processo" wicket:id="numeroEmendaParlamantar" maxlength="8" onkeypress='return somenteNumero(event)'/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-offset-1 control-label" for="nomeEmendaParlamentar"> <span class="obrigatorio">*</span> Nome
+						</label>
+						<div class="col-sm-6">
+							<input id="nomeEmendaParlamentar" type="text" placeholder="Nome da Emenda" class="form-control mask-processo" wicket:id="nomeEmendaParlamentar" maxlength="200"/>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-offset-1 col-sm-offset-1 control-label" for="partido"> <span class="obrigatorio">*</span> Partido
+						</label>
+						<div class="col-sm-3">
+							<select class="basic-single" style="width: 100%" id="dropPartidos" wicket:id="partidoPolitico">
+								<option>Selecione...</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-1 control-label" for="uf"> <span class="obrigatorio">*</span> UF
+							</label>
+							<div class="col-sm-2">
+								<select id="uf" class="basic-single" style="width: 100%" wicket:id="uf">
+									<option>Selecione...</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="nomeParlamentar"> <span class="obrigatorio">*</span> Nome do Parlamentar
+						</label>
+						<div class="col-sm-6">
+							<input id="nomeParlamentar" type="text" placeholder="Nome do parlamentar" class="form-control mask-processo" wicket:id="nomeParlamentar" maxlength="200"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-1 col-sm-offset-2 control-label" for="nomeCargoParlamentar"> <span class="obrigatorio">*</span> Cargo
+						</label>
+						<div class="col-sm-6">
+							<input id="nomeCargoParlamentar" type="text" placeholder="Cargo" class="form-control mask-processo" wicket:id="nomeCargoParlamentar" maxlength="200"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-1 col-sm-offset-2 control-label" for="gnd"> <span class="obrigatorio">*</span> Tipo
+						</label>
+						<div class="col-sm-2">
+							<select class="form-control" style="width: 100%" wicket:id="tipoEmenda">
+								<option>Selecione...</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-offset-1 control-label"> Liberação </label>
+						<div class="col-sm-4">
+							<wicket:container wicket:id="group">
+								<div class="radio-inline">
+									<label for="sim"> <input wicket:id="sim" type="radio" name="group2" value="true" id="sim"> Sim
+									</label>
+								</div>
+								<div class="radio-inline">
+									<label for="nao"> <input wicket:id="nao" type="radio" name="group2" value="false" id="nao"> Não
+									</label>
+								</div>
+							</wicket:container>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="valorPrevisto"> <span class="obrigatorio">*</span> Valor Previsto
+						</label>
+						<div class="col-sm-2">
+							<input class="form-control mask-money" placeholder="Valor Previsto" id="valorPrevisto" maxlength="24" wicket:id="valorPrevisto" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- INICIO PANEL ADICIONAR BENEFICIARIO-->
+
+		<form class="form-horizontal" wicket:id=formAdicionarBeneficiario>
+			<div wicket:id="panelAdicionarBeneficiario">
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Adicionar Beneficiário</h3>
+					</div>
+					<div class="box-body">
+						<div class="form-group">
+							<label class="col-sm-1 col-sm-offset-2 control-label" for="beneficiario.numeroCnpjBeneficiario"> <span class="obrigatorio">*</span> CNPJ
+							</label>
+							<div class="col-sm-2">
+								<input id="beneficiario.numeroCnpjBeneficiario" type="text" placeholder="CNPJ" class="form-control mask-cnpj"
+									wicket:id="beneficiario.numeroCnpjBeneficiario" maxlength="18"/>
+							</div>
+							<button type="submit" wicket:id="btnPesquisarBeneficio" title="Pesquisar" class="btn btn-success btn-sm">
+								<i class="fa fa-search"></i> Pesquisar
+							</button>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-1 col-sm-offset-2 control-label" for="beneficiario.nomeBeneficiario"> <span class="obrigatorio">*</span> Nome
+							</label>
+							<div class="col-sm-6">
+								<input id="beneficiario.nomeBeneficiario" type="text" placeholder="Nome" class="form-control mask-processo" wicket:id="beneficiario.nomeBeneficiario" maxlength="200"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-3 col-sm-offset-6">
+								<div class="pull-right">
+									<button title="Adicionar Beneficiário" class="btn btn-success btn-sm" id="btnAdicionar" wicket:id="btnAdicionar">
+										<i class="fa fa-plus"></i> Adicionar
+									</button>
+									<button title="Salvar Alteração" class="btn btn-success btn-sm" wicket:id="btnSalvarEdicao" id="btnSalvarEdicao">
+										<i class="fa fa-floppy-o"></i>
+									</button>
+
+									<button title="Cancelar Edição do Kit" class="btn btn-warning btn-sm" wicket:id="btnCancelarEdicao" id="btnCancelarEdicao">
+										<i class="fa fa-undo"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<span id="ancoraPesquisa"></span>
+
+		<!-- INICIO PANEL DATAVIEW -->
+		<div wicket:id="panelDataViewBeneficiarios">
+			<div class="form-group">
+				<div class="col-sm-12">
+					<div class="box box-primary">
+						<div class="box-header with-border">
+							<h3 class="box-title">Dados do Beneficiário</h3>
+						</div>
+						<div class="box-body">
+							<table width="98%" class="table table-hover table-striped" style="table-layout: fixed;">
+								<thead>
+									<tr>
+										<th class="hidden-xs" width="20%"></th>
+										<th>CNPJ</th>
+										<th>Beneficiário</th>
+										<th width="100px;" class="text-left">Ação</th>
+										<th class="hidden-xs" width="20%"></th>
+									</tr>
+								</thead>
+								<tbody wicket:id="dataBeneficiarios">
+									<tr>
+										<td class="hidden-xs" width="20%"></td>
+										<td><span wicket:id="cnpjBeneficiario"></span></td>
+										<td><span wicket:id="nomeBeneficiario"></span></td>
+										<td class="text-left">
+											<button class="btn btn-info btn-sm" title="Editar Beneficiário" wicket:id="btnEditar">
+												<i class="fa fa-pencil fa-fw"></i>
+											</button>
+											<button class="btn btn-danger btn-sm" title="Excluir Beneficiário" wicket:id="btnExcluir">
+												<i class="fa fa-minus"></i>
+											</button>
+										</td>
+										<td class="hidden-xs"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="box-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right">
+				<div>
+					<button id="btnConfirmar" class="btn btn-success btn-sm" title="Salvar Emenda" wicket:id="btnConfirmar">
+						<i class="fa fa-floppy-o"></i> Adicionar
+					</button>
+					<button title="Voltar" class="btn btn-warning btn-sm" id="btnVoltar" wicket:id="btnVoltar">
+						<i class="fa fa-undo"></i> Voltar
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<wicket:extend>
+
+	<script>
+
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+
+	<form id="validate" name="my_form" class="form-horizontal"
+		wicket:id="form">
+
+		<wicket:container wicket:id="panelFasePrograma" />
+		<wicket:container wicket:id="execucaoPanelPotoes" />
+		<br />
+
+		<div wicket:id="panelPrincipal">
+			<div class="box box-primary form-horizontal"
+				wicket:id="panelGerarMinuta">
+				<div class="box-header with-border">
+					<h3 class="box-title">Gerar Minuta da Ordem de Fornecimento</h3>
+					<br /> <br />
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="tipoEndereco">
+							<span class="obrigatorio">*</span> Tipo de Minuta
+						</label>
+						<div class="col-sm-4">
+							<select class="basic-single" style="width: 100%;"
+								id="dropTipoMinuta" wicket:id="dropEscolhaMinuta"></select>
+						</div>
+
+						<button class="btn btn-warning btn-sm" title="Visualizar Minuta"
+							wicket:id="btnVisualizarMinuta">
+							<i class="fa fa-download"></i> Download da Prévia da Minuta
+						</button>
+
+						<a title="Gerar Ordem de Fornecimento"
+							class="btn btn-success btn-sm" wicket:id="btnGerarMinuta"> <i
+							class="fa fa-file-pdf-o"></i>Gerar OF
+						</a>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div wicket:id="panelDataView">
+				<div class="box box-primary form-horizontal">
+					<div class="box-header with-border">
+						<h3 class="box-title">Histórico de geração de minutas</h3>
+					</div>
+
+					<div class="box-body">
+						<span class="visible-xs"><i class="fa fa-exchange"></i>
+							Movimente a tabela para visualizar </span>
+						<div class="table-responsive">
+							<table width="55%" class="table table-hover">
+								<thead>
+									<tr>
+										<th>Data de Geração</th>
+										<th>Data de Comunicação</th>
+										<th>Data do Cancelamento</th>
+										<th>Motivo Cancelamento</th>
+										<th>Download</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr wicket:id="listaHistorico">
+										<td wicket:id="dataGeracao"></td>
+										<td wicket:id="dataComunicacao"></td>
+										<td wicket:id="dataCancelamento"></td>
+										<td wicket:id="motivoCancelamento"></td>
+										<td>
+											<button class="btn btn-success btn-sm" title="Baixar arquivo"
+												wicket:id="btnVisualizarMinuta">
+												<i class="fa fa-download"></i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="panel-footer">
+							<div wicket:id="pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="pull-right">
+			<button title="Voltar" class="btn btn-warning btn-sm"
+				wicket:id="btnVoltar">
+				<i class="fa fa-undo"></i>Voltar
+			</button>
+			<button title="Voltar para a tela de comunicar O.F."
+				class="btn btn-warning btn-sm" wicket:id="btnVoltarSemMinuta">
+				<i class="fa fa-undo"></i>Voltar
+			</button>
+		</div>
+
+	</form>
+</wicket:extend>

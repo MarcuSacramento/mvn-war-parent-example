@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<wicket:extend>
+
+	<script>
+
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+
+	<form id="validate" name="my_form" class="form-horizontal" wicket:id="form">
+		
+		<a wicket:id="link" style="color:#ebf4fa">,</a>
+		<wicket:container wicket:id="panelFasePrograma"/>
+		<wicket:container wicket:id="execucaoPanelPotoes"/>
+		<br />
+		<div wicket:id="panelPrincipal">
+		<div class="box box-primary form-horizontal" wicket:id="panelLocaisDeEntrega">
+			<div class="box-header with-border">
+				<h3 class="box-title">Locais de Entrega</h3>
+				<div class="pull-right">
+					Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPagina" id="itensPorPagina" title="Número de registros por página"></select>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th><input wicket:id="checkAdicionarTodosBem" type="checkbox" /></th>
+								<th><span wicket:id="lblOrderItem">.</span><a href="" wicket:id="btnOrdenarItem">Item</a></th>
+								<th><span wicket:id="lblOrderUf">.</span><a href="" wicket:id="btnOrdenarUf">UF</a></th>
+								<th><span wicket:id="lblOrderEndereco">.</span><a href="" wicket:id="btnOrdenarEndereco">Endereço</a></th>
+								<th><span wicket:id="lblOrderQuantidade">.</span><a href="" wicket:id="btnOrdenarQuantidade">Qtd total do contrato</a></th>
+								<th><span wicket:id="lblOrderQuantidadeAnterior">.</span><a href="" wicket:id="btnOrdenarQuantidadeAnterior">Qtd selecionada para esta O.F.</a></th>
+								<th><span wicket:id="lblOrderQuantidadeRestante">.</span><a href="" wicket:id="btnOrdenarQuantidadeRestante">Qtd restante</a></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="listaContrato">
+								<td><input wicket:id="checkAdicionarBem" type="checkbox" /></td>
+								<td wicket:id="itemEntrega"></td>
+								<td wicket:id="ufEntrega" width="5%"></td>
+								<td wicket:id="enderecoEntrega"></td>
+								<td wicket:id="quantidadeTotal"></td>
+								<td wicket:id="panelQuantidadeOf">
+									<input type="text" wicket:id="txtQuatidadeOf" 
+										   placeholder="Quantidade da OF"
+										   class="form-control"
+										   onkeypress="return somenteNumero(event)"/>
+								</td>
+								<td wicket:id="quantidadeRestante"></td>
+															</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<div class="panel-footer clearfix">
+				<div class="pull-right">
+					<a title="Salvar" class="btn btn-success btn-sm" wicket:id="btnSalvar">
+						<i class="fa fa-floppy-o"></i> Salvar
+					</a>
+					<button title="Voltar" class="btn btn-warning btn-sm" wicket:id="btnVoltar">
+						<i class="fa fa-undo"></i>Voltar
+					</button>
+				</div>
+		</div>
+	</form>
+</wicket:extend>

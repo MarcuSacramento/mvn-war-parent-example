@@ -1,0 +1,121 @@
+<wicket:extend>
+	<form wicket:id="form" class="form-horizontal">
+
+		<ul class="breadcrumb">
+			<li><a href="#" wicket:id="lnkDashboard">Dashboard</a></li>
+			<li><a wicket:id="lnkFonteRecursoPesquisaPage"> Pesquisar Ação Orçamentária</a></li>
+			<li class="active"><span wicket:id="lblNomePage"></span></li>
+		</ul>
+		
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">Dados do Programa PPA</div>
+			<div class="box-body">
+				<div class="form-group">
+					<label for="numeroProgramaPPA" class="col-sm-1 col-sm-offset-2 control-label"><span class="obrigatorio">*</span> Nº</label>
+					<div class="col-sm-2">
+						<input wicket:id="numeroProgramaPPA" type="text" class="form-control" id="numeroProgramaPPA" placeholder="Número">
+					</div>
+					<label for="nomeProgramaPPA" class="col-sm-1 control-label"><span class="obrigatorio">*</span> Nome</label>
+					<div class="col-sm-4">
+						<input wicket:id="nomeProgramaPPA" type="text" class="form-control" id="nomeProgramaPPA" placeholder="Nome">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">Dados da Ação Orçamentária</div>
+			<div class="box-body">
+				<div class="form-group">
+					<label for="numeroAcaoOrcamentaria" class="col-sm-1 col-sm-offset-2 control-label"><span class="obrigatorio">*</span> Nº</label>
+					<div class="col-sm-2">
+						<input wicket:id="numeroAcaoOrcamentaria" type="text" class="form-control" id="numeroAcaoOrcamentaria" placeholder="Número">
+					</div>
+					<label for="nomeAcaoOrcamentaria" class="col-sm-1 control-label"><span class="obrigatorio">*</span> Nome</label>
+					<div class="col-sm-4">
+						<input wicket:id="nomeAcaoOrcamentaria" type="text" class="form-control" id="nomeAcaoOrcamentaria" placeholder="Nome">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="ano" class="col-sm-1 col-sm-offset-2 control-label"><span class="obrigatorio">*</span> Ano</label>
+					<div class="col-sm-2">
+						<input wicket:id="anoAcaoOrcamentaria" type="text" class="form-control" id="ano" placeholder="Ano">
+						<p class="help-block">Formato: AAAA</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="valorPrevisto" class="col-sm-2 col-sm-offset-1 control-label"><span class="obrigatorio">*</span> Valor LOA</label>
+					<div class="col-sm-2">
+						<input wicket:id="valorPrevisto" type="text" class="form-control mask-money" id="valorPrevisto" placeholder="Valor previsto">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="totalValor" class="col-sm-3 control-label">Total (LOA + Emendas)</label>
+					<div class="col-sm-2">
+						<span wicket:id="totalValor" class="form-control" readonly></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<button wicket:id="btnAdicionarEmenda" title="Adicionar Emenda" class="col-sm-offset-3 btn btn-success btn-sm" style="margin-left: 26%;">
+				<i class="fa fa-plus"></i> Adicionar Emenda
+			</button>
+		</div>
+
+		<div wicket:id="panelGridEmendas">
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">Lista de Emendas</h3>
+				</div>
+				<div class="box-body">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nº da Emenda</th>
+								<th>Parlamentar</th>
+								<th>Partido</th>
+								<th>Valor Previsto</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="emendas">
+								<td><span wicket:id="numeroEmendaParlamantar"></span></td>
+								<td><span wicket:id="nomeParlamentar"></span></td>
+								<td><span wicket:id="partidoPolitico.nomePartido"></span></td>
+								<td><span wicket:id="valorPrevisto"></span></td>
+								<td>
+									<button wicket:id="btnVisualizar" title="Visualizar" class="btn btn-primary btn-sm">
+										<i class="fa fa-search"></i>
+									</button>
+									<button wicket:id="btnAlterarEmenda" title="Alterar" class="btn btn-info btn-sm">
+										<i class="fa fa-pencil"></i>
+									</button>
+									<button wicket:id="btnExcluirEmenda" title="Excluir" class="btn btn-danger btn-sm">
+										<i class="fa fa-trash-o"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+		
+					</table>
+				</div>
+			</div>
+			</div>
+			<div class="box-footer clearfix">
+				<div>
+					Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+				</div>
+				<div class="pull-right">
+					<button wicket:id="btnConfirmar" title="Salvar" class="btn btn-success btn-sm">
+						<i class="fa fa-floppy-o"></i> Confirmar
+					</button>
+					<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+						<i class="fa fa-undo"></i> Voltar
+					</button>
+				</div>
+			</div>
+	</form>
+</wicket:extend>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form wicket:id="form" class="form-horizontal">
+		<div class="pull-right">
+			<a wicket:id="btnAdicionarNovo" title="Cadastrar nova fonte de recurso" id="btnAdicionarNovo" class="btn btn-primary btn-sm"><i class="fa fa-file-o"></i>
+				Nova Ação Orçamentária</a>
+		</div>
+
+		<ul class="breadcrumb">
+			<li><a href="#" wicket:id="lnkDashboard">Dashboard</a></li>
+			<li class="active"><span wicket:id="lblNomePage"></span></li>
+		</ul>
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados da Ação Orçamentária</h3>
+			</div>
+			<div class="box-body">
+				<div wicket:id="panelPesquisa">
+					<div class="form-group">
+						<label for="acaoOrcamentaria" class="col-sm-3 control-label">Ação Orçamentária</label>
+						<div class="col-sm-5">
+							<select wicket:id="acaoOrcamentaria" class="basic-single" style="width: 100%" id="acaoOrcamentaria"></select>
+						</div>
+					</div>
+					<div class="form-group" wicket:id="panelDropEmendaParlamentar">
+						<label for="emendaParlamentar" class="col-sm-3 control-label">Emenda Parlamentar</label>
+						<div class="col-sm-5">
+							<select wicket:id="emendaParlamentar" class="basic-single" style="width: 100%" id="emendaParlamentar"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="valorPrevisto" class="col-sm-2 col-sm-offset-1 control-label">Ano</label>
+						<div class="col-sm-2">
+							<input wicket:id="anoAcaoOrcamentaria" type="text" class="form-control" id="ano" placeholder="Ano">
+							<p class="help-block">Formato: AAAA</p>
+						</div>
+					</div>
+
+					<div class="form-group" wicket:id="panelDropEmendasVinculadas">
+						<label for="emendasVinculadas" class="col-sm-3 control-label">Emendas Vinculadas</label>
+						<div class="col-sm-5">
+							<select wicket:id="emendasVinculadas" class="basic-single" style="width: 100%" id="emendasVinculadas"></select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" wicket:id="btnPesquisar" title="Pesquisar" id="btnPesquisar" class="col-sm-offset-5 col-xs-offset-4 btn btn-success btn-sm">
+						<i class="fa fa-search"></i> Pesquisar
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<span id="ancoraPesquisa"></span>
+
+		<div wicket:id="panelGridResultados">
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">Lista de Recursos</h3>
+					<div class="pull-right">
+						Qtd de itens exibidos &nbsp;<select title="Número de registros por página" wicket:id="itensPorPagina" id="itensPorPagina"></select>
+					</div>
+				</div>
+
+				<div class="box-body">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th wicket:id="orderByNomeAcaoOrcamentaria">Ação Orçamentária</th>
+								<th class="hidden-xs">Total ( LOA + Emendas)</th>
+								<th style="width: 140px;">Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="recursos">
+								<td><span wicket:id="nomeAcaoOrcamentaria"></span></td>
+								<td class="hidden-xs"><span wicket:id="totalValor"></span></td>
+								<td>
+									<button wicket:id="btnVisualizar" title="Visualizar" class="btn btn-primary btn-sm">
+										<i class="fa fa-search"></i>
+									</button>
+									<button wicket:id="btnAlterar" title="Alterar" class="btn btn-info btn-sm">
+										<i class="fa fa-pencil"></i>
+									</button>
+									<button wicket:id="btnExcluir" title="Excluir" class="btn btn-danger btn-sm">
+										<i class="fa fa-trash-o"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="box-footer">
+					<div class="pull-left">
+						<button wicket:id="btnExportarCsv" title="Exportar para CSV" class="btn btn-success btn-sm">
+							<i class="fa fa-file-text-o"></i> Exportar CSV
+						</button>
+						&nbsp;&nbsp;
+					</div>
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

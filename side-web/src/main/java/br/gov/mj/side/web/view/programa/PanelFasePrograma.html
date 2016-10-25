@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div id="breadcrump_fase" wicket:id="panelBreadcrump">
+
+		<section id="grid">
+			<strong>Selecionar outro programa:</strong> &nbsp;<select style="width: 250px;" id="dropDownPrograma" wicket:id="dropDownPrograma" tabindex="1" class="basic-single"></select> &nbsp;
+		</section>
+
+		<div class="limpar_linha_breadcrump_fase"></div>
+
+		<div class="box box-primary">
+			<div class="box-body">
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<h3>
+								<span style="color: gray;" wicket:id="lblNomePrograma"></span>
+							</h3>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<button wicket:id="btnSuspenderPrograma" title="Suspender Programa" class="btn btn btn-default btn-sm">
+								<i class="fa fa-pause"></i> Suspender Programa
+							</button> &nbsp;
+							<button wicket:id="btnCancelarPrograma" title="Cancelar Programa" class="btn btn btn-default btn-sm">
+								<i class="fa fa-stop"></i> Cancelar Programa
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid_12" wicket:id="panelPrincipal">
+		<ul class="nav nav-wizard">
+			<li wicket:id="containerDefinicao" id="definicao"><a href="#" wicket:id="btnDefinicao">Definição</a></li>
+			<li wicket:id="containerPublicacao" id="publicacao"><a href="#" wicket:id="btnPublicacao">Publicação</a></li>
+			<li wicket:id="containerAnalise" id="analise"><a href="#" wicket:id="btnAnalise">Análise</a></li>
+			<li wicket:id="containerContrato" id="contrato"><a href="#" wicket:id="btnContrato">Contrato</a></li>
+			<li wicket:id="containerExecucao" id="execucao"><a href="#" wicket:id="btnExecucao">Execução</a></li>
+			<li wicket:id="containerAcompanhamento" id="acompanhamento"><a href="#" wicket:id="btnAcompanhamento">Acompanhamento</a></li>
+		</ul>
+	</div>
+	<hr style="margin-top: 10px; margin-bottom: 10px; border: 0; border-top: 2px solid #fff;">
+
+	<script type="text/javascript">
+		function mostrarAba(id){
+		 	document.getElementById(id).className = "active";
+	 	}
+
+		function ocultarAba(id){
+			 document.getElementById(id).className = "";
+		}
+	</script>
+</wicket:panel>

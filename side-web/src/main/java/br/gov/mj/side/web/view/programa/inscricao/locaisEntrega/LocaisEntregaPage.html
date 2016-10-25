@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form name="my_form" wicket:id="form" class="form-horizontal">
+
+		<wicket:container wicket:id="dashboardPessoasPanel" />
+		<br />
+
+		<script type="text/javascript" src="js/mj.js"></script>
+
+
+		<div wicket:id="navPanel"></div>
+
+
+		<div class="panel" wicket:id="panelLocalEntrega">
+			<script>
+						$( document ).ready(function() {
+							$('#numero').mask('09999');
+						});
+				
+						function somenteNumero(e){
+						    var tecla=(window.event)?event.keyCode:e.which;   
+						    if((tecla>47 && tecla<58)) return true;
+						    else{
+						    	if (tecla==8 || tecla==0) return true;
+							else  return false;
+						    }
+						}		
+				
+						$(document).ready(function() { 
+							 $("#Estado").select2();
+							 
+							 $("#dropDownTipoEndereco").select2();
+						});
+					</script>
+
+			<div class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">Cadastrar Locais de Entrega</h3>
+				</div>
+				<div class="box-body">
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="nomeLocalEntrega"><span class="obrigatorio">*</span> Nome</label>
+						<div class="col-sm-6">
+							<input type="text" wicket:id="nomeEndereco" placeholder="Nome" class="form-control" id="nomeLocalEntrega">
+						</div>
+					</div>
+					<div wicket:id="PanelUfMunicipio">
+						<div wicket:id="painelPrincipal">
+							<script>
+												$(document).ready(function() {
+													$("#nomeUf").select2();
+													$("#municipio").select2();
+												});
+											</script>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="estadoEntidade"> <span class="obrigatorio">*</span> Estado
+								</label>
+								<div class="col-sm-2">
+									<select class="js-example-basic-single" style="width: 100%" id="nomeUf" wicket:id="nomeUf">
+										<option>Selecione...</option>
+									</select>
+								</div>
+								<label class="col-sm-1 control-label" for="municipio">* Município </label>
+
+								<div class="col-sm-3">
+									<select class="js-example-basic-single" style="width: 100%" id="municipio" wicket:id="municipio">
+										<option>Selecione...</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="dropDownTipoEndereco"> <span class="obrigatorio">*</span> Tipo Endereço
+						</label>
+
+						<div class="col-sm-2">
+							<select id="dropDownTipoEndereco" wicket:id="tipoEndereco" style="width: 100%">
+								<option>Selecione...</option>
+							</select>
+						</div>
+
+						<label class="col-sm-1 control-label" for="endereco"> <span class="obrigatorio">*</span> Endereço
+						</label>
+
+						<div class="col-sm-3">
+							<input id="endereco" type="text" placeholder="Endereco" class="form-control mask-processo" wicket:id="descricaoEndereco" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="numero"> <span class="obrigatorio">*</span> Número
+						</label>
+
+						<div class="col-sm-2">
+							<input id="numero" type="text" placeholder="Número" class="form-control mask-processo" wicket:id="numeroEndereco" />
+						</div>
+						<label class="col-sm-1 control-label" for="complemento"> Complemento </label>
+
+						<div class="col-sm-3">
+							<input id="complemento" type="text" placeholder="Complemento" class="form-control mask-processo" wicket:id="complementoEndereco" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="bairro"> <span class="obrigatorio">*</span> Bairro
+						</label>
+
+						<div class="col-sm-2">
+							<input id="bairro" type="text" placeholder="Bairro" class="form-control mask-processo" wicket:id="bairro" />
+						</div>
+
+						<label class="col-sm-1 control-label" for="cep"> <span class="obrigatorio">*</span> CEP
+						</label>
+
+						<div class="col-sm-3">
+							<input id="cep" type="text" placeholder="CEP" class="form-control mask-cep" wicket:id="numeroCep" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" for="telefone"> <span class="obrigatorio">*</span> Telefone
+						</label>
+
+						<div class="col-sm-2">
+							<input id="telefone" type="text" placeholder="Telefone" class="form-control mask-telefone" wicket:id="numeroTelefone" />
+						</div>
+
+						<label class="col-sm-1 control-label" for="telefoneFax"> Telefone/ Fax </label>
+
+						<div class="col-sm-3">
+							<input id="telefoneFax" type="text" placeholder="Telefone/ FAX" class="form-control mask-telefone" wicket:id="numeroFoneFax" />
+						</div>
+					</div>
+				</div>
+
+				<label class="col-sm-2 control-label"> </label>
+				<div>
+					<p class="text-left"></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-5">
+				<button class="btn btn-success btn-sm" wicket:id="btnAdicionar" title="Adicionar Local de Entrega">
+					<i class="fa fa-plus"></i> <span wicket:id="txtBtnAdicionarAtualizar"></span>
+				</button>
+				<a type="submit" wicket:id="btnLimpar" title="Limpar" class="btn btn-warning btn-sm"> <i class="fa fa-eraser"></i>Limpar
+				</a>
+			</div>
+		</div>
+		<div class="box box-primary form-horizontal" wicket:id="panelDataView">
+			<div class="box-header with-border">
+				<h3 class="box-title">Lista de Endereços</h3>
+				<div class="pull-right mj_botoes_acao_tabela"></div>
+			</div>
+			<div class="table-responsive">
+				<table width="55%" class="table table-hover">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Estado</th>
+							<th>Município</th>
+							<th>Ação</th>
+						</tr>
+					</thead>
+					<tbody wicket:id="dataLocais">
+						<tr>
+							<td><span wicket:id="nomeLocal"></span></td>
+							<td><span wicket:id="nomeEstado"></span></td>
+							<td><span wicket:id="nomeMunicipio"></span></td>
+							<td><a wicket:id="btnVisualizarDataView" title="Visualizar Registro" class="btn btn-primary btn-sm"> <i class="fa fa-search"></i>
+							</a> <a class="btn btn-info btn-sm" wicket:id="btnEditarItemDataView" title="Editar Registro"> <i class="fa fa-pencil fa-fw"></i>
+
+							</a> <a wicket:id="btnDesabilitarItemDataView" title="Desabilitar" class="btn btn-danger btn-sm"> <i class="fa fa-minus"></i>
+							</a> <a wicket:id="btnHabilitarItemDataView" title="Habilitar" class="btn btn-success btn-sm"> <i class="fa fa-check"></i>
+							</a>
+								<button wicket:id="btnRemoverItemDataView" title="Excluir" class="btn btn-danger btn-sm">
+									<i class="fa fa-trash-o"></i>
+								</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="form-group"></div>
+		</div>
+
+		<div class="box-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right">
+				<a wicket:id="btnSalvar" title="Salvar Local de Entrega" class="btn btn-success btn-sm"><i class="fa fa-floppy-o"></i> Salvar</a>
+			</div>
+		</div>
+
+
+	</form>
+
+</wicket:extend>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<style>
+.row_label_checkbox {
+	margin-left: 25%;
+}
+
+.checkbox {
+	margin-left: 1%;
+	width: 15px;
+	margin-left: 1%;
+}
+
+.label_checkbox {
+	padding-left: 0px;
+	margin-top: 6px;
+}
+</style>
+
+	<form wicket:id="form" class="form-horizontal">
+
+		<wicket:container wicket:id="panelFasePrograma" />
+		<wicket:container wicket:id="execucaoPanelPotoes" />
+		<br />
+		<div class="box box-primary form-horizontal">
+			<div wicket:id="panelFormatacao">
+				<div class="box-header with-border">
+					<h3 class="box-title">Formatação</h3>
+				</div>
+				<br /> <span id="ancoraPesquisa"></span>
+
+				<!-- Panel Formatação -->
+				<div class="form-group">
+					<label class="col-sm-3 control-label"> <span class="obrigatorio">*</span> Forma de Verificação
+					</label>
+					<div class="row col-sm-7">
+						<div class="col-sm-4">
+							<select wicket:id="formaVerificacao" style="width: 100%;" class="basic-single"></select>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label"> <span class="obrigatorio">*</span> Tipo de Campo
+					</label>
+					<div class="row col-sm-7">
+						<div class="col-sm-4">
+							<select wicket:id="tipoCampo" style="width: 100%;" class="basic-single"></select>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label"> <span class="obrigatorio">*</span> Responsável por preencher esta verificação
+					</label>
+					<div class="row col-sm-7">
+						<div class="col-sm-4">
+							<select wicket:id="responsavelPreencher" style="width: 100%;" class="basic-single"></select>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label"> <span class="obrigatorio">*</span> Título do Quesito
+					</label>
+					<div class="col-sm-5">
+						<input wicket:id="tituloQuesito" type="text" class="form-control" placeholder="Título do quesito" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label"> <span class="obrigatorio">*</span> Orientação para o Preenchimento
+					</label>
+					<div class="col-sm-5">
+						<input wicket:id="orientacaoFornecedores" type="text" class="form-control" placeholder="Orientação para o fornecedor" />
+					</div>
+				</div>
+			</div>
+
+			<!-- Paineis com os tipos de campo -->
+			<div wicket:id="panelTiposDeCampo">
+				<div class="row row_label_checkbox">
+
+					<div class="col-sm-1 control-label checkbox">
+						<input wicket:id="possuiInformacaoOpcional" type="checkbox" />
+					</div>
+					<label class="row col-sm-2 label_checkbox">Informação opcional</label>
+
+					<div wicket:id="panelIdentificadorUnico">
+						<div class="col-sm-1 control-label checkbox">
+							<input wicket:id="possuiIdentificadorUnico" type="checkbox" />
+						</div>
+						<label class="row col-sm-2 label_checkbox">Identificador único</label>
+					</div>
+
+					<div wicket:id="panelDispositivoMovel">
+						<div class="col-sm-1 control-label checkbox">
+							<input wicket:id="possuiDispositivoMovel" type="checkbox" />
+						</div>
+						<label class="row col-sm-2 label_checkbox">Dispositível móvel</label>
+					</div>
+				</div>
+
+				<div wicket:id="panelOutrasOpcoes" class="row row_label_checkbox">
+
+					<div class="col-sm-1 control-label checkbox">
+						<input wicket:id="possuiData" type="checkbox" />
+					</div>
+					<label class="row col-sm-2 label_checkbox">Data</label>
+
+					<div class="col-sm-1 control-label checkbox">
+						<input wicket:id="possuiGPS" type="checkbox" />
+					</div>
+					<label class="row col-sm-2 label_checkbox">GPS</label>
+				</div>
+				<br />
+				<div class="form-group">
+					<div class="row">
+						<button style="width: 100px;" title="Adicionar formatação" class="btn btn-success btn-sm col-lg-offset-7" wicket:id="btnAdicionar">
+							<i class="fa fa-plus"></i> <span wicket:id="txtBtnAdicionarAlterar"></span>
+						</button>
+						<button style="width: 100px;" title="Cancelar" class="btn btn-warning btn-sm col-lg-offset-7" wicket:id="btnCancelar">
+							<i class="fa fa-times"></i> Cancelar
+						</button>
+					</div>
+				</div>
+			</div>
+			<br />
+
+			<!-- Painel dos itens para formatação -->
+			<div style="margin-left: 10%; margin-right: 15%;" wicket:id="panelListaItensContrato" class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">Lista de Item</h3>
+					<div class="pull-right mj_botoes_acao_tabela">
+						Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPaginaItens" title="Número de registros por página"></select>
+					</div>
+				</div>
+				<div class="box-body">
+					<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th width="5%;"><input type="checkbox" wicket:id="groupSelector" /></th>
+									<th style="vertical-align: text-top;"><span wicket:id="lblOrderNome"></span><a href="" wicket:id="btnOrdenarNome">Item</a></th>
+									<th style="vertical-align: text-top;"><span wicket:id="lblOrderDescricao"></span><a href="" wicket:id="btnOrdenarDescricao">Descrição</a></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr wicket:id="listaItensContrato">
+									<td><input type="checkbox" wicket:id="check1" /></td>
+									<td wicket:id="nomeBem"></td>
+									<td wicket:id="descricaoBem"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="box-footer">
+						<div wicket:id="paginationItens"></div>
+					</div>
+				</div>
+			</div>
+
+			<br />
+
+			<!-- Painel dos itens formatados -->
+			<div style="margin-left: 10%; margin-right: 15%;" wicket:id="panelListaFormatacoesContrato" class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">Lista de Formatações</h3>
+					<div class="pull-right mj_botoes_acao_tabela">
+						Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPaginaFormatacao" title="Número de registros por página"></select>
+					</div>
+				</div>
+				<div class="box-body">
+					<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Verificação</th>
+									<th>Tipo de campo</th>
+									<th>Título do quesito</th>
+									<th>Identificador único do item</th>
+									<th>Opcional</th>
+									<th width="140px;">Ações</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr wicket:id="listaFormatacaoItens">
+									<td wicket:id="verificacao"></td>
+									<td wicket:id="tipoCampo"></td>
+									<td wicket:id="tituloQuesito"></td>
+									<td wicket:id="identificadorUnico"></td>
+									<td wicket:id="opcional"></td>
+									<td>
+										<button wicket:id="btnAlterar" class="btn btn btn-info btn-sm" title="Alterar">
+											<i class="fa fa-pencil fa-fw"></i>
+										</button>
+										<button wicket:id="btnExcluir" title="Excluir" class="btn btn btn-danger btn-sm">
+											<i class="fa fa-trash-o"></i>
+										</button>
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+					<div class="box-footer">
+						<div wicket:id="paginationFormatacao"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="box-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right">
+				<button title="Salvar Contrato" class="btn btn-success btn-sm" wicket:id="btnSalvar">
+					<i class="fa fa-floppy-o"></i> Salvar
+				</button>
+				<button title="Voltar" class="btn btn-warning btn-sm" wicket:id="btnVoltar">
+					<i class="fa fa-undo"></i> Voltar
+				</button>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+
+	<style>
+.custom {
+	width: 142px; ! important;
+	height: 100px;
+}
+
+#container {
+	width: 100%;
+	text-align: left;
+}
+
+.box_local {
+	display: inline-block;
+	width: 142px;
+	height: 100px;
+	margin: 15px 10px;
+}
+</style>
+
+
+	<div class="box box-primary form-horizontal">
+		<div class="box-header with-border">
+			<h3 class="box-title">Meu Painel</h3>
+			<a href="javascript:void(0);" onclick="javascript:introJs().start();" title="Ajuda"><i class="fa fa-question-circle fa-lg" style="color: #49B957;"></i></a>
+		</div>
+		<div wicket:id="panelBotoesDashboard" id="container">
+			<div data-step="1" data-intro="Nesta seção você visualizará suas informações pessoais" data-position='right' id="box-1" class="box_local">
+				<a title="Informações Pessoais" id="btnInfoGerais" class="btn btn-primary btn-sm custom" wicket:id="btnInformacoesGerais"> <i class="fa fa-user fa-4x"></i> <br />Informações <br />Pessoais
+				</a>
+			</div>
+
+			<div data-step="2" data-intro="Nesta seção você visualizará as informações de sua entidade" data-position='right' id="box-2" class="box_local">
+				<a title="Informações da Entidade" id="btnInformacoesEntidade" class="btn btn-primary btn-sm custom" wicket:id="btnInformacoesEntidade"> <i class="fa fa-university fa-4x"></i> <br />Informações <br />da
+					Entidade
+				</a>
+			</div>
+
+			<div data-step="3" data-intro="Nesta seção você poderá acompanhar suas inscrições" data-position='right' id="box-3" class="box_local">
+				<a title="Minhas Propostas" id="btnInscricoes" class="btn btn-primary btn-sm custom" wicket:id="btnInscricoes"> <i class="fa fa-shopping-cart fa-4x"></i> <br />Minhas <br /> Propostas
+				</a>
+			</div>
+
+			<div data-step="4" data-intro="Nesta seção você poderá visualizar todos os programas" data-position='right' id="box-4" class="box_local">
+				<a title="Pesquisar Programas" id="btnPesquisaAberta" class="btn btn-primary btn-sm custom" wicket:id="btnPesquisaAberta" style="white-space: normal;"> <i class="fa fa fa-book fa-4x"></i> <br />Pesquisar <br />
+					Programas
+				</a>
+			</div>
+
+			<div data-step="5" data-intro="Nesta seção você realizará o cadastro de um item." data-position='right' id="box-5" class="box_local">
+				<a title="Cadastrar Item" id="btnCadastrarItem" class="btn btn-primary btn-sm custom" wicket:id="btnCadastrarItem"><i class="fa fa-barcode fa-4x"></i><br />Cadastrar <br />Item </a>
+			</div>
+			
+			
+			<div data-step="6" data-intro="Nesta seção você realizará a pesquisa de um item." data-position='right' id="box-6" class="box_local">
+				<a title="Pesquisar Item" id="btnPesquisarItem" class="btn btn-primary btn-sm custom" wicket:id="btnPesquisarItem"><i class="fa fa-search  fa-4x" ></i><br />Pesquisar <br />Item </a>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="box box-primary" style="margin-left: 10px; margin-right: 10px;">
+		<div class="box-header with-border">
+			<h3 class="box-title">Histórico</h3>
+		</div>
+		<div class="box-body">
+			<div class="table-responsive">
+				<table class="table table-condensed">
+					<thead>
+						<tr>
+							<th>Data Cadastro</th>
+							<th>Data Publicação DOU</th>
+							<th>Data Inicial Proposta</th>
+							<th>Data Final Proposta</th>
+							<th>Data Inicial Análise</th>
+							<th>Data Final Análise</th>
+							<th>Tipo de Programa</th>
+							<th>Status</th>
+							<th>Motivo</th>
+							<th>Usuário</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr wicket:id="historicoPublicizacao">
+							<td width="5%"><span wicket:id="dataCadastro"></span></td>
+							<td width="5%"><span wicket:id="dataPublicacaoDOU"></span></td>
+							<td width="5%"><span wicket:id="dataInicialProposta"></span></td>
+							<td width="5%"><span wicket:id="dataFinalProposta"></span></td>
+							<td width="5%"><span wicket:id="dataInicialAnalise"></span></td>
+							<td width="5%"><span wicket:id="dataFinalAnalise"></span></td>
+							<td width="5%"><span wicket:id="tipoPrograma.descricao"></span></td>
+							<td width="10%"><span wicket:id="statusPrograma.descricao"></span></td>
+							<td width="40%"><span wicket:id="motivo"></span></td>
+							<td width="5%"><span wicket:id="usuarioCadastro"></span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

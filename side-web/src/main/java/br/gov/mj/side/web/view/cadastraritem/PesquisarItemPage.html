@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+<script>
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+	<style>
+.qrCodeExemplo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+
+	<form id="formulario" wicket:id="form" class="form-horizontal">
+
+		<!-- BREADCRUMB (NAVEGACAO) -->
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="#" wicket:id="lnkPainelPesquisarItem">Dashboard</a></li>
+				<li class="active"><span>Pesquisar Item</span></li>
+			</ul>
+		</div>
+
+        <!-- Painel Filtros de Pesquisa -->
+		<div wicket:id="panelPesquisa" class="box box-primary collapsed-box">
+		    <div class="box-header with-border ui-sortable-handle">
+				<!-- tools box -->
+				<div class="pull-right box-tools">
+					<button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="" style="margin-right: 5px;" data-original-title="Abrir / Fechar formulário de pesquisa">
+						<i class="fa fa-plus"></i>
+					</button>
+				</div>
+				<!-- /. tools -->
+				<i class="fa fa-search"></i>
+				<h3 class="box-title">Pesquisar Item</h3>
+			</div>
+			<div class="box-body">
+                <div class="form-group">
+					<label class="col-md-4 control-label" for="nomeBem">Item</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" wicket:id="nomeBem" />
+					</div>
+				</div>
+				
+				<div class="form-group">
+				    <label class="col-md-4 control-label" for="identificadorUnico">Identificador único</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" wicket:id="identificadorUnico" />
+					</div>
+				</div>
+				
+				<div class="form-group">
+				    <label class="col-md-4 control-label" for="numeroQrCode">Código QRCOD</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" wicket:id="numeroQrCode" onkeypress='return somenteNumero(event)' />
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="situacaoBem">Situação
+					</label>
+					<div class="col-sm-3">
+						<select wicket:id="situacaoBem" class="basic-single" style="width: 100%;" ></select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="idPrograma">Programa
+					</label>
+					<div class="col-sm-3">
+						<select wicket:id="programaSelecionado" class="basic-single" style="width: 100%;" ></select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-md-2 col-md-offset-4">
+					<a class="btn btn-success btn-sm" wicket:id="btnPesquisar" title="Pesquisar"><i class="fa fa-search"></i>Pesquisar</a>
+					<a class="btn btn-warning btn-sm" wicket:id="btnLimpar" title="Limpar"><i class="fa fa-eraser"></i>Limpar</a>
+					</div>
+				</div>
+       
+ 
+     		</div>
+		</div>
+		
+		<div wicket:id="panelListaItens" class="box box-primary form-horizontal">
+		  <script type="text/javascript">
+			$(document).ready(function($) {
+				$('[data-toggle="popover"]').popover({ html: true});
+			});
+		    </script>
+		  <div class="box-header with-border">
+					<h3 class="box-title">Lista de Itens</h3>
+					<div class="pull-right">
+						Qtd de itens exibidos &nbsp; <select title="Número de registros por página" wicket:id="itensPorPagina"></select>
+					</div>
+		  </div>
+		  <div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Programa</th>
+								<th>Identificador (QRCOD)</th>
+								<th>Item</th>
+								<th>Situação</th>
+								<th>Patrimônio</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="listaItens">
+							<tr>
+								<td wicket:id="nomePrograma"></td>
+								<td wicket:id="identificador"></td>
+								<td wicket:id="nomeItem"></td>
+								<td wicket:id="tipoSituacao"></td>
+								<td><span wicket:id="tipoPatrimonio"></span><span wicket:id="infMotivo"></span></td>
+								<td>
+								 <a class="btn btn-primary btn-sm" wicket:id="btnRegistrarPatrimonio" title="Registrar Patrimônio">
+								  <i class="glyphicon glyphicon-paste"></i>
+								</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="panel-footer">
+						<div wicket:id="paginationItens"></div>
+					</div>
+				</div>
+		
+		</div>
+		
+		<div class="panel-footer clearfix" wicket:id="panelBotoes">
+			<div class="pull-right">
+				<div>
+					<a class="btn btn-warning btn-sm" wicket:id="btnVoltar" title="Voltar"> <i class="fa fa-undo fa"></i>Voltar
+					</a>
+				</div>
+			</div>
+		</div>
+		
+	</form>
+</wicket:extend>

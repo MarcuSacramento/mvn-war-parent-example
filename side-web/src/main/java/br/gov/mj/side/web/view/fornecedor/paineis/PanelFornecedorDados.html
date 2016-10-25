@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<wicket:panel>
+
+	<div class="form-horizontal">
+		<div>
+			<div class="panel-body">
+				<div wicket:id="panelDataView">
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Nome</th>
+									<th>CPF</th>
+									<th>Telefone</th>
+									<th>E-Mail</th>
+									<th>Situação</th>
+								</tr>
+							</thead>
+							<tbody wicket:id="dataTitulares">
+								<tr>
+									<td><span wicket:id="pessoa.nomePessoa"></span></td>
+									<td><span wicket:id="pessoa.numeroCpf"></span></td>
+									<td><span wicket:id="pessoa.numeroTelefone"></span></td>
+									<td><span wicket:id="pessoa.email"></span></td>
+									<td><span wicket:id="situacao"></span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="panel-footer">
+						<div wicket:id="pagination"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

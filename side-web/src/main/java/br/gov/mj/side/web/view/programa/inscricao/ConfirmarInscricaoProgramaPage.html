@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<script type="text/javascript">
+	document.getElementById('lblTituloPrincipal').className = 'alert alert-warning';
+</script>
+
+	<form wicket:id="form" id="form" class="form-horizontal">
+		<div class="row">
+			<div class="col-sm-3">
+				<div wicket:id="dadosProgramaPanel"></div>
+				<div wicket:id="dadosEntidadePanel"></div>
+			</div>
+			<div class="col-sm-9">
+				<wicket:container wicket:id="dadosRepresentantePanel" />
+				<wicket:container wicket:id="dadosSolicitacaoPanel" />
+				<div wicket:id="criterioElegebilidadeInscricaoPanel"></div>
+				<div wicket:id="criterioAvaliacaoInscricaoPanel"></div>
+			</div>
+		</div>
+
+		<div class="alert alert-warning" role="alert">
+			<input wicket:id="aceite" type="checkbox" /> <span wicket:id="msgAceite"></span>
+		</div>
+
+		<div class="box-footer clearfix">
+			<div class="pull-right">
+				<button wicket:id="btnConfirmar" title="Confirmar" class="btn btn-success btn-sm">
+					<i class="fa fa-check"></i> Confirmar
+				</button>
+				<button wicket:id="btnExportarPdf" title="Voltar" class="btn btn-success btn-sm">
+					<i class="fa fa-file-pdf-o"></i> Gerar PDF
+				</button>
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i> Voltar
+				</button>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

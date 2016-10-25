@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<style>
+.borderless td, .borderless th {
+	border: none;
+}
+</style>
+
+	<div class="box box-info">
+		<div class="box-header with-border">
+			<span class="panel-title" wicket:id="titulo"></span>
+		</div>
+		<div class="box-body">
+
+			<div wicket:id="containerMessage">
+				<ul class="feedBackPanel">
+					<table class="borderless" width="100%">
+						<tbody>
+							<tr wicket:id="alerts">
+								<td>
+									<li class="feedbackPanelERROR">
+										<div wicket:id="alert"></div>
+								</li>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</ul>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="nomeCriterioAvaliacao">Nome</label>
+				</div>
+				<div class="col-sm-9">
+					<span wicket:id="programaCriterioElegibilidade.nomeCriterioElegibilidade" id="nomeCriterioAvaliacaoElegibilidade"></span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="descricaoCriterioAvaliacao">Descrição</label>
+				</div>
+				<div class="col-sm-9">
+					<span wicket:id="programaCriterioElegibilidade.descricaoCriterioElegibilidade" id="descricaoCriterioElegibilidade"></span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="formaVerificacao">Forma de Verificação</label>
+				</div>
+				<div class="col-sm-9">
+					<span wicket:id="programaCriterioElegibilidade.formaVerificacao" id="formaVerificacao"></span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-3">
+					<label for="atendeElegibilidade">Atende ao Critério?</label>
+				</div>
+				<div class="col-sm-2">
+					<select wicket:id="atendeCriterioElegibilidade" id="atendeElegibilidade" class="form-control"></select>
+				</div>
+			</div>
+			<br />
+			<div class="row" wicket:id="panelAnexosCriteriosElegibilidade">
+				<div class="col-sm-12">
+					<div class="box box-info" wicket:id="container">
+						<div class="box-header with-border">
+							<span class="panel-title">Anexos </span><span wicket:id="possuiObrigatoriedadeDeAnexo"></span>
+						</div>
+						<div class="box-body">
+
+							<div class="form-group">
+								<form wicket:id="anexoForm" id="formUpload" class="form-inline">
+									<div class="form-group">
+										<label class="col-sm-1 control-label" for="tipoEndereco"> <span class="obrigatorio"></span>
+										</label>
+										<div class="row col-sm-12">
+											<div class="col-sm-10">
+												<input wicket:id="fileInput" type="file" />
+											</div>
+
+											<div class="col-sm-2">
+												<div class="col-sm-7">
+													<button wicket:id=btnAdicionarAnexo title="Adicionar anexo" class="btn btn-success btn-sm">
+														<i class="fa fa-plus"></i>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>Nome do Arquivo</th>
+											<th>Ação</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr wicket:id="anexos">
+											<td><span wicket:id="nomeAnexo"></span></td>
+											<td>
+												<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm">
+													<i class="fa fa-download"></i>
+												</button>
+												<button wicket:id="btnExcluir" title="Excluir" class="btn btn-danger btn-sm">
+													<i class="fa fa-minus"></i>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

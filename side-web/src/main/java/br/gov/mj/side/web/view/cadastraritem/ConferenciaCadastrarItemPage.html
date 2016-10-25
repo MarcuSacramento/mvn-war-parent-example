@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form wicket:id="form" class="form-horizontal">
+
+		<!-- PANEL DE QUESITOS -->
+		<div wicket:id="panelGridConferencia">
+			<div class="box box-primary" style="padding-top: 0px;">
+				<h3 style="margin-bottom: 0px; margin-top: 15px; margin-left: 15px;" class="box-title">Conferência</h3>
+				<div class="box-body">
+					<table class="table table-hover">
+						<tbody>
+							<tr wicket:id="listaFormatacaoItens">
+								<td wicket:id="txtTituloQuesito"></td>
+								<td wicket:id="txtSituacao"></td>
+								<td><a wicket:id="btnConferenciaCadastrada" class="btn btn-success btn-sm"> <i class="fa fa-check-square-o"></i>
+								</a> <a wicket:id="btnConferenciaNaoCadastrada" class="btn btn-warning btn-sm"> <i class="fa fa-square-o"></i>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- PANEL DA CONFORMIDADE -->
+			<div wicket:id="panelConformidadeItem">
+				<div class="box box-primary" style="padding-top: 0px;">
+					<div class="box-body">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td>Conformidade do Item</td>
+									<td wicket:id="txtLabelConformidade"></td>
+									<td><a wicket:id="btnQuesitoPreenchido" class="btn btn-success btn-sm pull-right"> <i class="fa fa-check-square-o"></i></a> <a wicket:id="btnQuesitoNaoPreenchido"
+										class="btn btn-warning btn-sm pull-right"> <i class="fa fa-square-o"></i>
+									</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<!-- BOTOES DE ACAO -->
+			<div class="pull-right">
+				<a class="btn btn-primary btn-sm" wicket:id="btnVoltarIdentificacao"><i class="fa fa-barcode"></i> Pesquisar </a> <a class="btn btn-warning btn-sm" wicket:id="btnVoltar"><i class="fa fa-undo"></i>
+					Voltar </a> <a class="btn btn-primary btn-sm" wicket:id="btnConferencia"><i class="fa fa-play-circle-o"></i> Cadastrar </a>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

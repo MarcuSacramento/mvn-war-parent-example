@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_visualizar_programa_descricao_acao_orcamentaria" pageWidth="539" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="539" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="389bacbb-2d9a-4f9d-9560-0b5397f8420f">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="289"/>
+	<property name="ireport.y" value="0"/>
+	<field name="numero" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="306" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="6665c1db-69ca-4f38-b48c-3f15e08fc025"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="304" y="0" width="235" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="a907b6f7-15dc-4469-b4f0-66a0273d4089"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="312" y="0" width="117" height="15" uuid="b1004eaa-101c-425a-ace6-fef3312d9764"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Valor Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="0" width="243" height="15" uuid="d0fab7f2-df53-4e92-89d5-4e04774f1bb1"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="304" y="0" width="235" height="15" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="c5894e27-ba71-4de3-b141-84a06621feda"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="312" y="0" width="225" height="15" isPrintWhenDetailOverflows="true" uuid="55d42ed8-6d87-4afe-98f7-e4c591b1892d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="304" height="15" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="4b29b574-60df-46cd-81f4-00a7a89e7a12"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="5" y="0" width="299" height="15" isPrintWhenDetailOverflows="true" uuid="a5ede424-49fb-4541-94fe-e81e33f7ac61"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29">
+			<printWhenExpression><![CDATA[($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="134" y="7" width="272" height="15" uuid="7b194283-ea6d-48c7-94b6-4df4b5edc3cc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Nenhum Recurso Financeiro adicionado a este Programa]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

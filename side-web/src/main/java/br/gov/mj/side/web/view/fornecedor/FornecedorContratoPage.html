@@ -1,0 +1,96 @@
+<wicket:extend>
+	<form wicket:id="form">
+	     <div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="#" wicket:id="lnkDashboard">Dashboard</a></li>
+				<li class="active"><span wicket:id="lblNomePage"></span></li>
+			</ul>
+		  </div>
+		<br />
+	      <div class="panel" >
+	       <div class="box box-primary form-horizontal"  wicket:id="panelContrato">
+					   <div class="box-header with-border">
+							<span>Meus Contratos</span>
+                            <div class="pull-right mj_botoes_acao_tabela">
+								Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPagina" id="itensPorPagina" title="Número de registros por página"></select>
+							</div>
+					   </div>
+					   <div class="table-responsive">
+							<table width="55%" class="table table-hover">
+								<thead>
+									<tr>
+										<th wicket:id="orderByContrato">
+										   Contrato
+										</th>
+										<th>
+										   Programa
+										</th>
+										<th>
+										   OF Emitida
+										</th>
+										<th >
+										  Saldo Contratual
+										</th>
+										<th >
+										  Saldo a Executar
+										</th>
+										<th wicket:id="orderByDataVigenciaFimContrato">
+										  Vencimento
+										</th>
+										<th>
+										   Ações
+										</th>
+									</tr>
+								</thead>
+								<tbody wicket:id="listaContratosNewDataView">
+									<tr>
+										<td>
+										  <span wicket:id="numeroContrato"></span>
+										</td>
+										<td>
+										 <span wicket:id="programa.codigoIdentificadorProgramaPublicadoENomePrograma"></span>
+										</td>
+										<td>
+										  <span wicket:id="ofEmitida"></span>
+										</td>
+										<td>
+										  <span wicket:id="saldoContratual"></span>
+										</td>
+										<td>
+										  <span wicket:id="saldoExecutar"></span>
+										</td>
+										<td>
+										  <span wicket:id="dataVigenciaFimContrato"></span>
+										</td>
+										<td>
+										    <a wicket:id="btnVisualizarRegistro" title="Visualizar Registro"
+																class="btn btn-primary btn-sm">
+																<i class="fa fa-search"></i>
+											</a>
+										    <a wicket:id="btnExecutarOF" title="Executar OF"
+															class="btn btn-info btn-sm">
+															<i class="fa fa-cogs"></i>
+											</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="panel-footer"> 
+								<div wicket:id="paginator"></div> 
+							</div>
+					   </div>
+					   <div class="form-group"></div>
+				   </div>
+				   <label class="col-sm-2 control-label"> </label>
+				 <div>
+					<p class="text-left" />
+				 </div>
+				 </div>  
+				  <div class="box-footer clearfix">
+				   <div class="pull-right" wicket:id="panelButton">
+				   		<a class="btn btn-warning btn-sm" title="Voltar" wicket:id="btnVoltar"><i class="fa fa-undo"></i>Voltar</a>
+				   </div>
+				   </div>
+	</form>
+</wicket:extend>
+

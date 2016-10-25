@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> </label>
+		<div class="col-sm-6">
+			<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemErro"></div>
+		</div>
+	</div>
+
+	<div wicket:id="panelDadosBasicos">
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="nomeRepresentante">Nome</label>
+				<div class="col-sm-3">
+					<input id="nomeRepresentante" type="text" class="form-control" wicket:id="txtNome">
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="cpfRepresentante">CPF</label>
+				<div class="col-sm-3">
+					<input id="cpfRepresentante" type="text" class="form-control mask-cpf" placeholder="000.000.000-00" wicket:id="txtCpf">
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="telefoneRepresentante">Telefone</label>
+				<div class="col-sm-3">
+					<input type="text" placeholder="(00)000000000" class="form-control mask-telefone" wicket:id="txtTelefone" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="emailRepresentante">Email</label>
+				<div class="col-sm-5">
+					<input id="emailRepresentante" type="text" class="form-control" placeholder="exemplo@mj.gov.br" wicket:id="txtEmail">
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

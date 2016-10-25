@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_programa" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b882d0ad-c307-430f-adad-62aec23f909b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="286"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.export.csv.field.delimiter" value=";"/>
+	<style name="borda" mode="Transparent" forecolor="#000000" hAlign="Left" vAlign="Top" isBlankWhenNull="true">
+		<pen lineWidth="1.0"/>
+		<paragraph lineSpacing="1_1_2"/>
+	</style>
+	<field name="id" class="java.lang.Long"/>
+	<field name="nomePrograma" class="java.lang.String"/>
+	<field name="numeroProcessoSEI" class="java.lang.String"/>
+	<field name="statusPrograma.descricao" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20">
+			<staticText>
+				<reportElement x="0" y="0" width="135" height="20" uuid="c38c8a38-2dc3-43e8-8bfb-f80bc950872c"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="0" width="361" height="20" uuid="1a7bae4f-6e70-4a52-8199-ce03ec36f7ce"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="0" width="152" height="20" uuid="87411020-cba3-4bd0-915d-7d0b69f1db5f"/>
+				<text><![CDATA[Nº do Processo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="648" y="0" width="152" height="20" uuid="f5f3ad4d-ead1-42a0-9d40-2dffef85c731"/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="135" y="0" width="361" height="18" uuid="40b91ccd-9178-49cd-8f58-f8f6d7dcd7ee"/>
+				<textFieldExpression><![CDATA[$F{nomePrograma}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="135" height="18" uuid="c56f605d-17e8-40d2-80ef-d263f1463352"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="496" y="0" width="152" height="18" uuid="4ed992ce-2ed0-480a-823e-3ad7412d7a48"/>
+				<textFieldExpression><![CDATA[$F{numeroProcessoSEI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="648" y="0" width="152" height="18" uuid="a5634772-76d5-4e97-9287-329656176477"/>
+				<textFieldExpression><![CDATA[$F{statusPrograma.descricao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

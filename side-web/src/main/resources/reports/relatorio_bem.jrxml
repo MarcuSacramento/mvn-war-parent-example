@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_bem" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b882d0ad-c307-430f-adad-62aec23f909b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.export.csv.field.delimiter" value=";"/>
+	<style name="borda" mode="Transparent" forecolor="#000000" hAlign="Left" vAlign="Top" isBlankWhenNull="true">
+		<pen lineWidth="1.0"/>
+		<paragraph lineSpacing="1_1_2"/>
+	</style>
+	<field name="nomeBem" class="java.lang.String"/>
+	<field name="descricaoBem" class="java.lang.String"/>
+	<field name="nomeElemento" class="java.lang.String"/>
+	<field name="nomeSubelemento" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20">
+			<staticText>
+				<reportElement x="0" y="0" width="200" height="20" uuid="feb67c2f-c0d3-4293-924a-6cb345d58777"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="200" height="20" uuid="7faa8465-4e58-48e3-8973-5c3c6f6d0fa1"/>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="200" height="20" uuid="0f8554d8-1359-45c4-88b5-60903cf177b9"/>
+				<text><![CDATA[Elemento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="0" width="200" height="20" uuid="d478b8a5-7177-425d-a6d4-df0001c0e8ab"/>
+				<text><![CDATA[Subelemento]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="-2" width="200" height="20" uuid="5fb709c8-fd97-4ce7-82d9-5d79fdf6ffa8"/>
+				<textFieldExpression><![CDATA[$F{nomeBem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="-2" width="200" height="20" uuid="d9d8538b-65cb-4bcb-a524-fb56d0069ac2"/>
+				<textFieldExpression><![CDATA[$F{descricaoBem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="-2" width="200" height="20" uuid="e5643874-3b9e-4814-8772-2681ed7e35b6"/>
+				<textFieldExpression><![CDATA[$F{nomeElemento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="-2" width="200" height="20" uuid="fc36c5ce-d6b7-4f33-980b-b881e329111b"/>
+				<textFieldExpression><![CDATA[$F{nomeSubelemento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="css/mj.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/dashboard.css" />
+<link href="select2-3.4.8/select2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/introjs.css" />
+
+
+<wicket:header-items />
+
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="css/conare.css">
+<link href="select2-3.4.8/select2.css" rel="stylesheet" type="text/css" />
+
+<!-- Theme style -->
+<link rel="stylesheet" href="css/AdminLTE.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+	         folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="css/skins/_all-skins.min.css">
+
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<!-- inicio body -->
+<body>
+
+	<!-- Cabeçalho -->
+	<div id="wrapper" class="mj_cabecalho">
+		<div id="barra-brasil">
+			<div id="wrapper-barra-brasil">
+				<div class="brasil-flag">
+					<a href="http://brasil.gov.br/" class="link-barra">Brasil</a>
+				</div>
+				<span class="acesso-info"><a href="http://brasil.gov.br/barra#acesso-informacao" class="link-barra">Acesso à informação</a></span>
+				<nav>
+					<ul class="list">
+						<li><a href="http://local.estrategia.mj/Plano/adicionar#" id="menu-icon"></a></li>
+						<li class="list-item first"><a href="http://brasil.gov.br/barra#participe" class="link-barra">Participe</a></li>
+						<li class="list-item"><a href="http://www.servicos.gov.br/?pk_campaign=barrabrasil" class="link-barra" id="barra-brasil-orgao">Serviços</a></li>
+						<li class="list-item"><a href="http://www.planalto.gov.br/legislacao" class="link-barra">Legislação</a></li>
+						<li class="list-item last last-item"><a href="http://brasil.gov.br/barra#orgaos-atuacao-canais" class="link-barra">Canais</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<nav id="header" class="navbar navbar-default navbar-fixed-top main-header">
+			<div class="container">
+				<div id="miniHeader" class="navbar-header collapse">
+					<!-- Logo -->
+					<a href="#" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels --> <span class="logo-mini"></span> <!-- logo for regular state and mobile devices --> <span class="logo-lg"><b>SIDE.MJ</b></span>
+					</a>
+				</div>
+				<div style="height: 100px;" aria-expanded="false" id="navbar" class="navbar-collapse collapse">
+					<a href="#" class="header-logo-a" title="SIDE">
+						<div id="logo">
+							<span id="portal-title-1">MINISTÉRIO DA JUSTIÇA</span>
+							<h1 id="portal-title" class="corto">SIDE.MJ</h1>
+							<span id="portal-description">SISTEMA DE DOAÇÕES E EQUIPAGEM</span>
+						</div>
+					</a>
+
+				</div>
+				<!--/.nav-collapse -->
+
+			</div>
+		</nav>
+	</div>
+
+	<div wicket:id="panelMenu">
+		<nav class="navbar-default mj_menu">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+					<ul class="nav navbar-nav">
+						<li class="dropdown"><a wicket:id="pesquisaAberta" href="#" title="Pesquisa Aberta"><i class="fa fa-search"></i>Pesquisa Aberta</a></li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+	</div>
+
+
+	<!-- Área principal -->
+	<div style="padding-bottom: 50px">
+		<div class="container-fluid">
+
+			<div class="page-header">
+				<h2 wicket:id="lbTitulo">Título</h2>
+				<h5>
+					<span wicket:id="lbSubTitulo"></span>
+				</h5>
+			</div>
+			<div wicket:id="feedbackPanel" />
+			<wicket:child />
+		</div>
+	</div>
+	<footer class="mj_rodape ">
+		<div class="container-fluid">
+			<div class="pull-right hidden-xs">
+				<b>Version</b> <span wicket:id="labelVersion">XXX</span>
+			</div>
+			<strong> SIDE está disponível no <a href="http://softwarepublico.gov.br/social/side" target="blank" title="Portal do Software Público">Portal do Software Público</a>, licenciado pela <a
+				href="http://www.gnu.org/licenses/agpl.html" target="blank" title="GNU Affero General Public License">GNU Affero General Public License</a>. CGTI / Ministério da Justiça.
+			</strong>
+		</div>
+	</footer>
+
+</body>
+<!-- fim do body -->
+<!-- ./wrapper -->
+<!-- jQuery 2.1.4 -->
+<!-- <script src="js/jQuery-2.1.4.min.js"></script> -->
+<!-- jQuery UI 1.11.4 -->
+<!-- <script src="js/jquery-ui.min.js"></script> -->
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+		  $.widget.bridge('uibutton', $.ui.button);
+		</script>
+<!-- Bootstrap 3.3.5 -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<!-- FastClick -->
+<script src="js/fastclick.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="js/conare.js"></script>
+
+<script type="text/javascript" src="select2-3.4.8/select2.min.js"></script>
+<script type="text/javascript" src="js/select2_ptbr.js"></script>
+
+<script>
+			$( document ).ready(function() {
+				
+				$('.mask-cpf').mask('000.000.000-00', {reverse: true});
+				$('.mask-cnpj').mask('00.000.000/0000-00', {reverse: true});
+				$('.mask-telefone').mask('(00)000000000', {reverse: false});
+				$('.mask-processo').mask('99999.999999/9999-99');
+				$('.mask-numero-sei').mask('00000.000000/0000-00', {reverse: true});
+				$('.mask-date').mask('00/00/0000');
+				$('.mask-year-month').mask('00/0000');
+				$('.mask-hora').mask('00:00');
+				$('.mask-cep').mask('00000-000', {reverse: false});
+				
+			});
+		</script>
+
+<script>
+			$(document).ready(function() {
+				$(".js-example-language").select2({
+					  language: "pt-BR"
+					});
+			});
+			
+			// Este trecho de código resolve o problema de tamanho das páginas geradas no componente de according.
+			function event(evnt) {
+          		accordion = this.getElementsByClassName("ui-accordion-content")
+          		for (i=0; accordion.length; i++) {
+              		accordion[i].style.removeProperty('height')
+          		}
+			}
+			window.onload=escutaEvento;
+			
+			function escutaEvento(evnt) {
+				document.addEventListener('load',event,true);
+				
+			}
+					
+		</script>
+
+<!-- AdminLTE App -->
+<script src="js/app.js"></script>
+
+<script>
+			$(document).ready(function(){
+
+				if (document.body && (document.body.offsetWidth < 764)) {
+				 	$('#miniHeader').removeClass('collapse');					
+				} else{
+					$('#miniHeader').addClass('collapse');
+				}
+				
+			    $(window).resize(function(){
+			
+					if (document.body && (document.body.offsetWidth < 764)) {
+					 	$('#miniHeader').removeClass('collapse');					
+					} else{
+						$('#miniHeader').addClass('collapse');
+					}
+					
+			
+			    });
+			});
+		</script>
+
+<!-- Script para capturar resolução do dispositivo -->
+<script type="text/javascript">
+		window.onload = function(){
+			var screenWidth = screen.width;
+				document.getElementById('tamanhoTela').value=screenWidth;	
+		}
+	</script>
+
+<script type="text/javascript">
+			$(document).ready(function($) {
+				atualizaCssDropDown();
+			});
+	 
+			function atualizaCssDropDown(){
+ 			$("select.basic-single").select2();
+	 		}
+		</script>
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="js/jquery.maskMoney.js"></script>
+<script type="text/javascript" src="select2-3.4.8/select2.min.js"></script>
+<script type="text/javascript" src="js/intro.js"></script>
+
+</html>

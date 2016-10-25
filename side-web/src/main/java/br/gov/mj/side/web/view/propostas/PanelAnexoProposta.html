@@ -1,0 +1,140 @@
+<wicket:panel>
+
+	<script>
+function somenteNumero(e){
+    var tecla=(window.event)?event.keyCode:e.which;   
+    if((tecla>47 && tecla<58)) return true;
+    else{
+    	if (tecla==8 || tecla==0) return true;
+	else  return false;
+    }
+}		
+</script>
+
+	<div class="form-horizontal" wicket:id="panelPrincipalAnexo">
+
+		<br />
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+			</label>
+			<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemAnexo"></div>
+		</div>
+		<br /> <br />
+
+
+
+		<form wicket:id="formUpload" id="formUpload">
+
+			<script>
+					$(document).ready(function() {
+						$("#tipoArquivo").select2();
+					});
+				</script>
+
+			<div class="box box-primary">
+				<div class="box-body">
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dropTipoArquivo">* Tipo
+							do Arquivo</label>
+						<div class="col-sm-6">
+							<span class="col-sm-9"> <select name="tipoArquivo"
+								class="js-example-basic-single" id="tipoArquivo" style="width: 100%"
+								wicket:id="tipoArquivo">
+									<option>Selecione...</option>
+							</select>
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="nomePrograma"> <span
+							class="obrigatorio">*</span> Data
+						</label>
+						<div class="col-sm-6">
+							<div class="col-sm-3">
+								<input wicket:id="data" id="dataLocal" type="text" class="form-control"
+									placeholder="DD/MM/AAAA" />
+							</div>
+							<div class="col-sm-3">
+								<p class="help-block">Formato:dd/mm/aaaa</p>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="upArquivo"> * Arquivo </label>
+						<div class="col-sm-6">
+		
+							<div class="col-sm-8">
+								<input wicket:id="fileInput" type="file" id="fileInput" />
+							</div>
+							<div class="col-sm-1">
+								<div class="pull-right">
+									<button wicket:id=btnAdicionarAnexo title="Adicionar"
+										class="btn btn-success btn-sm" id="btnAdicionarAnexo">
+										<i class="fa fa-plus"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-1 control-label"> </label>
+				<div class="container col-sm-12">
+					<div class="col-sm-12">
+						<br> <br />
+						<div>
+							<p class="text-left"></p>
+						</div>
+
+						<div class="box box-primary">
+							<div class="box-body">
+								<br>
+
+								<table width="98%" class="table table-hover"
+									style="table-layout: fixed;">
+									<thead>
+										<tr>
+											<th width="8%"></th>
+											<th width="14%">Tipo</th>
+											<th width="26%">Arquivo</th>
+											<th width="10%">Tamanho</th>
+											<th width="12%">Data do Documento</th>
+											<th width="17%">Data de Cadastro no Sistema</th>
+											<th width="9%" class="text-left">Ações</th>
+											<th width="4%"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr wicket:id="anexos">
+											<td width="8%"></td>
+											<td width="10%"><span wicket:id="descricao"></span></td>
+											<td width="26%"><span wicket:id="nomeAnexo"></span></td>
+											<td width="12%"><span wicket:id="tamanhoArquivoEmMB"></span></td>
+											<td width="10%"><span wicket:id="dataAnexoTable"></span></td>
+											<td width="17%"><span wicket:id="dataCadastro"></span></td>
+											<td width="13%" class="text-left">
+												<button wicket:id="btnDonwload" title="Baixar arquivo"
+													class="btn btn-success btn-sm" id="btnDonwload">
+													<i class="fa fa-download"></i>
+												</button>
+												<button wicket:id="btnExcluirAnexo" title="Excluir"
+													class="btn btn-danger btn-sm">
+													<i class="fa fa-minus"></i>
+												</button>
+											</td>
+											<td width="4%"></td>
+										</tr>
+									</tbody>
+								</table>
+								<div wicket:id="paginator" />
+							</div>
+						</div>
+						<br /> <br />
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</wicket:panel>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form id="formulario" class="form-horizontal" wicket:id="form">
+		<wicket:container wicket:id="dashboardPessoasPanel" />
+		<br />
+
+		<script type="text/javascript" src="js/mj.js"></script>
+		<div wicket:id="navPanel"></div>
+
+		<!--PAINEL COMISSÃO RECEBIMENTO -->
+		<div class="box box-primary " wicket:id="panelAtualizarComissao" style="margin-left: 18px; margin-right: 18px;">
+			<div class="box-header with-border">
+				<h3 class="box-title">Membros da Comissão de Recebimento</h3>
+			</div>
+			<div class="box-body">
+				<wicket:container wicket:id="panelComissao" />
+			</div>
+		</div>
+
+		<div class="box-footer clearfix" style="margin-left: 18px; margin-right: 18px;">
+			<div class="pull-right" wicket:id="panelBotoes">
+				<div>
+					<button class="btn btn-success btn-sm" title="Salvar Membros da Comissão de Recebimento" wicket:id="btnSalvar">
+						<i class="fa fa-floppy-o"></i> Salvar
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form class="form-horizontal" wicket:id="form">
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="" wicket:id="lnkDashboard" id="lnkDashboard">Dashboard</a></li>
+				<li><a href="" wicket:id="usuarioPesquisaPage">Permissões de Acesso a Usuários</a></li>
+				<li class="active">Vincular Usuários</li>
+			</ul>
+		</div>
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados do Usuário</h3>
+			</div>
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-2">
+						<label>Nome</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="primeiroNome"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<label>CPF</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="numeroCpf"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<label>Usuário de Acesso</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="usuarioCadastro"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<label>Email</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="email"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<label>Situação</label>
+					</div>
+					<div class="col-md-3">
+						<select class="basic-single" style="width: 100%;" id="situacaoUsuario" wicket:id="situacaoUsuario"></select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="box box-primary">
+			<div class="panel-heading">Perfil</div>
+			<div class="box-body">
+				<div class="form-group">
+					<div class="col-sm-12">
+						<label class="checkbox-inline" wicket:id="nomePerfil"><input type="checkbox" id="perfil"></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-2">
+						<button class="btn btn-success btn-sm" title="Salvar" wicket:id="salvar">
+							<i class="fa fa-floppy-o"></i> Salvar
+						</button>
+						<button class="btn btn-warning btn-sm" title="Voltar" wicket:id="voltar">
+							<i class="fa fa-undo"></i> Voltar
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="box-footer clearfix">
+			Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+		</div>
+	</form>
+</wicket:extend>

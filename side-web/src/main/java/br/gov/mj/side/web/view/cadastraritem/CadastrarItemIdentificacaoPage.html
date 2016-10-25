@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<style>
+.qrCodeExemplo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+
+	<form id="formulario" wicket:id="form" class="form-horizontal">
+
+		<!-- BREADCRUMB (NAVEGACAO) -->
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="#" wicket:id="lnkPainelFornecedor">Dashboard</a></li>
+				<li class="active"><span>Cadastrar Item</span></li>
+			</ul>
+		</div>
+
+		<div class="col-sm-offset-3 col-sm-6">
+			<div class="box box-primary form-horizontal">
+				<div class="box-body">
+					<div class="text-center">
+						<label>Informe a identificação do item para iniciar o cadastro.</label>
+					</div>
+
+					<div class="form-group">
+
+						<!-- IMAGEM QRCODE PARA EXEMPLO -->
+						<img class="img-responsive img-thumbnail pad qrCodeExemplo" src="images/qrCondeExemplo.png" alt="Photo" />
+
+						<!-- CODIGO DE IDENTIFICACAO DE EXEMPLO -->
+						<div class="text-center">
+							<h1>000000000</h1>
+						</div>
+					</div>
+
+					<!-- CODIGO DE VERIFICACAO -->
+					<div class="form-group">
+						<label class="col-md-4 control-label">Identificação do item</label>
+						<div class="col-md-6 col-sm-12">
+							<input type="text" placeholder="000000000" class="form-control" autofocus wicket:id="codigoVerificacao" />
+						</div>
+					</div>
+
+					<!-- BOTOES -->
+					<div class="text-center">
+						<button style="margin-bottom: 5px;" title="Cadastrar Item" class="btn btn-primary btn-sm" wicket:id="btnCadastrarItem">
+							<i class="fa fa-file-o"></i> Cadastrar Item
+						</button>
+						<a title="Voltar" class="btn btn-warning btn-sm" wicket:id="btnVoltar"> <i class="fa fa-undo"></i> Voltar
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

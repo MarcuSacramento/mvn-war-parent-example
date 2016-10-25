@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<wicket:extend>
+
+	<script>
+		$( document ).ready(function() {
+			$('.valorEstimado').mask('R$ 000.000.000,00');
+		});
+
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+
+	<form id="validate" name="my_form" wicket:id="form" class="form-horizontal">
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="" wicket:id="homePage">Dashboard</a></li>
+				<li><a href="" wicket:id="lnkKitPagePesquisa">Pesquisar Kit de Bens</a></li>
+				<li class="active"><span wicket:id="labelBreadcrump"></span></li>
+			</ul>
+		</div>
+
+		<script type="text/javascript" src="js/mj.js"></script>
+
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados do Kit</h3>
+			</div>
+			<div class="box-body">
+				<div wicket:id="panelNomeKit">
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-offset-1 control-label" for="nomeKit"> <span class="obrigatorio">*</span> Nome do Kit
+						</label>
+						<div class="col-sm-5">
+							<input id="nomeKit" type="text" placeholder="Nome do Kit" class="form-control mask-processo" wicket:id="nomeKit" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-offset-1 control-label" for="comment"> <span class="obrigatorio">*</span> Descrição
+						</label>
+						<div class="col-sm-5">
+							<textarea class="form-control" rows="5" id="comment" wicket:id="descricao" placeholder="Descrição"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-offset-1 control-label" for="nomeKit"> <span class="obrigatorio">*</span> Valor Estimado
+						</label>
+						<div class="col-sm-2">
+							<input id="nomeKit" type="text" placeholder="Valor" class="form-control mask-processo" wicket:id="valorEstimado" readonly />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Adicionar Bem</h3>
+			</div>
+			<div class="box-body">
+				<form id="form2" wicket:id="formBem">
+					<div wicket:id="panelAdicionarBem">
+						<script>
+							$(document).ready(function() {
+								$(".js-example-basic-single").select2();
+							});		
+						</script>
+
+						<section id="responsive">
+							<div class="form-group">
+								<label class="col-sm-2 col-sm-offset-1 control-label" for="dropCategoria"><span class="obrigatorio">*</span> Elemento</label>
+								<div class="col-sm-4">
+									<select class="js-example-basic-single" wicket:id="elemento" style="width: 100%">
+										<option>Selecione...</option>
+									</select>
+								</div>
+								<button wicket:id="btnPesquisar" title="Pesquisa" id="btnPesquisar" class="btn btn-primary btn-sm">
+									<i class="fa fa-search"></i> Pesquisa
+								</button>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-2 col-sm-offset-1 control-label" for="subelementoSelect"> <span class="obrigatorio">*</span> Subelemento
+								</label>
+								<div class="col-sm-5">
+									<select class="js-example-basic-single" wicket:id="subElemento" style="width: 100%">
+										<option>Selecione...</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-sm-offset-1 control-label" for="bem"> <span class="obrigatorio">*</span> Bem
+								</label>
+								<div class="col-sm-5">
+									<select class="js-example-basic-single" wicket:id="bem" style="width: 100%">
+										<option>Selecione...</option>
+									</select>
+								</div>
+							</div>
+						</section>
+					</div>
+
+					<div wicket:id="panelQuantidade">
+						<label class="col-sm-2 col-sm-offset-1 control-label" for="nomeKit"> <span class="obrigatorio">*</span> Quantidade
+						</label>
+						<div class="form-group">
+							<div class="col-sm-2">
+								<input id="nomeKit" type="text" placeholder="Quantidade de Bens" class="form-control mask-processo" wicket:id="quantidade"
+									onkeypress='return somenteNumero(event)' />
+							</div>
+							<button title="Adicionar Bem ao Kit" class="btn btn-success btn-sm" wicket:id="btnAdicionar" id="btnAdicionar">
+								<i class="fa fa-plus"></i>
+							</button>
+
+							<button title="Salvar Alteração" class="btn btn-success btn-sm" wicket:id="btnSalvarEdicao" id="btnSalvarEdicao">
+								<i class="fa fa-floppy-o"></i>
+							</button>
+
+							<button title="Cancelar Edição do Kit" class="btn btn-warning btn-sm" wicket:id="btnCancelarEdicao" id="btnCancelarEdicao">
+								<i class="fa fa-undo"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="box box-primary">
+			<div class="box-body" wicket:id="panelDataView">
+
+				<table class="table table-hover table-striped">
+					<thead>
+						<tr>
+							<th class="hidden-xs">Elemento</th>
+							<th class="hidden-xs">Subelemento</th>
+							<th>Bem</th>
+							<th>Quantidade</th>
+							<th>Valor Estimado</th>
+							<th style="width: 95px;">Ação</th>
+						</tr>
+					</thead>
+					<tbody wicket:id="dataBensAdicionados">
+						<tr>
+							<td class="hidden-xs"><span wicket:id="nomeElemento"></span></td>
+							<td class="hidden-xs"><span wicket:id="nomeSubElemento"></span></td>
+							<td><span wicket:id="nomeBem"></span></td>
+							<td><span wicket:id="quantidade"></span></td>
+							<td><span wicket:id="valorEstimadoData"></span></td>
+							<td>
+								<button class="btn btn-info btn-sm" wicket:id="btnEditar" title="Editar Bem">
+									<i class="fa fa-pencil fa-fw"></i>
+								</button>
+								<button wicket:id="btnExcluir" title="Excluir Bem" class="btn btn-danger btn-sm">
+									<i class="fa fa-minus"></i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="panel-footer">
+					<div wicket:id="paginator"></div>
+				</div>
+			</div>
+
+		</div>
+		<br /> <br />
+
+		<div class="box-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right">
+				<div>
+					<button id="btnConfirmar" class="btn btn-success btn-sm" wicket:id="btnConfirmar" title="Salvar Kit">
+						<i class="fa fa-floppy-o"></i> Confirmar
+					</button>
+
+					<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+						<i class="fa fa-undo"></i> Voltar
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

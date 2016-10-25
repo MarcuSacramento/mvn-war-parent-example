@@ -1,0 +1,45 @@
+<wicket:extend>
+	<form class="form-horizontal" wicket:id="form">
+		
+			<wicket:container wicket:id="panelFasePrograma"/>
+			<br />
+			<div class="alert alert-danger" role="alert" wicket:id="containerAlert"><span wicket:id="msgAlerta"></span></div>
+	
+		<div>	
+			<div wicket:id="panelAbas">
+			  	<!-- Nav tabs -->
+			  	<ul class="nav nav-tabs" role="tablist">
+			  		<li wicket:id="abaElegibilidade"><a wicket:id="btnElegibilidade" aria-controls="elegibilidade" role="tab" data-toggle="tab">Análise de Elegibilidade</a></li>
+			    	<li wicket:id="abaClassificacao"><a wicket:id="btnClassificados" aria-controls="classificacao" role="tab" data-toggle="tab">Análise de Classificação</a></li>
+			  	</ul>
+		  	</div>
+			<div class="tab-content">	
+				<!-- ABA DE ELEGIBILIDADE -->
+				<div role="tabpanel" class="tab-pane" id="abaElegibilidade" wicket:id="panelAbaElegibilidade">
+					<br />
+					<wicket:container wicket:id="panelPropostas"/>
+			    </div>
+			    
+			    <!-- ABA DE CLASSIFICAÇÃO -->
+			    <div role="tabpanel" class="tab-pane" id="abaClassificacao" wicket:id="panelAbaClassificacao">
+			    	<br />
+					<wicket:container wicket:id="panelPropostasClassificacao"/>
+			    </div>
+		    </div> <!-- final das abas -->
+	    </div>
+	    <br />
+	</form>
+	
+	<script type="text/javascript">
+ 
+
+	 function mostrarAba(id){
+		 document.getElementById(id).className = "tab-pane active";
+	 }
+
+	 function ocultarAba(id){
+		 document.getElementById(id).className = "tab-pane";
+	}
+
+</script>	
+</wicket:extend>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form class="form-horizontal" wicket:id="form">
+
+		<wicket:container wicket:id="panelFasePrograma" />
+
+		<div id="paginaPrograma">
+
+			<div wicket:id="panelLis">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist" style="background: #fff">
+					<li wicket:id="infoGerais"><a wicket:id="btn-infoGerais" aria-controls="infoGerais" role="tab" data-toggle="tab"> <i wicket:id="lblInfo"></i>Definições
+					</a></li>
+					<li wicket:id="recursoFinanceiro"><a wicket:id="btn-recursoFinanceiro" href="#recursoFinanceiro" aria-controls="recursoFinanceiro" role="tab" data-toggle="tab"><i
+							wicket:id="lblRecurso"></i>Recurso</a></li>
+					<li wicket:id="potenciaisBeneficiarios"><a wicket:id="btn-potenciaisBeneficiarios" aria-controls="potenciaisBeneficiarios" role="tab" data-toggle="tab"><i
+							wicket:id="lblBeneficiarios"></i>Beneficiários</a></li>
+					<li wicket:id="vincularBemKit"><a wicket:id="btn-vincularBemKit" aria-controls="potenciaisBeneficiarios" role="tab" data-toggle="tab"><i wicket:id="lblVincular"></i>Bem / Kit</a></li>
+					<li wicket:id="criteriosElegibilidade"><a wicket:id="btn-criteriosElegibilidade" aria-controls="criteriosElegibilidade" role="tab" data-toggle="tab"><i
+							wicket:id="lblElegibilidade"></i>Elegibilidade</a></li>
+					<li wicket:id="criteriosAvaliacao"><a wicket:id="btn-criteriosAvaliacao" aria-controls="criteriosAvaliacao" role="tab" data-toggle="tab"><i wicket:id="lblAvaliacao"></i>Avaliação</a></li>
+					<li wicket:id="criteriosAcompanhamento"><a wicket:id="btn-criteriosAcompanhamento" aria-controls="criteriosAcompanhamento" role="tab" data-toggle="tab"><i
+							wicket:id="lblAcompanhamento"></i>Acompanhamento</a></li>
+					<li wicket:id="anexos"><a wicket:id="btn-anexos" aria-controls="anexos" role="tab" data-toggle="tab"><i wicket:id="lblAnexos"></i>Anexos</a></li>
+					<li wicket:id="historico"><a wicket:id="btn-historico" aria-controls="historico" role="tab" data-toggle="tab"><i wicket:id="lblHistorico"></i>Histórico</a></li>
+				</ul>
+			</div>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+
+				<!-- ABA PANEL INFORMAÇÕES GERAIS -->
+				<div role="tabpanel" class="tab-pane active" id="infoGerais-aba">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+						</label>
+						<div class="col-sm-6 feedbackPanelERROR" wicket:id="lblAvisoInformacoesGerais"></div>
+					</div>
+					<div class="box box-primary" style="margin-left: 10px; margin-right: 10px;">
+						<div class="box-header with-border">
+							<h3 class="box-title">Informações Gerais</h3>
+						</div>
+						<div class="box-body">
+							<wicket:container wicket:id="panelInformacoesGerais" />
+						</div>
+					</div>
+				</div>
+
+
+				<!-- ABA PANEL RECURSOS FINANCEIROS -->
+				<div role="tabpanel" class="tab-pane" id="recursoFinanceiro-aba">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+						</label>
+						<div class="col-sm-6 feedbackPanelERROR" wicket:id="lblAvisoRecurso"></div>
+					</div>
+					<div class="box box-primary" style="margin-left: 10px; margin-right: 10px;">
+						<div class="box-header with-border">
+							<h3 class="box-title">Recurso Financeiro</h3>
+						</div>
+						<div class="box-body">
+							<div wicket:id="recursoFinanceiroPanel"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ABA PANEL POTÊNCIAIS BENEFICIARIOS -->
+				<div role="tabpanel" class="tab-pane" id="potenciaisBeneficiarios-aba">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+						</label>
+						<div class="col-sm-6 feedbackPanelERROR" wicket:id="lblAvisoBeneficiarios"></div>
+					</div>
+					<wicket:container wicket:id="panelPotenciaisBeneficiarios" />
+				</div>
+
+				<!-- ABA PANEL VINCULAR BEM / KIT -->
+				<div role="tabpanel" class="tab-pane" id="vincularBemKit-aba">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+						</label>
+						<div class="col-sm-6 feedbackPanelERROR" wicket:id="lblAvisoVincular"></div>
+					</div>
+					<wicket:container wicket:id="panelVincularBemKit" />
+				</div>
+
+				<!-- ABA PANEL CRITÉRIOS DE ELEGIBILIDADE -->
+				<div role="tabpanel" class="tab-pane" id="criteriosElegibilidade-aba">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+						</label>
+						<div class="col-sm-6 feedbackPanelERROR" wicket:id="lblAvisoElegibilidade"></div>
+					</div>
+					<wicket:container wicket:id="panelCriterioElegibilidade" />
+				</div>
+
+				<!-- ABA PANEL CRITÉRIOS DE AVALIAÇÃO -->
+				<div role="tabpanel" class="tab-pane" id="criteriosAvaliacao-aba">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+						</label>
+						<div class="col-sm-6 feedbackPanelERROR" wicket:id="lblAvisoAvaliacao"></div>
+					</div>
+					<div wicket:id="panelCriterioAvaliacao"></div>
+				</div>
+
+				<!-- ABA PANEL CRITÉRIOS DE ACOMPANHAMENTO -->
+				<div role="tabpanel" class="tab-pane" id="criteriosAcompanhamento-aba">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+						</label>
+						<div class="col-sm-6 feedbackPanelERROR" wicket:id="lblAvisoAcompanhamento"></div>
+					</div>
+					<wicket:container wicket:id="panelCriterioAcompanhamento" />
+				</div>
+
+				<!-- ABA PANEL ANEXOS -->
+				<div role="tabpanel" class="tab-pane" id="anexos-aba">
+					<br /> <br />
+					<wicket:container wicket:id="panelAnexoPagePrograma" />
+					<div wicket:id="programaAnexosPublicadosPanel"></div>
+				</div>
+
+				<!-- ABA PANEL HISTÓRICO -->
+				<div role="tabpanel" class="tab-pane" id="historico-aba">
+					<br /> <br />
+					<div wicket:id="historicoPanel"></div>
+				</div>
+
+			</div>
+			<!-- final da div com o conteúdo das abas -->
+		</div>
+		<!-- final da div das abas gerasi -->
+		<br />
+		<div class="pull-right" wicket:id="panelBotoesAvancar">
+			<div>
+				<button class="btn btn-default btn-sm" title="Anterior" wicket:id="btnAnterior">
+					<i class="fa fa-backward"></i> Anterior
+				</button>
+				<button class="btn btn-default btn-sm" title="Próximo" wicket:id="btnProximo">
+					Próximo <i class="fa fa-forward"></i>
+				</button>
+			</div>
+		</div>
+
+
+		<br /> <br />
+		<div>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span wicket:id="lblUsuario"></span>
+		</div>
+		<br /> <br />
+
+		<div class="panel-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right" wicket:id="panelBotoes">
+				<div>
+					<button class="btn btn-success btn-sm" title="Salvar Programa" wicket:id="btnSalvarPrograma">
+						<i class="fa fa-floppy-o"></i> Salvar
+					</button>
+
+					<button class="btn btn-primary btn-sm" title="Concluir Programa" wicket:id="btnFinalizarPrograma">
+						<i class="fa fa-floppy-o"></i> Concluir
+					</button>
+
+					<button wicket:id="btnPdf" class="btn btn-success btn-sm" title="Gerar PDF">
+						<i class="fa fa-file-pdf-o"></i> Gerar PDF
+					</button>
+					<button title="Voltar" class="btn btn-warning btn-sm" wicket:id="btnVoltar">
+						<i class="fa fa-undo"></i>Voltar
+					</button>
+				</div>
+			</div>
+		</div>
+		<div wicket:id="modalAvisoSalvarFinalizar"></div>
+	</form>
+
+	<script type="text/javascript">
+ 
+
+	 function mostrarAba(id){
+		 document.getElementById(id).className = "tab-pane active";
+	 }
+
+	 function ocultarAba(id){
+		 document.getElementById(id).className = "tab-pane";
+	}
+
+</script>
+
+</wicket:extend>

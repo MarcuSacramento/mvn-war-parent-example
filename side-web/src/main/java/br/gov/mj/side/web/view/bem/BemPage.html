@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form wicket:id="form" class="form-horizontal">
+	    <div class="pull-right">
+			<a wicket:id="btnAdicionarNovo" title="Cadastrar novo Bem" id="btnAdicionarNovo" class="btn btn-primary btn-sm"><i class="fa fa-file-o"></i> Novo Bem</a>
+		</div>
+		<div class="">
+			<ul class="breadcrumb">
+				<li><a href="#" wicket:id="lnkDashboard">Dashboard</a></li>
+				<li><a wicket:id="lnkBemPesquisaPage">Pesquisar Bens</a></li>
+				<li class="active"><span wicket:id="lblNomePage"></span></li>
+			</ul>
+		</div>
+
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados do Bem</h3>
+			</div>
+			<div class="box-body">
+				<div wicket:id="panelBem">
+					<div class="form-group">
+						<label for="nome" class="col-sm-2 col-sm-offset-1 control-label"><span class="obrigatorio">*</span> Nome</label>
+						<div class="col-sm-5">
+							<input wicket:id="nomeBem" id="nome" type="text" class="form-control" tabindex="1" placeholder="Nome" />
+						</div>
+					</div>
+					<div wicket:id="panelSubelemento">
+						<div class="form-group">
+							<label for="elemento" class="col-sm-2 col-sm-offset-1 control-label"><span class="obrigatorio">*</span> Elemento</label>
+							<div class="col-sm-5">
+								<select class="basic-single" wicket:id="elemento" id="elemento" style="width: 100%" tabindex="2"></select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="subelemento" class="col-sm-2 col-sm-offset-1 control-label"><span class="obrigatorio">*</span> Subelemento</label>
+							<div class="col-sm-5">
+								<select class="basic-single" wicket:id="subElemento" id="subelemento" style="width: 100%" tabindex="3"></select>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="descricaoBem" class="col-sm-2 col-sm-offset-1 control-label"> <span class="obrigatorio">*</span>Descrição
+						</label>
+						<div class="col-sm-5">
+							<textarea wicket:id="descricaoBem" id="descricaoBem" class="form-control" tabindex="4" rows="5" placeholder="Descrição"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="valorEstimadoBem" class="col-sm-2 col-sm-offset-1 control-label"><span class="obrigatorio">*</span> Valor estimado</label>
+						<div class="col-sm-2">
+							<input wicket:id="valorEstimadoBem" id="valorEstimadoBem" type="text" class="mask-money form-control" tabindex="5" placeholder="R$ 0,00" />
+						</div>
+
+						<label for="mes" class="col-sm-1 control-label"><span class="obrigatorio">*</span> Data Estimativa</label>
+						<div class="col-sm-1">
+							<select wicket:id="mes" id="mes" class="basic-single" style="width: 100%" tabindex="6"></select>
+						</div>
+
+						<div class="col-sm-1">
+							<select wicket:id="ano" id="ano" class="basic-single" style="width: 100%" tabindex="6"></select>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<label for="txtCatmat" class="col-sm-2 col-sm-offset-1 control-label">CATMAT</label>
+						<div class="col-sm-2">
+							<input wicket:id=nomeCatmat id="txtCatmat" type="text" class="form-control" tabindex="1" placeholder="CATMAT" />
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div wicket:id="panelAtributos" class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Atributos</h3>
+					</div>
+
+					<div class="form-group">
+					
+						<label class="col-sm-3 control-label"> <span
+							class="obrigatorio"></span>
+						</label>
+						<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagem"></div>
+					</div>
+
+					<div class="box-body">
+						<form wicket:id="formAtributo" id="formAtributo" class="form-inline">
+							<div class="alert alert-warning">
+								<p class="text-justify">
+									<span wicket:id="msgInformativa" class="small"></span>
+								</p>
+							</div>
+
+							<div class="form-group">
+								<label for="nomeTag" class="col-sm-3">Nome</label>
+								<div class="col-sm-4">
+									<input wicket:id="tagBem.nomeTag" id="tagBem.nomeTag" type="text" class="form-control" placeholder="Nome" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="valorTag" class="col-sm-3 col-sm-offset-1">Valor</label>
+								<div class="col-sm-4">
+									<input wicket:id="tagBem.valorTag" id="tagBem.valorTag" type="text" class="form-control" placeholder="Valor" />
+								</div>
+							</div>
+							<button type="submit" wicket:id="btnAdicionarAtributo" title="Adicionar atributo" class="col-sm-offset-1 btn btn-success btn-sm">
+								<i class="fa fa-plus"></i>
+							</button>
+						</form>
+						<br />
+						<table class="table table-hover ">
+							<thead>
+								<tr>
+									<th>Nome do Atributo</th>
+									<th>Valor</th>
+									<th>Ação</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr wicket:id="atributos">
+									<td><span wicket:id="nomeTag"></span></td>
+									<td><span wicket:id="valorTag"></span></td>
+									<td>
+										<button wicket:id="btnExcluirAtributo" title="Excluir" class="btn btn-danger btn-sm">
+											<i class="fa fa-minus"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+				<div wicket:id="panelAnexos" class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Anexos</h3>
+					</div>
+					<div class="box-body">
+						<form wicket:id="formUpload" id="formUpload" class="form-inline">
+
+							<div class="col-sm-8">
+								<input wicket:id="fileInput" type="file" />
+							</div>
+							<button wicket:id=btnAdicionarAnexo title="Adicionar anexo" class="btn btn-success btn-sm">
+								<i class="fa fa-plus"></i>
+							</button>
+
+							<div class="col-sm-12">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th>Nome do Arquivo</th>
+											<th>Tamanho (MB)</th>
+											<th>Ação</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr wicket:id="anexos">
+											<td><span wicket:id="nomeAnexo"></span></td>
+											<td><span wicket:id="tamanhoArquivoEmMB"></span></td>
+											<td style="width: 100px;">
+												<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm">
+													<i class="fa fa-download"></i>
+												</button>
+												<button wicket:id="btnExcluirAnexo" title="Excluir" class="btn btn-danger btn-sm">
+													<i class="fa fa-minus"></i>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Histórico de Valores Estimados</h3>
+					</div>
+					<div class="box-body">
+						<table class="table table-hover ">
+							<thead>
+								<tr>
+									<th>Valor Estimado</th>
+									<th>Data Estimada</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr wicket:id="historicoValorBem">
+									<td><span wicket:id="valorEstimadoHistorico"></span></td>
+									<td><span wicket:id="dataEstimativaHistorico"></span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="panel-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right">
+				<button wicket:id="btnConfirmar" title="Salvar Bem" class="btn btn-success btn-sm">
+					<i class="fa fa-floppy-o"></i> Confirmar
+				</button>
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i> Voltar
+				</button>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

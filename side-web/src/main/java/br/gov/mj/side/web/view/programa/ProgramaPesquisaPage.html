@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<script>
+		$(document).ready(function() {
+			$(".js-example-basic-single").select2();
+		});
+
+		$(document).ready(function() { 
+			 $(".basic-multiple").select2();
+		});
+	</script>
+
+	<style>
+		.close {
+			display: none;
+		}
+	</style>
+
+	<form id="formulario" class="form-horizontal" wicket:id="form">
+		<div class="pull-right">
+			<a wicket:id="btnNovo" title="Cadastrar novo Programa" id="btnNovo" class="btn btn-primary btn-sm"> <i class="fa fa-file-o"></i> Novo Programa
+			</a>
+		</div>
+
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="">Dashboard</a></li>
+				<li class="active">Pesquisar Programa</li>
+			</ul>
+		</div>
+
+		<div class="box box-primary collapsed-box">
+			<div class="box-header with-border ui-sortable-handle" style="cursor: move;">
+				<!-- tools box -->
+				<div class="pull-right box-tools">
+					<button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="" style="margin-right: 5px;" data-original-title="Abrir / Fechar formulário de pesquisa">
+						<i class="fa fa-plus"></i>
+					</button>
+				</div>
+				<!-- /. tools -->
+				<i class="fa fa-search"></i>
+				<h3 class="box-title">Filtros de Pesquisa</h3>
+			</div>
+			<div class="box-body">
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="codigo">Código</label>
+					<div class="col-sm-2">
+						<input type="text" wicket:id="programa.id" placeholder="Código" class="form-control" id="codigo" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="nome">Nome</label>
+					<div class="col-sm-6">
+						<input type="text" wicket:id="programa.nomePrograma" placeholder="Nome" class="form-control" id="nome">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="nomeFantasia">Nome Fantasia</label>
+					<div class="col-sm-6">
+						<input type="text" wicket:id="programa.nomeFantasiaPrograma" placeholder="Nome Fantasia" class="form-control" id="nomeFantasia">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="ano">Ano </label>
+					<div class="col-sm-1">
+						<input wicket:id="programa.anoPrograma" id="ano" type="text" placeholder="Ano" class="form-control" />
+						<p class="help-block">Formato:AAAA</p>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="orgao">Órgão </label>
+					<div class="col-sm-6">
+						<select wicket:id="programa.unidadeExecutora.orgao" class="js-example-basic-single" style="width: 100%;" id="orgao"></select>
+					</div>
+				</div>
+
+				<div class="form-group" wicket:id="unidadeExecutoraContainer">
+					<label class="col-sm-3 control-label" for="unidadeExecutora">Unidade Executora</label>
+					<div class="col-sm-6">
+						<select wicket:id="programa.unidadeExecutora" class="js-example-basic-single" style="width: 100%;" id="unidadeExecutora"></select>
+					</div>
+					<script>
+						$(document).ready(function() { 
+							 $("#unidadeExecutora").select2();
+						});
+					</script>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="limitacaoGeografica">Limitação Geográfica</label>
+					<div class="col-sm-4">
+						<select wicket:id="programa.possuiLimitacaoGeografica" class="js-example-basic-single" style="width: 100%;" id="limitacaoGeografica"></select>
+					</div>
+				</div>
+
+				<div class="form-group" wicket:id="ufContainer">
+					<label class="col-sm-3 control-label" for="uf">UF </label>
+					<div class="col-sm-6">
+						<select wicket:id="listaUf" class="basic-multiple" style="width: 100%" multiple="multiple" id="uf"></select>
+					</div>
+					<script>
+						$(document).ready(function() { 
+							 $("#uf").select2();
+						});
+					</script>
+				</div>
+
+				<div class="form-group" wicket:id="municipioContainer">
+					<label class="col-sm-3 control-label" for="municipio">Município </label>
+					<div class="col-sm-6">
+						<select wicket:id="ListaMunicipio" class="js-example-basic-single" style="width: 100%" multiple="multiple" id="municipio">
+						</select>
+					</div>
+					<script>
+						$(document).ready(function() { 
+							 $("#municipio").select2();
+						});
+					</script>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="emendaParlamentar">Emenda Parlamentar</label>
+					<div class="col-sm-6">
+						<select wicket:id="emendaParlamentar" class="js-example-basic-single" style="width: 100%;" id="emendaParlamentar"></select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="acaoOrcamentaria">Ação Orçamentária</label>
+					<div class="col-sm-6">
+						<select wicket:id="acaoOrcamentaria" class="js-example-basic-single" style="width: 100%;" id="acaoOrcamentaria"></select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="elemento">Elemento</label>
+					<div class="col-sm-6">
+						<select wicket:id="elemento" class="js-example-basic-single" style="width: 100%;" id="elemento"></select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="numeroProcessoSei">Nº do Processo SEI</label>
+					<div class="col-sm-3">
+						<input type="text" wicket:id="programa.numeroProcessoSEI" placeholder="Nº SEI" class="form-control mask-numero-sei" id="numeroProcessoSei" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="statusPrograma">Status </label>
+					<div class="col-sm-6">
+						<select wicket:id="programa.statusPrograma" class="js-example-basic-single" style="width: 100%;" id="statusPrograma"></select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label"></label>
+					<div class="col-sm-5">
+						<button type="submit" wicket:id="btnPesquisar" title="Pesquisar" class="btn btn-success btn-sm">
+							<i class="fa fa-search"></i>Pesquisar
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="box box-primary" wicket:id="panelGridResultados">
+			<div class="box-header with-border">
+				<span>Lista de Programas</span>
+				<div class="pull-right mj_botoes_acao_tabela">
+					Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPagina" id="itensPorPagina" title="Número de registros por página"></select>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th wicket:id="orderByCodigo">Código</th>
+								<th wicket:id="orderByNomePrograma">Nome</th>
+								<th wicket:id="orderByNumeroProcessoSEI">Nº do Processo</th>
+								<th wicket:id="orderByStatusPrograma">Status</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="programas">
+								<td><span wicket:id="id"></span></td>
+								<td><span wicket:id="nomePrograma"></span></td>
+								<td><span wicket:id="numeroProcessoSEI"></span></td>
+								<td><span wicket:id="statusPrograma.descricao"></span></td>
+								<td>
+									<a wicket:id="btnVisualizar" class="btn btn btn-primary btn-sm" title="Gerenciar Programa">
+										<i class="fa fa-cogs"></i>
+									</a>
+									<button wicket:id="btnPdf" class="btn btn btn-success btn-sm" title="Gerar PDF">
+										<i class="fa fa-file-pdf-o"></i>
+									</button>
+									<button wicket:id="btnExcluir" title="Excluir" class="btn btn btn-danger btn-sm">
+										<i class="fa fa-trash-o"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="box-footer">
+					<div class="pull-left">
+						<button wicket:id="btnExportarCsv" title="Exportar para CSV" class="btn btn-success btn-sm">
+							<i class="fa fa-file-text-o"></i> Exportar CSV
+						</button>
+						&nbsp;&nbsp;
+					</div>
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+
+		<div wicket:id="modalConfirmUf"></div>
+
+	</form>
+</wicket:extend>

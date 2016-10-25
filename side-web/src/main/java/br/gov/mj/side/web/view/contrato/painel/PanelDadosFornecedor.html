@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<!-- FORNECEDOR -->
+	<div class="form-group" wicket:id="panelInformacoesFornecedor">
+		<div class="row">
+			<label class="col-sm-3 control-label" for="fornecedor">* CNPJ Fornecedor</label>
+			<div class="col-sm-3">
+				<select class="basic-single" wicket:id="dropDownFornecedor" id="dropDownFornecedor" style="width: 100%"></select>
+			</div>
+		</div>
+	</div>
+
+	<div wicket:id="panelDadosDoFornecedorEscolhido">
+
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="numero">Razão Social</label>
+				<div class="col-sm-3">
+					<input wicket:id="razaoSocial" type="text" class="form-control" placeholder="Razão social">
+				</div>
+				<label class="col-sm-1 control-label" for="dropDownEstado">Estado</label>
+				<div class="col-sm-3">
+					<select wicket:id="dropDownEstado" id="dropDownEstado" class="basic-single" style="width: 100%"></select>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="row">
+				<label class="col-sm-3 control-label" for="contato">Contato</label>
+				<div class="col-sm-3">
+					<input id="contato" type="text" class="form-control" wicket:id="contato" placeholder="Contato">
+				</div>
+				<label class="col-sm-1 control-label" for="telefone">Telefone</label>
+				<div class="col-sm-3">
+					<input type="text" placeholder="Telefone" class="form-control mask-telefone" wicket:id="telefoneFornecedor" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- PANEL PARA ADICIONAR REPRESENTANTE -->
+	<div style="padding: 10px;">
+		<div class="panel panel-default" style="margin-left: 10px; margin-right: 10px;">
+			<div class="panel-body">
+				<div class="form-group" wicket:id="panelDropRepresentante">
+
+					<div class="row">
+						<label class="col-sm-3 control-label" for="contato">* Representante Legal Fornecedor</label>
+						<div class="col-sm-3">
+							<select wicket:id="dropDownRepresentante" id="dropDownRepresentante" class="basic-single" style="width: 100%"></select>
+						</div>
+						<label class="col-sm-1 control-label" for="telefone"></label>
+						<div class="col-sm-3">
+							<button title="Cadastrar Novo Representante" class="btn btn-primary btn-sm" wicket:id="btnAdicionarRepresentante">
+								<i class="fa fa-file-o"></i> Cadastrar Novo Representante
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- PANEL PARA ADICIONAR PREPOSTO -->
+	<div style="padding: 10px;">
+		<div class="panel panel-default" style="margin-left: 10px; margin-right: 10px;">
+			<div class="panel-body">
+				<div class="form-group" wicket:id="panelDropPreposto">
+
+					<div class="row">
+						<label class="col-sm-3 control-label" for="fornecedor">* Preposto Fornecedor</label>
+						<div class="col-sm-3">
+							<select wicket:id="dropDownPreposto" id="dropDownPreposto" class="basic-single" style="width: 100%"></select>
+						</div>
+						<label class="col-sm-1 control-label" for="telefone"></label>
+						<div class="col-sm-3">
+							<button title="Cadastrar Novo Preposto" class="btn btn-primary btn-sm" wicket:id="btnAdicionarPreposto">
+								<i class="fa fa-file-o"></i> Cadastrar Novo Preposto
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</wicket:panel>

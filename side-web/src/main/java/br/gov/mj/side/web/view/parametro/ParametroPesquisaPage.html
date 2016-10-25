@@ -1,0 +1,56 @@
+<wicket:extend>
+
+
+<!-- INCOMPLETO -->
+
+	<form wicket:id="form" class="form-horizontal">
+
+
+		<div class="pull-right">
+			<a wicket:id="btnAdicionarNovo" title="Cadastrar novo Par�metro" id="btnAdicionarNovo" class="btn btn-primary btn-sm"><i class="fa fa-file-o"></i>Novo Parametro</a>
+		</div>
+
+		<div>
+			<ul class="breadcrumb">
+				<li><a wicked:id="lnkDashboard">Dashboard</a></li>
+				<li class="active">Pesquisar Parâmetros</li>
+			</ul>
+		</div>
+
+		<div>
+			<div class="form-group">
+				<label for="sigla" class="col-sm-2 control-label">Sigla</label>
+				<div class="col-sm-5">
+					<input wicket:id="siglaParametro" id="sigla" type="text" class="form-control input-sm" tabindex="1" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="valor" class="col-sm-2 control-label">Valor</label>
+				<div class="col-sm-5">
+					<input wicket:id="valorParametro" id="valor" type="text" class="form-control input-sm" tabindex="1" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4"></div>
+				<div class="col-sm-5">
+					<button type="submit" wicket:id="btnPesquisar" title="Pesquisar" class="btn btn-sucess btn-sm">
+						<i class="fa fa-search">Pesquisar</i>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<div wicket:id="panelGridResultados">
+				<div class="panel panel-default">
+					<span>Lista de Parâmetros</span>
+					<div class="pull-right mj_botoes_acao_tabela">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

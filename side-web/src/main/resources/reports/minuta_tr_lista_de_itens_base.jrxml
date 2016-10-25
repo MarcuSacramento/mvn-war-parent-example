@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportPaisagem" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="42" bottomMargin="42" uuid="8f85a375-c6d6-4d16-afaf-0641c15ebab7">
+	<property name="ireport.zoom" value="1.4641000000000015"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="BRASAO" class="net.sf.jasperreports.engine.Renderable"/>
+	<field name="listaDeItens" class="java.util.List"/>
+	<pageHeader>
+		<band height="143">
+			<image hAlign="Center">
+				<reportElement x="0" y="5" width="802" height="50" uuid="b7c71113-2b70-4fbb-88be-f2492c812c0f"/>
+				<imageExpression><![CDATA[$P{BRASAO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="55" width="802" height="20" uuid="0309fb92-ae9d-4aad-b8e6-e00ad3111b23"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Ministério da Justiça]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="75" width="802" height="22" uuid="0634d969-b7ab-4a41-9f75-ddd9a8bb7628"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Termo de Referência]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="97" width="800" height="22" uuid="3de94737-309e-4a32-90fe-13b4b020212e"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[SEAL/DIMAP/COSEG/CGMA/SPOA/SE
+
+SEAL/DIMAP/COSEG/CGMA/SPOA/SE
+
+
+SEAL/DIMAP/COSEG/CGMA/SPOA/SE
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="527" height="26" uuid="f33ab3d3-4fb1-43c2-89f4-8a1847b3b4a9"/>
+				<box topPadding="3" bottomPadding="1"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[ANEXO II - ITENS E QUANTIDADES]]></text>
+			</staticText>
+		</band>
+		<band height="31">
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="794" height="20" isPrintWhenDetailOverflows="true" uuid="54b499c6-573e-4d0f-9133-d28905c60932"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaDeItens})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "minuta_termo_referencia_lista_de_itens.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

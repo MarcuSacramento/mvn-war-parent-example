@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<style>
+#imagePreview {
+	height: 215px !important;
+	background-position: center center !important;
+	background-size: cover !important;
+	display: inline-block !important;
+	margin-left: 9.5% !important;
+	margin-bottom: 30px !important;
+}
+
+@media ( max-width : 585px ) {
+	#imagePreview {
+		height: 215px !important;
+		background-position: center center !important;
+		background-size: cover !important;
+		display: inline-block !important;
+		margin-left: 9.5% !important;
+		margin-bottom: 30px !important;
+	}
+	.div-input-alfanumerico {
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+	}
+	.div-painel {
+		padding: 0px !important;
+	}
+	.div-botoes-avancar-recuar {
+		padding-top: 20px !important;
+		padding-bottom: 10px !important;
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+	}
+	.input-anexo {
+		margin-left: 0px !important;
+		width: 100%;
+	}
+	.img-foto {
+		margin-left: 25px !important;
+		margin-top: 5px !important;
+	}
+	.titulo-quesito {
+		font-size: 16px !important;
+		font-weight: bold !important;
+	}
+	.label-orientacao-fornecedor {
+		font-size: 15px !important;
+		font-weight: normal !important;
+	}
+	.input-data {
+		width: 90% !important;
+	}
+	.inputs {
+		margin-left: 8px !important;
+	}
+}
+
+@media ( max-width : 767px ) {
+	#imagePreview {
+		height: 215px !important;
+		background-position: center center !important;
+		background-size: cover !important;
+		display: inline-block !important;
+		margin-left: 9.5% !important;
+		margin-bottom: 30px !important;
+	}
+	.div-botoes-avancar-recuar {
+		padding-top: 20px !important;
+		padding-bottom: 10px !important;
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+	}
+	.input-anexo {
+		left: -1px !important;
+		padding-top: 5px !important;
+	}
+	.img-foto {
+		margin-left: 25px !important;
+		margin-top: 5px !important;
+	}
+	.label-identificador-unico {
+		padding: 10px !important;
+		padding-left: 0px !important;
+		padding-bottom: 0px !important;
+		margin-left: 0px !important;
+		font-size: 15px !important;
+		font-weight: normal !important;
+	}
+	.titulo-quesito {
+		font-size: 16px !important;
+		font-weight: bold !important;
+	}
+	.input-data {
+		width: 90% !important;
+	}
+}
+
+@media ( max-width : 1056px ) {
+	#imagePreview {
+		height: 215px !important;
+		background-position: center center !important;
+		background-size: cover !important;
+		display: inline-block !important;
+		margin-left: 9.5% !important;
+		margin-bottom: 30px !important;
+	}
+	.img-foto {
+		margin-left: 25px !important;
+		margin-top: 5px !important;
+		padding-left: 0px !important;
+	}
+	.label-identificador-unico {
+		padding: 10px !important;
+		padding-left: 0px !important;
+		padding-bottom: 0px !important;
+		margin-left: 0px !important;
+		font-size: 15px !important;
+		font-weight: normal !important;
+	}
+	.titulo-quesito {
+		font-size: 16px !important;
+		font-weight: bold !important;
+	}
+	.input-data {
+		width: 90% !important;
+	}
+}
+</style>
+
+	<form id="formulario" wicket:id="form" class="form-horizontal">
+	
+		<!-- BREADCRUMB (NAVEGACAO) -->
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="#" wicket:id="lnkPainelDashboard">Dashboard</a></li>
+				<li><a href="" wicket:id="lnkPainelPesquisarItemBackPage">Pesquisar Item</a></li>
+				<li class="active"><span>Inserir Patrimônio</span></li>
+			</ul>
+		</div>
+		
+		
+		<!-- Painel Pergunta -->
+		<div wicket:id="panelPergunta" class="box box-primary form-horizontal">
+		     <div class="box-header with-border" align="center">
+					<h3 class="box-title">Esse bem é patrimoniável?</h3>
+		     </div>
+		     <div class="box-body">
+		         <div align="center">
+			        <a class="btn btn-primary btn-sm" title="Sim" wicket:id="btnSim"> Sim</a>
+					<a class="btn btn-primary btn-sm" title="Não" wicket:id="btnNao"> Não</a>
+				</div>
+		     </div>
+		
+		</div>
+		
+		<!-- BOX DA DESCRICAO DO ITEM -->
+		<div class="box box-info collapsed-box box-solid" wicket:id="panelDescricao">
+			<div class="box-header with-border">
+				<h3 class="box-title">Descrição do Item</h3>
+				<div class="box-tools pull-right">
+					<button class="btn btn-box-tool" data-widget="collapse">
+						<i class="fa fa-plus"></i>
+					</button>
+				</div>
+			</div>
+			<div class="box-body">
+				<span wicket:id="txtDescricaoItem"></span>
+			</div>
+		</div>
+		
+		<div wicket:id="panelRegistarNao" class="box box-primary form-horizontal">
+			<div class="box-body">
+			      <div class="form-group">
+					<label><span class=" feedbackPanelERROR" wicket:id="mensagem"></span></label>
+					<div class="col-sm-4">
+					</div>
+			     </div>
+			     <div class="form-group">
+					<label class="col-sm-3 control-label">Item não patrimoniável. </label>
+					<div class="col-sm-4">
+					</div>
+			     </div>
+			     <div class="form-group">
+					<label class="col-sm-3 control-label">Motivo: </label>
+					<div class="col-sm-4">
+					    <textarea class="form-control" rows="5"	placeholder="Motivo*" wicket:id="descricaoMotivo" title="Escreva o MOTIVO por escolher essa ação!"></textarea><br></br>
+					</div>
+			     </div>
+			    
+			        <div class="box-footer clearfix">
+						<div class="pull-right">
+							 <a wicket:id="btnConfirmar" title="Confirmar" class="btn btn-success btn-sm"> <i class="fa fa-floppy-o"></i>Confirmar</a>
+					         <a class="btn btn-warning btn-sm" wicket:id="btnVoltar" title="Voltar"> <i class="fa fa-undo fa"></i>Voltar</a>
+						</div>
+					</div>
+			</div>
+	    </div>		
+		
+		<div wicket:id="panelRegistarSim" class="box box-primary form-horizontal">
+			<div class="box-body">
+			  <div class="form-group">
+					<label><span class=" feedbackPanelERROR" wicket:id="mensagem"></span></label>
+					<div class="col-sm-4">
+					</div>
+			     </div>
+			   <div class="form-group">
+					<label class="col-sm-3 control-label">  </label>
+					<div class="col-sm-4">
+						<span wicket:id="selecionarTipo" ></span>
+					</div>
+			   </div>
+			   
+			    <div class="form-group" wicket:id="painelNomeItem" >
+				    <label class="col-md-4 control-label" for="nomeItem">Nome do Item</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" wicket:id="nomeItem" />
+					</div>
+				</div>
+			   
+			   <div class="form-group">
+				    <label class="col-md-4 control-label" for="numeroPatrimonio">Número Patrimônio</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" wicket:id="numeroPatrimonio" />
+					</div>
+				</div>
+				
+				<div class="form-group">
+				        <!-- PREVIEW DA FOTO -->
+				        <label class="col-sm-3 control-label">  </label>
+						<div id="imagePreview" class="col-sm-4">
+							<img class="img-thumbnail img-responsive" wicket:id="imagemFoto" />
+						</div>
+                </div> 
+                <div class="form-group"> 
+                         <label class="col-sm-3 control-label">  </label>
+						<!-- RESPOSTA -->
+						<form wicket:id="formUpload" class="form-inline">
+						   
+							<div class="col-xs-offset-1 col-sm-offset-1 col-sm-3 col-xs-7">
+								<input wicket:id="fileInput" class="input-anexo" type="file" accept="image/jpeg, image/png" capture="camera">
+							</div>
+
+							<button wicket:id="btnAdicionarAnexoMobile" title="Adicionar anexo" class="btn btn-success btn-sm">
+								<span wicket:id="icoBtnAdicionarAlterar"></span>
+							</button>
+
+							<!-- LATITUDE, LONGITUDE E DATA -->
+							<input style="display: none;" wicket:id="txtLatitude" id="latitude" type="text" /> 
+							<input style="display: none;" wicket:id="txtLongitude" id="longitude" type="text" /> 
+							<input style="display: none;" wicket:id="txtDataFoto" id="dataFoto" type="text" />
+
+							<script type="text/javascript">
+											$('input:file').change(function(e) {
+											    EXIF.getData(e.target.files[0], function() {
+											    	document.querySelector('#latitude').value = EXIF.getTag(this, "GPSLatitude");
+											    	document.querySelector('#longitude').value = EXIF.getTag(this, "GPSLongitude");	    	
+											    	document.querySelector('#dataFoto').value = EXIF.getTag(this, "DateTimeOriginal");
+											    });
+											});
+								</script>
+						</form>
+				  </div>
+				<div  wicket:id="painelAddItem">
+				     <div class="form-group">
+						<div class="col-xs-offset-4 col-sm-offset-8">
+						   <a wicket:id="btnAdicionarItem" class="btn btn-success btn-sm"> <i class="fa fa-plus"></i><span wicket:id="txtBtnAdicionarAlterar"></span></a>
+						   <a wicket:id="btnCancelar" title="Cancelar" class="btn btn-warning btn-sm"><i class="fa fa-times"></i>Cancelar</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="panel" wicket:id="painelDataView">
+				      <div class="box box-primary form-horizontal">
+						  <div class="box-header with-border">
+						      <h3 class="box-title">Lista de Itens</h3>
+						      <div class="pull-right">Qtd de itens exibidos &nbsp;  <select title="Número de registros por página"  wicket:id="itensPorPagina"></select></div>
+						  </div>
+						 <div class="table-responsive">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>Nome do Item</th>
+												<th>Número Patrimônio</th>
+												<th>Ações</th>
+											</tr>
+										</thead>
+										<tbody wicket:id="listaItens">
+											<tr>
+												<td wicket:id="IdNomeItem"></td>
+												<td wicket:id="IdNumeroPatrimonio"></td>
+												<td>
+													<a class="btn btn-info btn-sm" wicket:id="btnEditar" title="Editar">
+														<i class="fa fa-pencil fa-fw"></i>
+													</a>
+												   <button wicket:id="btnExcluirAnexo" title="Excluir" class="btn btn-danger btn-sm">
+														<i class="fa fa-trash-o"></i>
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+				                    <span id="ancoraItens"></span>
+									<div class="panel-footer">
+										<div wicket:id="paginationItens"></div>
+									</div>
+							</div>
+				      </div>
+					 
+					 <div class="box-footer clearfix" >
+						<div class="pull-right">
+							 <a wicket:id="btnRegistrarMultiplo" title="Registrar" class="btn btn-success btn-sm"> <i class="fa fa-floppy-o"></i>Registrar</a>
+							   <a class="btn btn-warning btn-sm" wicket:id="btnVoltarMultiplo" title="Voltar"> <i class="fa fa-undo fa"></i>Voltar</a>
+						</div>
+					</div>
+				</div>	
+				
+			        <div class="box-footer clearfix">
+						<div class="pull-right">
+							 <a wicket:id="btnRegistrar" title="Registrar" class="btn btn-success btn-sm"> <i class="fa fa-floppy-o"></i>Registrar</a>
+					         <a class="btn btn-warning btn-sm" wicket:id="btnVoltar" title="Voltar"> <i class="fa fa-undo fa"></i>Voltar</a>
+						</div>
+					</div>
+			</div>
+		</div>
+		
+	</form>
+</wicket:extend>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportPaisagem" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="42" bottomMargin="42" isIgnorePagination="true" uuid="8f85a375-c6d6-4d16-afaf-0641c15ebab7">
+	<property name="ireport.zoom" value="1.7715610000000015"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="BRASAO" class="net.sf.jasperreports.engine.Renderable"/>
+	<field name="listaDeGrupos" class="java.util.List"/>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="3" y="0" width="527" height="26" uuid="46da38a7-99c4-436c-9013-e17d656580e0"/>
+				<box topPadding="3" bottomPadding="1"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[ANEXO I - A - ESPECIFICAÇÕES TÉCNICAS E QUANTIDADES]]></text>
+			</staticText>
+		</band>
+		<band height="26">
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="794" height="20" isPrintWhenDetailOverflows="true" uuid="b6e609b4-c0c4-4cd9-8d73-6ad98f639c40"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaDeGrupos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "minuta_termo_referencia_lista_de_grupos.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

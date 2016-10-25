@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_visualizar_programa_detalhes_beneficiarios" pageWidth="539" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="539" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="065b7df1-4024-4763-ab89-7b9f31d01d0f">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="uf" class="java.lang.String"/>
+	<field name="municipios" class="java.lang.String"/>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="148" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="0efe5303-4bf8-4994-acd0-7ef531147a1c"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="148" y="0" width="391" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="9b61890e-1e88-4d46-9ed4-800780e348d8"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="0" width="127" height="15" uuid="fd5a0b73-c5e7-4277-9e47-6ad650d0a8d1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[UF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="0" width="162" height="15" uuid="fd5b5714-0703-4d8a-8dc5-af6190638127"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Municípios]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="148" y="0" width="391" height="15" forecolor="#000000" backcolor="#FFFFFF" uuid="df2937fc-c7e4-42a8-a8dd-255b0ab5ea42"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="154" y="0" width="350" height="15" uuid="7969c5b2-d853-4dad-950c-6ff066c4f47b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{municipios}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="148" height="15" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="c56ae8b7-7eb5-4a40-8974-d975494daf38"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="5" y="0" width="127" height="15" uuid="df8e01de-fb0d-4902-84c2-7e58971e794a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{uf}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29">
+			<printWhenExpression><![CDATA[($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="129" y="7" width="272" height="15" uuid="7dbb5f0a-2b3f-493a-9e15-ed49647eaeaa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Nenhum Beneficiário adicionado a este Programa]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

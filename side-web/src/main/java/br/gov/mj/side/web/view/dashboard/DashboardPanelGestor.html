@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+
+	<style>
+.custom {
+	width: 142px; ! important;
+	height: 100px;
+}
+
+#container {
+	width: 100%;
+	text-align: left;
+}
+
+.box_local {
+	display: inline-block;
+	width: 142px;
+	height: 100px;
+	margin: 15px 10px;
+}
+</style>
+
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title">Painel do Gestor</h3>
+			<a href="javascript:void(0);" onclick="javascript:introJs().start();" title="Ajuda"><i class="fa fa-question-circle fa-lg" style="color: #49B957;"></i></a>
+		</div>
+		<br />
+
+		<div wicket:id="panelBotoesDashboard" id="container">
+
+			<div data-step="1" data-intro="Nesta seção você visualizará os bens cadastrados." data-position='right' id="box-1" class="box_local" wicket:id="btnBens">
+				<a title="Bens" id="btnBens" class="btn btn-primary btn-sm custom"> <i class="fa fa-archive fa-4x"></i><br />Bens
+				</a>
+			</div>
+
+			<div data-step="2" data-intro="Nesta seção você visualizará os kits cadastrados." data-position='right' id="box-2" class="box_local" wicket:id="btnKits">
+				<a title="Kits" id="btnKits" class="btn btn-primary btn-sm custom"><i class="fa fa-briefcase fa-4x"></i><br />Kits </a>
+			</div>
+
+			<div data-step="3" data-intro="Nesta seção você visualizará as ação orçamentária." data-position='right' id="box-3" class="box_local" wicket:id="btnAcaoOrcamentaria">
+				<a title="Ação Orçamentária" id="btnAcaoOrcamentaria" class="btn btn-primary btn-sm custom"><i class="fa fa-money fa-4x"></i><br />Ação <br />Orçamentária </a>
+			</div>
+
+			<div data-step="4" data-intro="Nesta seção você visualizará os programas." data-position='right' id="box-4" class="box_local" wicket:id="btnProgramas">
+				<a title="Programas" id="btnProgramas" class="btn btn-primary btn-sm custom"><i class="fa fa-book fa-4x"></i><br />Programas </a>
+			</div>
+
+			<div data-step="5" data-intro="Nesta seção você visualizará os beneficiários." data-position='right' id="box-5" class="box_local" wicket:id="btnBeneficiarios">
+				<a title="Beneficiários" id="btnBeneficiarios" class="btn btn-primary btn-sm custom"><i class="fa fa-users fa-4x"></i><br /> Beneficiários </a>
+			</div>
+
+			<div data-step="6" data-intro="Nesta seção você visualizará os fornecedores." data-position='right' id="box-5" class="box_local" wicket:id="btnFornecedores">
+				<a title="Fornecedores" id="btnFornecedores" class="btn btn-primary btn-sm custom"><i class="fa fa-truck fa-4x"></i><br />Fornecedores </a>
+			</div>
+
+			<div data-step="7" data-intro="Nesta seção você visualizará permissões de acesso a usuários." data-position='right' id="box-5" class="box_local" wicket:id="btnPermissoes">
+				<a title="Permissões de Acesso a Usuários" id="btnPermissoes" class="btn btn-primary btn-sm custom"><i class="fa fa-lock fa-4x"></i><br />Permissões de <br /> Acesso a Usuários </a>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

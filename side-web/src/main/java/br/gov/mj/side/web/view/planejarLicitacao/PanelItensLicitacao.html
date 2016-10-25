@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+	<script type="text/javascript">
+			$(document).ready(function($) {
+				$('[data-toggle="popover"]').popover();
+			});
+	</script>
+
+	<script>
+		function somenteNumero(e){
+    		var tecla=(window.event)?event.keyCode:e.which;   
+    		if((tecla>47 && tecla<58)) return true;
+    		else{
+    			if (tecla==8 || tecla==0) return true;
+				else  return false;
+    		}
+		}		
+	</script>
+
+	<span id="ancoraFeedBackLocaisEntrega"></span>
+
+	<div class="form-group">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-10">
+			<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemVincular"></div>
+		</div>
+	</div>
+
+	<div class="col-sm-12">
+		<div class="box box-primary" wicket:id="panelPrimeiro">
+			<div class="box-header with-border">
+				<h3 class="box-title">Locais de Entrega</h3>
+				<div class="pull-right mj_botoes_acao_tabela">
+					Qtd de itens exibidos &nbsp;<select id="itensPorPaginaPrimeiro" wicket:id="itensPorPaginaPrimeiro" title="Número de registros por página"></select>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<table class="table table-hover  negritarLinhaTable">
+					<thead>
+						<tr>
+							<th><input type="checkbox" wicket:id="checkAdicionartodosBens" /></th>
+							<th><span wicket:id="lblOrderNome">.</span><a href="" wicket:id="btnOrdenarNome">Bem</a></th>
+							<th><span wicket:id="lblOrderRegiao">.</span><a href="" wicket:id="btnOrdenarRegiao">Região</a></th>
+							<th><span wicket:id="lblOrderUf">.</span><a href="" wicket:id="btnOrdenarUf">UF</a></th>
+							<th><span wicket:id="lblOrderQuantidade">.</span><a href="" wicket:id="btnOrdenarQuantidade">Quantidade</a></th>
+						</tr>
+					</thead>
+					<tbody wicket:id="dataLocaisEntrega">
+						<tr>
+							<td><input type="checkbox" wicket:id="checkAdicionarBem" /></td>
+							<td wicket:id="nomeDoBem"></td>
+							<td wicket:id="regiaoBem"></td>
+							<td wicket:id="ufBem"></td>
+							<td wicket:id="quantidadeBem"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="box-footer">
+					<div wicket:id="paginationPrimeiro"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group" wicket:id="panelBotoes">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-10" style="text-align: center;">
+			<button title="Adicionar" class="btn btn-success btn-sm" wicket:id="btnAdicionar" style="margin: 0 auto;">
+				<i class="fa fa-plus"></i> Adicionar
+			</button>
+		</div>
+	</div>
+
+	<div class="col-sm-12">
+		<div class="box box-primary" wicket:id="panelGruposSelecionados">
+			<div class="box-header with-border">
+				<h3 class="box-title">Grupos Selecionados</h3>
+			</div>
+
+			<span id="ancoraFeedBackGruposSelecionados"></span>
+
+			<div class="form-group">
+				<div class="col-sm-1"></div>
+				<div class="col-sm-10">
+					<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemVincularGrupo"></div>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table class="table negritarLinhaTable">
+						<thead>
+							<tr>
+								<th>Grupo</th>
+								<th>Item</th>
+								<th>Região</th>
+								<th>UF</th>
+								<th>Unidade de Medida</th>
+								<th style="text-align: center;">Quantidade a Registrar</th>
+								<th>Quantidade Imediata</th>
+								<th>Valor Unitário</th>
+								<th>Valor Total a Registrar</th>
+								<th>Valor Total Imediato</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tr wicket:id="dataGruposSelecionados">
+							<td wicket:id="containerRowspan" style="vertical-align: middle;">
+								<div wicket:id="panelNomeGrupo">
+									<input type="text" placeholder="Grupo" wicket:id="txtNomeBem" class="form-control" />
+								</div>
+							</td>
+							<td><span wicket:id="lblDescricaoBemGrupo"></span><span wicket:id="lblNomeBemGrupo"></span></td>
+							<td wicket:id="lblRegiaoGrupo"></td>
+							<td wicket:id="lblUfGrupo"></td>
+							<td>
+								<div wicket:id="panelUnidadeMedidaItem">
+									<input type="text" placeholder="Und. Medida" wicket:id="txtUnidadeMedida" class="form-control" />
+								</div>
+							</td>
+							<td wicket:id="lblQuantidadeARegistrarGrupo" style="text-align: center;"></td>
+							<td>
+								<div wicket:id="panelQuantidadeImediataGrupo">
+									<input type="text" placeholder="Qtd.Imediata" wicket:id="txtImediata" class="form-control" onkeypress='return somenteNumero(event)' maxlength="12" />
+								</div>
+							</td>
+							<td>
+								<div wicket:id="panelValorUnitario">
+									<input type="text" placeholder="Valor Unitário" wicket:id="valorUnitario" class="mask-money form-control" maxlength="21" />
+								</div>
+							</td>
+							<td>
+								<div wicket:id="panelValorTotalRegistrar">
+									<input type="text" placeholder="Valor total registrar" wicket:id="valorTotalRegistrar" class="mask-money form-control" maxlength="21" />
+								</div> <script type="text/javascript">			
+									$( document ).ready(function() {
+										$(".mask-money").maskMoney({
+											prefix:'R$ ', 
+											allowNegative: false, 
+											thousands:'.',
+											decimal:',',
+											affixesStay: true
+										});
+									});
+								</script>
+							</td>
+							<td>
+								<div wicket:id="panelValorTotalImediato">
+									<input type="text" placeholder="Valor total" wicket:id="valorTotalImediato" class="mask-money form-control" maxlength="21" />
+								</div> <script type="text/javascript">			
+										$( document ).ready(function() {
+											$(".mask-money").maskMoney({
+												prefix:'R$ ', 
+												allowNegative: false, 
+												thousands:'.',
+												decimal:',',
+												affixesStay: true
+											});
+										});
+								</script>
+							</td>
+							<td wicket:id="containerExcluir" style="vertical-align: middle;">
+								<div wicket:id="panelBotoes">
+									<button wicket:id="btnRemoverGrupo" title="Excluir Registro" class="btn btn btn-danger btn-sm">
+										<i class="fa fa-trash-o"></i>
+									</button>
+									<a wicket:id="btnInformacao" title="Este grupo não pode ser alterado, pois já existe um contrato vinculado." class="btn btn-warning btn-sm"> <i class="fa fa-info-circle"> </i>
+									</a>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-12">
+		<div class="box box-primary" wicket:id="panelItensSelecionados">
+			<div class="box-header with-border">
+				<h3 class="box-title">Itens Selecionados</h3>
+			</div>
+
+			<span id="ancoraFeedBackItensSelecionados"></span>
+
+			<div class="form-group">
+				<div class="col-sm-1"></div>
+				<div class="col-sm-10">
+					<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemVincularItem"></div>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table class="table  negritarLinhaTable">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Item</th>
+								<th>Região</th>
+								<th>UF</th>
+								<th>Unidade de Medida</th>
+								<th style="text-align: center;">Quantidade a Registrar</th>
+								<th>Quantidade Imediata</th>
+								<th>Valor Unitário</th>
+								<th>Valor Total a Registrar</th>
+								<th>Valor Total Imediato</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tr wicket:id="dataItensSelecionados">
+							<td>
+								<div wicket:id="panelNomeItem">
+									<input type="text" placeholder="Item" wicket:id="txtNomeBem" class="form-control" />
+								</div>
+							</td>
+							<td><span wicket:id="lblDescricaoBemItem"></span><span wicket:id="lblNomeBemItem"></span></td>
+							<td><span wicket:id="lblRegiaoItem"></span></td>
+							<td><span wicket:id="lblUfItem"></span></td>
+							<td>
+								<div wicket:id="panelUnidadeMedidaItem">
+									<input type="text" placeholder="Unidade de Medida" wicket:id="txtUnidadeMedida" class="form-control" />
+								</div>
+							</td>
+							<td style="text-align: center;"><span wicket:id="lblQuantidadeARegistrarItem"></span></td>
+							<td>
+								<div wicket:id="panelQuantidadeImediata">
+									<input type="text" placeholder="Qtd.Imediata" wicket:id="txtImediata" class="form-control" onkeypress='return somenteNumero(event)' maxlength="12" />
+								</div>
+							</td>
+							<td>
+								<div wicket:id="panelValorUnitario">
+									<input type="text" placeholder="Valor Unitário" wicket:id="valorUnitario" class="mask-money form-control" maxlength="21" />
+								</div>
+							</td>
+							<td>
+								<div wicket:id="panelValorTotalRegistrar">
+									<input type="text" placeholder="Valor total registrar" wicket:id="valorTotalRegistrar" class="mask-money form-control" maxlength="21" />
+								</div> <script type="text/javascript">			
+										$( document ).ready(function() {
+											$(".mask-money").maskMoney({
+												prefix:'R$ ', 
+												allowNegative: false, 
+												thousands:'.',
+												decimal:',',
+												affixesStay: true
+											});
+										});
+									</script>
+							</td>
+							<td>
+								<div wicket:id="panelValorTotalImediato">
+									<input type="text" placeholder="Valor total" wicket:id="valorTotalImediato" class="mask-money form-control" maxlength="21" />
+								</div> <script type="text/javascript">			
+										$( document ).ready(function() {
+											$(".mask-money").maskMoney({
+												prefix:'R$ ', 
+												allowNegative: false, 
+												thousands:'.',
+												decimal:',',
+												affixesStay: true
+											});
+										});
+									</script>
+							</td>
+							<td>
+								<button wicket:id="btnRemoverItem" title="Excluir Registro" class="btn btn-danger btn-sm">
+									<i class="fa fa-trash-o"></i>
+								</button> <a wicket:id="btnInformacao" title="Este item não pode ser alterado, pois já existe um contrato vinculado." class="btn btn-warning btn-sm"> <i class="fa fa-info-circle"> </i>
+							</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-12"></div>
+	</div>
+</wicket:panel>

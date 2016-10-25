@@ -1,0 +1,206 @@
+<wicket:panel>
+			<div  wicket:id="panelPrincipalEntidade">
+						<script>
+					$(document).ready(function() {
+						$("#tipoEntidade").select2();
+						$("#personalidadeJuridica").select2();
+						$("#tipoEndereco").select2();
+						$("#statusEntidade").select2();
+					});
+				</script>
+				<br />
+				<div class="form-group">
+				<label class="col-sm-3 control-label" for="cnpj">* CNPJ </label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+					<input type="text" placeholder="CNPJ" class="form-control mask-cnpj"
+						id="cnpj" wicket:id="numeroCnpj"/>
+				</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="tipoEntidade">* Tipo </label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+					<select class="js-example-basic-single" style="width: 100%"
+						id="tipoEntidade" wicket:id="tipoEntidade">
+						<option>Selecione...</option>
+					</select>
+				</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="nomeEnt">*
+					Nome </label>
+				<div class="col-sm-6">
+					<input type="text" placeholder="Nome" class="form-control"
+						id="nomeEnt" wicket:id="nomeEntidade" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="personalidadeJuridica">*
+					Natureza Jurídica </label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+					<select class="js-example-basic-single" style="width: 100%"
+						id="personalidadeJuridica" wicket:id="personalidadeJuridica">
+						<option>Selecione...</option>
+					</select>
+					</div>
+				</div>
+			</div>
+
+			<div  wicket:id="panelUfMunicipio">
+			<script>
+					$(document).ready(function() {
+						$("#nomeUf").select2();
+						$("#municipio").select2();
+					});
+				</script>
+			<div class="form-group">				
+				<label class="col-sm-3 control-label" for="estadoEntidade">
+					<span class="obrigatorio">*</span> Estado
+				</label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+						<select class="js-example-basic-single" style="width: 100%"
+							id="nomeUf" wicket:id="nomeUf">
+							<option>Selecione...</option>
+						</select>
+					</div>
+
+
+					<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="municipio">*
+							Município </label>
+						<div class="col-sm-7">
+							<select class="js-example-basic-single" style="width: 100%"
+								id="municipio" wicket:id="municipio">
+								<option>Selecione...</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="tipoEndereco">
+					<span class="obrigatorio">*</span> Tipo de Endereço
+				</label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+						<select class="js-example-basic-single" style="width: 100%"
+							id="tipoEndereco" wicket:id="tipoEndereco">
+							<option>Selecione...</option>
+						</select>
+					</div>
+
+
+					<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="enderecoEnt">*
+							Endereço </label>
+						<div class="col-sm-7">
+							<input type="text" placeholder="Endereço" class="form-control"
+								id="enderecoEnt" wicket:id=descricaoEndereco/>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="numero">
+					* Número
+				</label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+						<input type="text" placeholder="Número" class="form-control"
+							id="numero" wicket:id="numeroEndereco"/>
+					</div>
+					<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="complementoEnt">
+							Complemento </label>
+						<div class="col-sm-7">
+							<input type="text" placeholder="Complemento" class="form-control"
+								id="complementoEnt" wicket:id="complementoEndereco"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="bairro">
+					* Bairro
+				</label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+						<input type="text" placeholder="Bairro" class="form-control"
+							id="bairro" wicket:id="bairro"/>
+					</div>
+					<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="cepEnt">*
+							CEP </label>
+						<div class="col-sm-7">
+							<input type="text" placeholder="CEP" class="form-control mask-cep"
+								id="cepEnt" wicket:id="numeroCep"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="telefoneEnt">
+					* Telefone
+				</label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+						<input type="text" placeholder="Telefone" class="form-control mask-telefone"
+							id="telefoneEnt" wicket:id="numeroTelefone"/>
+					</div>
+					<div class="col-sm-8">
+						<label class="col-sm-3 control-label" for="telefoneFax">
+							Telefone/FAX </label>
+						<div class="col-sm-7">
+							<input type="text" placeholder="Telefone / FAX"
+								class="form-control mask-telefone" id="telefoneFax" wicket:id="numeroFoneFax"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="emailEnt">*
+					E-Mail </label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+					<input type="text" placeholder="Email" class="form-control"
+						id="emailEnt" wicket:id="email"/>
+				</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="processoId">*
+					Número do Processo (NUP) </label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+					<input type="text" placeholder="Nº Processo (NUP)" class="form-control mask-numero-sei"
+						id="processoId" wicket:id="numeroProcessoSEI"/>
+				</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+			<label class="col-sm-3 control-label"><span wicket:id="lblAtivar"></span></label>
+			<div class="row col-sm-7">
+			<div class="col-sm-4">
+				<select wicket:id="statusEntidade" class="js-example-basic-single" id="statusEntidade"
+					style="width: 100%;"></select>
+			</div>
+			</div>
+		</div>
+		
+			<br />
+			</div>
+</wicket:panel>

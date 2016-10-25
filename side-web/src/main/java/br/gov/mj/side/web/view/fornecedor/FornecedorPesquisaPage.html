@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<script>
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+
+	<form id="validate" name="my_form" class="form-horizontal" wicket:id="form">
+		<div class="pull-right">
+			<a title="Cadastrar nova Licitação" id="btnNovo" class="btn btn-primary btn-sm" wicket:id="btnNovo"> <i class="fa fa-file-o"></i> Novo Fornecedor
+			</a>
+		</div>
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="" wicket:id="homePage">Dashboard</a></li>
+				<li class="active">Pesquisar Fornecedor</li>
+			</ul>
+		</div>
+
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados do Bem</h3>
+			</div>
+			<div class="box-body">
+				<div wicket:id="panelPrincipal">
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="cnpj">CNPJ</label>
+						<div class="col-sm-2">
+							<input type="text" placeholder="CNPJ" class="form-control" id="cnpj" wicket:id="entidade.numeroCnpj" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="razaoSocial">Razão Social</label>
+						<div class="col-sm-6">
+							<input type="text" placeholder="Razão Social" class="form-control" id="razaoSocial" wicket:id="entidade.nomeEntidade" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="dropEstado">Estado</label>
+						<div class="col-sm-2">
+							<select wicket:id="entidade.municipio.uf" class="basic-single" style="width: 100%;" id="dropEstado"></select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="contratot">Contrato</label>
+						<div class="col-sm-2">
+							<input type="text" placeholder="Contrato" class="form-control" id="contratot" wicket:id="contrato.numeroContrato" />
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="programa">Programa</label>
+						<div class="col-sm-6">
+							<select wicket:id="programa" class="basic-single" style="width: 100%;" id="dropDownPrograma"></select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="tipoBem">Bem</label>
+						<div class="col-sm-6">
+							<select wicket:id="bem" class="basic-single" style="width: 100%;" id="dropDownBem"></select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<button type="submit" title="Pesquisar" class="col-sm-offset-5 col-xs-offset-4 btn btn-success btn-sm" wicket:id="btnPesquisar">
+				<i class="fa fa-search"></i> Pesquisar
+			</button>
+		</div>
+		
+		<span id="ancoraPesquisa"></span>
+
+		<div class="box box-primary" wicket:id="panelDataView">
+			<div class="box-header with-border">
+				<h3 class="box-title">Lista de Licitações</h3>
+				<div class="pull-right mj_botoes_acao_tabela">
+					Qtd de itens exibidos &nbsp;<select id="itensPorPagina" title="Número de registros por página" wicket:id="itensPorPagina"></select>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th wicket:id="orderByCnpj">CNPJ</th>
+								<th wicket:id="orderByRazaoSocial">Razão Social</th>
+								<th wicket:id="orderByEstado">Estado</th>
+								<th wicket:id="orderBySituacao">Situação</th>
+								<th style="width: 140px;">Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="dataView">
+								<td wicket:id="cnpj"></td>
+								<td wicket:id="razaoSocial"></td>
+								<td wicket:id="estado"></td>
+								<td><span wicket:id="statusEntidade.descricao"></span></td>
+								<td>
+									<button class="btn btn btn-primary btn-sm" title="Visualizar" wicket:id="btnVisualizar">
+										<i class="fa fa-search"></i>
+									</button>
+									<button class="btn btn btn-info btn-sm" title="Alterar" wicket:id="btnAlterar">
+										<i class="fa fa-pencil fa-fw"></i>
+									</button>
+									<button class="btn btn-success btn-sm" title="Ativar" wicket:id="btnAtivar">
+										<i class="fa fa-check-circle-o"></i>
+									</button>
+									<button class="btn btn-danger btn-sm" title="Inativar" wicket:id="btnInativar">
+										<i class="fa fa-ban"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="box-footer">
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

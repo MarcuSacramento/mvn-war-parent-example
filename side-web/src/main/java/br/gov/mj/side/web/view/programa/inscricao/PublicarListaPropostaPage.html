@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form wicket:id="form" class="form-horizontal">
+		<wicket:container wicket:id="panelFasePrograma" />
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Publicar Lista de Propostas</h3>
+			</div>
+			<div class="box-body">
+				<h4>
+					<span wicket:id="lblSubtitulo"></span>
+				</h4>
+				<div class="box box-info" wicket:id="recursoPanel">
+					<div class="box-header with-border">
+						<h3 class="box-title">
+							<span wicket:id="lblTituloPeriodo"></span>
+						</h3>
+					</div>
+					<div class="box-body">
+						<div class="form-group">
+							<label class="col-sm-1 control-label">* Período </label>
+							<div class="col-sm-2">
+								<input type="text" wicket:id="dataInicio" class="form-control" />
+							</div>
+							<label class="col-sm-1 text-center" for="dataFim">a</label>
+							<div class="col-sm-2">
+								<input type="text" wicket:id="dataFim" class="form-control" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="box box-info" wicket:id="cadastroLocalEntregaPanel">
+					<div class="box-header with-border">
+						<h3 class="box-title">
+							<span wicket:id="lblTituloPeriodo"></span>
+						</h3>
+					</div>
+					<div class="box-body">
+						<div class="form-group">
+							<label class="col-sm-1 control-label" for="dataInicio">* Período </label>
+							<div class="col-sm-2">
+								<input type="text" wicket:id="dataInicio" class="form-control" />
+							</div>
+							<label class="col-sm-1 text-center" for="dataFim">a</label>
+							<div class="col-sm-2">
+								<input type="text" wicket:id="dataFim" class="form-control" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div wicket:id="gridListaPanel">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>CNPJ</th>
+								<th>Tipo</th>
+								<th>Estado</th>
+							</tr>
+						</thead>
+
+						<tbody wicket:id="inscricoes">
+							<tr>
+								<td><span wicket:id="pessoaEntidade.entidade.nomeEntidade"></span></td>
+								<td><span wicket:id="pessoaEntidade.entidade.numeroCnpj"></span></td>
+								<td><span wicket:id="pessoaEntidade.entidade.tipoEntidade.descricaoTipoEntidade"></span></td>
+								<td><span wicket:id="pessoaEntidade.entidade.municipio.uf.nomeUf"></span></td>
+							</tr>
+						</tbody>
+					</table>
+					<div wicket:id="pagination"></div>
+				</div>
+				<br /> <br />
+
+				<div wicket:id="gridListaAvaliacaoPanel">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Posição</th>
+								<th>Nome</th>
+								<th>CNPJ</th>
+								<th>Tipo</th>
+								<th>Estado</th>
+							</tr>
+						</thead>
+						<tr wicket:id="inscricoes">
+							<td><span wicket:id="colocacao"></span></td>
+							<td><span wicket:id="pessoaEntidade.entidade.nomeEntidade"></span></td>
+							<td><span wicket:id="pessoaEntidade.entidade.numeroCnpj"></span></td>
+							<td><span wicket:id="pessoaEntidade.entidade.tipoEntidade.descricaoTipoEntidade"></span></td>
+							<td><span wicket:id="pessoaEntidade.entidade.municipio.uf.nomeUf"></span></td>
+						</tr>
+					</table>
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="box-footer clearfix " wicket:id="buttonsPanel">
+			<div class="pull-right">
+				<button wicket:id="btnPublicar" class="btn btn-primary btn-sm">
+					<i class="fa fa-share"></i><span wicket:id="lbl"></span>
+				</button>
+				<button wicket:id="btnExportarPdf" title="Exportar PDF" class="btn btn-success btn-sm">
+					<i class="fa fa-file-pdf-o"></i> Exportar PDF
+				</button>
+				<button wicket:id="btVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i> Voltar
+				</button>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

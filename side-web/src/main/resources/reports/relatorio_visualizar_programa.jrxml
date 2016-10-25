@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_visualizar_programa" pageWidth="595" pageHeight="842" columnWidth="539" leftMargin="28" rightMargin="28" topMargin="42" bottomMargin="42" uuid="b882d0ad-c307-430f-adad-62aec23f909b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="959"/>
+	<style name="borda" mode="Transparent" forecolor="#000000" hAlign="Left" vAlign="Top" isBlankWhenNull="true">
+		<pen lineWidth="1.0"/>
+		<paragraph lineSpacing="1_1_2"/>
+	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="74d91b04-09e1-4a04-a963-cf56b5cff6fd"/>
+	<parameter name="BRASAO" class="net.sf.jasperreports.engine.Renderable"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<field name="nomePrograma" class="java.lang.String"/>
+	<field name="nomeFantasia" class="java.lang.String"/>
+	<field name="codigoPrograma" class="java.lang.String"/>
+	<field name="descricaoPrograma" class="java.lang.String"/>
+	<field name="funcao" class="java.lang.String"/>
+	<field name="subFuncao" class="java.lang.String"/>
+	<field name="orgao" class="java.lang.String"/>
+	<field name="unidadeExecutora" class="java.lang.String"/>
+	<field name="listaBem" class="java.util.List"/>
+	<field name="listaKit" class="java.util.List"/>
+	<field name="listaElegibilidade" class="java.util.List"/>
+	<field name="listaAcompanhamento" class="java.util.List"/>
+	<field name="listaBeneficiarios" class="java.util.List"/>
+	<field name="regimeJuridico" class="java.lang.String"/>
+	<field name="listaAcoes" class="java.util.List"/>
+	<field name="ano" class="java.lang.String"/>
+	<field name="valorTotal" class="java.lang.String"/>
+	<field name="numeroSei" class="java.lang.String"/>
+	<field name="historico" class="java.util.List"/>
+	<field name="periodoPropostas" class="java.lang.String"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="valorMaximoProposta" class="java.lang.String"/>
+	<field name="listaAvaliacao" class="java.util.List"/>
+	<variable name="nomePrograma_1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{nomePrograma}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="74">
+			<image>
+				<reportElement x="0" y="0" width="62" height="61" uuid="bec3aeab-5e21-4323-b016-0eac0bb5288a"/>
+				<imageExpression><![CDATA[$P{BRASAO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="73" y="15" width="286" height="28" uuid="d0b77355-5561-4cea-83f5-efd3f4524b73"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTÉRIO DA JUSTIÇA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="28" width="286" height="21" uuid="0f37590a-8c1a-4b9c-af04-51f6a741c102"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[SIDE - Sistema de Doações e Equipagem]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="337" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="539" height="20" forecolor="#000000" backcolor="#3399FF" uuid="b7465611-0dfe-45a8-a409-8a26271ed96f"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="20" width="142" height="47" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#F9F9F9" uuid="1ab51e36-abf4-4680-8023-afb27b0e183d"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="142" y="20" width="397" height="47" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#F9F9F9" uuid="24fedd5f-6525-4b94-b877-df5315561020"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="67" width="539" height="47" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF" uuid="c642a965-e7fd-432e-baad-67acb2cb02ce"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="387" y="208" width="152" height="47" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF" uuid="ddfcff54-cc08-4a0b-8378-8b936ff489ce"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="114" width="254" height="47" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF" uuid="d4a78fcb-d679-46ad-b0fb-3df71764121c"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="254" y="114" width="285" height="47" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF" uuid="f5980ae3-0ea2-4b92-84e5-a5a45ca7211c"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="208" width="387" height="47" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF" uuid="1368d2f0-7f6f-4e06-af06-e4100d5ae506"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="255" width="539" height="82" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="33f704b9-f1ab-4042-8f5b-a009b3452065"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="161" width="180" height="47" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF" uuid="b06383c7-2e65-4ebe-9610-2c181296ecc9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="0" width="131" height="20" forecolor="#FFFFFF" uuid="597fe4d9-0499-4b63-8bf3-f4bebbaadf6b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Informações Gerais]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="257" y="124" width="280" height="37" uuid="0eb56970-569f-4ff0-8841-78bcd3cd833f"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subFuncao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="2" y="124" width="249" height="37" uuid="3a6c1cd8-e2c6-4290-baad-553bb5608823"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="30" width="142" height="37" uuid="853c15e4-eb3a-4003-bed3-a60ccaf7dc0c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoPrograma}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="257" y="114" width="121" height="10" uuid="f7dea1e1-0fac-4ab2-b8e1-f6ee7f1a14de"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Subfunção]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="114" width="121" height="10" uuid="4a6dde06-12d2-40b3-9d5b-240e114401c0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Função]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="255" width="121" height="10" uuid="aff910b6-1bcc-47f0-9083-e433eec3ec75"/>
+				<textElement>
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="20" width="121" height="10" uuid="028377f6-c548-434c-bea6-50d7c1ce8ed3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Código do Programa]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="144" y="30" width="393" height="37" uuid="05ca0854-d0d3-4569-a757-5183c2b68654"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomePrograma}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="144" y="20" width="103" height="10" uuid="75bd7fa5-2191-41f9-a91f-7993e045a93a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Nome do Programa]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="2" y="77" width="535" height="37" uuid="42ff0bdf-8811-444b-a7e4-5fe502c1f6e4"/>
+				<textElement verticalAlignment="Middle">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomeFantasia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="67" width="121" height="10" uuid="9dd8a2cc-57be-4725-a869-b501b3d433a0"/>
+				<textElement>
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Nome Fantasia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="391" y="218" width="146" height="37" uuid="5eed37b4-9ab4-4cee-a4c1-0abad6e89cef"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="391" y="208" width="85" height="10" uuid="f0a2bc7f-7386-4461-ab21-8a6adf3313f6"/>
+				<textElement>
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Ano]]></text>
+			</staticText>
+			<elementGroup/>
+			<staticText>
+				<reportElement x="3" y="208" width="119" height="10" uuid="9300af5c-c3b9-4c12-aa11-6f747ad440a1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Número do Processo SEI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="3" y="218" width="381" height="37" uuid="dc6f3738-810a-4183-963b-599e8c9c1cee"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroSei}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="161" width="166" height="10" uuid="846916b6-42d5-47b3-9afd-a2206354e9d7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Período de Recebimento de Propostas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="3" y="171" width="177" height="37" uuid="7cc1d94b-6a03-4bbc-a270-453abb1cef5c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{periodoPropostas}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="3" y="265" width="534" height="72" isPrintWhenDetailOverflows="true" uuid="ba2f96cb-dfaf-4b14-a091-abde086eee19"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{descricaoPrograma}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="180" y="161" width="180" height="47" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF" uuid="ba5330b6-d8f4-4547-a82f-01b6177a1ff0"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="183" y="161" width="85" height="10" uuid="5cd611f9-6f3f-43b3-bd7b-bd68d1ec813e"/>
+				<textElement>
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="183" y="171" width="176" height="37" uuid="79ea274d-359e-4c30-8d28-bf75460de492"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="359" y="161" width="180" height="47" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#FFFFFF" uuid="99236bb2-7e7a-41ce-bfd0-31010cae1d67"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="362" y="161" width="85" height="10" uuid="6958929f-b05b-469d-b400-2ea31fd397b3"/>
+				<textElement>
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Valor Máximo por Proposta]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="362" y="171" width="176" height="37" uuid="b6df0866-33c8-4c51-b1e2-4a14dcaddbb2"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valorMaximoProposta}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="119" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="539" height="20" forecolor="#000000" backcolor="#3399FF" uuid="e01c96d9-ac19-4850-b851-f501e335d812"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="0" width="131" height="20" forecolor="#FFFFFF" uuid="f7f32643-d85b-4e1d-9f3e-4798c0f29620"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Órgão Executor]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="20" width="539" height="31" forecolor="#000000" backcolor="#FFFFFF" uuid="fe32feb9-62f7-4909-b211-d30a9bc2ca36"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="2" y="20" width="121" height="10" uuid="ebaa37b7-311a-47e2-93a5-9167729636ff"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Órgão (Cód. SIORG)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="51" width="539" height="31" forecolor="#000000" backcolor="#FFFFFF" uuid="cd52b9cd-1113-40c8-bc00-eae3bb0ac3a3"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="3" y="30" width="536" height="20" uuid="4120ecae-49a8-42bc-870e-2f36a3ea4198"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{orgao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="51" width="121" height="10" uuid="0c86181c-2264-46db-b89f-1bec5e1118ba"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Unidade Executora]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="3" y="62" width="536" height="20" uuid="86f1c7ac-a778-4cb4-9e45-224c28192b13"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{unidadeExecutora}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="124" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="51" width="539" height="15" forecolor="#000000" backcolor="#999999" uuid="a5288f7a-e347-497e-81f9-b5073f589415">
+					<printWhenExpression><![CDATA[!$F{listaAcoes}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="66" width="539" height="20" uuid="adefe47f-2c06-4c93-9af1-af6bbff45406">
+					<printWhenExpression><![CDATA[!$F{listaAcoes}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaAcoes})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "relatorio_visualizar_programa_descricao_acao_orcamentaria.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle>
+				<reportElement x="0" y="0" width="539" height="20" forecolor="#000000" backcolor="#3399FF" uuid="dd1b02b2-4bae-4374-a729-550b7ca5f688"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="0" width="131" height="20" forecolor="#FFFFFF" uuid="67a28281-3832-453d-8d9b-0e723cb584be"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Recurso Financeiro]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="20" width="268" height="31" forecolor="#000000" backcolor="#FFFFFF" uuid="cc95bda1-dd2f-4544-9832-7d50b12da827"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="51" width="131" height="15" forecolor="#000000" uuid="39b8a6d3-d540-4f26-929e-c6935b118c94">
+					<printWhenExpression><![CDATA[!$F{listaAcoes}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Ações Orçamentárias]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="268" y="20" width="271" height="31" forecolor="#000000" backcolor="#FFFFFF" uuid="95e7c051-a71d-447b-8f4c-6bf2e5da91d6"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="3" y="31" width="211" height="20" uuid="1180d213-e6e3-49df-b5fa-0bdae9858538"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valorTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="272" y="20" width="121" height="10" uuid="2d433c5e-f61a-4271-91a7-b66033648ee9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Valor Máximo por proposta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="20" width="121" height="10" uuid="dfd38638-9432-4fdc-992c-dbe11f293ee7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Valor Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="272" y="31" width="210" height="20" uuid="ddcafac7-ad51-4334-be1c-4c554d77952c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{valorMaximoProposta}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="113">
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="51" width="539" height="22" uuid="17eb2e94-984a-4dcc-9c99-20f21b9567f5">
+					<printWhenExpression><![CDATA[!$F{listaBeneficiarios}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaBeneficiarios})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "relatorio_visualizar_programa_detalhes_beneficiarios.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle>
+				<reportElement x="0" y="0" width="539" height="20" forecolor="#000000" backcolor="#3399FF" uuid="103b60db-978f-4702-9b71-600753d2c071"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="20" width="539" height="31" forecolor="#000000" backcolor="#FFFFFF" uuid="82c5a061-0b55-4815-9507-ddbfcd3d9230"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="0" width="131" height="20" forecolor="#FFFFFF" uuid="ea5680f2-018d-4030-a19e-9a946d80a3cc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Potenciais Beneficiários]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="3" y="30" width="227" height="20" uuid="ac5ad265-092e-4ccb-ad4f-fc526e7dab31"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{regimeJuridico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="20" width="121" height="10" uuid="c101c4fb-b99f-4842-9e56-2ea2e07c0c54"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="6" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Personalidade Jurídica]]></text>
+			</staticText>
+		</band>
+		<band height="87">
+			<printWhenExpression><![CDATA[!$F{listaBem}.isEmpty()
+ ]]></printWhenExpression>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="20" width="539" height="21" uuid="a6190e57-7a9b-4398-b8e2-ef5b7a17ce7f"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaBem})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "relatorio_visualizar_programa_detalhes_bem.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle>
+				<reportElement x="0" y="0" width="539" height="20" forecolor="#000000" backcolor="#3399FF" uuid="ba92fdd8-4f81-4dc1-934d-439dae2ef579"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="6" y="0" width="131" height="20" forecolor="#FFFFFF" uuid="d9cbec22-73c7-4e66-8f53-e97e8b7dee5d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Bens]]></text>
+			</staticText>
+		</band>
+		<band height="91">
+			<printWhenExpression><![CDATA[!$F{listaKit}.isEmpty()
+]]></printWhenExpression>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="20" width="539" height="28" uuid="daca712c-b7aa-4a3f-ba8f-970b09416e93"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaKit})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "relatorio_visualizar_programa_detalhes_kit.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle>
+				<reportElement x="0" y="0" width="539" height="20" forecolor="#000000" backcolor="#3399FF" uuid="8f71cd6f-ce18-4c3f-a1de-93c8c40a4a79"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="7" y="0" width="131" height="20" forecolor="#FFFFFF" uuid="b2faff92-a6d7-42b8-a857-87161ba8cd7d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Kits]]></text>
+			</staticText>
+		</band>
+		<band height="97" splitType="Stretch">
+			<printWhenExpression><![CDATA[!$F{listaElegibilidade}.isEmpty()
+ ]]></printWhenExpression>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="20" width="539" height="38" isPrintWhenDetailOverflows="true" uuid="30b2c459-7a0a-460c-a6b5-6f4e4f8d9e8b"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaElegibilidade})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "relatorio_visualizar_programa_detalhes_elegibilidade.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle>
+				<reportElement x="0" y="0" width="539" height="20" forecolor="#000000" backcolor="#3399FF" uuid="d1774420-7664-4660-a846-a2add5865adc"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="8" y="0" width="274" height="20" forecolor="#FFFFFF" uuid="186744bb-0c78-469f-8fc6-67e1c5c3083a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Critérios de Elegibilidade]]></text>
+			</staticText>
+		</band>
+		<band height="94" splitType="Stretch">
+			<printWhenExpression><![CDATA[!$F{listaAvaliacao}.isEmpty()
+ ]]></printWhenExpression>
+			<rectangle>
+				<reportElement x="0" y="0" width="539" height="20" forecolor="#000000" backcolor="#3399FF" uuid="332cb455-9081-4899-9243-8f3f60e6503c"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="8" y="0" width="274" height="20" forecolor="#FFFFFF" uuid="7309d2f3-bba2-43fd-8491-bbe2903eec0d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Critérios de Avaliação]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="20" width="539" height="36" isPrintWhenDetailOverflows="true" uuid="da5a844d-4682-4eeb-a6a5-6f60653020b5"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaAvaliacao})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "relatorio_visualizar_programa_detalhes_avaliacao.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="91" splitType="Stretch">
+			<printWhenExpression><![CDATA[!$F{listaAcompanhamento}.isEmpty()
+ ]]></printWhenExpression>
+			<rectangle>
+				<reportElement x="0" y="0" width="539" height="20" forecolor="#000000" backcolor="#3399FF" uuid="520c1c39-4533-44c5-ba3b-4759b658c3ac"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="7" y="0" width="274" height="20" forecolor="#FFFFFF" uuid="9aadd612-1c3c-48c8-91d5-2655beb41d50"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Critérios de Acompanhamento]]></text>
+			</staticText>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="20" width="539" height="36" isPrintWhenDetailOverflows="true" uuid="8eefd6ed-70bc-404d-9dde-23cd88f48419"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaAcompanhamento})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "relatorio_visualizar_programa_detalhes_acompanhamento.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="39">
+			<printWhenExpression><![CDATA[!$F{historico}.isEmpty()
+ ]]></printWhenExpression>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="0" y="0" width="539" height="27" isPrintWhenDetailOverflows="true" uuid="939a27bf-53ee-443d-bb4b-bdd6371218c1"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{historico})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "relatorio_detalhe_historico.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="16">
+			<textField>
+				<reportElement x="495" y="0" width="17" height="16" uuid="02f731da-e30b-47a8-bfcb-81094177d4d9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="524" y="0" width="15" height="16" uuid="f2cb0e0a-8b2c-40cf-b328-666f8e04834b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="539" height="1" uuid="16164886-901e-4eca-b9f6-5c73ad3f9235"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="467" y="1" width="28" height="15" uuid="f73d8916-99dd-4043-9fc5-448e6c4fbbe2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Página]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="0" width="12" height="16" uuid="c14c734f-4565-466b-92fe-bba38fc9ff2c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH:mm:ss">
+				<reportElement x="0" y="0" width="124" height="16" uuid="b65f4237-d9de-4051-97b3-6a6238e99411"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

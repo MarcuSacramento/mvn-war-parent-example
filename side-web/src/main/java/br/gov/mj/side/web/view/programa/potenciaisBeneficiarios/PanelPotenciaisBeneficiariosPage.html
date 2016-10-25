@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<style>
+		.close {
+			display: none;
+		}
+	</style>
+
+	<div class="box box-primary" style="margin-left: 10px; margin-right: 10px;">
+		<div class="box-header with-border">
+			<h3 class="box-title">Potenciais Beneficiários</h3>
+		</div>
+
+		<div class="form-horizontal" wicket:id="panelCentral">
+			<div class="form-group">
+				<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+				</label>
+				<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemBeneficiarios"></div>
+			</div>
+			<br /> <br />
+			<div class="form-group">
+				<label class="col-sm-3 control-label"> * Limitação Geográfica </label>
+				<div class="col-sm-4">
+					<span wicket:id="radioLimitacaoGeografica" id="radioLimitacaoGeografica"></span>
+				</div>
+			</div>
+
+			<div wicket:id="panelUf">
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="txtUf"> <span class="obrigatorio">*</span> UF
+					</label>
+					<div class="col-sm-6">
+						<select wicket:id="multipleUfs" style="width: 100%" multiple="multiple" id="ufs"></select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">* Limitação a município(s) específico(s)? </label>
+					<div class="col-sm-4">
+						<span wicket:id="radioLimitacaoMunicipio" id="radioLimitacaoMunicipio"></span>
+					</div>
+				</div>
+
+				<script>
+				$(document).ready(function() {
+					 $("#ufs").select2();
+				});
+			</script>
+
+			</div>
+			<div class="form-group" wicket:id="panelMunicipio">
+				<label class="col-sm-3 control-label" for="txtMunicipio"> <span class="obrigatorio">*</span> Município
+				</label>
+				<div class="col-sm-6">
+					<select wicket:id="selectedMunicipios" style="width: 100%" multiple="multiple" class="multiple-select" id="municipios">
+					</select>
+				</div>
+				<script>
+				$(document).ready(function() { 
+					 $("#municipios").select2();
+				});
+			</script>
+
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label"> * Personalidade Jurídica </label>
+				<div class="col-sm-4">
+					<!-- <span wicket:id="radioPersonalidade" id="radioPersonalidade"/> -->
+					<input wicket:id="checkPublico" type="checkbox" /> Público &nbsp;&nbsp; <input wicket:id="checkPrivado" type="checkbox" /> Privado sem fins lucrativos
+				</div>
+			</div>
+			<br /> <br /> <br />
+			<div wicket:id="modalConfirmUf"></div>
+		</div>
+	</div>
+</wicket:panel>

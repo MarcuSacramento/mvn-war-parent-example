@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+	<persistence-unit name="side-pu" transaction-type="JTA">
+
+		<jta-data-source>java:jboss/datasources/sideTestDS</jta-data-source>
+
+		<class>br.gov.mj.side.entidades.AnexoBem</class>
+		<class>br.gov.mj.side.entidades.Bem</class>
+		<class>br.gov.mj.side.entidades.Kit</class>
+		<class>br.gov.mj.side.entidades.KitBem</class>
+		<class>br.gov.mj.side.entidades.TagBem</class>
+		<class>br.gov.mj.side.entidades.AcaoOrcamentaria</class>
+		<class>br.gov.mj.side.entidades.EmendaParlamentar</class>
+		<class>br.gov.mj.side.entidades.BeneficiarioEmendaParlamentar</class>
+		<class>br.gov.mj.side.entidades.programa.Programa</class>
+		<class>br.gov.mj.side.entidades.programa.ProgramaAnexo</class>
+		<class>br.gov.mj.side.entidades.programa.ProgramaBem</class>
+		<class>br.gov.mj.side.entidades.programa.ProgramaCriterioAcompanhamento</class>
+		<class>br.gov.mj.side.entidades.programa.ProgramaCriterioElegibilidade</class>
+		<class>br.gov.mj.side.entidades.programa.ProgramaKit</class>
+		<class>br.gov.mj.side.entidades.programa.ProgramaRecursoFinanceiro</class>
+		<class>br.gov.mj.side.entidades.programa.RecursoFinanceiroEmenda</class>
+		<class>br.gov.mj.side.entidades.programa.PotencialBeneficiarioMunicipio</class>
+		<class>br.gov.mj.side.entidades.programa.ProgramaPotencialBeneficiarioUf</class>
+		<class>br.gov.mj.side.entidades.HistoricoBem</class>
+		<class>br.gov.mj.side.entidades.programa.ProgramaHistoricoPublicizacao</class>
+		<class>br.gov.mj.side.entidades.programa.ProgramaCriterioAvaliacao</class>
+		<class>br.gov.mj.side.entidades.programa.ProgramaCriterioAvaliacaoOpcaoResposta</class>
+		<class>br.gov.mj.side.entidades.entidade.Entidade</class>
+		<class>br.gov.mj.side.entidades.entidade.EntidadeAnexo</class>
+		<class>br.gov.mj.side.entidades.entidade.Pessoa</class>
+		<class>br.gov.mj.side.entidades.entidade.PessoaEntidade</class>
+		<class>br.gov.mj.seg.entidades.Funcionalidade</class>
+		<class>br.gov.mj.seg.entidades.Perfil</class>
+		<class>br.gov.mj.seg.entidades.PerfilFuncionalidade</class>
+		<class>br.gov.mj.seg.entidades.Sistema</class>
+		<class>br.gov.mj.seg.entidades.Usuario</class>
+		<class>br.gov.mj.seg.entidades.UsuarioPerfil</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.InscricaoPrograma</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.InscricaoProgramaBem</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.InscricaoProgramaKit</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.InscricaoProgramaCriterioAvaliacao</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.InscricaoProgramaCriterioElegibilidade</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.InscricaoAnexoAvaliacao</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.InscricaoAnexoElegibilidade</class>
+		<class>br.gov.mj.apoio.entidades.Elemento</class>
+		<class>br.gov.mj.apoio.entidades.Funcao</class>
+		<class>br.gov.mj.apoio.entidades.Municipio</class>
+		<class>br.gov.mj.apoio.entidades.Orgao</class>
+		<class>br.gov.mj.apoio.entidades.PartidoPolitico</class>
+		<class>br.gov.mj.apoio.entidades.SubElemento</class>
+		<class>br.gov.mj.apoio.entidades.SubFuncao</class>
+		<class>br.gov.mj.apoio.entidades.TipoEndereco</class>
+		<class>br.gov.mj.apoio.entidades.TipoEntidade</class>
+		<class>br.gov.mj.apoio.entidades.Uf</class>
+		<class>br.gov.mj.apoio.entidades.UnidadeExecutora</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.analise.InscricaoAnexoAnalise</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.analise.HistoricoAnaliseElegibilidade</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.analise.HistoricoAnaliseAvaliacao</class>
+		<class>br.gov.mj.apoio.entidades.MotivoAnalise</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.analise.ListaElegibilidadePublicado</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.analise.ListaAvaliacaoPublicado</class>
+		<class>br.gov.mj.side.entidades.entidade.LocalEntregaEntidade</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.InscricaoLocalEntrega</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.InscricaoLocalEntregaBem</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.InscricaoLocalEntregaKit</class>
+		<class>br.gov.mj.apoio.entidades.Regiao</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.AgrupamentoLicitacao</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.BemUf</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.LicitacaoPrograma</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.SelecaoItem</class>
+		<class>br.gov.mj.apoio.entidades.Parametro</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.Contrato</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.ContratoAnexo</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.ItensFormatacao</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.FormatacaoItensContrato</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.FormatacaoContrato</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.ComissaoRecebimento</class>
+		<class>br.gov.mj.side.entidades.programa.inscricao.ComissaoAnexo</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.OrdemFornecimentoContrato</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.ItensOrdemFornecimentoContrato</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.HistoricoComunicacaoGeracaoOrdemFornecimentoContrato</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.ObjetoFornecimentoContrato</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.FormatacaoObjetoFornecimento</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.FormatacaoItensContratoResposta</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.notaRemessa.NotaRemessaOrdemFornecimentoContrato</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.notaRemessa.ItensNotaRemessaOrdemFornecimentoContrato</class>
+		<class>br.gov.mj.side.entidades.programa.licitacao.contrato.notaRemessa.AnexoNotaRemessa</class>
+		<class>br.gov.mj.side.entidades.CodigoVerificacao</class>
+
+
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.connection.charSet" value="UTF-8" />
+			<property name="hibernate.format_sql" value="true" />
+
+		</properties>
+
+	</persistence-unit>
+
+</persistence>

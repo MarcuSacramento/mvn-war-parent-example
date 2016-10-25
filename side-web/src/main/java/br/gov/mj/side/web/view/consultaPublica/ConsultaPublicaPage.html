@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form class="form-horizontal" wicket:id="form">
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="" wicket:id="consultaPublica">Pesquisa Aberta</a></li>
+				<li class="active"><span>Visualizar Programa</span></li>
+			</ul>
+		</div>
+
+		<div class="box box-primary" wicket:id="panelInformacoesGerais">
+			<div class="box-header with-border">
+				<h3 class="box-title">Informações Gerais</h3>
+			</div>
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-2">
+						<label>Código do Programa</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="id"></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2">
+						<label>Nome do Programa</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="nomePrograma"></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2">
+						<label>Nome Fantasia</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="nomeFantasiaPrograma"></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2">
+						<label>Descrição</label>
+					</div>
+					<div class="col-md-6">
+						<p class="text-justify">
+							<span wicket:id="descricaoPrograma"></span>
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2">
+						<label>Ano</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="anoPrograma"></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2">
+						<label>Função</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="subFuncao.funcao.nomeFuncao"></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2">
+						<label>Subfunção</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="subFuncao.nomeSubFuncao"></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2">
+						<label>Número do Processo SEI</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="numeroProcessoSEI"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<label>Período de Recebimento de Propostas</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="periodoRecebimento"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<label>Valor Máximo por Proposta</label>
+					</div>
+					<div class="col-md-6">
+						<span wicket:id="valorMaximoProposta"></span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div wicket:id="recursoFinanceiroPanel"></div>
+		<div wicket:id="orgaoExecutorPanel"></div>
+		<div wicket:id="potenciaisBeneficiariosPanel"></div>
+		<div wicket:id="bemKitPanel"></div>
+		<div wicket:id="criterioElegibilidadePanel"></div>
+		<div wicket:id="criterioAvaliacaoPanel"></div>
+		<div wicket:id="criterioAcompanhamentoPanel"></div>
+		<div wicket:id="panelPrincipalAnexo"></div>
+		<div wicket:id="programaAnexosPublicadosPanel"></div>
+
+		<div class="box-footer clearfix">
+			<div class="pull-right" wicket:id="panelBotoes">
+				<div>
+					<button wicket:id="btnPdf" class="btn btn-success btn-sm" title="Gerar PDF">
+						<i class="fa fa-file-pdf-o"></i> Gerar PDF
+					</button>
+					<button title="Voltar" class="btn btn-warning btn-sm" wicket:id="btnVoltar">
+						<i class="fa fa-undo"></i> Voltar
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

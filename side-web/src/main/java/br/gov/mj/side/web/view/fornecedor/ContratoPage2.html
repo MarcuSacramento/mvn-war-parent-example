@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+	<form wicket:id="form" class="form-horizontal">
+		<script type="text/javascript">
+			$(document).ready(function() {
+		  		$(".basic-single").select2();  				
+			});
+		</script>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> </label>
+			<div class="col-sm-6">
+				<div class="col-sm-6 feedbackPanelERROR"></div>
+			</div>
+		</div>
+		
+	    <div wicket:id="panelBreadcrumb" class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="#" wicket:id="lnkDashboard">Dashboard</a></li>
+				<li><a href="#" wicket:id="lnkFornecedorContrato">Contratos</a></li>
+				<li class="active"><span wicket:id="lblNomePage"></span></li>
+			</ul>
+		  </div>
+		<br />
+
+		<!-- Panel DADOS DO CONTRATO -->
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados do Contrato</h3>
+			</div>
+			<br />
+			
+			<div class="form-group">
+				<label class="col-sm-4 control-label"  for="codigoPrograma"> Cód. Programa:</label>
+				<div class="col-sm-1 control-label">
+					<span wicket:id="codigoPrograma"></span>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-sm-4 control-label"  for="numeroContrato"> Número do Contrato:</label>
+				<div class="col-sm-1 col-smLabelTop">
+					<span wicket:id="numeroContrato" style="text-align: left;"></span>
+				</div>
+			</div>
+
+			<wicket:container wicket:id="panelDadosBasicosContrato" />
+
+			<div class="form-group">
+				<label class="col-sm-4 control-label" for="telefone"> </label>
+				<div class="row col-sm-7">
+					<div class="col-sm-1">
+						<select id="dropDownPrograma" wicket:id="dropDownPrograma" tabindex="1" style="width: 100%;" class="basic-single"></select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Panel OBJETOS DO CONTRATO -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Objetos do Contrato</h3>
+			</div>
+			<br />
+			<wicket:container wicket:id="panelObjetosContrato" />
+		</div>
+
+		<!-- Panel DADOS DO FORNECEDOR -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados do Fornecedor</h3>
+			</div>
+			<br />
+			<wicket:container wicket:id="panelDadosFornecedor" />
+		</div>
+
+		<!-- Panel ANEXOS -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Anexos</h3>
+			</div>
+			<br />
+			<wicket:container wicket:id="panelAnexos" />
+		</div>
+
+		<!-- Panel ANEXOS -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Histórico de alteração da vigência</h3>
+			</div>
+			<br />
+			<wicket:container wicket:id="panelHistorico" />
+		</div>
+
+		<!-- MODAL -->
+		<div wicket:id="modalConfirm"></div>
+		<div class="box-footer clearfix">
+				   <div class="pull-right" wicket:id="panelButton">
+				   		<a class="btn btn-warning btn-sm" title="Voltar" wicket:id="btnVoltar"><i class="fa fa-undo"></i>Voltar</a>
+				   </div>
+				   </div>
+	</form>
+
+</wicket:extend>

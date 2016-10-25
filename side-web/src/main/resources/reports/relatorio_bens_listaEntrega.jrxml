@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_bens_listaEntrega" pageWidth="418" pageHeight="802" columnWidth="418" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="65de38c1-486f-477a-aa00-93d1526e45dc">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="quantidade" class="java.lang.Integer"/>
+	<field name="localEntrega.tipoEndereco.descricaoTipoEndereco" class="java.lang.String"/>
+	<field name="localEntrega.descricaoEndereco" class="java.lang.String"/>
+	<field name="localEntrega.complementoEndereco" class="java.lang.String"/>
+	<field name="localEntrega.numeroEndereco" class="java.lang.String"/>
+	<field name="localEntrega.bairro" class="java.lang.String"/>
+	<field name="localEntrega.municipio.nomeMunicipio" class="java.lang.String"/>
+	<field name="localEntrega.municipio.uf.siglaUf" class="java.lang.String"/>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="355" y="0" width="63" height="20" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="93359e97-9365-4046-a6e4-052b19bf7317"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="355" height="20" isPrintWhenDetailOverflows="true" uuid="f678537c-9e23-4cc1-af01-0b17672deefd"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{localEntrega.tipoEndereco.descricaoTipoEndereco} + " " +
+$F{localEntrega.descricaoEndereco}+ " " +
+$F{localEntrega.complementoEndereco}+ " - Nº" +
+$F{localEntrega.numeroEndereco}+ " - Bairro: " +
+$F{localEntrega.bairro}+ " - Cidade: " +
+$F{localEntrega.municipio.nomeMunicipio}+ " - " +
+$F{localEntrega.municipio.uf.siglaUf}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

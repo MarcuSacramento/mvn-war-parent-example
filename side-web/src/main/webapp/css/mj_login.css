@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+body {
+	background: #e8e8e8;
+}
+
+/* Login */
+
+html,
+body,
+.mj_login,
+.mj_login > div,
+.mj_login > div > div,
+.mj_login form { height: 100%; }
+.mj_login .panel {
+	position: relative;
+	top: 50%;
+	margin-top: -152px; /* Usar -131px se houver menu de navegação em área não-logada */
+}

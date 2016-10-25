@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form wicket:id="form">
+		<a href="" wicket:id="ancora" id="ancora" style="color: #eeeeee">_</a>
+		<div wicket:id="navPanel"></div>
+		<div wicket:id="lblMsgAlertaa" class="alert alert-danger"></div>
+		<div class="panel">
+			<div class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">Comissão de Recebimento</h3>
+				</div>
+				<div class="box-body">
+					<div wicket:id="panelMembroDropDownChoice">
+						<div class="form-group">
+							<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+							</label>
+							<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemMembro"></div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label" for="pessoaSelecionado"> <span class="obrigatorio"> * </span>Membro
+							</label>
+							<div class="col-sm-6">
+								<select class="form-control" style="width: 100%;" wicket:id="pessoaSelecionado"></select>
+							</div>
+						</div>
+						<div class="form-group">
+							<button class="col-sm-offset-5 col-xs-offset-4 btn btn-success btn-sm" title="Adicionar" wicket:id="btnAdicionar">
+								<i class="fa fa-plus"></i> Adicionar
+							</button>
+						</div>
+					</div>
+					<div class="box box-primary form-horizontal" wicket:id="panelMembroDataView">
+						<div class="box-header with-border">
+							<h3 class="box-title">Comissão de Recebimento</h3>
+							<div class="pull-right mj_botoes_acao_tabela"></div>
+						</div>
+						<div class="table-responsive">
+							<table width="55%" class="table table-hover">
+								<thead>
+									<tr>
+										<th>Nome</th>
+										<th>CPF</th>
+										<th>Telefone</th>
+										<th>E-mail</th>
+										<th>Ações</th>
+									</tr>
+								</thead>
+								<tbody wicket:id="listaNewDataView">
+									<tr>
+										<td><span wicket:id="nomePessoa"></span></td>
+										<td><span wicket:id="numeroCpf"></span></td>
+										<td><span wicket:id="numeroTelefone" class="mask-telefone"></span></td>
+										<td><span wicket:id="email"></span></td>
+										<td>
+											<button class="btn btn-danger btn-sm" title="Excluir" wicket:id="btnExcluirMembro">
+												<i class="fa fa-trash-o"></i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="panel-footer">
+								<div wicket:id="paginator"></div>
+							</div>
+						</div>
+						<div class="form-group"></div>
+					</div>
+					<label class="col-sm-2 control-label"> </label>
+					<div>
+						<p class="text-left" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel">
+			<div wicket:id="panelAnexos" class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">
+						<span class="panel-title">Anexos</span>
+					</h3>
+				</div>
+				<div class="box-body">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span class="obrigatorio"></span>
+						</label>
+						<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemAnexo"></div>
+					</div>
+					<form wicket:id="anexoForm" id="formUpload">
+						<div class="form-group">
+							<label class="col-sm-3 control-label" for="nomeMembroComissao"><span class="obrigatorio">*</span> Descrição</label>
+							<div class="col-sm-3">
+								<input type="text" placeholder="Nome" class="form-control" wicket:id="nomeArquivo" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label" for="upArquivo"> <span class="obrigatorio">*</span> Arquivo
+							</label>
+							<div class="col-sm-3">
+								<input type="file" wicket:id="fileInput" />
+							</div>
+						</div>
+
+						<div class="form-group">
+							<button class="col-sm-offset-5 col-xs-offset-4 btn btn-success btn-sm" title="Anexar" wicket:id=btnAdicionarAnexo>
+								<i class="fa fa-file-o"></i> Anexar
+							</button>
+						</div>
+					</form>
+
+					<div class="box box-primary form-horizontal">
+						<div class="box-header with-border">
+							<h3 class="box-title"></h3>
+							<div class="pull-right mj_botoes_acao_tabela"></div>
+						</div>
+
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Nome</th>
+									<th>Arquivo</th>
+									<th>Tamanho</th>
+									<th>Data de Cadastro no Sistema</th>
+									<th>Ações</th>
+								</tr>
+							</thead>
+							<tbody wicket:id="anexos">
+								<tr>
+									<td><span wicket:id="descricaoAnexo"></span></td>
+									<td><span wicket:id="nomeAnexo"></span></td>
+									<td><span wicket:id="tamanhoArquivoEmMB"></span></td>
+									<td><span wicket:id="dataCadastro"></span></td>
+									<td>
+										<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm">
+											<i class="fa fa-download"></i>
+										</button>
+										<button wicket:id="btnExcluir" title="Excluir" class="btn btn-danger btn-sm">
+											<i class="fa fa-trash-o"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="panel-footer">
+							<div wicket:id="paginatorAnexo"></div>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+		<div class="box-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right" wicket:id="panelButton">
+				<button class="btn btn-default btn-sm" title="Anterior" wicket:id="btnAnterior">
+					<i class="fa fa-backward"></i> Anterior
+				</button>
+				<button wicket:id="btnSalvar" title="Salvar Comissão Recebimento" class="btn btn-success btn-sm">
+					<i class="fa fa-floppy-o"></i>Salvar
+				</button>
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i>Voltar
+				</button>
+			</div>
+		</div>
+	</form>
+
+</wicket:extend>
+

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="minuta_termo_referencia" pageWidth="595" pageHeight="842" columnWidth="527" leftMargin="34" rightMargin="34" topMargin="42" bottomMargin="42" isIgnorePagination="true" uuid="e9786a78-0c2d-4691-a27d-8e1974984747">
+	<property name="ireport.zoom" value="1.948717100000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="3442"/>
+	<parameter name="BRASAO" class="net.sf.jasperreports.engine.Renderable"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<field name="objeto" class="java.lang.String"/>
+	<field name="justificativa" class="java.lang.String"/>
+	<field name="fundamentacaoLegal" class="java.lang.String"/>
+	<field name="especificacoes" class="java.lang.String"/>
+	<field name="propostaPreco" class="java.lang.String"/>
+	<field name="habitacao" class="java.lang.String"/>
+	<field name="sustentabilidadeAmbiental" class="java.lang.String"/>
+	<field name="recebimentoAceitacao" class="java.lang.String"/>
+	<field name="prazo" class="java.lang.String"/>
+	<field name="metodologia" class="java.lang.String"/>
+	<field name="listaDeRecursos" class="java.util.List"/>
+	<field name="custosEstimados" class="java.lang.String"/>
+	<field name="garantia" class="java.lang.String"/>
+	<field name="obrigacoesContratada" class="java.lang.String"/>
+	<field name="obrigacoesContratante" class="java.lang.String"/>
+	<field name="acompanhamentoFiscalizacao" class="java.lang.String"/>
+	<field name="condicoesPagamento" class="java.lang.String"/>
+	<field name="sansoes" class="java.lang.String"/>
+	<field name="subcontratacao" class="java.lang.String"/>
+	<field name="empenho" class="java.lang.String"/>
+	<field name="validadeAta" class="java.lang.String"/>
+	<field name="listaDeGrupos" class="java.util.List"/>
+	<field name="listaDeItens" class="java.util.List"/>
+	<pageHeader>
+		<band height="139" splitType="Stretch">
+			<image hAlign="Center">
+				<reportElement x="0" y="13" width="527" height="50" uuid="25415985-45a3-4f8f-b21f-25ec3e47b303"/>
+				<imageExpression><![CDATA[$P{BRASAO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="63" width="527" height="20" uuid="a4cbddef-843a-4e0c-9ee9-80e3d92e0aeb"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Ministério da Justiça]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="83" width="527" height="22" uuid="794e91b4-3eb9-4fcf-8a1f-5927201d405e"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Termo de Referência]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="105" width="527" height="22" uuid="2d2db249-90be-47ad-aade-7607feaaa5a0"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[SEAL/DIMAP/COSEG/CGMA/SPOA/SE
+
+SEAL/DIMAP/COSEG/CGMA/SPOA/SE
+
+
+SEAL/DIMAP/COSEG/CGMA/SPOA/SE
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="e87add0a-f761-4d92-84b8-406f1a7ba8aa"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[1. DO OBJETO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="26" width="527" height="32" uuid="dc3329a7-b36d-469a-ad7e-1e3ecf9217e4"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{objeto}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="58">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="fde69d2d-e3fa-4186-9f09-5ed5a626f2eb"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[2. DA JUSTIFICATIVA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="26" width="527" height="32" uuid="ca9a5c71-0de1-4bd8-ac89-b3e97babeba2"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{justificativa}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="b93e5a80-963d-46cb-978e-d208501e6de2"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[3. DA FUNDAMENTAÇÃO LEGAL]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="26" width="527" height="78" isPrintWhenDetailOverflows="true" uuid="f50a570e-225c-425a-b1d9-dde4f2290e56"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{fundamentacaoLegal}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="58">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="0898b69d-8d3c-427a-8ac7-255b33b36bc9"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[4. DAS ESPECIFICAÇÕES E DAS QUANTIDADES DO OBJETO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="26" width="527" height="32" uuid="5872b2a8-5bf2-46b9-afab-d52d092b838c"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{especificacoes}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="96">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="1241cfc3-13bd-4260-a48b-749434fa67d8"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[5. DA PROPOSTA DE PREÇO]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="26" width="527" height="70" uuid="82b571c7-ddc6-455d-82ad-c0e55a32cdd7"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{propostaPreco}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="565c3434-cbe0-4872-aba5-7beebdae94f8"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[6. DA HABILITAÇÃO]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="26" width="527" height="78" uuid="2bbd72e3-9d8a-4e2f-8f26-fbf14f237b3e"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{habitacao}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="f0f11551-9d4c-476a-8a1b-334ee3fc0097"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[7. DA SUSTENTABILIDADE AMBIENTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="26" width="527" height="78" uuid="e733b120-31f7-4ab7-93d2-dbfdf1b22b6b"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{sustentabilidadeAmbiental}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="46">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="49e644fc-d266-4399-bc61-ef79d769ff0a"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[8. DO RECEBIMENTO E ACEITAÇÃO DOS MATERIAIS]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="26" width="527" height="20" uuid="3564b50f-743d-4694-a72e-d15f7a5f0092"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{recebimentoAceitacao}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="46">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="286a9d26-fe03-43a6-9d4e-4892d1c5c02c"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[9. DO PRAZO, LOCAL E FORMA DE ENTREGA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="26" width="527" height="20" uuid="fbf57b9f-59e4-4b29-8837-d214191fe61f"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{prazo}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="46">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="adc16550-482c-4219-8776-d67e9c5932d9"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[10. DA METODOLOGIA DE AVALIAÇÃO E ACEITE DOS MATERIAIS]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="26" width="527" height="20" uuid="7bc0920c-76ee-4238-8933-77d398e17a0b"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{metodologia}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="86">
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="26" width="527" height="60" uuid="3cbccaf1-ebdd-4843-b122-ba373df382e6"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listaDeRecursos})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "minuta_TR_lista_recursos.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="a0c79e45-a3ab-414b-863a-d76193e4593a"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[11. DA DOTAÇÃO ORÇAMENTÁRIA]]></text>
+			</staticText>
+		</band>
+		<band height="46">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="d29def61-b46f-43bd-b383-ff0c6d196935"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[12. DOS CUSTOS ESTIMADOS]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="26" width="527" height="20" uuid="52aee0b5-789b-42cd-9c62-3fba3dc78f6e"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{custosEstimados}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="4e09b089-7058-4d34-8738-b418d01df27e"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[13. DA GARANTIA]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="26" width="527" height="78" uuid="ce67cb34-e9d4-406b-b02c-7619323b6861"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{garantia}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="b033e8f1-7ec3-4ad9-80d0-241501c3f709"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[14. DAS OBRIGAÇÕES DA CONTRATADA]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="26" width="527" height="78" isPrintWhenDetailOverflows="true" uuid="1fda53e4-b1eb-4e6c-a22f-10a64da65778"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textElement markup="styled">
+					<paragraph spacingAfter="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{obrigacoesContratada}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="496e679b-5538-427f-95b1-676c2f1090e2"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[15. DAS OBRIGAÇÕES DO CONTRATANTE]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="26" width="527" height="78" isPrintWhenDetailOverflows="true" uuid="7fd9c2c0-80f8-43d9-a4af-aa167d0c5ecb"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textElement markup="styled">
+					<paragraph spacingAfter="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{obrigacoesContratante}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="56c5fca2-ec6b-4b65-8479-87edc47ba874"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[16. ACOMPANHAMENTO E FISCALIZAÇÃO]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="26" width="527" height="78" isPrintWhenDetailOverflows="true" uuid="d4b3babb-3296-40fa-8cd5-f389c629a3fe"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textElement markup="styled">
+					<paragraph spacingAfter="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{acompanhamentoFiscalizacao}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="affcd65d-b0c8-4ea7-9c34-94b077fbf683"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[17. CONDIÇÕES DE PAGAMENTO]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="26" width="527" height="78" uuid="10bb5c7c-04e0-4a64-820c-6365d10887a1"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{condicoesPagamento}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="a67f2743-561e-4aec-a09d-b94c2f5dc248"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[18. SANÇÕES]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="26" width="527" height="78" uuid="64f1c118-84a4-4875-9b72-0374bfa621a1"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{sansoes}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="b7569f51-075a-4629-914c-6bf08bd61976"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[19. DA SUBCONTRATAÇÃO]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="26" width="527" height="78" uuid="aa616d8a-3e08-45aa-99da-86f174f16e5e"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{subcontratacao}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="104">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="0c230415-5609-4d1d-a4b8-bff68b0ca881"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[20. DO EMPENHO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="26" width="527" height="78" uuid="24e142c8-f7d8-4948-981d-9d5c33ca8058"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{empenho}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="111">
+			<staticText>
+				<reportElement x="0" y="0" width="527" height="26" uuid="dc373a16-1e76-4496-8cad-06b0560a3a67"/>
+				<box topPadding="4"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[21. DA VALIDADE DA ATA DE REGISTRO DE PREÇOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="26" width="527" height="78" uuid="c62e7aff-3636-44b9-bf74-4eaf36964d02"/>
+				<box topPadding="4" leftPadding="6" bottomPadding="10" rightPadding="4"/>
+				<textFieldExpression><![CDATA[$F{validadeAta}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="18">
+			<break>
+				<reportElement x="0" y="5" width="527" height="1" uuid="71414099-fa6b-4a0d-a9ed-f74ec8014680"/>
+			</break>
+		</band>
+	</detail>
+</jasperReport>

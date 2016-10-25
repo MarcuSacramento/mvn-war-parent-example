@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<script type="text/javascript">
+			$(document).ready(function($) {
+				$('[data-toggle="popover"]').popover();
+			});			
+	</script>
+
+	<form class="form-horizontal" wicket:id="form">
+
+		<wicket:container wicket:id="panelFasePrograma" />
+		<wicket:container wicket:id="execucaoPanelPotoes" />
+
+		<!-- Painel de pesquisa -->
+		<div wicket:id="panelPesquisa">
+			<br />
+			<script type="text/javascript">
+		  		$(document).ready(function() {
+		  			$("#idFornecedor").select2();
+		  			$("#idUf").select2();		  		
+				});
+		   </script>
+
+			<div class="box box-primary form-horizontal">
+				<div class="box-body">
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="idFornecedor">Fornecedor</label>
+						<div class="col-sm-3">
+							<select wicket:id="fornecedor" id="idFornecedor" tabindex="3" style="width: 100%"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="numeroContrato">Número do Contrato</label>
+						<div class="col-sm-3">
+							<input type="text" class="form-control" wicket:id="numeroContrato" id="numeroContrato" placeholder="Número do contrato" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="idUf">UF</label>
+						<div class="col-sm-3">
+							<select wicket:id="uf" id="idUf" tabindex="3" style="width: 100%"></select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label"></label>
+			<div class="col-sm-5">
+				<button wicket:id="btnPesquisar" type="submit" title="Pesquisar" class="btn btn-success btn-sm">
+					<i class="fa fa-search"></i>Pesquisar
+				</button>
+				<button wicket:id="btnOcultarPesquisa" type="submit" title="Fechar Pesquisa" class="btn btn-warning btn-sm">
+					<i class="fa fa-times"></i>Fechar Pesquisa
+				</button>
+			</div>
+		</div>
+
+		<!-- Painel de resultados -->
+		<div class="box box-primary form-horizontal" wicket:id="panelResultado">
+			<div class="box-header with-border">
+				<h3 class="box-title">Lista de Contratos</h3>
+				<div class="pull-right">
+					Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPagina" title="Número de registros por página"></select>
+					<button class="btn btn btn-default btn-sm" title="Buscar" wicket:id="btnMostrarPesquisa">
+						<i class="fa fa-search fa-fw"></i>
+					</button>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th wicket:id="orderByNumeroContrato">Número do Contrato</th>
+								<th>Grupo</th>
+								<th wicket:id="orderByFornecedor">Fornecedor</th>
+								<th>Estado</th>
+								<th>Região</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="listaContrato">
+								<td wicket:id="numeroContrato"></td>
+								<td wicket:id="grupoItem"></td>
+								<td wicket:id="fornecedor.nomeEntidade"></td>
+								<td wicket:id="estadoUf"></td>
+								<td wicket:id="regiaoMunicipio"></td>
+								<td>
+									<button class="btn btn btn-primary btn-sm" title="Visualizar" wicket:id="btnVisualizar">
+										<i class="fa fa-search"></i>
+									</button> <a wicket:id="btnInformacao" class="btn btn-warning btn-sm" data-toggle="popover" data-placement="top"
+									data-content="Este contrato não pode ser alterado ou excluido, pois, ja existe uma formatação para este contrato."> <i class="fa fa-info-circle"> </i>
+								</a>
+
+									<button class="btn btn btn-info btn-sm" title="Alterar" wicket:id="btnAlterar">
+										<i class="fa fa-pencil fa-fw"></i>
+									</button>
+									<button title="Excluir" class="btn btn btn-danger btn-sm" wicket:id="btnExcluir">
+										<i class="fa fa-trash-o"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+		<div class="pull-right">
+			<a wicket:id="btnAdicionarNovo" title="Cadastrar novo Contrato" class="btn btn-primary btn-sm"> <i class="fa fa-file-o"></i>Adicionar Contrato
+			</a>
+			<button title="Voltar" class="btn btn-warning btn-sm" wicket:id="btnVoltar">
+				<i class="fa fa-undo"></i>Voltar
+			</button>
+		</div>
+	</form>
+</wicket:extend>

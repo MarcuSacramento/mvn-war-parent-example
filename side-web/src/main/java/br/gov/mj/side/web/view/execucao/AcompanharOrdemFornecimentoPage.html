@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form id="validate" name="my_form" class="form-horizontal" wicket:id="form">
+
+		<wicket:container wicket:id="panelFasePrograma" />
+		<wicket:container wicket:id="execucaoPanelPotoes" />
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> </label>
+			<div class="col-sm-6">
+				<div class="col-sm-6 feedbackPanelERROR"></div>
+			</div>
+		</div>
+
+		<!-- PRIMEIRA TABELA -->
+		<div class="box box-primary form-horizontal" wicket:id="panelListaDeContratos">
+			<div class="box-header with-border">
+				<h3 class="box-title">Contrato</h3>
+				<div class="pull-right">
+					Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPaginaContrato" id="itensPorPagina" title="Número de registros por página"></select>
+				</div>
+			</div>
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th>Número Contrato</th>
+								<th>Saldo Contratual</th>
+								<th>Saldo a Executar</th>
+								<th>Vencimento</th>
+								<th>Situação</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<wicket:container wicket:id="radioGrupContrato">
+								<tr wicket:id="listaContrato">
+									<td><input wicket:id="radioContrato" type="radio" /><span wicket:id="numeroContrato"></span></td>
+									<td wicket:id="saldoContratado"></td>
+									<td wicket:id="saldoExecutar"></td>
+									<td wicket:id="vencimentoCtr"></td>
+									<td wicket:id="situacaoContrato"></td>
+									<td><a wicket:id="btnVisualizarContrato" title="Visualizar Contrato" class="btn btn-primary btn-sm"> <i class="fa fa-search"></i>
+									</a></td>
+								</tr>
+							</wicket:container>
+						</tbody>
+					</table>
+				</div>
+				<div class="panel-footer">
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- SEGUNDA TABELA -->
+		<div class="box box-primary form-horizontal" wicket:id="panelListaDeOfs">
+			<div class="box-header with-border">
+				<h3 class="box-title">Ordem de Fornecimento</h3>
+				<div class="pull-right">
+					Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPaginaOf" id="itensPorPaginaOf" title="Número de registros por página"></select>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th>Ordem de Fornecimento</th>
+								<th>Situação</th>
+							</tr>
+						</thead>
+						<tbody>
+							<wicket:container wicket:id="radioOrdemFornecimentoGrup">
+								<tr wicket:id="listaOrdemFornecimento">
+									<td><input wicket:id="radioOfs" type="radio" /> <span wicket:id="numeroOf"></span></td>
+									<td wicket:id="situacaoOf"></td>
+								</tr>
+							</wicket:container>
+						</tbody>
+					</table>
+				</div>
+				<span id="ancoraOF"></span>
+				<div class="panel-footer">
+					<div wicket:id="paginationOf"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- TERCEIRA TABELA -->
+		<div class="panel" wicket:id="panelItensContrato">
+			<script type="text/javascript">
+			$(document).ready(function($) {
+				$('[data-toggle="popover"]').popover({ html: true});
+			});
+		    </script>
+			<div class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">Execução da OF / Recebimento</h3>
+					<div class="pull-right">
+						Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPagina" id="itensPorPagina" title="Número de registros por página"></select>
+					</div>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nota de Remessa</th>
+								<th>Beneficiário</th>
+								<th>UF</th>
+								<th><center>Item / Quantidade</center></th>
+								<th><center>Contratado</center></th>
+								<th><center>Beneficiário</center></th>
+								<th><center>Contratante</center></th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="listaItensContratoNewDataView">
+							<tr>
+								<td width="100px"><span wicket:id="numeroNotaRemessa"></span></td>
+								<td><span wicket:id="nomeBeneficiarioitem"></span></td>
+								<td><span wicket:id="ufItem"></span></td>
+								<td align="center"><span wicket:id="itensQuant2"></span></td>
+								<td align="center"><span wicket:id="iconeContratado"></span></td>
+								<td align="center"><span wicket:id="iconeBeneficiario"></span></td>
+								<td align="center"><span wicket:id="iconeContratante"></span></td>
+
+								<td><a wicket:id="btnDetalharItem" class="btn btn btn-primary btn-sm" title="Detalhar Item"> <i class="fa fa-magic fa"></i>
+								</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<span id="ancoraOFR"></span>
+					<div class="panel-footer">
+						<div wicket:id="paginatorItensContrato"></div>
+					</div>
+				</div>
+				<div class="form-group"></div>
+			</div>
+			<label class="col-sm-2 control-label"> </label>
+			<div>
+				<p class="text-left" />
+			</div>
+		</div>
+		<div class="panel-footer clearfix" wicket:id="panelBotoes">
+			<div class="pull-right">
+				<div>
+					<a class="btn btn-warning btn-sm" wicket:id="btnVoltar" title="Voltar"> <i class="fa fa-undo fa"></i>Voltar
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+	</form>
+
+</wicket:extend>

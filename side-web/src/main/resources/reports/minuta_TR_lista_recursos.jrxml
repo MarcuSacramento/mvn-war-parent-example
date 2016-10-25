@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="minuta_TR_lista_recursos" pageWidth="527" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="527" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="851f37cb-3a43-427b-b933-d1f829a5bba1">
+	<property name="ireport.zoom" value="1.7715610000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="recurso" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="527" height="23" forecolor="#FFFFFF" backcolor="#3399FF" uuid="2d4c98b4-1621-4570-b594-4477deb3b659"/>
+				<box topPadding="4" leftPadding="4" bottomPadding="2" rightPadding="4">
+					<topPen lineWidth="0.5" lineColor="#000000"/>
+					<leftPen lineWidth="0.5" lineColor="#000000"/>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+					<rightPen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Ação Orçamentária]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="527" height="29" uuid="683d7654-6406-4f72-968d-600f9661804a"/>
+				<box topPadding="8" leftPadding="8" bottomPadding="8" rightPadding="8">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textFieldExpression><![CDATA[" - "+$F{recurso}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

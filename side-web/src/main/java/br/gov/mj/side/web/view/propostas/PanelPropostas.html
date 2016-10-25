@@ -1,0 +1,166 @@
+<wicket:panel>
+
+	<script>
+		$(document).ready(function() {
+			$(".js-example-basic-single").select2();
+		});
+	</script>
+	<form class="form-horizontal" wicket:id="form">
+	
+	
+			<div class="box box-primary collapsed-box">
+			<div class="box-header with-border ui-sortable-handle" style="cursor: move;">
+				<!-- tools box -->
+				<div class="pull-right box-tools">
+					<button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="" style="margin-right: 5px;" data-original-title="Abrir / Fechar formulário de pesquisa">
+						<i class="fa fa-plus"></i>
+					</button>
+				</div>
+				<!-- /. tools -->
+				<i class="fa fa-search"></i>
+				<h3 class="box-title">Filtros de Pesquisa</h3>
+			</div>
+	
+	<div class="box-body">
+	
+	<div wicket:id="panelPesquisa">
+		
+		<script>
+
+		$(document).ready(function() {
+			$("#estado").select2();
+		});
+
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}
+				
+		</script>
+		
+		<div class="form-group">
+						<label class="col-sm-3 control-label" for="proponente">Proponente</label>
+						<div class="col-sm-6">
+							<input type="text" placeholder="Proponente" class="form-control"
+								id="proponente" wicket:id=inscricao.pessoaEntidade.entidade.nomeEntidade>
+						</div>
+					</div>
+		
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="numeroCnpj">CNPJ</label>
+						<div class="col-sm-2">
+							<input type="text" placeholder="Código" class="form-control mask-cnpj"
+								id="numeroCnpj" wicket:id="inscricao.pessoaEntidade.entidade.numeroCnpj" />
+						</div>
+					</div>
+		
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="estado">Estado</label>
+						<div class="col-sm-6">
+							<select style="width: 100%;" class="basic-single"
+								id="estado" wicket:id="inscricao.pessoaEntidade.entidade.municipio.uf"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label" for="numeroCnpj">Número da Proposta</label>
+						<div class="col-sm-2">
+							<input type="text" placeholder="Nº da Proposta" class="form-control"
+								id="numeroProposta" wicket:id="inscricao.id" onkeypress='return somenteNumero(event)'/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label"></label>
+						<div class="col-sm-5">
+							<button wicket:id="btnPesquisar" type="submit" title="Pesquisar"
+									class="btn btn-success btn-sm">
+									<i class="fa fa-search"></i>Pesquisar
+							</button>
+						</div>
+					</div>
+		
+		
+		
+			</div>
+			
+		</div>
+		
+		</div>
+		
+		<br/>
+		<div class="box box-primary" wicket:id="panelResultadosInscritos" style="margin-left:10px;margin-right:10px;">
+    
+			<div>
+			<div class="box-header with-border">
+				<h3 class="box-title"><span wicket:id="lblNomeTabela"/></h3>
+				<div class="pull-right">
+					Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPagina"
+						title="Número de registros por página"></select>
+						<button class="btn btn btn-default btn-sm" title="Buscar"
+							wicket:id=btnMostrarPesquisaPropostas>
+							<i class="fa fa-search fa-fw"></i>
+					</button>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i>
+					Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th wicket:id="orderByIdInscricao">Número da Proposta</th>
+								<th wicket:id="orderByProponente">Proponente</th>
+								<th wicket:id="orderByCnpj">CNPJ</th>
+								<th wicket:id="orderBySituacao">Situação</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="dataPropostas">
+							<tr>
+								<td><span wicket:id="codigoInscricao" /></td>
+								<td><span wicket:id="nomeEntidade" /></td>
+								<td><span wicket:id="cnpjEntidade" /></td>
+								<td><span wicket:id="situacaoEntidade" /></td>
+								<td>
+									<button class="btn btn-primary btn-sm"
+										title="Visualizar Registro" wicket:id="btnVisualizar">
+										<i class="fa fa-search"></i>
+									</button>
+									<button class="btn btn-info btn-sm" title="Analisar" wicket:id="btnAnalisar">
+										<i class="fa fa-bar-chart"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="box-footer">
+					<div wicket:id="pagination"></div>
+					<br />
+					<div class="pull-right">
+						<div>
+								<button wicket:id="btndownloadRelatorioBens"
+									title="Download Relatório Locais de Entrega"
+									class="btn btn-success btn-sm">
+									<i class="fa fa-download"></i>Download Relatório Locais Entrega
+								</button>
+								<button class="btn btn-primary btn-sm"
+									wicket:id="btnGerarLista">
+								<i class="fa fa-share"></i> <span wicket:id="lblNomeBotao" />
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+</form>
+		
+</wicket:panel>

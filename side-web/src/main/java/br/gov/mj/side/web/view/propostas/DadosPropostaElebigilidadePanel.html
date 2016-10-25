@@ -1,0 +1,246 @@
+<wicket:panel>
+
+	<div class="form-group" wicket:id="panelDataViewCriterio">
+		<br />
+		<div class="col-sm-12">
+			<div class="box">
+				<div class="box-body">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody wicket:id="dataViewCriterios">
+							<tr>
+								<td wicket:id="panelCriterio">
+									<div class="row">
+										<div class="col-md-3">
+											<h3>
+												Critério de Elegibilidade <span wicket:id="lblNumero" />
+											</h3>
+										</div>
+									</div>
+									<hr />
+
+									<div class="form-group">
+										<div class="col-md-2">
+											<label>Nome do Critério</label>
+										</div>
+										<div class="col-md-8">
+											<span wicket:id="lblNome" />
+										</div>
+									</div>	
+									
+									<div class="form-group">
+										<div class="col-md-2">
+											<label>Descrição do Critério</label>
+										</div>
+										<div class="col-md-8">
+											<span wicket:id="lblDescricao" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-2">
+											<label>Forma de Verificação</label>
+										</div>
+										<div class="col-md-8">
+											<span wicket:id="lblFormaVerificacao" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<div class="col-md-2">
+											<label>Você atende ao Critério?</label>
+										</div>
+										<div class="col-md-8">
+											<span wicket:id="lblAtendeCriterio" />
+										</div>
+									</div>	
+									<br />
+									<hr />
+									<div wicket:id="containerDownloadElegiblidade">
+									<div class="row">
+										<div class="col-md-1">
+											<label>Anexos</label>
+										</div>
+										<div class="col-md-8"></div>
+									</div>
+									<div wicket:id="listaAnexos" class="form-group">
+										<div class="col-md-2">
+											<span wicket:id="lblNomeAnexo" />
+										</div>
+										<div class="col-md-2">
+											<button title="Baixar arquivo"
+												class="btn btn-success btn-sm" wicket:id="btnDownload">
+												<i class="fa fa-download"></i>
+											</button> 
+										</div>
+									</div>
+									<hr />
+									</div>						
+									
+									<br />
+									<div class="form-group">
+										<div class="col-md-2">
+											<label>Critério Aceito</label>
+										</div>
+										<div class="col-md-2">
+											<select style="width: 100%;"
+													class="form-control"
+													wicket:id="aceitaCriterioElegibilidade"></select>
+										</div>
+									</div>
+									<div class="row" wicket:id="panelMotivoCriterioNaoAceito">
+										<div class="col-md-2">
+											<label><span wicket:id="lblMotivoNaoAceito"></span></label>
+										</div>
+										<div class="col-md-8">
+											<textarea class="form-control" rows="5"
+												placeholder="Motivo" wicket:id="descricaoMotivo"></textarea>
+										</div>
+									</div></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div>
+	
+	
+	
+	
+	
+
+
+	<div class="form-group">
+	<div class="col-sm-12" wicket:id="panelRecurso">
+			<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Recurso</h3>
+			</div>
+			<div class="box-body">
+			
+			<div class="form-group">
+					<div class="col-md-2">
+						<label><input type="checkbox" wicket:id="checkfaseRecursoElegibilidade"/> Apresentação de Recurso &nbsp;&nbsp;</label>
+					</div>
+					<div class="col-md-6">
+					
+					<div class="form-group">
+					<div class="col-md-12">
+						<label class="col-sm-3 control-label">
+							<span wicket:id="lblProcesso" /></label>
+						<div class="col-sm-7">
+							<input type="text" placeholder="Número do Processo"
+						class="form-control mask-numero-sei" wicket:id="txtNumeroProcesso"/>
+						</div>
+					</div>
+				</div>
+					
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-md-2">
+						<label><input type="checkbox" wicket:id="checkfinalizadoRecursoElegibilidade"/> <span wicket:id="lblRecursoAnalisado" /></label>
+					</div>
+				</div>
+			</div>
+						</div>
+			</div>
+	
+	</div>
+	</div>
+	
+
+
+	<div class="form-group">
+	<div class="col-sm-12" wicket:id="panelAnaliseFinal">
+		<div class="box box-primary">
+		<div class="box-header with-border">
+				<h3 class="box-title">Análise de Elegibilidade</h3>
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<div class="col-md-2">
+						<label>Resultado da Análise</label>
+					</div>
+					<div class="col-md-8"><strong><span wicket:id="lblResultadoAnalise" /></strong></div>
+				</div>
+
+
+				<div class="form-group">
+					<div class="col-md-2">
+						<label><span wicket:id="lblResultadoFinal" /></label>
+					</div>
+					<div class="col-md-2">
+						<select style="width: 100%;" class="form-control" id="dropResultadoFinal" wicket:id="dropResultadoFinal"></select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-md-2">
+						<label><span wicket:id="lblMotivoFinal" /></label>
+					</div>
+					<div class="col-md-2">
+						<select style="width: 100%;" class="form-control" id="dropMotivoAnalse" wicket:id="dropMotivoAnalse"></select>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-2">
+						<label><span wicket:id="lblJustificativaFinal" /></label>
+					</div>
+					<div class="col-md-8">
+						<textarea class="form-control" rows="5" id="txtJustificativa"
+							wicket:id="txtJustificativa" placeholder="Justificativa"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	
+	<div class="form-group" wicket:id="panelHistorico">
+	<div class="col-sm-12">
+	<div class="box box-primary">
+		<div class="box-header with-border">
+				<h3 class="box-title">Histórico</h3>
+		</div>
+		<div class="box-body">
+		<div class="table-responsive">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>Data Cadastro</th>
+						<th>Motivo Análise</th>
+						<th>Justificativa</th>
+						<th>Resultado Final</th>
+						<th>Usuário</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr wicket:id="dataViewHistorico">
+						<td width="5%"><span wicket:id="histDtCadastro"></span></td>
+						<td width="5%"><span wicket:id="histMotivoAnalise"></span></td>
+						<td width="5%"><span wicket:id="histJustificativa"></span></td>
+						<td width="5%"><span wicket:id="histResultadoFinal"></span></td>
+						<td width="5%"><span wicket:id="histUsuarioCadastro"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+				
+		</div>
+	</div>
+	</div>
+	</div>
+	<div wicket:id="modalConfirm" />
+	
+
+</wicket:panel>

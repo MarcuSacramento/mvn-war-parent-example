@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form class="form-horizontal" wicket:id="form">
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a wicket:id="lnkDashboard">Dashboard</a></li>
+				<li class="active">Permissões de Acesso a Usuários</li>
+			</ul>
+		</div>
+
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Pesquisar o Usuário</h3>
+			</div>
+			<div class="box-body">
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="nomeUsuario">Nome</label>
+					<div class="col-sm-3">
+						<input type="text" placeholder="Nome" class="form-control" id="nomeUsuario" wicket:id="nomeCompleto" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="cpfUsuario">CPF</label>
+					<div class="col-sm-3">
+						<input type="text" placeholder="CPF" class="form-control mask-cpf" id="cpfUsuario" wicket:id="numeroCpf" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="acessoUsuario">Usuário de Acesso</label>
+					<div class="col-sm-3">
+						<input type="text" placeholder="Usuário de Acesso" class="form-control" id="acessoUsuario" wicket:id="login" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="emailUsuario">Email</label>
+					<div class="col-sm-3">
+						<input type="text" placeholder="Email" class="form-control" id="emailUsuario" wicket:id="email" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="situacaoUsuario">Situação</label>
+					<div class="col-sm-3">
+						<select class="basic-single" style="width: 100%;" id="situacaoUsuario" wicket:id="situacaoUsuario"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="#">Primeiro Acesso</label>
+					<div class="col-sm-3">
+						<select class="basic-single" style="width: 100%;" id="possuiPrimeiroAcesso" wicket:id="possuiPrimeiroAcesso"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="col-sm-offset-5 col-xs-offset-4 btn btn-success btn-sm" type="submit" title="Consultar" wicket:id="pesquisar">
+						<i class="fa fa-search"></i> Consultar
+					</button>
+					<button class="btn btn-warning btn-sm" type="submit" title="Limpar" wicket:id="limpar">
+						<i class="fa fa-eraser"></i> Limpar
+					</button>
+				</div>
+			</div>
+		</div>
+		
+		<span id="ancoraPesquisa"></span>
+
+		<!-- Painel com os Resultados da Pesquisa -->
+		<div class="box box-primary" wicket:id="grid">
+			<div class="box-header with-border">
+				<h3 class="box-title">Lista de Usuários</h3>
+				<div class="pull-right mj_botoes_acao_tabela">
+					Qtd de itens exibidos &nbsp;<select id="itensPorPagina" title="Número de registros por página" wicket:id="itensPorPagina"></select>
+				</div>
+			</div>
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<!-- Head do grid com os link de ordenação -->
+							<tr>
+								<th>Nome</th>
+								<th>CPF</th>
+								<th>Email</th>
+								<th>Situação</th>
+								<th>Ações</th>
+							</tr>
+							<!-- Fim do head de ordenação -->
+						</thead>
+						<tbody>
+							<tr wicket:id="usuarios">
+								<td><span wicket:id="nomeCompleto"></span></td>
+								<td><span wicket:id="numeroCpf"></span></td>
+								<td><span wicket:id="email"></span></td>
+								<td><span wicket:id="situacaoUsuario.descricao"></span></td>
+								<td>
+									<button wicket:id="alterar" type="submit" title="Vincular Perfil(s)" class="btn btn btn-info btn-sm">
+										<i class="fa fa-pencil fa-fw"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="box-footer">
+					<div wicket:id="paginacao"></div>
+				</div>
+			</div>
+		</div>
+		<!-- Fim do painel principal (grid) -->
+	</form>
+</wicket:extend>

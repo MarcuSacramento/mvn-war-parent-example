@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_visualizar_programa_detalhes_elegibilidade" pageWidth="539" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="539" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="0538e7ea-7b58-485b-8e46-65d146445aad">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="criterioElegibilidade" class="java.lang.String"/>
+	<field name="descricaoElegibilidade" class="java.lang.String"/>
+	<field name="verificacaoElebilidade" class="java.lang.String"/>
+	<field name="anexoElegibilidade" class="java.lang.String"/>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="144" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="a9e82405-e458-4fc2-9d34-f7b5d4808111"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="144" y="0" width="188" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="02940151-f1d7-450c-a79c-9149b39461a8"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="332" y="0" width="148" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="9406fc95-72eb-41a9-a481-71c5011013e4"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="0" width="124" height="15" uuid="c242c95a-08bd-4c1f-95fa-6e6306408d65"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Critério de Elegibilidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="147" y="1" width="185" height="14" isPrintWhenDetailOverflows="true" uuid="f4c3794f-e18d-4b2f-981f-581c84738e8c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="1" width="142" height="14" uuid="8c38eab8-0b97-4c11-af1a-a09b4a006189"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Forma de Verificação]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="480" y="0" width="59" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="197f36b8-369c-4bbd-8c23-30cdac613a9d"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="484" y="0" width="53" height="15" uuid="9a9d32a3-ca95-4549-a4bf-c533f25049b8"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Anexo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="144" height="19" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="0185288e-b1dc-43df-8d05-caf8bcaad820"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="332" y="0" width="148" height="19" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="ed81d29f-c75d-4b86-9248-6ebf26907f5a"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="144" y="0" width="188" height="19" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="108b6a9a-b1bc-4a28-b6a1-d30311eee80a"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="4" y="2" width="132" height="15" isPrintWhenDetailOverflows="true" uuid="e8a428dd-6210-4f58-a3a5-4f02eef6e207"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph spacingBefore="1" spacingAfter="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{criterioElegibilidade}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="149" y="2" width="183" height="15" isPrintWhenDetailOverflows="true" uuid="2377c5c9-049e-4c96-8890-d5daa895ccb9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph spacingBefore="1" spacingAfter="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricaoElegibilidade}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="336" y="2" width="145" height="15" isPrintWhenDetailOverflows="true" uuid="53c64f84-0791-42c2-98cf-a8b08a227d8b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph spacingBefore="1" spacingAfter="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{verificacaoElebilidade}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="480" y="0" width="59" height="19" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="0d0a9319-2978-4958-9f54-5b4000a4f7e8"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="483" y="2" width="54" height="15" uuid="23ae2b81-7b21-40c9-9a22-e794207bb49d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anexoElegibilidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29">
+			<printWhenExpression><![CDATA[($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="119" y="7" width="272" height="15" uuid="c8b89de8-56b0-4803-9647-a1faadfd3004"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nenhum Critério de Elegibilidade adicionado a este Programa]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<!-- Tell the browser to be responsive to screen width -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<!-- Bootstrap 3.3.5 -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+<!-- Font Awesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="css/mj.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link href="select2-3.4.8/select2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/introjs.css" />
+<link rel="stylesheet" type="text/css" href="css/pace.css" />
+
+<wicket:header-items />
+
+
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+<!-- Theme style -->
+<link rel="stylesheet" href="css/AdminLTE.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="css/skins/_all-skins.css">
+
+</head>
+<!-- inicio body -->
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+	<div class="wrapper">
+		<!-- FeedBack de cadastrar item -->
+		<span id="ancoraMensagemFeedBackCadastrarItemDesktop"></span>
+		<!-- Cabe&ccedil;alho -->
+		<header class="main-header">
+			<!-- Logo -->
+			<a href="#" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels --> <span class="logo-mini"></span> <!-- logo for regular state and mobile devices -->
+				<span class="logo-lg"><b>SIDE.MJ</b></span>
+			</a>
+			<!-- Header Navbar: style can be found in header.less -->
+			<nav class="navbar navbar-static-top" role="navigation">
+				<!-- Sidebar toggle button-->
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"> <span class="sr-only">Toggle navigation</span>
+				</a>
+				<!-- Navbar Right Menu -->
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<!-- Notifications: style can be found in dropdown.less -->
+						<li class="dropdown notifications-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-bell-o"></i> <span
+								class="label label-warning">10</span>
+						</a>
+							<!-- <ul class="dropdown-menu">
+								<li class="header">Você possui 5 notificações</li>
+								<li>
+									inner menu: contains the actual data
+									<ul class="menu">
+										<li><a href="#">
+												<button class="btn btn-box-tool pull-right" data-widget="remove">
+													<i class="fa fa-times"></i>
+												</button> <i class="fa fa-warning text-yellow"></i> <span>Item devolvido(3)</span>
+										</a>
+										<a href="#">
+												<button class="btn btn-box-tool pull-right" data-widget="remove">
+													<i class="fa fa-times"></i>
+												</button> <i class="fa fa-warning text-yellow"></i> <span>Inserir a Nota Fiscal</span>
+										</a> 
+										 <a href="#">
+												<button class="btn btn-box-tool pull-right" data-widget="remove">
+													<i class="fa fa-times"></i>
+												</button> <i class="fa fa-warning text-yellow"></i> <span>Termo de Doação gerado</span>
+										</a></li>
+									</ul>
+								</li>
+								<li class="footer"><a href="#" wicket:id="btnViewAll">Visualizar Todos</a></li>
+							</ul> --></li>
+						<!-- Tasks: style can be found in dropdown.less -->
+						<li class="dropdown tasks-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-flag-o"></i> <span
+								class="label label-danger">9</span>
+						</a></li>
+						<!-- User Account: style can be found in dropdown.less -->
+						<li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-user fa-lg"
+								style="color: #222d32;"></i> <span class="hidden-xs" wicket:id="labelNomeCompletoUsuario">Usuário</span>
+						</a>
+							<ul class="dropdown-menu">
+								<!-- Menu Footer-->
+								<li class="user-footer">
+									<div>
+										<a wicket:id="linkLogoff" href="#" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i>Logout</a>
+									</div>
+								</li>
+							</ul></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar">
+			<!-- sidebar: style can be found in sidebar.less -->
+			<section class="sidebar" wicket:id="panelMenu">
+				<!-- sidebar menu: : style can be found in sidebar.less -->
+				<ul class="sidebar-menu">
+					<li class="header">MENU</li>
+					<li class="active treeview"><a wicket:id="homePage" title="Dashboard"> <i class="fa fa-dashboard"></i><span>Dashboard</span> <i
+							class="fa fa-angle-left pull-right"></i>
+					</a></li>
+					<wicket:enclosure child="labelDefinicoes">
+						<li class="treeview"><a href="#"> <i class="fa fa-pencil-square-o"></i> <span wicket:id="labelDefinicoes">Definições</span> <i
+								class="fa fa-angle-left pull-right"></i>
+						</a>
+							<ul class="treeview-menu">
+								<li><a wicket:id="menuBemPage" href="#" title="Manter Bem">Bens</a></li>
+								<li><a wicket:id="menuKitPage" href="#" title="Manter Kit">Kits</a></li>
+								<li><a wicket:id="menuRecursoPage" href="#" title="Recursos">Ação Orçamentária</a></li>
+								<li><a wicket:id="menuProgramaPage" href="#" title="Programas">Programas</a></li>
+								<li><a wicket:id="menuFornecedorPage" href="#" title="Fornecedores">Fornecedores</a></li>
+							</ul></li>
+					</wicket:enclosure>
+					<li class="treeview"><a wicket:id="beneficiarioPesquisaPage" href="#" title="Beneficiários"> <i class="fa fa-user"></i><span>Beneficiários</span><i
+							class="fa fa-angle-left pull-right"></i>
+					</a></li>
+					<li class="treeview"><a wicket:id="menuUsuarioPage" href="#" title="Usuários"> <i class="fa fa-users"></i><span>Usuários</span><i
+							class="fa fa-angle-left pull-right"></i>
+					</a></li>
+					<li class="treeview"><a href="#"> <i class="fa fa-info"></i> <span>Conheça o SIDE</span> <i class="fa fa-angle-left pull-right"></i>
+					</a>
+						<ul class="treeview-menu">
+							<li><a href="conheca/index.html" target="blank" title="Fluxo Geral">Fluxo Geral</a></li>
+						</ul></li>
+				</ul>
+			</section>
+			<!-- /.sidebar -->
+		</aside>
+		<!-- &Aacute;rea principal -->
+		<div class="content-wrapper">
+			<!-- Main content -->
+			<div class="content">
+				<div class="page-header">
+					<h3>
+						<span id="lblTituloPrincipal" wicket:id="lbTitulo"></span>
+					</h3>
+					<h4>
+						<span wicket:id="lbSubTitulo"></span>
+					</h4>
+				</div>
+				<div wicket:id="feedbackPanel" />
+				<wicket:child />
+			</div>
+			<!-- /.content -->
+		</div>
+		<div class="control-sidebar-bg"></div>
+	</div>
+
+	<!-- Rodapé; -->
+	<footer class="main-footer">
+		<div class="container-fluid">
+			<div class="pull-right hidden-xs">
+				<b>Version</b> <span wicket:id="labelVersion">XXX</span>
+			</div>
+			<strong> SIDE está disponível no <a href="http://softwarepublico.gov.br/social/side" target="blank" title="Portal do Software Público">Portal do
+					Software Público</a>, licenciado pela <a href="http://www.gnu.org/licenses/agpl.html" target="blank" title="GNU Affero General Public License">GNU Affero
+					General Public License</a>. CGTI / Ministério da Justiça.
+			</strong>
+		</div>
+	</footer>
+
+	<!-- ./wrapper -->
+	<script>
+		  $.widget.bridge('uibutton', $.ui.button);
+	</script>
+	<!-- AdminLTE App -->
+	<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<!-- Bootstrap 3.3.5 -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- FastClick -->
+	<script type="text/javascript" src="js/fastclick.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+	<script type="text/javascript" src="js/jquery.maskMoney.js"></script>
+	<script type="text/javascript" src="select2-3.4.8/select2.min.js"></script>
+	<script type="text/javascript" src="js/select2_ptbr.js"></script>
+	<script type="text/javascript" src="js/intro.js"></script>
+	<!-- Pace (loading...) -->
+	<script type="text/javascript" src="js/pace.min.js"></script>
+	<!-- EXIF da imagem -->
+	<script type="text/javascript" src="js/exif.js"></script>
+
+	<script>
+			$( document ).ready(function() {
+				
+				$('.mask-cpf').mask('000.000.000-00', {reverse: true});
+				$('.mask-cnpj').mask('00.000.000/0000-00', {reverse: true});	
+			 	$(".mask-money").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: true});
+			 	$(".mask-numeric").maskMoney({prefix:'', allowNegative: false, thousands:'.', decimal:',', affixesStay: true});
+			 	$('.mask-numero-sei').mask('00000.000000/0000-00', {reverse: false});	
+				$('.mask-data').mask('00/00/0000', {reverse: true});	
+				$('.mask-telefone').mask('(00)000000000', {reverse: false});
+				$('.mask-cep').mask('00000-000', {reverse: false});
+				$('.mask-codigo-recebimento').mask('SSSS-0000', {reverse: false});
+
+				validaApenasTelefone();
+			});
+			
+			function validaApenasTelefone() {
+
+	            var masks = ['(00) 00000-0000', '(00) 0000-00009'],
+	                maskBehavior = function(val, e, field, options) {
+	                    return val.length > 14 ? masks[0] : masks[1];
+	                };
+
+	            $('.mask-telefoneComDdd').mask(maskBehavior, {onKeyPress:
+		            function(val, e, field, options) {
+		                field.mask(maskBehavior(val, e, field, options), options);
+		            }
+	            });
+	        }
+		</script>
+
+	<script>
+		$(document).ready(function() {
+			$(".js-example-language").select2({
+				  language: "pt-BR"
+			});
+		});			
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function($) {
+			atualizaCssDropDown();
+		});
+
+		function atualizaCssDropDown(){
+	 		$("select.basic-single").select2();
+	 	}
+	</script>
+
+	<script type="text/javascript">
+		function ancorarResultadoPesquisa(idAncora){
+			$('html, body').animate({
+			    scrollTop: $(idAncora).offset().top
+			}, 1000);
+		}
+	</script>
+
+</body>
+<!-- fim do body -->
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label" for="acaoOrcamentaria"> <span class="obrigatorio">*</span> Ação Orçamentária
+		</label>
+		<div class="col-sm-5">
+			<select class="basic-single" wicket:id="acaoOrcamentaria" id="acaoOrcamentaria" style="width: 100%;"></select>
+		</div>
+
+		<button wicket:id="btnVincularRecurso" title="Vincular Recurso" class="btn btn-primary btn-sm">
+			<i class="fa fa-file-o"></i> Vincular Recurso
+		</button>
+	</div>
+
+	<div wicket:id="panelGridRecursoFinanceiro">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Ação Orçamentária</th>
+					<th>Valor Total</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr wicket:id="recursosFinanceiros">
+					<td><span wicket:id="acaoOrcamentaria.numeroNomeAcaoOrcamentaria"></span></td>
+					<td><span wicket:id="total"></span></td>
+					<td>
+						<button wicket:id="btnVisualizar" title="Visualizar" class="btn btn-primary btn-sm">
+							<i class="fa fa-search"></i>
+						</button>
+						<button wicket:id="btnAlterar" title="Alterar" class="btn btn-info btn-sm">
+							<i class="fa fa-pencil"></i>
+						</button>
+						<button wicket:id="btnExcluir" title="Excluir" class="btn btn-danger btn-sm">
+							<i class="fa fa-trash-o"></i>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br />
+	<div class="panel-footer clearfix">
+		<div class="row">
+			<div class="col-md-2">
+				<label>Valor Total:</label>
+			</div>
+			<div class="col-md-6">
+				<span wicket:id="valorTotal"></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<label>Valor Máximo por Proposta:</label>
+			</div>
+			<div class="col-md-2">
+				<span wicket:id="valorMaximoProposta"></span>
+			</div>
+		</div>
+		<script type="text/javascript">			
+			$( document ).ready(function() {
+				$(".mask-money").maskMoney({
+					prefix:'R$ ', 
+					allowNegative: false, 
+					thousands:'.',
+					decimal:',',
+					affixesStay: true});
+			});
+		</script>
+	</div>
+</wicket:panel>

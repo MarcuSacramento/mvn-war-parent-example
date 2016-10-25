@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_kit" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b59b2bf2-a269-4234-866d-fcc749106f19">
+	<property name="ireport.zoom" value="2.3579476910000023"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.export.csv.field.delimiter" value=";"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nome" class="java.lang.String"/>
+	<field name="descricao" class="java.lang.String"/>
+	<field name="valorEstimado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="59" width="142" height="20" uuid="4e9b7afa-552b-435a-a3ff-aef68e8f6e5e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nomes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="148" y="59" width="289" height="20" uuid="74fba948-67fd-46e3-bbb7-c7f8417a9517"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="444" y="59" width="107" height="20" uuid="dc55e35b-5d89-4421-b5bf-74994302558c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Estimado]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="2" y="0" width="142" height="20" uuid="113cc692-9660-435a-aada-7239f41a1852"/>
+				<textElement>
+					<font isStrikeThrough="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="148" y="0" width="289" height="20" uuid="35124345-8b0f-44b9-abe9-3f4469bd9cc8"/>
+				<textFieldExpression><![CDATA[$F{descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="0" width="107" height="20" uuid="8973c2ec-741e-4283-9d06-057c6617b2cb"/>
+				<textFieldExpression><![CDATA[$F{valorEstimado}.replace(".",",")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

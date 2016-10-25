@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="box box-primary" style="margin-left: 10px; margin-right: 10px;">
+		<div class="box-header with-border">
+			<h3 class="box-title">Critérios de Avaliação</h3>
+		</div>
+		<div class="box-body">
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label"></label>
+				<div class="col-sm-6 feedbackPanelERROR" wicket:id="feedbackLabel"></div>
+			</div>
+
+			<div wicket:id="dadosCriterio">
+				<div class="form-group">
+					<label for="nomeCriterioAvaliacao" class="col-sm-3 control-label"><span>*</span> Nome</label>
+					<div class="col-sm-6">
+						<input wicket:id="nomeCriterioAvaliacao" id="nomeCriterioAvaliacao" type="text" placeholder="Nome do Critério de Avaliação" class="form-control" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="descricaoCriterioAvaliacao" class="col-sm-3 control-label"><span>*</span> Descrição</label>
+					<div class="col-sm-6">
+						<textarea wicket:id="descricaoCriterioAvaliacao" id="descricaoCriterioAvaliacao" type="text" placeholder="Descrição" class="form-control"></textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="formaVerificacao" class="col-sm-3 control-label"><span>*</span> Forma de Verificação</label>
+					<div class="col-sm-6">
+						<textarea wicket:id="formaVerificacao" id="formaVerificacao" type="text" placeholder="Forma de Verificação" class="form-control"></textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="tipoResposta" class="col-sm-3 control-label"><span>*</span> Tipo de Resposta</label>
+					<div class="col-sm-2">
+						<select wicket:id="tipoResposta" id="tipoResposta" class="form-control"></select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label"> </label>
+					<div class="container col-sm-6">
+						<div wicket:id="opcaoRespostaPanel" class="box box-primary">
+							<div class="box-header with-border">
+								<h3 class="box-title">Adicionar Opções de Respostas</h3>
+							</div>
+							<div class="box-body">
+								<div class="form-group">
+									<label for="descricaoOpcaoResposta" class="col-sm-3 control-label"><span>*</span> Opções de Resposta</label>
+									<div class="col-sm-4">
+										<input wicket:id="descricaoOpcaoResposta" id="descricaoOpcaoResposta" type="text" placeholder="Opção de Resposta" class="form-control" />
+									</div>
+									<label for="notaOpcaoResposta" class="col-sm-1 control-label"><span>*</span> Nota</label>
+									<div class="col-sm-3">
+										<select wicket:id="notaOpcaoResposta" id="notaOpcaoResposta" class="form-control" placeholder="Nota"></select>
+									</div>
+									<button wicket:id="btnAdicionarOpcaoResposta" class="btn btn-success btn-sm">
+										<i class="fa fa-plus"></i>
+									</button>
+								</div>
+
+								<div class="form-group">
+									<table class="table table-condensed">
+										<tr wicket:id="respostas">
+											<td wicket:id="descricaoOpcaoResposta"></td>
+											<td wicket:id="notaOpcaoResposta"></td>
+											<td><button wicket:id="btnExcluirOpcaoResposta" class="btn btn-danger btn-sm" title="Excluir">
+													<i class="fa fa-minus"></i>
+												</button></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="peso" class="col-sm-3 control-label"><span>*</span> Peso</label>
+					<div class="col-sm-2">
+						<select wicket:id="pesoResposta" id="peso" class="form-control"></select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="possuiObrigatoriedadeDeAnexo" class="col-sm-3 control-label"><span>*</span> Anexo Obrigatório</label>
+					<div class="col-sm-2">
+						<select wicket:id="possuiObrigatoriedadeDeAnexo" id="possuiObrigatoriedadeDeAnexo" class="form-control"></select>
+					</div>
+
+					<label for="utilizadoParaCriterioDesempate" class="col-sm-2 control-label"><span>*</span> Critério de Desempate</label>
+					<div class="col-sm-2">
+						<select wicket:id="utilizadoParaCriterioDesempate" id="utilizadoParaCriterioDesempate" class="form-control"></select>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-8 control-label"></label>
+				<div class="col-sm-1" wicket:id="botoes">
+					<div class="pull-right">
+						<button title="Adicionar" class="btn btn-success btn-sm" wicket:id="btnAdicionar">
+							<i class="fa fa-plus"></i>
+						</button>
+						<button class="btn btn-info btn-sm" wicket:id=btnSalvarAlteracao title="Alterar">
+							<i class="fa fa-pencil fa-fw"></i>
+						</button>
+						<button title="Cancelar" class="btn btn-warning btn-sm" wicket:id="btnCancelarAlteracao">
+							<i class="fa fa-undo"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div wicket:id="criterios">
+				<div class="box box-primary">
+					<div class="box-body">
+						<table class="table table-hover">
+							<thead>
+								<th>Nome</th>
+								<th>Descrição</th>
+								<th>Forma de Verificação</th>
+								<th>Tipo de Resposta</th>
+								<th>Opções de Resposta</th>
+								<th>Peso</th>
+								<th>Anexo</th>
+								<th>Desempate</th>
+								<th>Ações</th>
+							</thead>
+							<tbody>
+								<tr wicket:id="criteriosAvaliacao">
+									<td wicket:id="nomeCriterioAvaliacao"></td>
+									<td wicket:id="descricaoCriterioAvaliacao"></td>
+									<td wicket:id="formaVerificacao"></td>
+									<td wicket:id="tipoResposta.descricao"></td>
+									<td wicket:id="opcoesResposta"></td>
+									<td wicket:id="pesoResposta"></td>
+									<td wicket:id="possuiObrigatoriedadeDeAnexo"></td>
+									<td wicket:id="utilizadoParaCriterioDesempate"></td>
+									<td>
+										<button wicket:id="btnAlterar" class="btn btn-info btn-sm" title="Alterar">
+											<i class="fa fa-pencil fa-fw"></i>
+										</button>
+										<button wicket:id="btnExcluir" class="btn btn-danger btn-sm" title="Excluir">
+											<i class="fa fa-minus"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div wicket:id="paginator"></div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+	
+<style>
+	.custom {
+		width: 280px !important;
+	}
+
+	.mesmo-tamanho {
+		width: 280px;
+		white-space: normal;
+	}
+</style>
+
+
+	<form class="form-horizontal" wicket:id="form">
+
+		<wicket:container wicket:id="panelFasePrograma" />
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div wicket:id="dadosProgramaPropostaPanel"></div>
+				<div wicket:id="dadosEntidadePropostaPanel"></div>
+				<div wicket:id="dadosInscricaoPropostaPanel"></div>
+			</div>
+		</div>
+
+
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Avaliação dos Critérios</h3>
+			</div>
+			<div class="box-body">
+				<div class="col-sm-12" wicket:id="panelBotoesGuias">
+
+					<button class="btn btn-default btn-sm custom" title="Critérios de Elegibilidade" wicket:id="btnAbrirCriteriosElebilidade">
+						<i class="fa fa-tasks"></i>Critérios de Elegibilidade
+					</button>
+
+					<button class="btn btn-default btn-sm custom" title="Critérios de Avaliação" wicket:id="btnAbrirCriteriosAvaliacao">
+						<i class="fa fa-tasks"></i>Critérios de Avaliação
+					</button>
+
+					<button class="btn btn-default btn-sm custom" title="Anexos" wicket:id="btnAbrirAnexos">
+						<i class="fa fa-paperclip"></i>Anexos
+					</button>
+				</div>
+			</div>
+
+			<div wicket:id="panelComAsGuias">
+				<div wicket:id="dadosPropostaElebigilidadePanel"></div>
+				<div wicket:id="dadosPropostaValidacaoPanel"></div>
+				<div wicket:id="panelAnexoProposta"></div>
+			</div>
+		</div>
+
+		<div class="box-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right">
+				<div wicket:id="panelBotoesSalvarConcluir">
+					<button class="btn btn-primary btn-sm" title="Concluir Elegibilidade" wicket:id="btnConcluirElebilidade">
+						<i class="fa fa-floppy-o"></i> Concluir Elegibilidade
+					</button>
+					<button class="btn btn-success btn-sm" title="Salvar Elegibilidade" wicket:id="btnSalvarElegibilidade">
+						<i class="fa fa-floppy-o"></i> Salvar Elegibilidade
+					</button>
+					<button class="btn btn-primary btn-sm" title="Concluir Análise" wicket:id="btnConcluirAvaliacao">
+						<i class="fa fa-floppy-o"></i> Concluir Avaliação
+					</button>
+					<button class="btn btn-success btn-sm" title="Salvar Análise" wicket:id="btnSalvarAvaliacao">
+						<i class="fa fa-floppy-o"></i> Salvar Avaliação
+					</button>
+					<button title="Voltar" class="btn btn-warning btn-sm" wicket:id="btnVoltar">
+						<i class="fa fa-undo"></i>Voltar
+					</button>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</form>
+</wicket:extend>

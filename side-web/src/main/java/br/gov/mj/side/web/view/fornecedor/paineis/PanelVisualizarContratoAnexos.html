@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<script>
+		function somenteNumero(e){
+    		var tecla=(window.event)?event.keyCode:e.which;   
+    		if((tecla>47 && tecla<58)) return true;
+    		else{
+    			if (tecla==8 || tecla==0) return true;
+			else  return false;
+    		}
+		};
+
+		function atualizarDropDownTipoArquivo(){
+		 	$("#tipoArquivoContrato").select2();
+	 	};
+	</script>
+
+	<div wicket:id="panelInformacoesAnexo" class="form-horizontal">
+		<div class="form-group">
+			<label class="col-sm-3 control-label"></label>
+			<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemAnexo"></div>
+		</div>
+
+			<div class="form-group">
+				<label class="col-sm-1 control-label"></label>
+				<div class="container col-sm-12">
+					<div class="col-sm-12">
+						<div>
+							<p class="text-left"></p>
+						</div>
+
+						<div class="panel panel-default" style="margin-left: 10px; margin-right: 10px;">
+							<div class="panel-body">
+							  <div class="table-responsive">
+								<table class="table table-condensed" >
+									<thead>
+										<tr>
+											<th width="8%"></th>
+											<th width="14%">Tipo</th>
+											<th width="26%">Arquivo</th>
+											<th width="10%">Tamanho</th>
+											<th width="12%">Data do Documento</th>
+											<th width="17%">Data de Cadastro no Sistema</th>
+											<th width="9%" class="text-left">Ações</th>
+											<th width="4%"></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr wicket:id="anexos">
+											<td width="8%"></td>
+											<td width="10%"><span wicket:id="descricao"></span></td>
+											<td width="26%"><span wicket:id="nomeAnexo"></span></td>
+											<td width="12%"><span wicket:id="tamanhoArquivoEmMB"></span></td>
+											<td width="10%"><span wicket:id="dataAnexoTable"></span></td>
+											<td width="17%"><span wicket:id="dataCadastro"></span></td>
+											<td width="13%" class="text-left">
+												<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm" id="btnDonwload">
+													<i class="fa fa-download"></i>
+												</button>
+											</td>
+											<td width="4%"></td>
+										</tr>
+									</tbody>
+								</table>
+								</div>
+							</div>
+							<div class="box-footer">
+								<div wicket:id="pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+</wicket:panel>

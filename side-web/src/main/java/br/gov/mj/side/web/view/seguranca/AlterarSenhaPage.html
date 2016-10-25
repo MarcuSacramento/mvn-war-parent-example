@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<wicket:extend>
+
+	<form wicket:id="form">
+	<div class="col-sm-offset-4 col-sm-4">
+		<div class="panel panel-primary">
+ 			<div class="panel-heading">Cadastrar Senha</div>
+  			<div class="panel-body">
+				<div class="alert alert-info" role="alert">
+					A senha deve ter o padrão : <br/>
+					
+					<ul>
+						<li>De <b>8</b> a <b>16</b> caracteres </li>
+						<li>Pelo menos uma letra maiúscula (<b>A-Z</b>)</li>
+						<li>Pelo menos um letra minuscula (<b>a-z</b>)</li>
+						<li>Pelo menos um número (<b>0-9</b>)</li>
+					</ul>
+				
+				</div>
+				
+				<div class="form-group">
+					<label for="senha">* Senha</label>
+					<input wicket:id="senha" type="password" class="form-control" id="senha" placeholder="Senha" />
+				</div>
+				
+				<div class="form-group">
+					<label for="confirmaSenha">* Confirmar senha</label>
+					<input wicket:id="confirmaSenha" type="password" class="form-control" id="confirmaSenha" placeholder="Confirmar senha" />
+				</div>
+				
+				
+				<div class="row">
+					<div class="col-sm-offset-4 col-sm-4">
+						<div style="text-align:center";>
+							<button wicket:id="btnConfirmar" class="btn btn-success">Confirmar</button>
+						</div>
+					</div>
+				</div>
+		 	</div>
+		</div>
+	</div>
+	</form>
+	
+	<div class="col-sm-offset-4 col-sm-4">
+		<div class="alert alert-success" role="alert" wicket:id="mensagemSucessoContainer">
+			<div style="text-align:center";>
+				<h4><span wicket:id="lblMensagemSucesso"></span></h4> <br/>
+				<a wicket:id="linkAcesso" class="alert-link" href="#" >Clique aqui para acessar o sistema</a>
+			</div>
+		</div>
+	</div>
+	
+</wicket:extend>

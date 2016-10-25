@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<script>
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<span> <i class="glyphicon glyphicon-shopping-cart"></i> Solicitação
+			</span>
+		</div>
+		<div class="box-body">
+			<div wicket:id="panelPrincipalSolicitacao">
+				<div class="form-group ">
+					<div class="col-sm-1"></div>
+					<div class="col-sm-5">
+						<label class="control-label" for="valorMaximo">Valor máximo por proposta</label> <span wicket:id="lblValorMaximoMoeda" id="valorMaximo" class="form-control input-sm" readonly></span>
+					</div>
+					<div class="col-sm-5" wicket:id="panelSomenteLabelValorMaximo">
+						<label class="control-label" for="valorUtilizado">Total utilizado</label> <span wicket:id="lblValorEstimado" id="valorUtilizado" class="form-control input-sm" readonly></span><span
+							id="msgValorExcedido" wicket:id="lblMsgValorExcedido" class="help-block"></span>
+					</div>
+					<div class="col-sm-1"></div>
+				</div>
+
+				<div class="form-group" wicket:id="panelDataViewBens">
+					<div class="col-sm-1"></div>
+					<div class="col-sm-10">
+						<div class="box box-info">
+							<div class="box-header with-border">
+								<span>Bens Disponíveis </span>
+								<div class="pull-right mj_botoes_acao_tabela">
+									Qtd de itens exibidos &nbsp;<select id="itensPorPagina" wicket:id="itensBensPorPagina" title="Número de registros por página"></select>
+								</div>
+							</div>
+							<div class="box-body">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th><input wicket:id="checkAdicionarTodosBem" type="checkbox" /></th>
+											<th>Bem</th>
+											<th>Quantidade</th>
+										</tr>
+									</thead>
+									<tbody wicket:id="dataBens">
+										<tr>
+											<td><input wicket:id="checkAdicionarBem" type="checkbox" /></td>
+											<td>
+												<div wicket:id="bem">
+													<strong><span wicket:id="nomeBem"></span><br /></strong>
+													<h6>
+														<span wicket:id="descricaoBem"></span><br /> <strong>Quantidade máxima por solicitação:</strong> <span wicket:id="quantidade"></span><br /> <strong>Valor estimado:</strong> <span
+															wicket:id="valorEstimado"></span><br />
+													</h6>
+												</div>
+											</td>
+											<td>
+												<div wicket:id="quantidadeItemBemPanel">
+													<input type="text" placeholder="Quantidade" wicket:id="quantidade" onkeypress='return somenteNumero(event)' class="form-control" />
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="box-footer">
+									<!-- paginator here -->
+								</div>
+							</div>
+							<div class="box-footer">
+								<div wicket:id="paginationBens"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group" wicket:id="panelDataViewKits">
+					<div class="col-sm-1"></div>
+					<div class="col-sm-10">
+						<div class="box box-info">
+							<div class="box-header with-border">
+								<span>Kits Disponíveis</span>
+								<div class="pull-right mj_botoes_acao_tabela">
+									Qtd de itens exibidos &nbsp;<select id="itensPorPagina" wicket:id="itensKitsPorPagina" title="Número de registros por página"></select>
+								</div>
+							</div>
+							<div class="box-body">
+								<table class="table table-hover">
+									<thead>
+										<tr>
+											<th><input wicket:id="checkAdicionarTodosKits" type="checkbox" /></th>
+											<th>Kit</th>
+											<th class="text-left">Quantidade</th>
+										</tr>
+									</thead>
+									<tbody wicket:id="dataKits">
+										<tr>
+											<td><input wicket:id="checkAdicionarKit" type="checkbox" /></td>
+											<td><div wicket:id="kit">
+													<strong><span wicket:id="nomeKit"></span><br /></strong>
+													<h6>
+														<span wicket:id="descricaoKit"></span><br /> <strong>Quantidade máxima por solicitação:</strong> <span wicket:id="quantidade"></span><br /> <strong>Valor estimado:</strong> <span
+															wicket:id="valorEstimado"></span><br />
+													</h6>
+												</div></td>
+											<td class="text-left">
+												<div wicket:id="quantidadeItemKitPanel">
+													<input type="text" placeholder="Quantidade" wicket:id="quantidade" onkeypress='return somenteNumero(event)' class="form-control" />
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="box-footer">
+									<div wicket:id="paginationKits"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

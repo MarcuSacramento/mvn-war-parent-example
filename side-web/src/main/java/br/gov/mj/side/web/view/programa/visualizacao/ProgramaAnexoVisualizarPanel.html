@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<!--PANEL ANEXO -->
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title">Anexos</h3>
+		</div>
+		<div class="box-body">
+			<form id="formulario" class="form-horizontal" wicket:id="form">
+
+				<div class="form-group">
+					<label class="col-sm-1 control-label"> </label>
+					<div class="container col-sm-12">
+						<div class="col-sm-1"></div>
+						<div class="col-sm-10">
+							<div>
+								<p class="text-left"></p>
+							</div>
+							<br>
+
+							<table width="90%" class="table" style="table-layout: fixed;">
+								<thead>
+									<tr>
+										<th width="12%"></th>
+										<th width="61%">Nome do Anexo</th>
+										<th width="20%">Download</th>
+										<th width="7%"></th>
+									</tr>
+								</thead>
+								<tbody wicket:id="dataViewAnexos">
+									<tr>
+										<th width="12%"></th>
+										<td width="61%"><span wicket:id="nomeAnexo"></span></td>
+										<td width="20%">
+											<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm" id="btnDonwload">
+												<i class="fa fa-download"></i>
+											</button>
+										</td>
+										<td width="7%"></td>
+									</tr>
+								</tbody>
+							</table>
+							<br /> <br />
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</wicket:panel>

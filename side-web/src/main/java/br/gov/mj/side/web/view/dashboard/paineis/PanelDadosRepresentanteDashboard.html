@@ -1,0 +1,192 @@
+<wicket:panel>
+	<!--PAINEL DADOS DO REPRESENTANTE -->
+	<div wicket:id="panelSomenteCpf">
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> </label>
+
+			<div class="col-sm-6">
+				<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemAnexo"></div>
+			</div>
+
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="cpf"> <span
+				class="obrigatorio">*</span> CPF
+			</label>
+			
+			<div class="col-sm-3">
+				<input type="text" placeholder="CPF" class="form-control"
+					id="cpf" wicket:id="entidadeRepresentante.numeroCpf" />
+			</div>
+			<div class="col-sm-3">
+				<button title="Verificar CPF" class="btn btn-success btn-sm"
+					wicket:id="btnVerificarCpf">
+					<i class="fa fa-search"></i> Verificar
+				</button>
+			</div>
+			
+		</div>
+	</div>
+	<div wicket:id="panelPrincipalBeneficiario">
+
+								<script>
+					$(document).ready(function() {
+						$("#dropDownAtivo").select2();
+					});
+				</script>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="nomeRepresentante">
+				<span class="obrigatorio">*</span> Nome
+			</label>
+			<div class="col-sm-6">
+				<input type="text" placeholder="Nome do Representante"
+					class="form-control" id="nomeRepresentante"
+					wicket:id="pessoa.nomePessoa" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="cargo"> <span
+				class="obrigatorio">*</span> Cargo
+			</label>
+			<div class="col-sm-6">
+				<input type="text" placeholder="Cargo" class="form-control"
+					id="cargo" wicket:id="entidadeRepresentante.descricaoCargo" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="telefone"> <span
+				class="obrigatorio">*</span> Telefone
+			</label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input type="text" placeholder="Telefone"
+						class="form-control mask-telefone" id="telefone"
+						wicket:id="entidadeRepresentante.numeroTelefone" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="email"> <span
+				class="obrigatorio">*</span> E-Mail
+			</label>
+
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input type="text" placeholder="Email" class="form-control"
+						id="email" wicket:id="entidadeRepresentante.email" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="periodoExercicio">
+				* Período de Exercício: </label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input type="text" placeholder="DD/MM/AAAA" class="form-control"
+						wicket:id="entidadeRepresentante.dataInicioExercicio" />
+				</div>
+				<div class="col-sm-7">
+					<label class="col-sm-1 control-label" for="dataLimite"> a </label>
+					<div class="col-sm-8">
+						<input type="text" placeholder="DD/MM/AAAA" class="form-control"
+							wicket:id="entidadeRepresentante.dataFimExercicio" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="enderecoCorrespondencia">*
+				Endereço de Correspondência </label>
+			<div class="col-sm-6">
+				<input type="text" placeholder="End. de Correspondência"
+					class="form-control" id="enderecoCorrespondencia"
+					wicket:id="entidadeRepresentante.enderecoCorrespondencia" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label">* Ativar Representante</label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+				<select wicket:id="dropAtivo" class="js-example-basic-single" id="dropDownAtivo"
+					style="width: 100%;"></select>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div wicket:id="panelDataView">
+		<div class="box-body">
+			<span class="visible-xs"><i class="fa fa-exchange"></i>
+				Movimente a tabela para visualizar </span>
+
+			<div class="form-group">
+				<label class="col-sm-8 control-label"></label>
+				<div class="col-sm-4">
+
+					<div class="col-sm-3">
+						<button title="Adicionar" class="btn btn-success btn-sm"
+							wicket:id="btnAdicionar">
+							<i class="fa fa-plus"></i>
+						</button>
+						<button title="Salvar Alteração" class="btn btn-success btn-sm"
+							wicket:id="btnSalvarEdicao">
+							<i class="fa fa-floppy-o"></i>
+						</button>
+
+						<button title="Cancelar"
+							class="btn btn-warning btn-sm" wicket:id="btnCancelarEdicao">
+							<i class="fa fa-undo"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="table-responsive">
+				<table width="55%" class="table table-hover">
+					<thead>
+						<tr>
+							<th width="10%"></th>
+							<th>Nome</th>
+							<th>CPF</th>
+							<th>Cargo</th>
+							<th>Exercício</th>
+							<th>Situação</th>
+							<th>Ações</th>
+						</tr>
+					</thead>
+					<tbody wicket:id="dataTitulares">
+						<tr>
+							<td width="10%"></td>
+							<td><span wicket:id="pessoa.nomePessoa" /></td>
+							<td><span wicket:id="pessoa.numeroCpf" /></td>
+							<td><span wicket:id="pessoa.descricaoCargo" /></td>
+							<td><span wicket:id="exercicio" /></td>
+							<td><span wicket:id="pessoa.statusPessoa" /></td>
+							<td>
+								<button class="btn btn btn-info btn-sm" 
+										title="Alterar"
+										wicket:id="btnEditar">
+										<i class="fa fa-pencil fa-fw"></i>
+								</button>
+								<button class="btn btn btn-primary btn-sm" title="Visualizar"
+										wicket:id="btnVisualizar">
+										<i class="fa fa-search"></i>
+									</button>
+								<button title="Excluir" class="btn btn btn-danger btn-sm"
+									wicket:id="btnExcluir">
+									<i class="fa fa-trash-o"></i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div wicket:id="pagination"></div>
+			</div>
+		</div>
+	</div>
+
+</wicket:panel>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+	<form wicket:id="form">
+
+		<div wicket:id="navPanel"></div>
+
+		<div wicket:id="lblMsgAlerta" class="alert alert-danger"></div>
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					<i class="glyphicon glyphicon-map-marker"></i> Indicar local de entrega
+				</h3>
+			</div>
+			<div class="box-body">
+
+				<div class="row">
+					<label class="col-sm-3 control-label" for="localEntregaEntidadeSelecionada">* Endereço para entrega: </label>
+					<div class="col-sm-6">
+						<select wicket:id="localEntregaEntidadeSelecionada" class="form-control" style="width: 100%;" id="localEntregaEntidadeSelecionada"></select>
+					</div>
+					<div class="col-sm-3">
+						<button class="btn btn-primary btn-sm" wicket:id="btnNovoEndereco" title="Adicionar novo endereço">
+							<i class="fa fa-file-o"></i>Novo local de entrega
+						</button>
+					</div>
+				</div>
+				<br /> <br />
+
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="panel panel-default">
+							<!-- <div class="panel-heading">Seleção de Bens</div> -->
+							<div class="panel-body">
+								<div class="col-sm-6" wicket:id="containerInscricaoBem">
+									<div>
+										<b>Bens solicitados na inscrição</b>
+									</div>
+									<table class="table">
+										<thead>
+											<th>Bens</th>
+											<th>Quantidade</th>
+											<th><button class="btn btn-success btn-sm" wicket:id="btnAddAll" title="Adicionar todos">
+													<i class="glyphicon glyphicon-fast-forward"></i>
+												</button></th>
+										</thead>
+										<tr wicket:id="programasBem">
+											<td><span wicket:id="programaBem.bem.nomeBem"></span></td>
+											<td><span wicket:id="quantidade"></span></td>
+											<td><button class="btn btn-success btn-sm" wicket:id="btnAdd" title="Adicionar">
+													<i class="glyphicon glyphicon-chevron-right"></i>
+												</button></td>
+										</tr>
+									</table>
+								</div>
+
+								<div class="col-sm-6" wicket:id="containerEntregaBem">
+									<div>
+										<b>Bens para entrega</b>
+									</div>
+									<table class="table">
+										<thead>
+											<th><button class="btn btn-danger btn-sm" wicket:id="btnRemoveAll" title="Remover todos">
+													<i class="glyphicon glyphicon-fast-backward"></i>
+												</button></th>
+											<th>Bens</th>
+											<th>Quantidade</th>
+										</thead>
+										<tr wicket:id="bensEntregaSelecionados">
+											<td><button class="btn btn-danger btn-sm" wicket:id="btnRemove" title="Remover">
+													<i class="glyphicon glyphicon-chevron-left"></i>
+												</button></td>
+											<td><span wicket:id="inscricaoProgramaBem.programaBem.bem.nomeBem"></span></td>
+											<td><span wicket:id="qtdPanel"> máx. <span wicket:id="inscricaoProgramaBem.quantidade" /> <input type="text" class="form-control" wicket:id="quantidade"
+													onkeypress='return somenteNumero(event)' />
+											</span></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<div class="panel panel-default">
+							<!-- <div class="panel-heading">Selecionar Kits</div> -->
+							<div class="panel-body">
+								<div class="col-sm-6" wicket:id="containerIncricaoKit">
+									<div>
+										<b>Kits solicitados na inscrição</b>
+									</div>
+									<table class="table">
+										<thead>
+											<th>Kits</th>
+											<th>Quantidade</th>
+											<th><button class="btn btn-success btn-sm" wicket:id="btnAddAll" title="Adicionar todos">
+													<i class="glyphicon glyphicon-fast-forward"></i>
+												</button></th>
+										</thead>
+										<tr wicket:id="programasKit">
+											<td><span wicket:id="programaKit.kit.nomeKit"></span></td>
+											<td><span wicket:id="quantidade"></span></td>
+											<td><button class="btn btn-success btn-sm" wicket:id="btnAdd" title="Adicionar">
+													<i class="glyphicon glyphicon-chevron-right"></i>
+												</button></td>
+										</tr>
+									</table>
+								</div>
+
+								<div class="col-sm-6" wicket:id="containerEntregaKit">
+									<div>
+										<b>Kits para entrega</b>
+									</div>
+									<table class="table">
+										<thead>
+											<th><button class="btn btn-danger btn-sm" wicket:id="btnRemoveAll" title="Remover todos">
+													<i class="glyphicon glyphicon-fast-backward"></i>
+												</button></th>
+											<th>Kits</th>
+											<th>Quantidade</th>
+										</thead>
+										<tr wicket:id="kitsEntregaSelecionados">
+											<td><button class="btn btn-danger btn-sm" wicket:id="btnRemove" title="Remover">
+													<i class="glyphicon glyphicon-chevron-left"></i>
+												</button></td>
+											<td><span wicket:id="inscricaoProgramaKit.programaKit.kit.nomeKit"></span></td>
+											<td><span wicket:id="qtdPanel"> máx. <span wicket:id="inscricaoProgramaKit.quantidade" /> <input type="text" class="form-control" wicket:id="quantidade"
+													onkeypress='return somenteNumero(event)' />
+											</span></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row text-center">
+					<button wicket:id="btnAddLocalEntrega" class="btn btn-success btn-sm" title="Adicionar bens/kits no local de entrega">
+						<i class="fa fa-plus"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">
+					<i class="glyphicon glyphicon-list-alt"></i> Locais de entrega indicados
+				</h3>
+			</div>
+			<div class="box-body">
+				<div class="form-group" wicket:id="containerLocaisEntrega">
+					<table class="table table-bordered table-hover">
+						<thead>
+							<th>Local Entrega</th>
+							<th>Nome</th>
+							<th class="hidden-xs">Tipo de Item</th>
+							<th>Quantidade</th>
+							<th>Ações</th>
+						</thead>
+						<tr wicket:id="locaisEntregaInscricao">
+							<td wicket:id="localEntrega.localEntregaEntidade.nomeEndereco"></td>
+							<td wicket:id="nome"></td>
+							<td class="hidden-xs" wicket:id="tipoItem.descricao"></td>
+							<td wicket:id="quantidade"></td>
+							<td><button class="btn btn-danger btn-sm" wicket:id="btnRemoverItem" title="Excluir">
+									<i class="fa fa-minus"></i>
+								</button></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="box-footer clearfix">
+			<div>Os campos marcados com * são de preenchimento obrigatório.</div>
+			<div class="pull-right">
+				<button wicket:id="btnSalvar" class="btn btn-success btn-sm" title="Salvar">
+					<i class="fa fa-floppy-o"></i>Salvar
+				</button>
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i>Voltar
+				</button>
+			</div>
+		</div>
+	</form>
+
+	<div wicket:id="modalConfirm"></div>
+
+	<script>
+			function somenteNumero(e){
+			    var tecla=(window.event)?event.keyCode:e.which;   
+			    if((tecla>47 && tecla<58)) return true;
+			    else{
+			    	if (tecla==8 || tecla==0) return true;
+				else  return false;
+			    }
+			}		
+		</script>
+
+</wicket:extend>
+

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<script>
+
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+
+	<form id="validate" name="my_form" class="form-horizontal" wicket:id="form">
+
+		<wicket:container wicket:id="panelFasePrograma" />
+		<wicket:container wicket:id="execucaoPanelPotoes" />
+		<br />
+
+		<div wicket:id="panelAbas">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li wicket:id="abaDadosLicitacao" class="active"><a wicket:id="btnDadosLicitacao" aria-controls="DadosLicitacao" role="tab" data-toggle="tab">Dados da Licitação</a></li>
+				<li wicket:id="abaItemGrupo"><a wicket:id="btnItemGrupo" aria-controls="ItemGrupo" role="tab" data-toggle="tab">Item / Grupo</a></li>
+				<li wicket:id="abaGerarMinuta"><a wicket:id="btnGerarMinuta" aria-controls="GerarMinuta" role="tab" data-toggle="tab">Gerar Minuta TR</a></li>
+			</ul>
+		</div>
+
+		<div class="tab-content">
+
+
+			<!-- INICIO DA ABA 1 -->
+			<div role="tabpanel" class="tab-pane active" id="pageDadosLicitacao">
+				<br />
+				<div wicket:id="panelInformacoesBasicas"></div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="pageItemGrupo">
+				<br />
+				<div wicket:id="panelItensLicitacao"></div>
+			</div>
+
+			<div role="tabpanel" class="tab-pane" id="pageGerarMinuta">
+				<br /> <br />
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="tipoEndereco"> <span class="obrigatorio">*</span> Tipo de Minuta
+					</label>
+					<div class="row col-sm-7">
+						<div class="col-sm-4">
+							<select wicket:id="dropEscolhaMinuta" class="basic-single" style="width: 100%;" id="dropTipoMinuta"></select>
+						</div>
+
+						<div class="col-sm-8">
+							<div class="col-sm-7">
+								<button class="btn btn-success btn-sm" title="Gerar Minuta do Termo de Referência" wicket:id="btnGerarMinuta">
+									<i class="fa fa-file-pdf-o"></i> Gerar Minuta do Termo de Referência
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-5 control-label"></label>
+					<div class="col-sm-6"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right" wicket:id="panelBotoes">
+				<div>
+					<button class="btn btn-success btn-sm" title="Salvar Licitação" wicket:id="btnSalvar">
+						<i class="fa fa-floppy-o"></i> Salvar
+					</button>
+
+					<button title="Voltar" class="btn btn-warning btn-sm" wicket:id="btnVoltar">
+						<i class="fa fa-undo"></i>Voltar
+					</button>
+				</div>
+			</div>
+		</div>
+		<div wicket:id="modalLimparFormulario"></div>
+	</form>
+
+	<script type="text/javascript">
+	 function mostrarAba(id){
+		 document.getElementById(id).className = "tab-pane active";
+	 }
+
+	 function ocultarAba(id){
+		 document.getElementById(id).className = "tab-pane";
+	}
+</script>
+
+</wicket:extend>

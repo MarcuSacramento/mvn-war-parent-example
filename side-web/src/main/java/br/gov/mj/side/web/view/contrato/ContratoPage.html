@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+	<form wicket:id="form" class="form-horizontal">
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+		  		$(".basic-single").select2();  				
+			});
+		</script>
+
+		<wicket:container wicket:id="panelFasePrograma" />
+		<wicket:container wicket:id="contratoPanelPotoes" />
+
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> </label>
+			<div class="col-sm-6">
+				<div class="col-sm-6 feedbackPanelERROR"></div>
+			</div>
+		</div>
+
+		<!-- Panel DADOS DO CONTRATO -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados do Contrato</h3>
+			</div>
+			<br />
+			
+			<div wicket:id="containerAviso" class="alert alert-warning">
+				<ul class="nav navbar-nav">
+					<span wicket:id="lblMensagemAviso"/>
+				</ul>
+				<br />
+			</div><br />
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="telefone"> <span class="obrigatorio">*</span>Número do Contrato
+				</label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+						<input wicket:id="numeroContrato" type="text" class="form-control" id="numero" tabindex="2" placeholder="Número do contrato">
+					</div>
+					<div class="col-sm-1">
+						<button wicket:id="btnPesquisaContrato" title="Pesquisar Contrato" class="btn btn-success btn-sm">
+							<i class="fa fa-search"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<wicket:container wicket:id="panelDadosBasicosContrato" />
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="telefone"> </label>
+				<div class="row col-sm-7">
+					<div class="col-sm-4">
+						<select id="dropDownPrograma" wicket:id="dropDownPrograma" tabindex="1" style="width: 100%;" class="basic-single"></select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Panel OBJETOS DO CONTRATO -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Objetos do Contrato</h3>
+			</div>
+			<br />
+			<wicket:container wicket:id="panelObjetosContrato" />
+		</div>
+
+		<!-- Panel DADOS DO FORNECEDOR -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados do Fornecedor</h3>
+			</div>
+			<br />
+			<wicket:container wicket:id="panelDadosFornecedor" />
+		</div>
+
+		<!-- Panel ANEXOS -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Anexos</h3>
+			</div>
+			<br />
+			<wicket:container wicket:id="panelAnexos" />
+		</div>
+
+		<!-- Panel ANEXOS -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Histórico de alteração da vigência</h3>
+			</div>
+			<br />
+			<wicket:container wicket:id="panelHistorico" />
+		</div>
+
+		<div class="box-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right">
+				<button title="Salvar Contrato" class="btn btn-success btn-sm" wicket:id="btnConfirmar">
+					<i class="fa fa-floppy-o"></i> Salvar
+				</button>
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i> Voltar
+				</button>
+			</div>
+		</div>
+
+		<!-- MODAL -->
+		<div wicket:id="modalConfirm"></div>
+	</form>
+
+</wicket:extend>

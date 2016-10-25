@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form wicket:id="form" id="form" class="form-horizontal">
+		<div wicket:id="navPanel"></div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="pull-right clearfix">
+					<a href="javascript:void(0);" onclick="javascript:introJs().start();" title="Ajuda">Ajuda <i class="fa fa-question-circle fa-lg"
+						style="color: #49B957;"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<div wicket:id="dadosProgramaPanel"></div>
+				<div wicket:id="dadosEntidadePanel"></div>
+			</div>
+			<div class="col-sm-9">
+				<div wicket:id="dadosRepresentantePanel" data-step="1" data-intro="Selecione o representante de sua entidade" data-position='left'></div>
+				<div wicket:id="dadosSolicitacaoPanel" data-step="2" data-intro="Selecione os bens ou kits que deseja receber" data-position='left'></div>
+				<div wicket:id="criterioElegebilidadeInscricaoPanel" data-step="3" data-intro="Responda os critérios de elegibilidade para serem analisados"
+					data-position='left'></div>
+				<div wicket:id="criterioAvaliacaoInscricaoPanel" data-step="4" data-intro="Responda os critérios de avaliação para serem analisados" data-position='left'></div>
+			</div>
+		</div>
+
+		<div class="box-footer clearfix">
+			<div class="pull-right">
+				<button wicket:id="btnSalvar" title="Salvar" class="btn btn-success btn-sm">
+					<i class="fa fa-floppy-o"></i>Salvar
+				</button>
+				<button wicket:id="btnSubmeter" title="Enviar Proposta" class="btn btn-primary btn-sm">
+					<i class="fa fa-share"></i>Enviar Proposta
+				</button>
+				<button wicket:id="btnExportarPdf" title="Gerar PDF" class="btn btn-success btn-sm">
+					<i class="fa fa-file-pdf-o"></i>Gerar PDF
+				</button>
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i>Voltar
+				</button>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

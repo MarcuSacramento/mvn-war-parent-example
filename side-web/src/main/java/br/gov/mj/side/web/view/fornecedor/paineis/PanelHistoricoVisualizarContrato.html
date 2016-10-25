@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div wicket:id="panelInformacoesHistoricoContrato">
+
+		<div class="panel panel-default" style="margin-left:10px;margin-right:10px;">
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-condensed">
+						<thead>
+							<tr>
+								<th>Vigência Início</th>
+								<th>Vigência Final</th>
+								<th>Usuário</th>
+								<th>Data</th>								
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="historicoContrato">
+								<td width="5%" wicket:id="dataInicialVigenciaContrato"><span></span></td>
+								<td width="5%" wicket:id="dataFinalVigenciaContrato"><span></span></td>
+								<td width="5%" wicket:id="usuarioCadastro"><span></span></td>
+								<td width="5%" wicket:id="dataCadastro"><span></span></td>								
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<br />
+	</div>
+
+</wicket:panel>

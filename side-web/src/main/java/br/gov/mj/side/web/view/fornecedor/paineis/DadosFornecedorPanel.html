@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div wicket:id="panelPrincipal">
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="nomeEnt"><span class="obrigatorio">*</span> Razão Social</label>
+			<div class="col-sm-6">
+				<input type="text" placeholder="Razão Social" class="form-control" id="nomeEnt" wicket:id="nomeEntidade" />
+			</div>
+		</div>
+
+		<div wicket:id="PanelUfMunicipio">
+			<div wicket:id="painelPrincipal">
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="estadoEntidade"> <span class="obrigatorio">*</span> Estado
+					</label>
+					<div class="row col-sm-7">
+						<div class="col-sm-4">
+							<select class="basic-single" style="width: 100%" id="nomeUf" wicket:id="nomeUf"></select>
+						</div>
+
+						<div class="col-sm-8">
+							<label class="col-sm-3 control-label" for="municipio"><span class="obrigatorio">*</span> Município</label>
+							<div class="col-sm-7">
+								<select class="basic-single" style="width: 100%" id="municipio" wicket:id="municipio"></select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="tipoEndereco"> <span class="obrigatorio">*</span> Tipo de Endereço
+			</label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<select class="basic-single" style="width: 100%" id="tipoEndereco" wicket:id="tipoEndereco"></select>
+				</div>
+
+				<div class="col-sm-8">
+					<label class="col-sm-3 control-label" for="enderecoEnt"><span class="obrigatorio">*</span> Endereço</label>
+					<div class="col-sm-7">
+						<input type="text" placeholder="Endereço" class="form-control" id="enderecoEnt" wicket:id=descricaoEndereco />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="numero"><span class="obrigatorio">*</span> Número</label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input type="text" placeholder="Número" class="form-control" id="numero" wicket:id="numeroEndereco" />
+				</div>
+				<div class="col-sm-8">
+					<label class="col-sm-3 control-label" for="complementoEnt"> Complemento </label>
+					<div class="col-sm-7">
+						<input type="text" placeholder="Complemento" class="form-control" id="complementoEnt" wicket:id="complementoEndereco" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="bairro"><span class="obrigatorio">*</span> Bairro</label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input type="text" placeholder="Bairro" class="form-control" id="bairro" wicket:id="bairro" />
+				</div>
+				<div class="col-sm-8">
+					<label class="col-sm-3 control-label" for="cepEnt"><span class="obrigatorio">*</span> CEP</label>
+					<div class="col-sm-7">
+						<input type="text" placeholder="CEP" class="form-control mask-cep" id="cepEnt" wicket:id="numeroCep" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="telefoneEnt"><span class="obrigatorio">*</span> Contato</label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input type="text" placeholder="Contato" class="form-control" id="nomeContato" wicket:id="nomeContato" />
+				</div>
+				<div class="col-sm-8">
+					<label class="col-sm-3 control-label" for="telefoneFax"> Telefone </label>
+					<div class="col-sm-7">
+						<input type="text" placeholder="Telefone" class="form-control mask-telefone" id="telefoneEnt" wicket:id="numeroTelefone" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="emailEnt"><span class="obrigatorio">*</span> Email</label>
+			<div class="col-sm-6">
+				<input type="text" placeholder="Email" class="form-control" id="emailEnt" wicket:id="email" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" wicket:id="lblAtivar"></label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<select wicket:id="statusEntidade" class="basic-single" id="statusEntidade" style="width: 100%;"></select>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> Observações</label>
+			<div class="col-sm-6">
+				<textarea class="form-control" rows="5" wicket:id="observacoes"></textarea>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

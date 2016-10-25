@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<script>
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}		
+	</script>
+
+	<div class="box box-primary" style="margin-left: 10px; margin-right: 10px;">
+		<div class="box-header with-border">
+			<h3 class="box-title">Vincular Bens / Kits</h3>
+		</div>
+
+		<div wicket:id="panelPrincipal" id="panelPrincipal">
+			<div class="form-group">
+				<label class="col-sm-3 control-label"></label>
+				<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemVincular"></div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="dropCategoria"> * Categoria </label>
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="col-sm-8">
+							<select style="width: 90%" id="dropCategoria" wicket:id="dropCategoria" class="form-control" title="Categoria">
+								<option>Selecione...</option>
+							</select>
+						</div>
+						<div class="col-sm-1">
+							<div class="pull-right">
+								<button wicket:id="btnPesquisar" title="Pesquisa" id="btnPesquisar" class="btn btn-primary btn-sm">
+									<i class="fa fa-search"></i>Pesquisa
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- INICIO PANEL QUANTIDADE BENS -->
+			<div wicket:id="panelQuantidadeBem" id="panelQuantidadeBem">
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="nomeBemAuto"> * Nome </label>
+					<div class="col-sm-6">
+						<select class="basic-single" style="width: 100%" id="nomeBemAuto" wicket:id="nomeBemAuto" title="Nome"></select>
+					</div>
+				</div>
+			</div>
+
+			<!-- INICIO PANEL QUANTIDADE KITS -->
+			<div wicket:id="panelQuantidadeKit" id="panelQuantidadeKit">
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="nomeKitAuto"> * Nome </label>
+					<div class="col-sm-6">
+						<select class="basic-single" style="width: 100%" id="nomeKitAuto" wicket:id="nomeKitAuto"></select>
+					</div>
+				</div>
+			</div>
+
+			<!-- INICIO PANEL QUANTIDADE DROP -->
+			<div wicket:id="panelDrop" id="panelDrop">
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="dropChoice"> * Nome </label>
+					<div class="col-sm-6">
+						<select class="basic-single" style="width: 100%" id="dropChoice" wicket:id="dropChoice"></select>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="quantidadeBens"> * Quantidade Total </label>
+				<div class="row">
+					<div class="col-sm-1">
+						<input id="quantidadeBens" type="text" placeholder="Qtd Total" class="form-control" wicket:id="quantidadeBens" onkeypress='return somenteNumero(event)' />
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="quantidadeBens"> Quantidade Máxima por Proposta </label>
+				<div class="row">
+					<div class="col-sm-1">
+						<input id="quantidadeMaximaBens" type="text" placeholder="Qtd Máxima" class="form-control" wicket:id="quantidadeMaximaBens" onkeypress='return somenteNumero(event)' />
+					</div>
+					<div class="col-sm-2">
+						<button title="Adicionar" class="btn btn-success btn-sm" wicket:id="btnAdicionarBem" id="btnAdicionarBem">
+							<i class="fa fa-plus"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="box box-primary" wicket:id="panelDataViewBem">
+					<div class="box-header with-border">
+						<span>Lista de Bens</span>
+					</div>
+					<div class="box-body">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th width="17%">Nome</th>
+									<th width="48%">Descrição</th>
+									<th>Qtd Total</th>
+									<th>Qtd Máxima por Proposta</th>
+									<th>Ação</th>
+								</tr>
+							</thead>
+							<tbody wicket:id="dataBens">
+								<tr>
+									<td><span wicket:id="nomeBem"></span></td>
+									<td><span wicket:id="descricao"></span></td>
+									<td>
+										<div wicket:id="quantidadeItemBemPanel">
+											<input type="text" placeholder="Quantidade" wicket:id="quantidade" onkeypress='return somenteNumero(event)' class="form-control" />
+										</div>
+									</td>
+									<td>
+										<div wicket:id="quantidadeItemMaximoBemPanel">
+											<input type="text" placeholder="Qtd Máxima" wicket:id="quantidadeMaxima" onkeypress='return somenteNumero(event)' class="form-control" />
+										</div>
+									</td>
+									<td>
+										<button class="btn btn-danger btn-sm" title="Excluir" wicket:id="btnExcluirBem">
+											<i class="fa fa-minus"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="box-footer">
+							<div wicket:id="paginatorBem"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10">
+				<div class="box box-primary" wicket:id="panelDataViewKit">
+					<div class="box-header with-border">
+						<span>Lista de Kits</span>
+					</div>
+					<div class="box-body">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th width="17%">Nome</th>
+									<th width="48%">Descrição</th>
+									<th>Qtd Total</th>
+									<th>Qtd Máxima por Proposta</th>
+									<th class="text-left">Ação</th>
+								</tr>
+							</thead>
+							<tbody wicket:id="dataKits">
+								<tr>
+									<td><span wicket:id="nomeKit"></span></td>
+									<td><span wicket:id="descricao"></span></td>
+									<td>
+										<div wicket:id="quantidadeItemKitPanel">
+											<input type="text" placeholder="Quantidade" wicket:id="quantidadeKit" onkeypress='return somenteNumero(event)' class="form-control" />
+										</div>
+									</td>
+									<td>
+										<div wicket:id="quantidadeMaximaItemKitPanel">
+											<input type="text" placeholder="Quantidade" wicket:id="quantidadeMaximaKit" onkeypress='return somenteNumero(event)' class="form-control" />
+										</div>
+									</td>
+									<td class="text-left">
+										<button class="btn btn-danger btn-sm" wicket:id="btnExcluirKit" title="Excluir">
+											<i class="fa fa-minus"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="box-footer">
+							<div wicket:id="paginatorKit"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group" wicket:id="panelMaximoProposta">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-5">
+				<label class="control-label" for="valorUtilizado">Valor Total</label> <span id="valorUtilizado" class="form-control input-sm" readonly wicket:id="lblValorTotal"></span>
+			</div>
+			<div class="col-sm-5">
+				<label class="control-label" for="valorMaximo">Valor máximo por proposta</label> <input type="text" placeholder="Quantidade" wicket:id="valorMaximoProposta"
+					class="mask-money form-control" />
+			</div>
+			<div class="col-sm-1"></div>
+		</div>
+		<br />
+	</div>
+</wicket:panel>

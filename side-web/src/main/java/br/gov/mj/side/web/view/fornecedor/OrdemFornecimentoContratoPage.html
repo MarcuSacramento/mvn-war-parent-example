@@ -1,0 +1,209 @@
+<wicket:extend>
+	<form wicket:id="form">
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="#" wicket:id="lnkDashboard">Dashboard</a></li>
+				<li><a href="#" wicket:id="lnkFornecedorContrato">Contratos</a></li>
+				<li class="active"><span wicket:id="lblNomePage"></span></li>
+			</ul>
+		</div>
+		<br />
+		
+		<!-- Painel Ordem de Fornecimento -->
+		<div class="panel">
+			<div class="box box-primary form-horizontal" wicket:id="panelOrdemFornec">
+				<div class="box-header with-border">
+					<h3 class="box-title">Ordem de Fornecimento</h3>
+					<div class="pull-right mj_botoes_acao_tabela">
+						Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPaginaOrdemFornec" id="itensPorPaginaOrdemFornec" title="Número de registros por página"></select>
+					</div>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Número</th>
+								<th>Item / Grupo</th>
+								<th>UF</th>
+								<th>Município</th>
+								<th>Situação</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<wicket:container wicket:id="radioGrupOrdem">
+								<tr wicket:id="listaOrdemFornecNewDataView">
+									<td align="center"><input wicket:id="radioOrdem" type="radio" /></td>
+									<td><span wicket:id="id"></span></td>
+									<td><span wicket:id="itemOf"></span></td>
+									<td><span wicket:id="ufOf"></span></td>
+									<td><span wicket:id="municipioOf"></span></td>
+									<td><span wicket:id="situacao"></span></td>
+									<td width="200px">
+										<button wicket:id="btnDonwload" title="Download OF" class="btn btn-success btn-sm">
+											<i class="fa fa-download"></i>
+										</button>
+										<button class="btn btn-info btn-sm" title="Gerar QrCode" wicket:id="btnQrCode">
+											<i class="fa fa-qrcode"></i>
+										</button> 
+										<a wicket:id="btnPrepararEntrega" title="Preparar Entrega" class="btn btn-warning btn-sm"> 
+											<i class="fa fa-truck" aria-hidden="true"></i>
+										</a> 
+										<a wicket:id="btnRegistarEntregaOF" title="Registrar Entrega" class="btn btn-primary btn-sm"> 
+											<i class="glyphicon glyphicon-paste"></i>
+										</a> 
+										<a wicket:id="btnVisualizarEntregaOF" title="Visualizar Entrega" class="btn btn-primary btn-sm">
+											<i class="fa fa-search"></i>
+										</a>
+										<a wicket:id="btnPrepararEntregaDevolvido" title="Preparar Entrega" class="btn btn-warning btn-sm"> 
+											<i class="fa fa-truck" aria-hidden="true"></i>
+										</a> 
+									</td>
+								</tr>
+							</wicket:container>
+						</tbody>
+					</table>
+					<div class="panel-footer">
+						<div wicket:id="paginatorOrdemFornec"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Painel Abas -->
+		<div wicket:id="panelAbas">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li wicket:id="abaItens" class="active"><a wicket:id="btnItens" aria-controls="Itens" role="tab" data-toggle="tab">Itens</a></li>
+				<li wicket:id="abaItensDevolvidos"><a wicket:id="btnItensDevolvidos" aria-controls="ItensDevolvidos" role="tab" data-toggle="tab">Itens Devolvidos</a></li>
+			</ul>
+		</div>
+		
+		<div class="tab-content">
+			<!-- ABA1  - Itens -->
+			<div role="tabpanel" class="tab-pane active" id="pageItens">
+				<br />
+				<!-- Painel Lista de Itens do Contrato -->
+				<div class="panel" wicket:id="panelItensContrato">
+					<div class="box box-primary form-horizontal">
+						<div class="box-header with-border">
+							<h3 class="box-title">Lista de Itens do Contrato</h3>
+							<div class="pull-right mj_botoes_acao_tabela">
+								Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPagina" id="itensPorPagina" title="Número de registros por página"></select>
+							</div>
+						</div>
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Identificador</th>
+										<th>Item</th>
+										<th>Quantidade Total</th>
+										<th>Forma de Verificação</th>
+										<th>Situação</th>
+										<th>Quesitos Obrigatórios</th>
+										<th>Quesitos Opcionais</th>
+										<th>Total de Quesitos</th>
+										<th>Ações</th>
+									</tr>
+								</thead>
+								<tbody wicket:id="listaItensContratoNewDataView">
+									<tr>
+										<td><span wicket:id="identificador"></span></td>
+										<td><span wicket:id="nomeBem"></span></td>
+										<td><span wicket:id="quantidadeTotal"></span></td>
+										<td><span wicket:id="formaVerificacao"></span></td>
+										<td><span wicket:id="situacao"></span></td>
+										<td><span wicket:id="quesitosOb" title="Quesitos Obrigatórios"></span></td>
+										<td><span wicket:id="quesitosOp" title="Quesitos Opcionais"></span></td>
+										<td><span wicket:id="quesitos"></span></td>
+										<td><a wicket:id="btnCadastrarItem" title="Cadastrar Item" class="btn btn-success btn-sm"> <i class="fa fa-plus"></i>
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="panel-footer">
+								<div wicket:id="paginatorItensContrato"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ABA2 - Itens Devolvidos -->
+			<div role="tabpanel" class="tab-pane" id="pageItensDevolvidos">
+				<br />
+				<!-- Painel Lista de Itens Devolvidos do Contrato -->
+				<div class="panel" wicket:id="panelItensDevolvidosContrato">
+					<div class="box box-primary form-horizontal">
+						<div class="box-header with-border">
+							<h3 class="box-title">Lista de Itens Devolvidos do Contrato</h3>
+							<div class="pull-right mj_botoes_acao_tabela">
+								Qtd de itens exibidos &nbsp;<select wicket:id="itensDevolvidosPorPagina" id="itensPorPagina" title="Número de registros por página"></select>
+							</div>
+						</div>
+						<div class="table-responsive">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Identificador</th>
+										<th>Item</th>
+										<th>Quantidade Total</th>
+										<th>Forma de Verificação</th>
+										<th>Situação</th>
+										<th>Quesitos Obrigatórios</th>
+										<th>Quesitos Opcionais</th>
+										<th>Total de Quesitos</th>
+										<th>Ações</th>
+									</tr>
+								</thead>
+								<tbody wicket:id="listaItensDevolvidosContratoNewDataView">
+									<tr>
+										<td><span wicket:id="identificador"></span></td>
+										<td><span wicket:id="nomeBem"></span></td>
+										<td><span wicket:id="quantidadeTotal"></span></td>
+										<td><span wicket:id="formaVerificacao"></span></td>
+										<td><span wicket:id="situacao"></span></td>
+										<td><span wicket:id="quesitosOb" title="Quesitos Obrigatórios"></span></td>
+										<td><span wicket:id="quesitosOp" title="Quesitos Opcionais"></span></td>
+										<td><span wicket:id="quesitos"></span></td>
+										<td>
+											<a wicket:id="btnCadastrarItem" title="Cadastrar Item" class="btn btn-success btn-sm"> 
+												<i class="fa fa-plus"></i>
+											</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="panel-footer">
+								<div wicket:id="paginatorItensDevolvidosContrato"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Painel Botão -->
+		<div class="box-footer clearfix">
+			<span id="ancoraPesquisa"></span>
+			<div class="pull-right" wicket:id="panelButton">
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i>Voltar
+				</button>
+			</div>
+		</div>
+	</form>
+
+	<script type="text/javascript">
+	 function mostrarAba(id){
+		 document.getElementById(id).className = "tab-pane active";
+	 }
+
+	 function ocultarAba(id){
+		 document.getElementById(id).className = "tab-pane";
+	}
+	</script>
+
+</wicket:extend>

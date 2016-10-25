@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_visualizar_programa_detalhes_acompanhamento" pageWidth="539" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="539" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="725d651a-142e-4b22-9dca-1e5c41ab53e2">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="criterioAcompanhamento" class="java.lang.String"/>
+	<field name="descricaoAcompanhamento" class="java.lang.String"/>
+	<field name="formaAcompanhamento" class="java.lang.String"/>
+	<columnHeader>
+		<band height="15">
+			<rectangle>
+				<reportElement x="144" y="0" width="227" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="e317186c-4e9e-419f-9116-b5e7ff2fa3ed"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="144" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="aea6e13c-cf2e-4ae4-90d7-212576794b5e"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="371" y="0" width="168" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="31a9c915-aa4f-4946-8daf-5459e3163022"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="147" y="-1" width="160" height="16" uuid="76dcb2d9-d242-4970-9f1c-906aa031ea30"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="382" y="1" width="143" height="14" uuid="9340cea9-bb6e-4a4b-9cb2-9272f5389fa3"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Forma de Acompanhamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="1" width="137" height="14" uuid="a694d8db-6725-4bb9-9d54-70012c8fa776"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Critério de Acompanhamento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="19">
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="144" y="0" width="227" height="19" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="0c6674b2-937f-456d-b56d-6e32f156b269"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="371" y="0" width="168" height="19" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="3bd304a5-d3ed-450a-bcfa-3a205212fe74"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="144" height="19" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="36574f7d-2e3f-4123-9481-29aa03f5ee68"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="147" y="2" width="220" height="15" isPrintWhenDetailOverflows="true" uuid="94ae6f31-5afc-4797-8087-a932f7617686"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph spacingBefore="1" spacingAfter="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descricaoAcompanhamento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="375" y="2" width="159" height="15" isPrintWhenDetailOverflows="true" uuid="25eb0af9-3e05-4968-aaba-40283c86b773"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph spacingBefore="1" spacingAfter="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{formaAcompanhamento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="4" y="2" width="135" height="15" isPrintWhenDetailOverflows="true" uuid="780eba8a-41a6-4fde-bb54-e0a166ad7e9c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph spacingBefore="1" spacingAfter="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{criterioAcompanhamento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29">
+			<printWhenExpression><![CDATA[($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="133" y="7" width="272" height="15" uuid="c10046e3-27d6-4965-b153-c3ee048fa332"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nenhum Critério de Acompanhamento adicionado a este Programa]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

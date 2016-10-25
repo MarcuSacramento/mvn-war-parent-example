@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<script>
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}	
+	</script>
+	<form id="formulario" name="my_form" class="form-horizontal" wicket:id="form">
+
+		<!-- <div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="" wicket:id="dashboard">Dashboard</a></li>
+				<li><a href="" wicket:id="pesquisarPage">Pesquisar Programa</a></li>
+				<li><a href="" wicket:id="cadastrarPage">Cadastrar Programa</a></li>
+				<li class="active">Pesquisar Kits</li>
+			</ul>
+		</div> -->
+
+		<!--PANEL PESQUISAR KITS -->
+		<div id="pesquisar" wicket:id="panelPesquisa">
+			<script type="text/javascript" src="../js/mj.js"></script>
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">Pesquisa de Kits</h3>
+				</div>
+				<section id="responsive" class="box-body">
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-offset-1 control-label" for="nomeKitAuto"> Nome do Kit </label>
+						<div class="col-sm-5">
+							<select class="basic-single" wicket:id="nomeKitAuto" style="width: 100%" title="Nome do Kit">
+								<option>Selecione...</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-offset-1 control-label" for="nomeBemAuto"> Nome do Bem </label>
+						<div class="col-sm-5">
+							<select class="basic-single" wicket:id="nomeBemAuto" style="width: 100%" title="Nome do Bem">
+								<option>Selecione...</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 col-sm-offset-1 control-label" for="nomeElementoAuto"> Nome do Elemento </label>
+						<div class="col-sm-5">
+							<select class="basic-single" wicket:id="nomeElementoAuto" style="width: 100%" title="Nome do Elemento">
+								<option>Selecione...</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<button class="col-sm-offset-5 col-xs-offset-4 btn btn-success btn-sm" wicket:id="btnPesquisar" title="Pesquisar">
+							<i class="fa fa-search"></i> Pesquisar
+						</button>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<!-- DATA VIEW RESULTADO PESQUISA -->
+		<div id="ancoraPesquisa">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="box box-primary panel-footer clearfix col-xs-6 col-height" wicket:id="panelDataView">
+						<div class="panel panel-default">
+							<div class="box-header with-border">
+								<span>Resultado da Pesquisa</span>
+								<div class="pull-right mj_botoes_acao_tabela">
+									<select id="valoresPaginator" class="form-control" wicket:id="valoresPaginator" title="Número de registros por página">
+										<option>Selecione...</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="box-body">
+
+								<table width="100%" class="table table-hover" style="table-layout: fixed;">
+									<thead>
+										<tr>
+											<th width="24%"><span wicket:id="lblOrderNome">.</span><a href="" wicket:id="btnOrdenarNome">Nome</a></th>
+											<th width="70%"><span wicket:id="lblOrderDescricao">.</span><a href="" wicket:id="btnOrdenarDescricao">Descrição</a></th>
+											<th width="6%"><a wicket:id="btnPick1" title="Todos Kits para a direita" id="btnPick1" class="btn btn-success btn-sm"> <i class="glyphicon glyphicon-fast-forward"></i>
+											</a></th>
+										</tr>
+									</thead>
+									<tbody wicket:id="dataBens">
+										<tr>
+											<td><span wicket:id="nomeKit"></span></td>
+											<td><span wicket:id="descricao"></span></td>
+											<td>
+												<button class="btn btn-success btn-sm" wicket:id="btnAdicionarKit" title="Adicionar este Kit">
+													<i class="glyphicon glyphicon-chevron-right"></i>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<div class="panel-footer">
+									<div wicket:id="paginator"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- DATA VIEW KITS SELECIONADOS -->
+					<div class="box box-primary panel-footer clearfix col-xs-6 col-height" wicket:id="panelDataViewAdicionado">
+						<div class="panel panel-default">
+							<div class="box-header with-border">
+								<span>Lista de Kits Selecionados</span>
+								<div class="pull-right mj_botoes_acao_tabela">
+									<select id="valoresPaginatorAdicionado" class="form-control" wicket:id="valoresPaginatorAdicionado" title="Número de registros por página">
+										<option>Selecione...</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="box-body">
+								<table width="100%" class="table table-hover" style="table-layout: fixed;">
+									<thead>
+										<tr>
+											<th width="6%"><a wicket:id="btnPick2" title="Todos os Kits para a Esquerda" id="btnPick2" class="btn btn-danger btn-sm"> <i class="glyphicon glyphicon-fast-backward"></i>
+											</a></th>
+											<th width="17%"><span wicket:id="lblOrderNomeAdicionado">.</span><a href="" wicket:id="btnOrdenarNomeAdicionado">Nome</a></th>
+											<th width="48%"><span wicket:id="lblOrderDescricaoAdicionado">.</span><a href="" wicket:id="btnOrdenarDescricaoAdicionado">Descrição</a></th>
+											<th>Qtd Total</th>
+											<th>Qtd Máxima por Proposta</th>
+										</tr>
+									</thead>
+									<tbody wicket:id="dataBensAdicionado">
+										<tr>
+											<td>
+												<button class="btn btn-danger btn-sm" wicket:id="btnRemoverKit" title="Remover este Kit">
+													<i class="glyphicon glyphicon-chevron-left"></i>
+												</button>
+											</td>
+											<td><span wicket:id="nomeKitAdicionado"></span></td>
+											<td><span wicket:id="descricaoKitAdicionado"></span></td>
+											<td>
+												<div wicket:id="panelText">
+													<input type="text" placeholder="Quantidade" wicket:id="quantidade" onkeypress='return somenteNumero(event)' class="form-control" />
+												</div>
+											</td>
+											<td>
+												<div wicket:id="quantidadeMaximaItemPanel">
+													<input type="text" placeholder="Qtd Máxima" wicket:id="quantidadeMaximaItemPanel" onkeypress='return somenteNumero(event)' class="form-control" />
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<div class="panel-footer">
+									<span wicket:id="paginatorAdicionado"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="panel-footer clearfix">
+			<div class="pull-right">
+				<button wicket:id="btnAvancar" title="Vincular" id="btnAvancar" class="btn btn-success btn-sm">
+					<i class="fa fa-file-o"></i>Vincular
+				</button>
+
+				<a wicket:id="btnVoltar" title="Voltar" id="btnVoltar" class="btn btn-warning btn-sm"> <i class="fa fa-undo"></i>Voltar
+				</a>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

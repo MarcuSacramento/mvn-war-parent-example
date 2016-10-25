@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="box box-primary ">
+		<div class="box-header with-border">
+			<span><i class="glyphicon glyphicon-user"></i> Representante</span>
+		</div>
+		<div class="box-body">
+
+			<div wicket:id="panelPrincipalSolicitacao">
+				<div class="form-group">
+					<div class="col-sm-1">
+						<label for="pessoaEntidade">*Nome </label>
+					</div>
+					<div class="col-sm-4">
+						<select class="basic-single" style="width: 100%" id="pessoaEntidade" wicket:id="pessoaEntidade"></select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-1">
+						<label>CPF </label>
+					</div>
+					<div class="col-sm-4">
+						<input type="text" placeholder="CPF" class="form-control input-sm" wicket:id="pessoaEntidade.pessoa.numeroCpf" />
+					</div>
+					<div class="col-sm-1">
+						<label>Cargo </label>
+					</div>
+					<div class="col-sm-4">
+						<input type="text" placeholder="Cargo" class="form-control input-sm" wicket:id="pessoaEntidade.pessoa.descricaoCargo" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-1">
+						<label>E-Mail </label>
+					</div>
+					<div class="col-sm-4">
+						<input type="text" placeholder="Email" class="form-control input-sm" wicket:id="pessoaEntidade.pessoa.email" />
+					</div>
+
+					<div class="col-sm-1">
+						<label>Telefone </label>
+					</div>
+					<div class="col-sm-4">
+						<input type="text" placeholder="Telefone" class="form-control mask-telefone input-sm" wicket:id="pessoaEntidade.pessoa.numeroTelefone" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

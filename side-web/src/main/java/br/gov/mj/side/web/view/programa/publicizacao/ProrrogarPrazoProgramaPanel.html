@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title">Prorrogar Prazo do Programa</h3>
+		</div>
+		<div class="box-body">
+
+			<div class="form-group">
+				<label for="dataPublicacaoDOU" class="col-sm-2 control-label">*Data Publicação DOU</label>
+				<div class="col-sm-5">
+					<div class="row">
+						<div class="col-sm-4">
+							<input wicket:id="dataPublicacaoDOU" id="dataPublicacaoDOU" type="text" class="form-control" placeholder="DD/MM/AAAA" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="dataInicialProposta" class="col-sm-2 control-label"><span>*</span>Período para propostas</label>
+				<div class="col-sm-5">
+					<div class="row">
+						<div class="col-sm-4">
+							<input wicket:id="dataInicialProposta" type="text" class="form-control" />
+						</div>
+						<div class="col-sm-1">
+							<span>a</span>
+						</div>
+						<div class="col-sm-4">
+							<input wicket:id="dataFinalProposta" type="text" class="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+
+			<div class="form-group" wicket:id="panelAnalise">
+				<label for="dataInicialProposta" class="col-sm-2 control-label"><span>*</span>Período para análise das Propostas</label>
+				<div class="col-sm-5">
+					<div class="row">
+						<div class="col-sm-4">
+							<input wicket:id="dataInicialAnalise" type="text" class="form-control" />
+						</div>
+						<div class="col-sm-1">
+							<span>a</span>
+						</div>
+						<div class="col-sm-4">
+							<input wicket:id="dataFinalAnalise" type="text" class="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+
+			<div class="form-group">
+				<label for="tipoPrograma" class="col-sm-2 control-label">Tipo de Programa</label>
+				<div class="col-sm-5">
+					<div class="row">
+						<div class="col-sm-4">
+							<select wicket:id="tipoPrograma" class="form-control"></select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="elemento" class="col-sm-2 control-label"><span>*</span>Motivo</label>
+				<div class="col-sm-5">
+					<textarea wicket:id="motivo" class="form-control" id="motivo"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

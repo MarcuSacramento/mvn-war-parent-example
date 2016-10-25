@@ -1,0 +1,203 @@
+<wicket:extend>
+
+	<form wicket:id="form">
+
+		<script type="text/javascript">
+			$(document).ready(function($) {
+				$('[data-toggle="popover"]').popover({ html: true});
+			});
+		</script>
+
+		<div wicket:id="navPanel" />
+
+		<div>
+			<div wicket:id="panelRecebimentos" class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">Recebimentos</h3>
+					<div class="pull-right">
+						Qtd de itens exibidos &nbsp;<select title="Número de registros por página" wicket:id="itensPorPaginaRecebimentos"></select>
+					</div>
+				</div>
+
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th></th>
+								<th wicket:id="orderByNF">Nota de Remessa</th>
+								<th><center>Itens / Quantidade</center></th>
+								<th>Município</th>
+								<th wicket:id="orderByDataPrevistaEntrega">Data Prevista para Entrega</th>
+								<th>Data Efetiva para Entrega</th>
+								<th>Situação</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<wicket:container wicket:id="radioGroupRecebimento">
+								<tr wicket:id="listaRecebimento">
+									<td align="center"><input wicket:id="radioRecebimento" type="radio" /></td>
+									<td><span wicket:id="numeroNotaRemessa"></span></td>
+									<td align="center"><span wicket:id="itensQuant"></span></td>
+									<td><span wicket:id="municipio"></span><span wicket:id="lblDescricaoEnderecoEntrega"></span></td>
+									<td><span wicket:id="dataPrevistaEntrega"></span></td>
+									<td><span wicket:id="dataEfetivaEntrega"></span></td>
+									<td><span wicket:id="situacaoNF"></span></td>
+									<td>
+										<button wicket:id="btnBaixarTR" title="Baixar Termo de Referência" class="btn btn-success btn-sm">
+											<i class="fa fa-download"></i>
+										</button> <a title="Enviar Termo de Recebimento" class="btn btn-primary btn-sm" wicket:id="btnEnviarTR"> <i class="fa fa-paper-plane"></i></a> <a
+										title="Editar Termo de Recebimento" class="btn btn-info btn-sm" wicket:id="btnEnviarTREditar"> <i class="fa fa-pencil"></i></a>
+									</td>
+								</tr>
+							</wicket:container>
+						</tbody>
+					</table>
+
+					<div class="panel-footer">
+						<div wicket:id="paginatorR"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<span id="ancoraPanelItens"></span>
+
+		<div>
+			<div wicket:id="panelItens" class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">Itens</h3>
+				</div>
+
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Identificador</th>
+								<th>Forma de Verificação</th>
+								<th>Situação</th>
+								<th>Quesitos Obrigatórios</th>
+								<th>Quesitos Opcionais</th>
+								<th>Total de Quesitos</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="listaItens">
+							<tr>
+								<td><span wicket:id="item"></span></td>
+								<td><span wicket:id="identificador"></span></td>
+								<td><span wicket:id="formaVerificacao"></span></td>
+								<td><span wicket:id="situacao"></span></td>
+								<td><span wicket:id="quesitosOb"></span></td>
+								<td><span wicket:id="quesitosOp"></span></td>
+								<td><span wicket:id="quesitos"></span></td>
+								<td><a title="Cadastrar Item" class="btn btn-success btn-sm" wicket:id="btnCadItem"><i class="fa fa-plus"></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="panel-footer">
+						<div wicket:id="paginatorI"></div>
+					</div>
+				</div>
+			</div>
+			<div wicket:id="panelRelatorio" class="box-footer clearfix">
+				<div class="pull-right">
+					<button wicket:id="btnGerarRR" title="Gerar Relatório de Recebimento" class="btn btn-primary btn-sm">
+						<i class="fa fa-refresh"></i>Gerar Relatório de Recebimento
+					</button>
+					<button wicket:id="btndownloadRR" title="Download Relatório de Recebimento" class="btn btn-success btn-sm">
+						<i class="fa fa-download"></i>Download Relatório de Recebimento
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<br> <span id="ancoraPanelAnexo"></span>
+
+		<div>
+			<div wicket:id="panelAnexos" class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">
+						<span class="panel-title">Anexos</span>
+					</h3>
+				</div>
+				<div class="box-header with-border">
+					<span><i>Anexar o Termo de Recebimento gerado devidamente assinado.</i></span>
+				</div>
+
+				<div class="box-body">
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <span class="obrigatorio"></span></label>
+						<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemAnexo"></div>
+					</div>
+
+					<form wicket:id="anexoForm" id="formUpload">
+						<div class="form-group">
+							<label class="col-sm-3 control-label" for="upArquivo"> <span class="obrigatorio">*</span> Arquivo
+							</label>
+							<div class="col-sm-3">
+								<input type="file" wicket:id="fileInput" />
+							</div>
+							<button class="col-sm-offset-1 col-xs-offset-4 btn btn-success btn-sm" title="Anexar" wicket:id="btnAdicionarAnexo">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>
+					</form>
+
+					<div class="table-responsive">
+						<div class="box box-primary form-horizontal">
+							<div class="box-header with-border">
+								<h3 class="box-title"></h3>
+								<div class="pull-right mj_botoes_acao_tabela"></div>
+							</div>
+
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Nome</th>
+										<th>Tipo Arquivo</th>
+										<th>Ações</th>
+									</tr>
+								</thead>
+								<tbody wicket:id="anexos">
+									<tr>
+										<td><span wicket:id="nomeAnexo"></span></td>
+										<td><span wicket:id="tipoArquivoTermoEntrega"></span></td>
+										<td>
+											<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm">
+												<i class="fa fa-download"></i>
+											</button>
+											<button wicket:id="btnExcluir" title="Excluir" class="btn btn-danger btn-sm">
+												<i class="fa fa-trash-o"></i>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="panel-footer">
+								<div wicket:id="paginatorAnexo"></div>
+							</div>
+						</div>
+						<div class="pull-right" wicket:id="panelAnexoButton">
+							<a wicket:id="btnAnexar" title="Anexar Termo de Referência" class="btn btn-success btn-sm"> <i class="fa fa-floppy-o"></i>Anexar
+							</a> <a class="btn btn-warning btn-sm" wicket:id="btnCancelarAnexo" title="Cancelar"> <i class="fa fa-times"></i>Cancelar
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="box-footer clearfix">
+			<div class="pull-right" wicket:id="panelButton">
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i>Voltar
+				</button>
+			</div>
+		</div>
+
+	</form>
+
+</wicket:extend>

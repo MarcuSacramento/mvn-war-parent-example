@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form wicket:id="form" class="form-horizontal">
+		<!-- <div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a wicket:id="lnkDashboard">Dashboard</a></li>
+				<li><a wicket:id="lnkPesquisarPrograma"> Pesquisar Programa</a></li>
+				<li><a wicket:id="lnkCadastrarPrograma"> Cadastrar Programa</a></li>
+				<li class="active"><span wicket:id="lblNomePage"></span></li>
+			</ul>
+		</div> -->
+
+		<div class="row">
+			<div class="col-md-12">
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-body">
+						<div class="form-group">
+							<div class="col-sm-4">
+								<strong>Ação Orçamentária</strong> <span wicket:id="acaoOrcamentaria"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-2">
+								<strong>* Valor a utilizar</strong> <input wicket:id="valorUtilizar" id="valorUtilizar" type="text" class="form-control mask-money input-sm" tabindex="1" />
+							</div>
+							<div class="col-sm-2">
+								<strong>Saldo</strong> <span wicket:id="saldoAcaoOrcamentaria" class="form-control input-sm" readonly></span>
+							</div>
+							<div class="col-sm-2">
+								Valor total das Emendas: <span wicket:id="valorTotalEmendas" class="form-control input-sm" readonly></span>
+							</div>
+							<div class="col-sm-2">
+								Valor total: <span wicket:id="valorTotal" class="form-control input-sm" readonly></span>
+							</div>
+						</div>
+
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Nº da Emenda</th>
+									<th>Parlamentar</th>
+									<th>Tipo</th>
+									<th>Liberação</th>
+									<th>Valor Previsto</th>
+									<th>Saldo</th>
+									<th>Valor a utilizar</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr wicket:id="emendas">
+									<td><input wicket:id="checkItem" type="checkbox" /></td>
+									<td><span wicket:id="numeroEmendaParlamentar"></span></td>
+									<td><span wicket:id="nomeParlamentar"></span></td>
+									<td><span wicket:id="tipoEmenda"></span></td>
+									<td><span wicket:id="liberacao"></span></td>
+									<td><span wicket:id="valorPrevisto"></span></td>
+									<td><span wicket:id="saldo"></span></td>
+									<td>
+										<div wicket:id="valorUtilizarItemPanel">
+											<script>
+								$(document).ready(function() {
+									$(".mask-money").maskMoney({
+										prefix:'R$ ', 
+										allowNegative: false, 
+										thousands:'.', 
+										decimal:',', 
+										affixesStay: true
+									});
+								});
+							</script>
+											<input type="text" wicket:id="valorUtilizarEmenda" class="form-control mask-money input-sm " />
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right">
+				<button wicket:id="btnConfirmar" title="Salvar" class="btn btn-success btn-sm">
+					<i class="fa fa-floppy-o"></i> Confirmar
+				</button>
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i>Voltar
+				</button>
+			</div>
+		</div>
+
+	</form>
+</wicket:extend>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title">Critérios de Elegibilidade</h3>
+		</div>
+		<div class="box-body">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Descrição</th>
+						<th>Forma de Verificação</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr wicket:id="criteriosElegibilidade">
+						<td><span wicket:id="nomeCriterioElegibilidade"></span></td>
+						<td><span wicket:id="descricaoCriterioElegibilidade"></span></td>
+						<td><span wicket:id="formaVerificacao"></span></td>
+					</tr>
+				</tbody>
+			</table>
+			<div wicket:id="paginator"></div>
+		</div>
+	</div>
+</wicket:panel>

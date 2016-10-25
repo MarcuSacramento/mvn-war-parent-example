@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+	<style>
+.close {
+	display: none;
+}
+</style>
+	<script type="text/javascript">
+function naoClicar(){
+    return false;
+    }
+}
+</script>
+
+	<script type="text/javascript">
+			$(document).ready(function($) {
+				$('[data-toggle="popover"]').popover();
+			});
+	</script>
+
+
+	<form id="formulario" class="form-horizontal" wicket:id="form">
+
+		<!-- PAINEL BOTOES DE CONTROLE -->
+		<wicket:container wicket:id="dashboardPessoasPanel" />
+		<br />
+
+		<div wicket:id="panelComponentes">
+
+			<script>
+		$(document).ready(function() {
+			$(".js-example-basic-single").select2();
+		});
+
+		$(document).ready(function() { 
+			 $(".basic-multiple").select2();
+		});
+
+		function somenteNumero(e){
+		    var tecla=(window.event)?event.keyCode:e.which;   
+		    if((tecla>47 && tecla<58)) return true;
+		    else{
+		    	if (tecla==8 || tecla==0) return true;
+			else  return false;
+		    }
+		}
+		
+	</script>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label"> </label>
+				<div class="container col-sm-8">
+					<div class="col-sm-11">
+						<div class="box box-primary">
+							<div class="box-header with-border">
+								<h3 class="box-title">Dados da Pesquisa</h3>
+							</div>
+
+							<div class="box-body">
+
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="codigo">Código</label>
+									<div class="col-sm-2">
+										<input type="text" wicket:id="codigoIdentificadorProgramaPublicado" placeholder="Código" class="form-control" id="codigo" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="nome">Nome</label>
+									<div class="col-sm-4">
+										<input type="text" wicket:id="programa.nomePrograma" placeholder="Nome" class="form-control" id="nome">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="nomeFantasia">Nome Fantasia</label>
+									<div class="col-sm-4">
+										<input type="text" wicket:id="programa.nomeFantasiaPrograma" placeholder="Nome Fantasia" class="form-control" id="nomeFantasia">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="ano">Ano </label>
+									<div class="col-sm-2">
+										<input wicket:id="programa.anoPrograma" id="ano" type="text" placeholder="Ano" class="form-control" onkeypress='return somenteNumero(event)' maxlength="4" />
+										<p class="help-block">Formato:AAAA</p>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="tipoPrograma">Tipo de Programa </label>
+									<div class="col-sm-4">
+										<select class="js-example-basic-single" style="width: 100%;" id="tipoPrograma" wicket:id="tipoPrograma"></select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="orgao">Órgão </label>
+									<div class="col-sm-4">
+										<select wicket:id="programa.unidadeExecutora.orgao" class="js-example-basic-single" style="width: 100%;" id="orgao"></select>
+									</div>
+								</div>
+
+								<div class="form-group" wicket:id="unidadeExecutoraContainer">
+									<label class="col-sm-4 control-label" for="unidadeExecutora">Unidade Executora</label>
+									<div class="col-sm-4">
+										<select wicket:id="programa.unidadeExecutora" class="js-example-basic-single" style="width: 100%;" id="unidadeExecutora"></select>
+									</div>
+									<script>
+							$(document).ready(function() { 
+								 $("#unidadeExecutora").select2();
+							});
+						</script>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="limitacaoGeografica">Limitação Geográfica</label>
+									<div class="col-sm-4">
+										<select wicket:id="programa.possuiLimitacaoGeografica" class="js-example-basic-single" style="width: 100%;" id="limitacaoGeografica"></select>
+									</div>
+								</div>
+
+								<div class="form-group" wicket:id="ufContainer">
+									<label class="col-sm-4 control-label" for="uf">UF </label>
+									<div class="col-sm-4">
+										<select wicket:id="listaUf" class="basic-multiple" style="width: 100%" multiple="multiple" id="uf"></select>
+									</div>
+									<script>
+							$(document).ready(function() { 
+								 $("#uf").select2();
+							});
+						</script>
+								</div>
+
+								<div wicket:id="municipioContainer">
+									<div class="form-group">
+										<label class="col-sm-4 control-label" for="municipio">Município </label>
+										<div class="col-sm-4">
+											<select wicket:id="ListaMunicipio" class="js-example-basic-single" style="width: 100%" multiple="multiple" id="municipio">
+											</select>
+										</div>
+										<script>
+								$(document).ready(function() { 
+									 $("#municipio").select2();
+								});
+							</script>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label"> * Personalidade Jurídica </label>
+										<div class="col-sm-4">
+											<!-- <span wicket:id="radioPersonalidade" id="radioPersonalidade"/> -->
+											Público <input wicket:id="checkPublico" type="checkbox" /> &nbsp;&nbsp; Privado <input wicket:id="checkPrivado" type="checkbox" />
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="acaoOrcamentaria">Ação Orçamentária</label>
+									<div class="col-sm-4">
+										<select wicket:id="acaoOrcamentaria" class="js-example-basic-single" style="width: 100%;" id="acaoOrcamentaria"></select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="elemento">Elemento</label>
+									<div class="col-sm-4">
+										<select wicket:id="elemento" class="js-example-basic-single" style="width: 100%;" id="elemento"></select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="numeroProcessoSei">Nº do Processo SEI</label>
+									<div class="col-sm-2">
+										<input type="text" wicket:id="programa.numeroProcessoSEI" placeholder="Nº SEI" class="form-control mask-numero-sei" id="numeroProcessoSei" />
+									</div>
+								</div>
+
+								<div class="form-group" wicket:id="panelStatus">
+									<label class="col-sm-4 control-label" for="statusPrograma">Situação do Programa</label>
+									<div class="col-sm-4">
+										<select wicket:id="programa.statusPrograma" class="js-example-basic-single" style="width: 100%;" id="statusPrograma"></select>
+									</div>
+
+									<script>
+							$(document).ready(function() {
+								$("#statusPrograma").select2();
+							});
+						</script>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<wicket:enclosure child="aptoProposta">
+				<div class="form-group">
+					<label class="col-sm-4 control-label" for="aptoProposta">Apto a receber proposta?</label>
+					<div class="col-sm-1">
+						<select class="js-example-basic-single" style="width: 100%;" id="aptoProposta" wicket:id="aptoProposta"></select>
+					</div>
+				</div>
+			</wicket:enclosure>
+
+			<!-- PANEL DAS EMENDAS PARLAMENTARES -->
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label"> </label>
+				<div class="container col-sm-8">
+					<div class="col-sm-11">
+						<div>
+							<p class="text-left"></p>
+						</div>
+
+						<div class="box box-primary">
+							<div class="box-header with-border">
+								<h3 class="box-title">Emenda Parlamentar</h3>
+								<div class="pull-right mj_botoes_acao_tabela"></div>
+							</div>
+
+
+
+							<div class="box-body">
+
+
+
+								<br />
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="tipoPrograma"> Partido Parlamentar </label>
+									<div class="col-sm-7">
+										<select class="js-example-basic-single" style="width: 100%;" id="numeroPartidoPolitico" wicket:id="partidoParlamentar"></select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="tipoPrograma">UF Parlamentar </label>
+									<div class="col-sm-7">
+										<select class="js-example-basic-single" style="width: 100%;" id="ufParlamentar" wicket:id="ufParlamentar"></select>
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nome">Nome Parlamentar</label>
+									<div class="col-sm-7">
+										<input type="text" wicket:id="nomeParlamentar" placeholder="Nome Parlamentar" class="form-control" id="nomeParlamentar">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nome">Cargo</label>
+									<div class="col-sm-7">
+										<input type="text" wicket:id="cargoParlamentar" placeholder="Cargo Parlamentar" class="form-control" id="cargoParlamentar">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nome">CNPJ Beneficiário</label>
+									<div class="col-sm-7">
+										<input type="text" wicket:id="cnpjBeneficiario.numeroCnpjBeneficiario" placeholder="CNPJ Beneficiário" class="form-control mask-cnpj" id="cargoParlamentar">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-5 control-label"></label>
+			<div class="col-sm-6">
+				<button type="submit" wicket:id="btnPesquisar" title="Consultar" class="btn btn-success btn-sm">
+					<i class="fa fa-search"></i>Consultar
+				</button>
+				<button type="submit" wicket:id="btnLimpar" title="Limpar" class="btn btn-warning btn-sm">
+					<i class="fa fa-eraser"></i>Limpar
+				</button>
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i>Voltar
+				</button>
+			</div>
+		</div>
+
+		<div class="box box-primary" wicket:id="panelGridResultados">
+			<div class="box-header with-border">
+				<h3 class="box-title">Lista de Programas</h3>
+				<div class="pull-right mj_botoes_acao_tabela">
+					Qtd de itens exibidos &nbsp;<select wicket:id="itensPorPagina" id="itensPorPagina" title="Número de registros por página"></select>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table width="55%" class="table table-hover">
+						<thead>
+							<tr>
+								<th wicket:id="orderByCodigo">Código</th>
+								<th wicket:id="orderByNomePrograma">Nome Programa</th>
+								<th wicket:id="orderByNumeroProcessoSEI">Nº do Processo</th>
+								<th wicket:id="orderByStatusPrograma">Status</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr wicket:id="programas">
+								<td><span wicket:id="identificadorProgramaPublicado"></span></td>
+								<td><span wicket:id="nomePrograma"></span></td>
+								<td><span wicket:id="numeroProcessoSEI"></span></td>
+								<td><span wicket:id="statusPrograma.descricao"></span></td>
+								<td>
+									<button wicket:id="btnVisualizar" class="btn btn-primary btn-sm" title="Visualizar">
+										<i class="fa fa-search"></i>
+									</button>
+									<button wicket:id="btnPdf" class="btn btn-success btn-sm" title="Gerar PDF">
+										<i class="fa fa-file-pdf-o"></i>
+									</button>
+									<button wicket:id=btnInscrever class="btn btn-info" title="">
+										<i class="fa fa fa-book"></i>Inscrever-se
+									</button>
+									<button class="btn btn btn-info btn-sm" title="Editar Inscrição" wicket:id="btnEditarInscricao">
+										<i class="fa fa-pencil fa-fw"></i>
+									</button> <a wicket:id="btnErro" onclick="return naoClicar();" class="btn btn-warning btn-sm" data-toggle="popover" data-placement="top" data-content=""> <i class="fa fa-info-circle"> </i>
+								</a> <a wicket:id="btnIsInscrito" onclick="return naoClicar();" title="" class="btn btn-default btn-sm"> <i class="fa fa-check"></i>
+								</a>
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="box-footer">
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+
+		<div wicket:id="modalConfirmUf"></div>
+	</form>
+</wicket:extend>

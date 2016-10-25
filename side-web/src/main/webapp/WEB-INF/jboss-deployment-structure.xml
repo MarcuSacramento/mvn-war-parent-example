@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<deployment>
+		<dependencies>
+		
+			<!-- Essa dependência foi adicionada devido a um erro
+			     na deserialização ao usar o botão back do browser.
+			     
+			     Olhar nos links abaixo:
+			     https://rodrigouchoa.atlassian.net/browse/INFRA-11
+			     https://issues.jboss.org/browse/WFLY-988
+			     https://issues.apache.org/jira/browse/WICKET-4785 -->
+			<module name="org.jboss.msc"/>
+			
+			<!-- módulos de segurança -->
+			<!--<module name="br.gov.mj.infra.security.api"/>
+			<module name="br.gov.mj.infra.security.impl"/>-->
+			
+		</dependencies>
+	</deployment>
+</jboss-deployment-structure>

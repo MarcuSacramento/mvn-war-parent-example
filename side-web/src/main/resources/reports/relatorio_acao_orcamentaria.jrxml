@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_acao_orcamentaria" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b882d0ad-c307-430f-adad-62aec23f909b">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.export.csv.field.delimiter" value=";"/>
+	<style name="borda" mode="Transparent" forecolor="#000000" hAlign="Left" vAlign="Top" isBlankWhenNull="true">
+		<pen lineWidth="1.0"/>
+		<paragraph lineSpacing="1_1_2"/>
+	</style>
+	<field name="id" class="java.lang.Long"/>
+	<field name="numeroAcaoOrcamentaria" class="java.lang.String"/>
+	<field name="nomeAcaoOrcamentaria" class="java.lang.String"/>
+	<field name="numeroProgramaPPA" class="java.lang.String"/>
+	<field name="nomeProgramaPPA" class="java.lang.String"/>
+	<field name="valorPrevisto" class="java.math.BigDecimal"/>
+	<field name="totalValor" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20">
+			<staticText>
+				<reportElement x="0" y="0" width="77" height="20" uuid="b160ac05-5d6b-4479-af3d-ba669c3cd872"/>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="77" y="0" width="122" height="20" uuid="8fbe8f0a-258c-4d8e-babb-4173649c2f77"/>
+				<text><![CDATA[Número ação orçamentária]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="199" y="0" width="115" height="20" uuid="954785e9-7417-42b0-9ce7-e39f722e8e54"/>
+				<text><![CDATA[Nome ação orçamentária]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="0" width="105" height="20" uuid="8463406c-b749-4b32-a87c-4a326ecf95c3"/>
+				<text><![CDATA[Número programa PPA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="0" width="180" height="20" uuid="5f42ea8e-3654-4851-872d-f7ae07ba2c28"/>
+				<text><![CDATA[Nome programa PPA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="0" width="94" height="20" uuid="1397e9c7-61f8-47f6-b6a0-63f0f913088e"/>
+				<text><![CDATA[Valor LOA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="694" y="0" width="100" height="20" uuid="556c56d4-f7bd-4a79-815c-92088ddc373f"/>
+				<text><![CDATA[Total(LOA +Emendas)]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="77" height="18" uuid="868fa11d-5f97-4e1c-b199-d0e3150ce26e"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="77" y="0" width="122" height="18" uuid="674d9575-7e28-4910-8171-9770d4b4166f"/>
+				<textFieldExpression><![CDATA[$F{numeroAcaoOrcamentaria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="0" width="115" height="18" uuid="0eda4b29-564e-459d-a774-a5aede69dbe2"/>
+				<textFieldExpression><![CDATA[$F{nomeAcaoOrcamentaria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="0" width="105" height="18" uuid="b11f71f5-59e7-4f6b-be25-ed66a10034ec"/>
+				<textFieldExpression><![CDATA[$F{numeroProgramaPPA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="419" y="0" width="180" height="18" uuid="c9034be1-8983-4c28-9062-35be7e47ba89"/>
+				<textFieldExpression><![CDATA[$F{nomeProgramaPPA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="0" width="94" height="18" uuid="455f4187-d362-4a4b-a844-47d1d62f2f22"/>
+				<textFieldExpression><![CDATA[$F{valorPrevisto}.toString().replace(".",",")]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="694" y="0" width="100" height="18" uuid="ad05cfcc-388b-456a-9d79-4de2d78aaef2"/>
+				<textFieldExpression><![CDATA[$F{totalValor}.toString().replace(".",",")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

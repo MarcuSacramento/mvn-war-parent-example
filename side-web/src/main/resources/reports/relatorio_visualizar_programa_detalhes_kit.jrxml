@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_visualizar_programa_detalhes_kit" pageWidth="539" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="539" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c9131a70-9833-4204-8838-e61c3be9fbdc">
+	<property name="ireport.zoom" value="7.073843073000004"/>
+	<property name="ireport.x" value="2890"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nomeKit" class="java.lang.String"/>
+	<field name="quantidadeKit" class="java.lang.String"/>
+	<field name="descricaoKit" class="java.lang.String"/>
+	<field name="quantidadeMaxPorProposta" class="java.lang.String"/>
+	<columnHeader>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="150" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="c45ba833-bebe-4cac-804c-257d28119f0b"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="383" y="0" width="77" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="3a1826ca-0588-4c18-a1d7-ae612ab701d8"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="7" y="1" width="127" height="14" uuid="c61eb1f5-f783-4780-9c98-01e0bd68d02f"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Nome do Kit]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="149" y="0" width="234" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="2f418ea1-2071-4925-a171-61ec47e7d954"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="150" y="0" width="228" height="15" uuid="7cc7d248-9eda-49d1-86ff-572c100adf13"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="460" y="0" width="79" height="15" forecolor="#000000" backcolor="#CCCCCC" uuid="13dddd78-8337-4205-9e85-3b0f6e4486e4"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="461" y="0" width="78" height="14" uuid="8f1f4571-84d7-4d9c-a41e-bacb7d59e2de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Qtd Max Proposta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="0" width="77" height="14" uuid="4ff4e331-71bf-46db-8cdc-9ccaf3e9909a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Qtd Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="150" height="15" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="0d3ece03-9178-434b-bfb3-9905092e0ee2"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="383" y="0" width="77" height="15" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="edd111fa-9b9f-4502-9210-016a2df3b417"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="149" y="0" width="234" height="15" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="1531160b-3675-46cc-beb8-6fb3985b2087"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="0" width="147" height="15" isPrintWhenDetailOverflows="true" uuid="909e428e-fa22-40bc-a0d3-4e0741c2b803"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nomeKit}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="150" y="0" width="228" height="15" isPrintWhenDetailOverflows="true" uuid="2600aee9-1d21-4468-98e1-b887e6dd5321"/>
+				<textFieldExpression><![CDATA[$F{descricaoKit}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="460" y="0" width="79" height="15" isPrintWhenDetailOverflows="true" forecolor="#000000" backcolor="#FFFFFF" uuid="1da4347c-a091-4443-9af4-41cb509d3696"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="383" y="0" width="77" height="15" isPrintWhenDetailOverflows="true" uuid="ee5afd68-748f-45a1-b518-2726adc80159"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quantidadeKit}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="461" y="1" width="78" height="14" isPrintWhenDetailOverflows="true" uuid="e2a2b214-73fc-4e62-8772-904eae38d90c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quantidadeMaxPorProposta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="30">
+			<printWhenExpression><![CDATA[($V{REPORT_COUNT}.intValue()==0)]]></printWhenExpression>
+			<staticText>
+				<reportElement x="178" y="6" width="183" height="15" uuid="77b519e5-6b69-4456-9786-f5ad7d6bbb79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Nenhum Kit Adicionado a este Programa]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+</jasperReport>

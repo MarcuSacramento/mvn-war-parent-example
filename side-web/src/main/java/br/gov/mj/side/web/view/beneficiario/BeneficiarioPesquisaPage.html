@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<wicket:extend>
+	<script>
+		$(document).ready(function() {
+			$(".js-example-basic-single").select2();
+			$(".basic-multiple").select2();
+		});
+	</script>
+
+	<style>
+.close {
+	display: none;
+}
+</style>
+
+	<form id="formulario" class="form-horizontal" wicket:id="form">
+		<div class="pull-right">
+			<a title="Cadastrar novo Beneficiario" id="btnNovo" class="btn btn-primary btn-sm" wicket:id="btnNovo"> <i class="fa fa-file-o" /> Novo Beneficiário
+			</a>
+		</div>
+
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="">Dashboard</a></li>
+				<li class="active">Pesquisar Beneficiário</li>
+			</ul>
+		</div>
+
+		<div wicket:id="panelPrincipal">
+
+			<!-- PANEL ENTIDADE -->
+			<div class="form-group">
+				<div class="row col-sm-7 col-sm-offset-3">
+					<div class="col-sm-11">
+						<div class="box box-primary form-horizontal">
+							<div class="box-header with-border">
+								<h3 class="box-title">Dados da Entidade</h3>
+							</div>
+							<div class="box-body">
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="ano">CNPJ</label>
+									<div class="col-sm-4">
+										<input id="cnpjEntidade" type="text" placeholder="CNPJ" class="form-control mask-cnpj" wicket:id="entidade.numeroCnpj" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nomeFantasia">Nome Entidade</label>
+									<div class="col-sm-6">
+										<input type="text" placeholder="Nome Entidade" class="form-control" id="nomeEntidade" wicket:id="entidade.nomeEntidade">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="orgao">Tipo</label>
+									<div class="col-sm-6">
+										<select class="js-example-basic-single" style="width: 100%;" id="tipo" wicket:id="entidade.tipoEntidade"></select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="orgao">Estado</label>
+									<div class="col-sm-6">
+										<select class="js-example-basic-single" style="width: 100%;" id="estado" wicket:id="nomeUf"></select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="orgao">Natureza Jurídica</label>
+									<div class="col-sm-6">
+										<select class="js-example-basic-single" style="width: 100%;" id="naturezaJuridica" wicket:id="entidade.personalidadeJuridica"></select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="orgao">Situação</label>
+									<div class="col-sm-6">
+										<select class="js-example-basic-single" style="width: 100%;" id="statusEntidade" wicket:id="entidade.statusEntidade"></select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="situacaoCadastro">Situação do Cadastro</label>
+									<div class="col-sm-6">
+										<select class="js-example-basic-single" style="width: 100%;" id="situacaoCadastro" wicket:id="entidade.validacaoCadastro"></select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="situacaoCadastro">Programa</label>
+									<div class="col-sm-6">
+										<select class="js-example-basic-single" style="width: 100%;" id="situacaoCadastro" wicket:id="entidade.programaPreferencial"></select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- PANEL TITULAR -->
+			<div class="form-group">
+				<div class="row col-sm-7 col-sm-offset-3">
+					<div class="col-sm-11">
+						<div class="box box-primary form-horizontal">
+							<div class="box-header with-border">
+								<h3 class="box-title">Dados do Titular</h3>
+							</div>
+							<div class="box-body">
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nome">CPF</label>
+									<div class="col-sm-4">
+										<input type="text" placeholder="CPF" class="form-control mask-cpf" id="cpfTitular" wicket:id="titular.numeroCpf">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nomeFantasia">Nome</label>
+									<div class="col-sm-6">
+										<input type="text" placeholder="Nome" class="form-control" id="nomeTitular" wicket:id="titular.nomePessoa">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- PANEL REPRESENTANTE -->
+			<div class="form-group">
+				<div class="row col-sm-7 col-sm-offset-3">
+					<div class="col-sm-11">
+						<div class="box box-primary form-horizontal">
+							<div class="box-header with-border">
+								<h3 class="box-title">Dados do Representate</h3>
+							</div>
+							<div class="box-body">
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="nome">CPF</label>
+									<div class="col-sm-4">
+										<input type="text" placeholder="CPF" class="form-control mask-cpf" id="cpfRepresentante" wicket:id="representante.numeroCpf">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label" for="codigo">Nome</label>
+									<div class="col-sm-6">
+										<input type="text" placeholder="Nome" class="form-control" id="nomeRepresentante" wicket:id="representante.nomePessoa" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<button type="submit" title="Pesquisar" class="col-sm-offset-6 col-xs-offset-5 btn btn-success btn-sm" wicket:id="btnPesquisar">
+				<i class="fa fa-search"></i> Pesquisar
+			</button>
+		</div>
+
+		<div class="box box-primary" wicket:id="panelResultados">
+			<div class="box-header with-border">
+				<h3 class="box-title">Lista de Beneficiários</h3>
+				<div class="pull-right">
+					Qtd de itens exibidos &nbsp;<select id="itensPorPagina" wicket:id="itensPorPagina" title="Número de registros por página"></select>
+				</div>
+			</div>
+
+			<div class="box-body">
+				<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th wicket:id="orderByCnpj">CNPJ</th>
+								<th wicket:id="orderByNome">Nome Entidade</th>
+								<th wicket:id="orderByTipo">Tipo</th>
+								<th wicket:id="orderByEstado">Estado</th>
+								<th wicket:id="orderBySituacao">Situação</th>
+								<th wicket:id="orderByOrigemCadastro">Origem Cadastro</th>
+								<th style="width: 140px;">Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="entidades">
+							<tr>
+								<td><span wicket:id="numeroCnpj"></span></td>
+								<td><span wicket:id="nomeEntidade"></span></td>
+								<td><span wicket:id="tipoEntidade"></span></td>
+								<td><span wicket:id="estado"></span></td>
+								<td><span wicket:id="statusEntidade.descricao"></span></td>
+								<td><span wicket:id="origemCadastro"></span></td>
+								<td>
+									<button class="btn btn-primary btn-sm" title="Visualizar" wicket:id="btnVisualizar">
+										<i class="fa fa-search"></i>
+									</button>
+									<button class="btn btn-info btn-sm" title="Alterar" wicket:id="btnAlterar">
+										<i class="fa fa-pencil fa-fw"></i>
+									</button>
+									<button class="btn btn-info btn-sm" title="Alterar situações" wicket:id="btnAlterarPermissoes">
+										<i class="fa fa-pencil fa-fw"></i>
+									</button>
+									<button class="btn btn-success btn-sm" title="Ativar" wicket:id="btnAtivar">
+										<i class="fa fa-check-circle-o"></i>
+									</button>
+									<button class="btn btn-danger btn-sm" title="Inativar" wicket:id="btnInativar">
+										<i class="fa fa-ban"></i>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="box-footer">
+					<div wicket:id="pagination"></div>
+				</div>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

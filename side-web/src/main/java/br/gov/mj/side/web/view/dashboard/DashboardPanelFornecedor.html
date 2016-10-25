@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<style>
+.custom {
+	width: 142px; ! important;
+	height: 100px;
+}
+
+#container {
+	width: 100%;
+	text-align: left;
+}
+
+.box_local {
+	display: inline-block;
+	width: 142px;
+	height: 100px;
+	margin: 15px 10px;
+}
+</style>
+
+	<div class="box box-primary">
+		<div class="box-header with-border">
+			<h3 class="box-title">Painel do Fornecedor</h3>
+			<a href="javascript:void(0);" onclick="javascript:introJs().start();" title="Ajuda"><i class="fa fa-question-circle fa-lg" style="color: #49B957;"></i></a>
+		</div>
+
+		<div wicket:id="panelBotoesDashboard" id="container">
+			<div data-step="1" data-intro="Nesta seção você visualizará os dados cadastrais." data-position='right' id="box-1" class="box_local">
+				<a title="Informações Cadastrais" id="btnInfomacoesCadastrais" class="btn btn-primary btn-sm custom" wicket:id="btnInfomacoesCadastrais"> <i class="fa fa-info fa-4x"></i><br />Informações <br />Cadastrais
+				</a>
+			</div>
+
+			<div data-step="2" data-intro="Nesta seção você visualizará os contratos." data-position='right' id="box-2" class="box_local">
+				<a title="Contratos" id="btnContratos" class="btn btn-primary btn-sm custom" wicket:id="btnContratos"><i class="fa fa-file-text-o fa-4x"></i><br />Contratos </a>
+			</div>
+
+			<div data-step="3" data-intro="Nesta seção você realizará o cadastro de um item." data-position='right' id="box-3" class="box_local">
+				<a title="Cadastrar Item" id="btnCadastrarItem" class="btn btn-primary btn-sm custom" wicket:id="btnCadastrarItem"><i class="fa fa-barcode fa-4x"></i><br />Cadastrar <br />Item </a>
+			</div>
+		</div>
+	</div>
+
+</wicket:panel>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form class="form-horizontal" wicket:id="form">
+		<wicket:container wicket:id="panelFasePrograma" />
+
+		<!-- Tab panes -->
+		<div class="alert alert-danger" role="alert" wicket:id="panelAviso">
+			<span wicket:id="msgAlertaSuspensoCancelado"></span>
+		</div>
+
+		<div wicket:id="panelProrrogarSuspenderPrazo">
+			<div class="alert alert-danger" role="alert">
+				<span wicket:id="msgAlerta"></span>
+			</div>
+
+			<label class="col-sm-5 control-label"></label>
+			<div class="col-sm-6">
+				<button wicket:id="btnOpcaoSuspenderPrazo" title="Suspender Prazo do Programa" class="btn btn-warning btn-sm">
+					<i class="fa fa-calendar-times-o"></i> Suspender prazo
+				</button>
+				<button wicket:id="btnOpcaoProrrogarPrazo" title="Prorrogar Prazo do Programa" class="btn btn-primary btn-sm">
+					<i class="fa fa-clock-o"></i> Prorrogar
+				</button>
+			</div>
+			<br /> <br /> <br />
+			<div wicket:id="panelProrrogarSuspenderPrazo"></div>
+		</div>
+
+		<!-- ABA GERENCIAR DATAS -->
+		<div wicket:id="publicarProgramaPanel"></div>
+		<div wicket:id="cancelarProgramaPanel"></div>
+		<div wicket:id="suspenderProgramaPanel"></div>
+		<div wicket:id="prorrogarPrazoProgramaPanel"></div>
+		<div wicket:id=prorrogarPrazoAnaliseProgramaPanel></div>
+		<div wicket:id="reabrirPrazoProgramaPanel"></div>
+		<div wicket:id="suspenderPrazoProgramaPanel"></div>
+		<div wicket:id="prazoAposAnalisePanel"></div>
+
+		<!-- ABA PANEL PARA ANEXAR ARQUIVOS -->
+		<div wicket:id="programaPanel"></div>
+
+		<div class="panel-footer clearfix">
+			<div>Os campos marcados com * são de preenchimento obrigatório.</div>
+
+			<div class="pull-right" wicket:id="acoes">
+				<button wicket:id="btnPublicarPrograma" title="Publicar" class="btn btn-success btn-sm">
+					<i class="fa fa-play"></i> Publicar
+				</button>
+				<button wicket:id="btnCancelarPrograma" title="Cancelar" class="btn btn-danger btn-sm">
+					<i class="fa fa-stop"></i> Cancelar
+				</button>
+				<button wicket:id="btnSuspenderPrograma" title="Suspender Programa" class="btn btn-success btn-sm">
+					<i class="fa fa-pause"></i> Suspender
+				</button>
+				<button wicket:id="btnSuspenderPrazo" title="Suspender Prazo do Programa" class="btn btn-success btn-sm">
+					<i class="fa fa-calendar-times-o"></i> Suspender prazo
+				</button>
+				<button wicket:id="btnProrrogarPrograma" title="Prorrogar Prazo do Programa" class="btn btn-success btn-sm">
+					<i class="fa fa-clock-o"></i> Prorrogar
+				</button>
+				<button wicket:id="btnProrrogarAnalisePrograma" title="Prorrogar Prazo de Análise do Programa" class="btn btn-success btn-sm">
+					<i class="fa fa-clock-o"></i> Prorrogar Análise
+				</button>
+				<button wicket:id="btnReabrirPrazoPrograma" title="Reabrir Prazo do Programa" class="btn btn-success btn-sm">
+					<i class="fa fa-calendar-check-o"></i> Reabrir prazo
+				</button>
+				<button wicket:id="btnVoltar" title="Voltar" class="btn btn-warning btn-sm">
+					<i class="fa fa-undo"></i> Voltar
+				</button>
+			</div>
+		</div>
+	</form>
+</wicket:extend>

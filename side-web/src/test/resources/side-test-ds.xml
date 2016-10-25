@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+    <datasource jndi-name="java:jboss/datasources/sideTestDS" pool-name="side-testDS">
+		<connection-url>jdbc:postgresql://10.10.28.10:5432/side-tu</connection-url>
+     
+
+         <driver>postgresql-9.4-1201.jdbc41.jar</driver>       
+
+        <security>
+            <user-name>postgres</user-name>
+            <password>postgres</password>
+         </security>
+        
+        <validation>
+			<valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker"/>			
+			<exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter"/>			
+		</validation>
+        
+    </datasource>
+</datasources>
+
+
+

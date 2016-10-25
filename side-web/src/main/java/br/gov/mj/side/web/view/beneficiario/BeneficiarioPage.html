@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<wicket:extend>
+	<form id="formulario" class="form-horizontal" wicket:id="form">
+
+		<div class="grid_12">
+			<ul class="breadcrumb">
+				<li><a href="" wicket:id="homePage" id="homePage">Dashboard</a></li>
+				<li><a href="" wicket:id="beneficiarioPage">Pesquisar Beneficiários</a></li>
+				<li class="active">Cadastrar Beneficiários</li>
+			</ul>
+		</div>
+
+		<!--PAINEL DADOS DA ENTIDADE -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados da Entidade</h3>
+			</div>
+			<div class="box-body">
+				<div class="form-group">
+					<label class="col-sm-2 col-sm-offset-1 control-label" for="cnpj"><span class="obrigatorio">*</span> CNPJ</label>
+					<div class="row col-sm-7">
+						<div class="col-sm-4">
+							<input type="text" placeholder="CNPJ" class="form-control mask-cnpj" id="cnpj" wicket:id="numeroCnpj" />
+						</div>
+						<button title="Verificar CNPJ" class="btn btn-success btn-sm" wicket:id="btnVerificarCnpj" id="btnVerificarCnpj">
+							<i class="fa fa-search"></i> Verificar
+						</button>
+						<button title="Cancelar Inclusão do Beneficiário" class="btn btn-warning btn-sm" wicket:id="btnCancelarEdicao" id="btnCancelarInclusaoEdicao">
+							<i class="fa fa-undo"></i> Limpar Formulário
+						</button>
+					</div>
+				</div>
+
+				<wicket:container wicket:id="panelDadosEntidade" />
+			</div>
+		</div>
+
+		<!-- PAINEL DADOS DO TITULAR -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados do Titular</h3>
+			</div>
+			<div class="box-body">
+				<wicket:container wicket:id="panelDadosTitular" />
+			</div>
+		</div>
+
+
+		<!--PAINEL DADOS DO REPRESENTANTE -->
+		<div wicket:id="panelAtualizarRepresentante">
+			<div class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">Dados do Representante</h3>
+				</div>
+				<div class="box-body">
+
+					<wicket:container wicket:id="panelDadosRepresentante" />
+				</div>
+			</div>
+		</div>
+
+		<!--PAINEL ANEXOS -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Anexos</h3>
+			</div>
+			<div class="box-body">
+			
+				<wicket:container wicket:id="panelAnexo" />
+			</div>
+		</div>
+
+		<div class="box box-primary form-horizontal"
+			wicket:id="panelRadiosAprovarRecusarCadastro">
+			<div class="box-header with-border">
+				<h3 class="box-title">Aprovar / Recusar cadastro</h3>
+			</div>
+			<div class="box-body">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">* Situação do cadastro </label>
+
+					<div class="row col-sm-7">
+						<div class="col-sm-4">
+							<span wicket:id="radioAprovarRecusar" id="radioAprovarRecusar"></span>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="textAreaMotivoRecusa">
+						<span wicket:id="lblMotivoRecusa" />
+					</label>
+
+					<div class="row col-sm-7">
+						<div class="col-sm-10">
+							<textarea class="form-control" rows="5" id="textAreaMotivoRecusa"
+								placeholder="Informe o motivo da não aprovação" wicket:id="textAreaMotivoRecusa"></textarea>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label">
+					</label>
+
+					<div class="row col-sm-7">
+						<div class="col-sm-10">
+							<a wicket:id="btnReenviarEmail" title="Reenviar EMail" class="btn btn-primary btn-sm"> <i class="fa fa-file-o"></i>Reenviar E-Mail
+								</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="box-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de preenchimento obrigatório.
+			</div>
+			<div class="pull-right" wicket:id="panelBotoes">
+				<div>
+					<button class="btn btn-success btn-sm" title="Salvar Beneficiário" wicket:id="btnSalvar">
+						<i class="fa fa-floppy-o"></i> Salvar
+					</button>
+
+					<button title="Sair" class="btn btn-warning btn-sm" wicket:id="btnVoltar">
+						<i class="fa fa-undo"></i>Voltar
+					</button>
+				</div>
+			</div>
+			<div class="pull-right" wicket:id="panelAprovacaoBotoes">
+				<button class="btn btn-success btn-sm" title="Aprovar Cadastro"
+					wicket:id="btnAprovar">
+					<i class="fa fa-floppy-o"></i> Salvar Analise
+				</button>
+				<button title="Sair" class="btn btn-warning btn-sm"
+					wicket:id="btnVoltarAprovacao">
+					<i class="fa fa-undo"></i>Voltar
+				</button>
+			</div>
+		</div>
+		<div wicket:id="modalConfirmUf" />
+		<div wicket:id="modalLimparFormulario" />
+	</form>
+
+</wicket:extend>

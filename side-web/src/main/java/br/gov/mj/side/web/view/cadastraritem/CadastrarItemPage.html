@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<style type="text/css">
+.radio-inline {
+	left: 13px;
+	bottom: 5px;
+}
+
+#imagePreview {
+	height: 215px !important;
+	background-position: center center !important;
+	background-size: cover !important;
+	display: inline-block !important;
+	margin-left: 9.5% !important;
+	margin-bottom: 30px !important;
+}
+
+.moverMargin {
+	margin-left: 101px !important;
+}
+
+.icone_cor_erro {
+	color: #ff0000 !important;
+	font-size: 16px !important;
+	margin-bottom: 5px !important;
+}
+
+.icone_cor_verificado {
+	color: #00d700 !important;
+	font-size: 16px !important;
+	margin-bottom: 5px !important;
+}
+
+.icone_editando_aba {
+	font-size: 16px !important;
+	margin-bottom: 5px !important;
+}
+
+.page-header {
+	margin-bottom: 0px !important;
+	margin-top: 0px !important;
+}
+
+.content {
+	overflow-x: hidden !important;
+}
+
+.div-input-margem {
+	margin-left: 9px !important;
+}
+
+.label-orientacao-fornecedor {
+	padding: 10px !important;
+	padding-left: 9px !important;
+}
+
+.label-identificador-unico {
+	padding: 10px !important;
+	padding-left: 0px !important;
+	margin-left: 3px !important;
+}
+
+.div-botoes-avancar-recuar {
+	padding: 19% !important;
+}
+
+@media ( max-width : 585px ) {
+	#imagePreview {
+		height: 215px !important;
+		background-position: center center !important;
+		background-size: cover !important;
+		display: inline-block !important;
+		margin-left: 9.5% !important;
+		margin-bottom: 30px !important;
+	}
+	.div-input-alfanumerico {
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+	}
+	.div-painel {
+		padding: 0px !important;
+	}
+	.div-botoes-avancar-recuar {
+		padding-top: 20px !important;
+		padding-bottom: 10px !important;
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+	}
+	.input-anexo {
+		margin-left: 0px !important;
+		width: 100%;
+	}
+	.img-foto {
+		margin-left: 25px !important;
+		margin-top: 5px !important;
+	}
+	.titulo-quesito {
+		font-size: 16px !important;
+		font-weight: bold !important;
+	}
+	.label-orientacao-fornecedor {
+		font-size: 15px !important;
+		font-weight: normal !important;
+	}
+	.input-data {
+		width: 90% !important;
+	}
+	.inputs {
+		margin-left: 8px !important;
+	}
+}
+
+@media ( max-width : 767px ) {
+	#imagePreview {
+		height: 215px !important;
+		background-position: center center !important;
+		background-size: cover !important;
+		display: inline-block !important;
+		margin-left: 9.5% !important;
+		margin-bottom: 30px !important;
+	}
+	.div-botoes-avancar-recuar {
+		padding-top: 20px !important;
+		padding-bottom: 10px !important;
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+	}
+	.input-anexo {
+		left: -1px !important;
+		padding-top: 5px !important;
+	}
+	.img-foto {
+		margin-left: 25px !important;
+		margin-top: 5px !important;
+	}
+	.label-identificador-unico {
+		padding: 10px !important;
+		padding-left: 0px !important;
+		padding-bottom: 0px !important;
+		margin-left: 0px !important;
+		font-size: 15px !important;
+		font-weight: normal !important;
+	}
+	.titulo-quesito {
+		font-size: 16px !important;
+		font-weight: bold !important;
+	}
+	.input-data {
+		width: 90% !important;
+	}
+}
+
+@media ( max-width : 1056px ) {
+	#imagePreview {
+		height: 215px !important;
+		background-position: center center !important;
+		background-size: cover !important;
+		display: inline-block !important;
+		margin-left: 9.5% !important;
+		margin-bottom: 30px !important;
+	}
+	.img-foto {
+		margin-left: 25px !important;
+		margin-top: 5px !important;
+		padding-left: 0px !important;
+	}
+	.label-identificador-unico {
+		padding: 10px !important;
+		padding-left: 0px !important;
+		padding-bottom: 0px !important;
+		margin-left: 0px !important;
+		font-size: 15px !important;
+		font-weight: normal !important;
+	}
+	.titulo-quesito {
+		font-size: 16px !important;
+		font-weight: bold !important;
+	}
+	.input-data {
+		width: 90% !important;
+	}
+}
+</style>
+
+	<form wicket:id="form" class="form-horizontal" enctype="multipart/form-data">
+
+		<!-- BOX DA DESCRICAO DO ITEM -->
+		<div class="box box-info collapsed-box box-solid">
+			<div class="box-header with-border">
+				<h3 class="box-title">Descrição do Item</h3>
+				<div class="box-tools pull-right">
+					<button class="btn btn-box-tool" data-widget="collapse">
+						<i class="fa fa-plus"></i>
+					</button>
+				</div>
+			</div>
+			<div class="box-body">
+				<span wicket:id="txtDescricaoItem"></span>
+			</div>
+		</div>
+
+		<!-- PANEL MOBILE -->
+		<div wicket:id="panelFormatacaoMobile" class="div-painel">
+			<div class="box box-primary form-horizontal">
+
+				<!-- PANEL ALFANUMERICO -->
+				<div wicket:id="panelFormatacaoAlfanumerica" class="row div-input-margem">
+
+					<div class="box-header with-border">
+
+						<!-- TITULO DO QUESITO -->
+						<h1 class="box-title titulo-quesito">
+							<span wicket:id="txtLabelTituloQuesito"></span>
+						</h1>
+
+						<!-- PAGINACAO -->
+						<div style="margin-right: 10px;" class="pull-right titulo-quesito">
+							<span wicket:id="txtLabelPaginacao"></span>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+					<label class="control-label label-orientacao-fornecedor" wicket:id="txtLabelOrientacaoFornecedor"></label>
+
+					<!-- RESPOSTA -->
+					<div class="form-group">
+						<div class="col-md-11 col-xs-11 inputs">
+							<input wicket:id="textoAlfanumerico" type="text" class="form-control" />
+						</div>
+					</div>
+				</div>
+
+				<!-- Panel ANEXO -->
+				<div wicket:id="panelFormatacaoAnexo" class="row">
+					<div class="box-header with-border">
+
+						<!-- TITULO DO QUESITO -->
+						<h1 style="margin-left: 24px;" class="box-title titulo-quesito">
+							<span wicket:id="txtLabelTituloQuesito"></span>
+						</h1>
+
+						<!-- PAGINACAO -->
+						<div style="margin-right: 10px;" class="pull-right titulo-quesito">
+							<span wicket:id="txtLabelPaginacao"></span>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+					<label style="margin-left: 24px;" class="control-label label-orientacao-fornecedor" wicket:id="txtLabelOrientacaoFornecedor"></label>
+
+					<!-- RESPOSTA -->
+					<div class="form-group">
+						<form wicket:id="formUpload" class="form-inline">
+							<div class="col-xs-offset-1 col-sm-offset-1 col-sm-8 col-xs-8">
+								<input wicket:id="fileInput" class="input-anexo" type="file">
+							</div>
+
+							<button style="margin-right: 25px;" wicket:id="btnAdicionarAnexoMobile" title="Adicionar anexo" class="btn btn-success btn-sm">
+								<span wicket:id="icoBtnAdicionarAlterar"></span>
+							</button>
+						</form>
+					</div>
+
+					<!-- NOME, TAMANHO E DOWNLOAD -->
+					<div class="form-group">
+						<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+							<span wicket:id="txtLabelNomeAnexo"></span> <span style="margin-left: 10px;" wicket:id="txtLabelTamanhoAnexo"></span>
+
+							<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm">
+								<i class="fa fa-download"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Panel BOLEANO -->
+				<div wicket:id="panelFormatacaoBoleano" class="row div-input-margem">
+					<div class="box-header with-border">
+
+						<!-- TITULO DO QUESITO -->
+						<h1 class="box-title titulo-quesito">
+							<span wicket:id="txtLabelTituloQuesito"></span>
+						</h1>
+
+						<!-- PAGINACAO -->
+						<div style="margin-right: 10px;" class="pull-right titulo-quesito">
+							<span wicket:id="txtLabelPaginacao"></span>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+					<label class="control-label label-orientacao-fornecedor" wicket:id="txtLabelOrientacaoFornecedor"></label>
+
+					<!-- RESPOSTA -->
+					<div class="form-group">
+						<div class="col-sm-4 inputs">
+							<span wicket:id="radioBoleano"></span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Panel DATA -->
+				<div wicket:id="panelFormatacaoData" class="row div-input-margem">
+					<div class="box-header with-border">
+
+						<!-- TITULO DO QUESITO -->
+						<h1 class="box-title titulo-quesito">
+							<span wicket:id="txtLabelTituloQuesito"></span>
+						</h1>
+
+						<!-- PAGINACAO -->
+						<div style="margin-right: 10px;" class="pull-right titulo-quesito">
+							<span wicket:id="txtLabelPaginacao"></span>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+					<label class="control-label label-orientacao-fornecedor" wicket:id="txtLabelOrientacaoFornecedor"></label>
+
+					<!-- RESPOSTA -->
+					<div class="form-group">
+						<div class="col-sm-12 col-xm-10 inputs">
+							<input wicket:id="data" type="text" class="form-control input-data" />
+						</div>
+					</div>
+				</div>
+
+				<!-- Panel FOTO -->
+				<div wicket:id="panelFormatacaoFoto" class="row">
+					<div class="box-header with-border">
+
+						<!-- TITULO DO QUESITO -->
+						<h1 style="margin-left: 24px;" class="box-title titulo-quesito">
+							<span wicket:id="txtLabelTituloQuesito"></span>
+						</h1>
+
+						<!-- PAGINACAO -->
+						<div style="margin-right: 13px;" class="pull-right titulo-quesito">
+							<span wicket:id="txtLabelPaginacao"></span>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+					<label style="margin-left: 24px;" class="control-label label-orientacao-fornecedor" wicket:id="txtLabelOrientacaoFornecedor"></label>
+
+					<div class="form-group">
+
+						<!-- PREVIEW DA FOTO -->
+						<div id="imagePreview">
+							<img class="img-thumbnail img-responsive" wicket:id="imagemFoto" />
+						</div>
+
+						<!-- RESPOSTA -->
+						<form wicket:id="formUpload" class="form-inline">
+							<div class="col-xs-offset-1 col-sm-offset-1 col-sm-8 col-xs-8">
+								<input wicket:id="fileInput" class="input-anexo" type="file" accept="image/jpeg, image/png" capture="camera">
+							</div>
+
+							<button style="margin-right: 25px;" wicket:id="btnAdicionarAnexoMobile" title="Adicionar anexo" class="btn btn-success btn-sm">
+								<span wicket:id="icoBtnAdicionarAlterar"></span>
+							</button>
+
+							<!-- LATITUDE, LONGITUDE E DATA -->
+							<input style="display: none;" wicket:id="txtLatitude" id="latitude" type="text" /> <input style="display: none;" wicket:id="txtLongitude" id="longitude" type="text" /> <input style="display: none;"
+								wicket:id="txtDataFoto" id="dataFoto" type="text" />
+
+							<script type="text/javascript">
+											$('input:file').change(function(e) {
+											    EXIF.getData(e.target.files[0], function() {
+											    	document.querySelector('#latitude').value = EXIF.getTag(this, "GPSLatitude");
+											    	document.querySelector('#longitude').value = EXIF.getTag(this, "GPSLongitude");	    	
+											    	document.querySelector('#dataFoto').value = EXIF.getTag(this, "DateTimeOriginal");
+											    });
+											});
+								</script>
+						</form>
+					</div>
+
+					<!-- PANEL INDENTIFICADOR UNICO -->
+					<div style="margin-left: 20px;" wicket:id="panelFormatacaoIdentificadorUnico">
+						<label class="control-label label-identificador-unico"><span wicket:id="txtLabelIdentificadorUnico"></span></label>
+
+						<!-- RESPOSTA -->
+						<div class="form-group">
+							<div class="col-md-6 col-xs-11">
+								<input wicket:id="textoIdentificadorUnico" type="text" class="form-control" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Panel NUMERICO -->
+				<div wicket:id="panelFormatacaoNumerico" class="row div-input-margem">
+					<div class="box-header with-border">
+
+						<!-- TITULO DO QUESITO -->
+						<h1 class="box-title titulo-quesito">
+							<span wicket:id="txtLabelTituloQuesito"></span>
+						</h1>
+
+						<!-- PAGINACAO -->
+						<div style="margin-right: 10px;" class="pull-right titulo-quesito">
+							<span wicket:id="txtLabelPaginacao"></span>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+					<label class="control-label label-orientacao-fornecedor" wicket:id="txtLabelOrientacaoFornecedor"></label>
+
+					<!-- RESPOSTA -->
+					<div class="form-group">
+						<div class="col-sm-4 col-xs-11 inputs">
+							<input wicket:id="textoNumerico" type="text" class="form-control" onkeypress='return somenteNumero(event)' />
+						</div>
+					</div>
+
+					<script>
+						function somenteNumero(e){
+						    var tecla=(window.event)?event.keyCode:e.which;   
+						    if((tecla>47 && tecla<58)) return true;
+						    else{
+						    	if (tecla==8 || tecla==0) return true;
+							else  return false;
+						    }
+						}		
+					</script>
+				</div>
+
+				<!-- Panel TEXTO -->
+				<div wicket:id="panelFormatacaoTexto" class="row div-input-margem">
+					<div class="box-header with-border">
+
+						<!-- TITULO DO QUESITO -->
+						<h1 class="box-title titulo-quesito">
+							<span wicket:id="txtLabelTituloQuesito"></span>
+						</h1>
+
+						<!-- PAGINACAO -->
+						<div style="margin-right: 10px;" class="pull-right titulo-quesito">
+							<span wicket:id="txtLabelPaginacao"></span>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+					<label class="control-label label-orientacao-fornecedor" wicket:id="txtLabelOrientacaoFornecedor"></label>
+
+					<!-- RESPOSTA -->
+					<div class="form-group">
+						<div style="margin-left: 10px;" class="col-sm-11 col-xs-11">
+							<textarea wicket:id="textAreaTexto" class="form-control" tabindex="7" rows="9" placeholder="Texto"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<!-- Panel VIDEO -->
+				<div wicket:id="panelFormatacaoVideo" class="row">
+					<div class="box-header with-border">
+
+						<!-- TITULO DO QUESITO -->
+						<h1 style="margin-left: 24px;" class="box-title titulo-quesito">
+							<span wicket:id="txtLabelTituloQuesito"></span>
+						</h1>
+
+						<!-- PAGINACAO -->
+						<div style="margin-right: 10px;" class="pull-right titulo-quesito">
+							<span wicket:id="txtLabelPaginacao"></span>
+						</div>
+					</div>
+
+					<div class="clearfix visible-xs"></div>
+
+					<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+					<label style="margin-left: 24px;" class="control-label label-orientacao-fornecedor" wicket:id="txtLabelOrientacaoFornecedor"></label>
+
+					<!-- RESPOSTA -->
+					<div class="form-group">
+						<form wicket:id="formUpload" class="form-inline">
+							<div class="col-xs-offset-1 col-sm-offset-1 col-sm-8 col-xs-8">
+								<input wicket:id="fileInput" class="input-anexo" type="file" accept="video/*" capture="camcorder">
+							</div>
+
+							<button style="margin-right: 25px;" wicket:id="btnAdicionarAnexoMobile" title="Adicionar anexo" class="btn btn-success btn-sm">
+								<span wicket:id="icoBtnAdicionarAlterar"></span>
+							</button>
+						</form>
+					</div>
+					<br />
+
+					<!-- NOME, TAMANHO E DOWNLOAD -->
+					<div class="form-group">
+						<div style="padding-top: 3px; margin-bottom: 15px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+							<span wicket:id="txtLabelNomeAnexo"></span> <span style="margin-left: 10px;" wicket:id="txtLabelTamanhoAnexo"></span>
+
+							<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm">
+								<i class="fa fa-download"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Panel CONFORMIDADE -->
+				<div wicket:id="panelFormatacaoConformidadeItem" class="row">
+					<div class="box-header with-border">
+						<h1 style="margin-left: 24px;" class="box-title titulo-quesito">
+							<span>* Conformidade do Item</span>
+						</h1>
+
+						<!-- PAGINACAO -->
+						<div style="margin-right: 10px;" class="pull-right titulo-quesito">
+							<span wicket:id="txtLabelPaginacao"></span>
+						</div>
+					</div>
+
+					<!-- PRIMEIRO QUESITO -->
+					<div class="form-group">
+						<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+							<span>O item está em estado de novo?</span>
+						</div>
+						<div style="padding-left: 0px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+							<span wicket:id="radioItemNovo"></span>
+						</div>
+					</div>
+
+					<!-- SEGUNDO QUESITO -->
+					<div class="form-group" style="margin-bottom: 0px;">
+						<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+							<span>O item está funcionando de acordo com as especificações?</span>
+						</div>
+						<div style="padding-left: 0px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+							<span wicket:id="radioFunciona"></span>
+						</div>
+					</div>
+
+					<!-- JUSTIFICATIVA DO SEGUNDO QUESITO -->
+					<div class="form-group">
+						<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+							<textarea wicket:id="textAreaJustificativaNaoFunciona" class="form-control" rows="4" placeholder="Justificativa"></textarea>
+						</div>
+					</div>
+
+					<!-- TERCEIRO QUESITO -->
+					<div class="form-group" style="margin-bottom: 0px;">
+						<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+							<span>O item está configurado de acordo com as especificações?</span>
+						</div>
+						<div style="padding-left: 0px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+							<span wicket:id="radioConfigurado"></span>
+						</div>
+					</div>
+
+					<!-- JUSTIFICATIVA DO TERCEIRO QUESITO -->
+					<div class="form-group">
+						<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+							<textarea wicket:id="textAreaJustificativaNaoConfigurado" class="form-control" rows="4" placeholder="Justificativa"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<!-- PANEL DOS BOTOES -->
+				<div wicket:id="panelBotoesAnteriorProximo" class="row content div-botoes-avancar-recuar">
+
+					<!-- QUESITO ANTERIOR -->
+					<div class="pull-left">
+						<a class="btn btn-info btn-sm" wicket:id="btnAnterior"> <i class="fa fa-backward"></i>
+						</a>
+					</div>
+
+					<!-- SALVAR -->
+					<button wicket:id="btnSalvarMobile" style="position: absolute; left: 37%;" title="Salvar Formatação" class="btn btn-success btn-sm">
+						<i class="fa fa-floppy-o"></i> Salvar
+					</button>
+
+					<!-- PROXIMO QUESITO-->
+					<div class="pull-right">
+						<a class="btn btn-info btn-sm" wicket:id="btnProximo"><i class="fa fa-forward"></i> </a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		<!-- PANEL DESKTOP -->
+		<div wicket:id="panelFormatacaoDesktop" style="margin-top: 5px;">
+
+			<!-- TABELA ALFANUMERICO -->
+			<table class="table" style="margin-bottom: 0px;">
+				<tbody>
+					<tr wicket:id="listaFormatacaoAlfanumerico">
+						<td>
+							<!-- PANEL ALFANUMERICA -->
+							<div wicket:id="panelFormatacaoAlfanumerica" class="box box-primary form-horizontal">
+
+								<!-- TITULO DO QUESITO -->
+								<div style="padding-left: 2px;" class="box-header with-border col-xs-offset-1 col-sm-offset-1 col-sm-10">
+									<h1 class="box-title">
+										<span wicket:id="txtLabelTituloQuesito"></span>
+									</h1>
+								</div>
+
+								<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+								<div class="form-group">
+									<div style="padding-top: 7px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+										<strong><span wicket:id="txtLabelOrientacaoFornecedor"></span></strong>
+									</div>
+								</div>
+
+								<!-- REPOSTA -->
+								<div class="form-group">
+									<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+										<input wicket:id="textoAlfanumerico" type="text" class="form-control" />
+									</div>
+								</div>
+								<br />
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- TABELA ANEXO -->
+			<table class="table" style="margin-bottom: 0px;">
+				<tbody>
+					<tr wicket:id="listaFormatacaoAnexo">
+						<td>
+							<!-- PANEL ANEXO -->
+							<div wicket:id="panelFormatacaoAnexo" class="box box-primary form-horizontal">
+
+								<!-- TITULO DO QUESITO -->
+								<div style="padding-left: 2px;" class="box-header with-border col-xs-offset-1 col-sm-offset-1 col-sm-10">
+									<h1 class="box-title">
+										<span wicket:id="txtLabelTituloQuesito"></span>
+									</h1>
+								</div>
+
+								<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+								<div class="form-group">
+									<div style="padding-top: 7px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+										<strong><span wicket:id="txtLabelOrientacaoFornecedor"></span></strong>
+									</div>
+								</div>
+
+								<!-- REPOSTA -->
+								<div class="form-group">
+									<form wicket:id="formUpload" class="form-inline">
+										<div class="col-xs-offset-1 col-sm-offset-1 col-sm-5 col-xs-5">
+											<input wicket:id="fileInput" class="input-anexo" type="file">
+										</div>
+
+										<button wicket:id="btnAdicionarAnexoDesktop" title="Adicionar anexo" class="btn btn-success btn-sm">
+											<span wicket:id="icoBtnAdicionarAlterar"></span><span wicket:id="txtBtnAdicionarAlterar"></span>
+										</button>
+									</form>
+								</div>
+								<br />
+
+								<!-- NOME, TAMANHO E DOWNLOAD -->
+								<div class="form-group">
+									<div style="padding-top: 3px; margin-bottom: 15px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+										<span wicket:id="txtLabelNomeAnexo"></span> <span style="margin-left: 10px;" wicket:id="txtLabelTamanhoAnexo"></span>
+
+										<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm">
+											<i class="fa fa-download"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- TABELA BOLEANO -->
+			<table class="table" style="margin-bottom: 0px;">
+				<tbody>
+					<tr wicket:id="listaFormatacaoBoleano">
+						<td>
+							<!-- PANEL BOLEANO -->
+							<div wicket:id="panelFormatacaoBoleano" class="box box-primary form-horizontal">
+
+								<!-- TITULO DO QUESITO -->
+								<div style="padding-left: 2px;" class="box-header with-border col-xs-offset-1 col-sm-offset-1 col-sm-10">
+									<h1 class="box-title">
+										<span wicket:id="txtLabelTituloQuesito"></span>
+									</h1>
+								</div>
+
+								<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+								<div class="form-group">
+									<div style="padding-top: 7px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+										<strong><span wicket:id="txtLabelOrientacaoFornecedor"></span></strong>
+									</div>
+								</div>
+
+								<!-- REPOSTA -->
+								<div class="form-group">
+									<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+										<span wicket:id="radioBoleano"></span>
+									</div>
+								</div>
+								<br />
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- TABELA DATA -->
+			<table class="table" style="margin-bottom: 0px;">
+				<tbody>
+					<tr wicket:id="listaFormatacaoData">
+						<td>
+							<!-- PANEL DATA -->
+							<div wicket:id="panelFormatacaoData" class="box box-primary form-horizontal">
+
+								<!-- TITULO DO QUESITO -->
+								<div style="padding-left: 2px;" class="box-header with-border col-xs-offset-1 col-sm-offset-1 col-sm-10">
+									<h1 class="box-title">
+										<span wicket:id="txtLabelTituloQuesito"></span>
+									</h1>
+								</div>
+
+								<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+								<div class="form-group">
+									<div style="padding-top: 7px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+										<strong><span wicket:id="txtLabelOrientacaoFornecedor"></span></strong>
+									</div>
+								</div>
+
+								<!-- REPOSTA -->
+								<div class="form-group">
+									<div class="col-xs-offset-1 col-sm-offset-1 col-sm-3 col-xs-10">
+										<input wicket:id="data" type="text" class="form-control" />
+									</div>
+								</div>
+								<br />
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- TABELA FOTO -->
+			<table class="table" style="margin-bottom: 0px;">
+				<tbody>
+					<tr wicket:id="listaFormatacaoFoto">
+						<td>
+							<!-- PANEL FOTO -->
+							<div wicket:id="panelFormatacaoFoto" class="box box-primary form-horizontal">
+
+								<!-- TITULO DO QUESITO -->
+								<div style="padding-left: 2px;" class="box-header with-border col-xs-offset-1 col-sm-offset-1 col-sm-10">
+									<h1 class="box-title">
+										<span wicket:id="txtLabelTituloQuesito"></span>
+									</h1>
+								</div>
+
+								<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+								<div class="form-group">
+									<div style="padding-top: 7px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+										<strong><span wicket:id="txtLabelOrientacaoFornecedor"></span></strong>
+									</div>
+								</div>
+
+								<!-- RESPOSTA -->
+								<div class="form-group">
+
+									<!-- PREVIEW DA FOTO -->
+									<img class="img-thumbnail img-responsive" id="imagePreview" wicket:id="imagemFoto" />
+
+									<form wicket:id="formUpload" class="form-inline">
+										<div class="col-xs-offset-1 col-sm-offset-1 col-sm-5 col-xs-5">
+											<input id="inputFoto" wicket:id="fileInput" class="input-anexo" type="file" accept="image/jpeg, image/png" capture="camera">
+										</div>
+
+										<button wicket:id="btnAdicionarAnexoDesktop" title="Adicionar anexo" class="btn btn-success btn-sm">
+											<span wicket:id="icoBtnAdicionarAlterar"></span><span wicket:id="txtBtnAdicionarAlterar"></span>
+										</button>
+
+										<!-- LATITUDE, LONGITUDE E DATA -->
+										<input style="display: none;" wicket:id="txtLatitude" id="latitude" type="text" /> <input style="display: none;" wicket:id="txtLongitude" id="longitude" type="text" /> <input style="display: none;"
+											wicket:id="txtDataFoto" id="dataFoto" type="text" />
+
+										<script type="text/javascript">
+											$('input:file').change(function(e) {
+											    EXIF.getData(e.target.files[0], function() {
+											    	document.querySelector('#latitude').value = EXIF.getTag(this, "GPSLatitude");
+											    	document.querySelector('#longitude').value = EXIF.getTag(this, "GPSLongitude");	    	
+											    	document.querySelector('#dataFoto').value = EXIF.getTag(this, "DateTimeOriginal");
+											    });
+											});
+								</script>
+									</form>
+								</div>
+								<br />
+
+								<!-- PANEL IDENTIFICADOR UNICO -->
+								<div wicket:id="panelFormatacaoIdentificadorUnico">
+									<div class="form-group">
+										<div style="padding-top: 7px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+											<strong><span wicket:id="txtLabelIdentificadorUnico"></span></strong>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+											<input wicket:id="textoIdentificadorUnico" type="text" class="form-control" />
+										</div>
+									</div>
+									<br />
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- TABELA NUMERICO -->
+			<table class="table" style="margin-bottom: 0px;">
+				<tbody>
+					<tr wicket:id="listaFormatacaoNumerico">
+						<td>
+							<!-- PANEL NUMERICO -->
+							<div wicket:id="panelFormatacaoNumerico" class="box box-primary form-horizontal">
+
+								<!-- TITULO DO QUESITO -->
+								<div style="padding-left: 2px;" class="box-header with-border col-xs-offset-1 col-sm-offset-1 col-sm-10">
+									<h1 class="box-title">
+										<span wicket:id="txtLabelTituloQuesito"></span>
+									</h1>
+								</div>
+
+								<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+								<div class="form-group">
+									<div style="padding-top: 7px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+										<strong><span wicket:id="txtLabelOrientacaoFornecedor"></span></strong>
+									</div>
+								</div>
+
+								<!-- RESPOSTA -->
+								<div class="form-group">
+									<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+										<input wicket:id="textoNumerico" type="text" class="form-control" onkeypress='return somenteNumero(event)' />
+									</div>
+								</div>
+
+								<script>
+									function somenteNumero(e){
+									    var tecla=(window.event)?event.keyCode:e.which;   
+									    if((tecla>47 && tecla<58)) return true;
+									    else{
+									    	if (tecla==8 || tecla==0) return true;
+										else  return false;
+									    }
+									}		
+								</script>
+								<br />
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- TABELA TEXTO -->
+			<table class="table" style="margin-bottom: 0px;">
+				<tbody>
+					<tr wicket:id="listaFormatacaoTexto">
+						<td>
+							<!-- PANEL TEXTO -->
+							<div wicket:id="panelFormatacaoTexto" class="box box-primary form-horizontal">
+
+								<!-- TITULO DO QUESITO -->
+								<div style="padding-left: 2px;" class="box-header with-border col-xs-offset-1 col-sm-offset-1 col-sm-10">
+									<h1 class="box-title">
+										<span wicket:id="txtLabelTituloQuesito"></span>
+									</h1>
+								</div>
+
+								<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+								<div class="form-group">
+									<div style="padding-top: 7px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+										<strong><span wicket:id="txtLabelOrientacaoFornecedor"></span></strong>
+									</div>
+								</div>
+
+								<!-- RESPOSTA -->
+								<div class="form-group">
+									<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+										<textarea wicket:id="textAreaTexto" class="form-control" tabindex="7" rows="9" placeholder="Texto"></textarea>
+									</div>
+								</div>
+								<br />
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- TABELA VIDEO -->
+			<table class="table" style="margin-bottom: 0px;">
+				<tbody>
+					<tr wicket:id="listaFormatacaoVideo">
+						<td>
+							<!-- PANEL VIDEO -->
+							<div wicket:id="panelFormatacaoVideo" class="box box-primary form-horizontal">
+
+								<!-- TITULO DO QUESITO -->
+								<div style="padding-left: 2px;" class="box-header with-border col-xs-offset-1 col-sm-offset-1 col-sm-10">
+									<h1 class="box-title">
+										<span wicket:id="txtLabelTituloQuesito"></span>
+									</h1>
+								</div>
+
+								<!-- ORIENTACAO AO FORNECEDOR/BENEFICIARIO -->
+								<div class="form-group">
+									<div style="padding-top: 7px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+										<strong><span wicket:id="txtLabelOrientacaoFornecedor"></span></strong>
+									</div>
+								</div>
+
+								<!-- RESPOSTA -->
+								<div class="form-group">
+									<form wicket:id="formUpload" class="form-inline">
+										<div class="col-xs-offset-1 col-sm-offset-1 col-sm-5 col-xs-5">
+											<input wicket:id="fileInput" class="input-anexo" type="file" accept="video/*" capture="camcorder">
+										</div>
+
+										<button wicket:id="btnAdicionarAnexoDesktop" title="Adicionar anexo" class="btn btn-success btn-sm">
+											<span wicket:id="icoBtnAdicionarAlterar"></span><span wicket:id="txtBtnAdicionarAlterar"></span>
+										</button>
+									</form>
+								</div>
+								<br />
+
+								<!-- NOME, TAMANHO E DOWNLOAD -->
+								<div class="form-group">
+									<div style="padding-top: 3px; margin-bottom: 15px;" class="col-xs-offset-1 col-sm-offset-1 col-sm-10">
+										<span wicket:id="txtLabelNomeAnexo"></span> <span style="margin-left: 10px;" wicket:id="txtLabelTamanhoAnexo"></span>
+
+										<button wicket:id="btnDonwload" title="Baixar arquivo" class="btn btn-success btn-sm">
+											<i class="fa fa-download"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- Panel CONFORMIDADE -->
+			<div wicket:id="panelFormatacaoConformidadeItem" class="row div-input-margem box box-primary form-horizontal">
+
+				<div style="padding-left: 2px;" class="box-header with-border col-xs-offset-1 col-sm-offset-1 col-sm-10">
+					<h1 class="box-title">
+						<span>* Conformidade do Item</span>
+					</h1>
+				</div>
+
+				<!-- PRIMEIRO QUESITO -->
+				<div class="form-group">
+					<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+						<strong><span>O item está em estado de novo?</span></strong> <span style="" wicket:id="radioItemNovo"></span>
+					</div>
+				</div>
+
+				<!-- SEGUNDO QUESITO -->
+				<div class="form-group" style="margin-bottom: 0px;">
+					<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+						<strong><span>O item está funcionando de acordo com as especificações?</span></strong> <span wicket:id="radioFunciona"></span>
+					</div>
+				</div>
+
+				<!-- JUSTIFICATIVA DO SEGUNDO QUESITO -->
+				<div class="form-group">
+					<div class="col-xs-offset-1 col-sm-offset-1 col-sm-5 col-xs-5">
+						<textarea wicket:id="textAreaJustificativaNaoFunciona" class="form-control" rows="4" placeholder="Justificativa"></textarea>
+					</div>
+				</div>
+
+				<!-- TERCEIRO QUESITO -->
+				<div class="form-group" style="margin-bottom: 0px;">
+					<div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 col-xs-10">
+						<strong><span>O item está configurado de acordo com as especificações?</span></strong> <span wicket:id="radioConfigurado"></span>
+					</div>
+				</div>
+
+				<!-- JUSTIFICATIVA DO TERCEIRO QUESITO -->
+				<div class="form-group">
+					<div class="col-xs-offset-1 col-sm-offset-1 col-sm-5 col-xs-5">
+						<textarea wicket:id="textAreaJustificativaNaoConfigurado" class="form-control" rows="4" placeholder="Justificativa"></textarea>
+					</div>
+				</div>
+			</div>
+
+			<!-- BOTOES -->
+			<div class="pull-right">
+				<button wicket:id="btnSalvarDesktop" title="Salvar resposta" class="btn btn-success btn-sm">
+					<i class="fa fa-floppy-o"></i> Salvar
+				</button>
+			</div>
+		</div>
+		<div class="pull-right">
+			<a title="Conferência" class="btn btn-warning btn-sm" wicket:id="btnConferencia"><i class="fa fa-list-ol"></i><span wicket:id="btnNomeConferencia"></span></a>
+		</div>
+	</form>
+</wicket:extend>

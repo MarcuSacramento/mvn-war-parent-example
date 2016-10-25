@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>br.gov.mj.side</groupId>
+		<artifactId>side-parent</artifactId>
+		<version>0.12.2</version>
+	</parent>
+
+	<artifactId>side-entity</artifactId>
+
+	<name>side-entity</name>
+	<description>modulo de entidades do projeto side</description>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-envers</artifactId>
+			<version>3.6.4.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>br.gov.mj.infra</groupId>
+			<artifactId>infra-negocio</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.7.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+    <!-- Dependência para atender ao Tipo LocalDate -->
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.extended</artifactId>
+			<version>3.2.0.GA</version>
+		</dependency>
+		
+	</dependencies>
+
+
+</project>

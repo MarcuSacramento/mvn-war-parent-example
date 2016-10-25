@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="inscricao_criterio_elegibilidade" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="e3a2dd66-7b20-4eb7-b5ef-d6692371e590">
+	<property name="ireport.zoom" value="1.464100000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="programaCriterioElegibilidade.nomeCriterioElegibilidade" class="java.lang.String"/>
+	<field name="programaCriterioElegibilidade.descricaoCriterioElegibilidade" class="java.lang.String"/>
+	<field name="programaCriterioElegibilidade.formaVerificacao" class="java.lang.String"/>
+	<field name="programaCriterioElegibilidade.possuiObrigatoriedadeDeAnexo" class="java.lang.Boolean"/>
+	<field name="atendeCriterioElegibilidade" class="java.lang.Boolean"/>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="444" y="0" width="111" height="20" uuid="b7d3c161-482e-4121-a5e0-c6208613f7ca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATENDE AO CRITÉRIO?]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="20" width="542" height="1" forecolor="#666666" uuid="5f2360df-cbce-43f0-b6fe-0a896361a80d"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="101" splitType="Stretch">
+			<textField>
+				<reportElement x="444" y="0" width="111" height="99" uuid="d9159227-554c-474f-b7b7-694c4a4262e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[(($F{atendeCriterioElegibilidade}!= null) ? ($F{atendeCriterioElegibilidade}.equals(Boolean.TRUE)?"Sim":"Não"):"-")
+
+]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="8" width="441" height="20" uuid="a68f7fbe-5c09-4989-8201-b5682c495e7c"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{programaCriterioElegibilidade.nomeCriterioElegibilidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="36" width="441" height="20" uuid="77ec8523-ae35-469d-a9c5-1d631f5c049a"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{programaCriterioElegibilidade.descricaoCriterioElegibilidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="62" width="441" height="20" uuid="a187372c-3032-4c62-887b-2ef3a2f7bb43"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{programaCriterioElegibilidade.formaVerificacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="90" width="375" height="9" uuid="1f9ef3a3-2cf3-4d66-8d69-809bc0c3f006"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(($F{programaCriterioElegibilidade.possuiObrigatoriedadeDeAnexo} != null) ? ($F{programaCriterioElegibilidade.possuiObrigatoriedadeDeAnexo}.equals(Boolean.TRUE)?"Sim":"Não"):"-")
+]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="99" width="542" height="1" forecolor="#666666" uuid="a2625c54-cdab-40a5-be8c-c32b4966ee4a"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="3" y="1" width="66" height="7" uuid="e0384662-6fb3-48c1-a51f-77af0c4e313d"/>
+				<textElement>
+					<font size="5" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="28" width="66" height="7" uuid="089ada1a-7812-4b02-9c21-a6194f262050"/>
+				<textElement>
+					<font size="5" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="55" width="66" height="7" uuid="6b365fb3-86af-4dea-9092-4965bf6aaa2f"/>
+				<textElement>
+					<font size="5" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Forma de Verificação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="82" width="66" height="7" uuid="431f70e4-a714-4281-b558-9f3846dfcc34"/>
+				<textElement>
+					<font size="5" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Anexo obrigatório?]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

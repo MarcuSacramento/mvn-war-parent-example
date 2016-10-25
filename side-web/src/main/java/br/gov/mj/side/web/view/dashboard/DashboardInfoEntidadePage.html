@@ -1,0 +1,71 @@
+<wicket:extend>
+	<form id="formulario" class="form-horizontal" wicket:id="form">
+		
+		<!-- PAINEL BOTOES DE CONTROLE -->
+		<wicket:container wicket:id="dashboardPessoasPanel" />
+		 <br />
+		<a wicket:id="linkLocalEntregaPage" href="#" title="Locais de Entrega" >Locais de Entrega</a> . 
+		<a wicket:id="linkInformacoesEntidade" href="#" title="Informacoes Entidade" >Informações Entidade</a> . 
+		<a wicket:id="linkInformacoesRepresentantes" href="#" title="Informacoes Representantes" >Informações Representantes</a> . 
+		<!--PAINEL DADOS DA ENTIDADE -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados da Entidade</h3>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label"> </label>
+				<div class="col-sm-6">
+					<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemAnexo" id="mensagemAnexo"></div>
+				</div>
+			</div>
+			<wicket:container wicket:id="panelDadosEntidade" />
+		</div>
+
+		<!-- PAINEL DADOS DO TITULAR -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+				<h3 class="box-title">Dados do Titular</h3>
+			</div>
+			<wicket:container wicket:id="panelDadosTitular" />
+		</div>
+
+
+		<!--PAINEL DADOS DO REPRESENTANTE -->
+		<div wicket:id="panelAtualizarRepresentante">
+			<div class="box box-primary form-horizontal">
+				<div class="box-header with-border">
+					<h3 class="box-title">Dados do Representante</h3>
+				</div>
+				<br />
+				<wicket:container wicket:id="panelDadosRepresentante" />
+			</div>
+		</div>
+
+
+
+		<!--PAINEL DADOS DA ENTIDADE -->
+		<div class="box box-primary form-horizontal">
+			<div class="box-header with-border">
+					<h3 class="box-title">Anexos</h3>
+			</div>
+			<wicket:container wicket:id="panelAnexo" />
+		</div>
+
+		<div class="box-footer clearfix">
+			<div>
+				Os campos marcados com <span class="obrigatorio">*</span> são de
+				preenchimento obrigatório.
+			</div>
+			<div class="pull-right" wicket:id="panelBotoes">
+				<div>
+					<button class="btn btn-success btn-sm" title="Salvar Beneficiário" wicket:id="btnSalvar">
+						<i class="fa fa-floppy-o"></i> Salvar
+					</button>
+				</div>
+			</div>
+		</div>
+	<!-- <div wicket:id="modalConfirmUf" />
+	<div wicket:id="modalLimparFormulario" /> -->
+	</form>
+
+</wicket:extend>

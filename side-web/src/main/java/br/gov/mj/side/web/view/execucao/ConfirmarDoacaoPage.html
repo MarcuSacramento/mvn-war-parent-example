@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
+
+	<form id="validate" name="my_form" class="form-horizontal" wicket:id="form">
+
+		<wicket:container wicket:id="panelFasePrograma" />
+		<wicket:container wicket:id="execucaoPanelPotoes" />
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> </label>
+			<div class="col-sm-6">
+				<div class="col-sm-6 feedbackPanelERROR"></div>
+			</div>
+		</div>
+
+		<span id="ancoraMensagemFeedBackError"></span>
+
+		<!-- Painel Termos de Doação Gerados -->
+		<div>
+			<div wicket:id="panelTermosDoacaoGerados" class="box box-primary form-horizontal">
+				<script type="text/javascript">
+					$(document).ready(function($) {
+					$('[data-toggle="popover"]').popover({ html: true});
+					});
+				</script>
+				<div class="box-header with-border">
+					<h3 class="box-title">Termos de Doação</h3>
+					<div class="pull-right">
+						Qtd de itens exibidos &nbsp;<select title="Número de registros por página" wicket:id="itensPorPaginaTermosDoacaoGerados"></select>
+					</div>
+
+					<div class="feedbackPanelERROR" wicket:id="mensagem"></div>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th wicket:id="orderBynomeBeneficiario">Beneficiário</th>
+								<th>CNPJ</th>
+								<th><center>Item</center></th>
+								<th>Data Geração</th>
+								<th>Processo SEI</th>
+								<th wicket:id="orderBynumeroDocumentoSEI">Nº Documento SEI</th>
+								<th>Ações</th>
+							</tr>
+						</thead>
+						<tbody wicket:id="listaTermosDoacaoGerados">
+							<tr>
+								<td><span wicket:id="nomeBeneficiario"></span></td>
+								<td><span wicket:id="numeroCnpj"></span></td>
+								<td align="center"><span wicket:id="itens"></span></td>
+								<td><span wicket:id="dataGeracao"></span></td>
+								<td><span class="mask-numero-sei" wicket:id="numeroProcessoSEI"></span></td>
+								<td><input type="text" placeholder="Número do Documento SEI" wicket:id="numeroDocumentoSei" class="form-control" /></td>
+								<td>
+									<button title="Baixar Termo de Doação" wicket:id="btnDownloadTD" class="btn btn-success btn-sm">
+										<i class="fa fa-download"></i>
+									</button> 
+									<a class="btn btn-primary btn-sm" wicket:id="btnConcluirDoacao" title="Concluir Doação">
+										<i class="fa fa-refresh"></i>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="panel-footer">
+						<div wicket:id="paginationTermosDoacaoGerados"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Painel Doações Concluídas -->
+		<div>
+			<div wicket:id="panelDoacoesConcluidas" class="box box-primary form-horizontal">
+				<script type="text/javascript">
+					$(document).ready(function($) {
+					$('[data-toggle="popover"]').popover({ html: true});
+					});
+				</script>
+				<div class="box-header with-border">
+					<h3 class="box-title">Situação das Doações</h3>
+					<div class="pull-right">
+						Qtd de itens exibidos &nbsp;<select title="Número de registros por página" wicket:id="itensPorPaginaDoacoesConcluidas"></select>
+					</div>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th wicket:id="orderBynomeBeneficiario1">Beneficiário</th>
+								<th>CNPJ</th>
+								<th><center>Itens Entregues</center></th>
+								<th><center>Itens Doados</center></th>
+							</tr>
+						</thead>
+						<tbody wicket:id="listaDoacoesConcluidas">
+							<tr>
+								<td><span wicket:id="nomeBeneficiario"></span></td>
+								<td><span wicket:id="numeroCnpj"></span></td>
+								<td align="center"><span wicket:id="quantidadeEntregue"></span><span wicket:id="itens"></span></td>
+								<td align="center"><span wicket:id="quantidadeDoado"></span><span wicket:id="itens1"></span></td>
+							</tr>
+						</tbody>
+					</table>
+
+					<div class="panel-footer">
+						<div wicket:id="paginationDoacoesConcluidas"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Painel Botão -->
+		<div class="box-footer clearfix">
+			<div class="pull-right" wicket:id="panelButton">
+				<a class="btn btn-warning btn-sm" wicket:id="btnVoltar"><i class="fa fa-undo"></i>Voltar</a>
+			</div>
+		</div>
+
+	</form>
+
+</wicket:extend>

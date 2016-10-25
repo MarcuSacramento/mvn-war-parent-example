@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="lista_elegiveis" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b882d0ad-c307-430f-adad-62aec23f909b">
+	<property name="ireport.zoom" value="1.0881456789507433"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="net.sf.jasperreports.export.csv.field.delimiter" value=";"/>
+	<style name="borda" mode="Transparent" forecolor="#000000" hAlign="Left" vAlign="Top" isBlankWhenNull="true">
+		<pen lineWidth="1.0"/>
+		<paragraph lineSpacing="1_1_2"/>
+	</style>
+	<parameter name="BRASAO" class="net.sf.jasperreports.engine.Renderable"/>
+	<parameter name="TITULO" class="java.lang.String"/>
+	<field name="pessoaEntidade.entidade.nomeEntidade" class="java.lang.String"/>
+	<field name="pessoaEntidade.entidade.numeroCnpj" class="java.lang.String"/>
+	<field name="pessoaEntidade.entidade.tipoEntidade.descricaoTipoEntidade" class="java.lang.String"/>
+	<field name="pessoaEntidade.entidade.municipio.uf.nomeUf" class="java.lang.String"/>
+	<field name="classificado" class="java.lang.Boolean"/>
+	<field name="colocacao" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="74">
+			<image>
+				<reportElement x="0" y="0" width="62" height="61" uuid="d96420b5-f99c-4d79-afc7-a4971eaeef27"/>
+				<imageExpression><![CDATA[$P{BRASAO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="68" y="0" width="286" height="19" uuid="c2a1a037-ff1a-4306-941d-b7aa241b6d89"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MINISTÉRIO DA JUSTIÇA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="20" width="286" height="16" uuid="dc52648a-68fc-4f4e-a136-2db3a54400be"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<text><![CDATA[SIDE - Sistema de Doações e Equipagem]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="68" y="40" width="486" height="20" forecolor="#000000" uuid="2293ddef-d186-47da-8d1b-56c01ff5156b"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TITULO}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="70" y="35" width="285" height="1" uuid="151b9b3a-578e-43f6-8dc7-8b94aefac96b"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<staticText>
+				<reportElement x="51" y="0" width="351" height="20" uuid="b804d751-a5fe-40d7-8274-bc8cd6a991b9"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="0" width="152" height="20" uuid="02e6540a-5661-43e2-9128-909530bae0eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CNPJ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="554" y="0" width="109" height="20" uuid="04497841-f4be-4b0e-b5b2-908f965627b9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="663" y="0" width="138" height="20" uuid="25f10871-f644-4e1b-a508-df7e38c00938"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="801" height="1" forecolor="#666666" uuid="7fc875a1-d1d7-4933-9190-e5b7d457e3f0"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="1" width="51" height="20" uuid="f13ca254-6b3d-465d-8680-0aa61bf7091e"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Posição]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="20" backcolor="#CCFFCC" uuid="0003d1d5-dc2b-46ee-ab32-92be3d7f1e32">
+					<printWhenExpression><![CDATA[$F{classificado}==true]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement x="51" y="0" width="351" height="20" uuid="a25e2716-6d08-46ba-8eae-b3515e8dadf7"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pessoaEntidade.entidade.nomeEntidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="0" width="152" height="20" uuid="01577846-11fc-4ba1-8b0e-693bb01fb48d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pessoaEntidade.entidade.numeroCnpj}.substring(0, 2) + "."
++ $F{pessoaEntidade.entidade.numeroCnpj}.substring(2, 5) + "."
++ $F{pessoaEntidade.entidade.numeroCnpj}.substring(5, 8) + "/"
++ $F{pessoaEntidade.entidade.numeroCnpj}.substring(8, 12) + "-"
++ $F{pessoaEntidade.entidade.numeroCnpj}.substring(12, 14)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="554" y="0" width="109" height="20" uuid="4f63113e-8145-4944-a47b-09864c4be888"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pessoaEntidade.entidade.tipoEntidade.descricaoTipoEntidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="663" y="0" width="138" height="20" uuid="2edb511d-9672-4936-a565-4a89e88e6a1f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{pessoaEntidade.entidade.municipio.uf.nomeUf}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="19" width="801" height="1" forecolor="#CCCCCC" uuid="810179be-c169-43af-a94b-a43b6490e3e7"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="51" height="20" uuid="b9aaf169-c6c6-45e6-8d78-72e2696f847f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{colocacao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="17">
+			<line>
+				<reportElement x="0" y="0" width="801" height="1" forecolor="#666666" uuid="be14b6c3-dfc5-46a2-a0cb-202a44208112"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="757" y="1" width="17" height="16" uuid="f94869dd-f319-4d66-89a2-9a0a8b9cebae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="774" y="1" width="12" height="16" uuid="ca8214a0-e3b5-4b71-8355-9e76ed469c47"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="729" y="1" width="28" height="16" uuid="40070f9e-cca5-4417-ad88-16969917bc79"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Página]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="786" y="1" width="15" height="16" uuid="c9f073cd-6ccd-4c82-ac31-fc8d86aa8c6b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH:mm:ss">
+				<reportElement x="0" y="1" width="124" height="16" uuid="ae953794-245d-4882-becc-99939cc393b1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

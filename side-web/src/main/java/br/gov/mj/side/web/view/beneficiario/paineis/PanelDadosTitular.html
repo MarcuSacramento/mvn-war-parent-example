@@ -1,0 +1,181 @@
+<wicket:panel>
+
+<div wicket:id="containerMensagemAtivarDesativar">
+	<div class="form-group">
+			<label class="col-sm-3 control-label"> </label>
+			<div class="col-sm-12 col-sm-offset-3">
+				<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemAtivarDesativar"></div>
+			</div>
+		</div>
+	</div>
+
+	<div wicket:id="panelSomenteCpf">
+		<div class="form-group">
+			<label class="col-sm-3 control-label"> </label>
+			<div class="col-sm-12 col-sm-offset-3">
+				<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemAnexo"></div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="cpfTitular"><span class="obrigatorio">*</span> CPF</label>
+			<div class="col-sm-3">
+				<input type="text" placeholder="CPF" class="form-control mask-cpf" id="cpfTitular" wicket:id="entidadeTitular.numeroCpf" />
+			</div>
+			<button title="Verificar CPF" class="btn btn-success btn-sm" wicket:id="btnVerificarCpf">
+				<i class="fa fa-search"></i> Verificar
+			</button>
+		</div>
+	</div>
+
+	<div wicket:id="panelPrincipalTitular">
+		<script>
+			$(document).ready(function() {
+				$("#dropRepresentante").select2();
+				$("#dropAtivo").select2();
+			});
+		</script>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="nomeTitular"><span class="obrigatorio">*</span> Nome</label>
+			<div class="col-sm-6">
+				<input type="text" placeholder="Nome" class="form-control" id="nomeTitular" wicket:id="entidadeTitular.nomePessoa" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="cargoTitular"><span class="obrigatorio">*</span> Cargo</label>
+			<div class="col-sm-6">
+				<input type="text" placeholder="Cargo" class="form-control" id="cargoTitular" wicket:id="entidadeTitular.descricaoCargo" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="telefoneTitular"><span class="obrigatorio">*</span> Telefone</label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input type="text" placeholder="Telefone" class="form-control mask-telefone" id="telefoneTitular" wicket:id="entidadeTitular.numeroTelefone" />
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="emailTitular"><span class="obrigatorio">*</span> E-Mail</label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input type="text" placeholder="E-mail" class="form-control" id="emailTitular" wicket:id="entidadeTitular.email" />
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="periodoMandato"><span class="obrigatorio">*</span> Período de Mandato</label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<input type="text" placeholder="Período de Mandato" class="form-control" id="periodoMandato" wicket:id="entidadeTitular.dataInicioExercicio" />
+				</div>
+				<div class="col-sm-7">
+					<label class="col-sm-1 control-label" for="dataLimiteTitular"> a </label>
+					<div class="col-sm-8">
+						<input type="text" placeholder="Data limite" class="form-control" id="dataLimiteTitular" wicket:id="entidadeTitular.dataFimExercicio" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="emailTitular"><span class="obrigatorio">*</span> Endereço de Correspondência</label>
+			<div class="col-sm-6">
+				<input type="text" placeholder="Endereço de Correspondência" class="form-control" id="enderecoCorrespondencia"
+					wicket:id="entidadeTitular.enderecoCorrespondencia" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label"><span class="obrigatorio">*</span> Tornar o Titular também Representante</label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<select wicket:id="dropRepresentante" class="js-example-basic-single" id="dropRepresentante" style="width: 100%;"></select>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-3 control-label" wicket:id="lblAtivar"></label>
+			<div class="row col-sm-7">
+				<div class="col-sm-4">
+					<select wicket:id="dropAtivo" class="js-example-basic-single" id="dropAtivo" style="width: 100%;"></select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div wicket:id="panelDataView">
+		<div class="panel-body">
+			<div class="form-group">
+				<div class="col-sm-4" style="margin-left: 69%;">
+					<div class="col-sm-3">
+						<button title="Adicionar" class="btn btn-success btn-sm" wicket:id="btnAdicionar">
+							<i class="fa fa-plus"></i>
+						</button>
+						<button title="Salvar Alteração" class="btn btn-success btn-sm" wicket:id="btnSalvarEdicao">
+							<i class="fa fa-floppy-o"></i>
+						</button>
+
+						<button title="Cancelar Edição do Beneficiário" class="btn btn-warning btn-sm" id="btnCancelarEdicao" wicket:id="btnCancelarEdicao">
+							<i class="fa fa-undo"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<span class="visible-xs"><i class="fa fa-exchange"></i> Movimente a tabela para visualizar </span>
+
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>CPF</th>
+							<th>Cargo</th>
+							<th>Exercício</th>
+							<th>Situação</th>
+							<th style="width: 140px;">Ações</th>
+						</tr>
+					</thead>
+					<tbody wicket:id="dataTitulares">
+						<tr>
+							<td><span wicket:id="pessoa.nomePessoa"></span></td>
+							<td><span wicket:id="pessoa.numeroCpf"></span></td>
+							<td><span wicket:id="pessoa.descricaoCargo"></span></td>
+							<td><span wicket:id="exercicio"></span></td>
+							<td><span wicket:id="pessoa.statusPessoa"></span></td>
+							<td>
+								<button class="btn btn btn-info btn-sm" title="Alterar" wicket:id="btnEditar">
+										<i class="fa fa-pencil fa-fw"></i>
+								</button>
+								<button class="btn btn btn-primary btn-sm" title="Visualizar" wicket:id="btnVisualizar">
+										<i class="fa fa-search"></i>
+								</button>
+								<button title="Excluir" class="btn btn btn-danger btn-sm" wicket:id="btnExcluir">
+										<i class="fa fa-trash-o"></i>
+								</button>
+								<button class="btn btn-success btn-sm" title="Ativar Titular" wicket:id="btnAtivarRepresentante">
+										<i class="fa fa-check-circle-o"></i>
+								</button>
+								<button class="btn btn-danger btn-sm" title="Inativar Titular" wicket:id="btnDesativarRepresentante">
+										<i class="fa fa-ban"></i>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div wicket:id="pagination"></div>
+			</div>
+		</div>
+	</div>
+	<div class="pull-right" wicket:id="containerBotaoAdicionarTitular">
+			<button class="btn btn-success btn-sm" title="Adicionar Titular" wicket:id="btnAdicionarTitular">
+						<i class="fa fa-plus"></i> Adicionar Titular
+					</button>
+		</div>
+</wicket:panel>

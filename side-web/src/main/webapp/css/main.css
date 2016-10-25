@@ -1,0 +1,647 @@
+/* Fonte Logo MJ */
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local("Open Sans"), local("OpenSans"),
+		url(fontes/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff)
+		format("woff")
+}
+
+@font-face {
+	font-family: 'Open Sans Bold';
+	font-style: normal;
+	font-weight: 700;
+	src: local("Open Sans Bold"), local("OpenSans-Bold"),
+		url(fontes/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff)
+		format("woff")
+}
+
+@font-face {
+	font-family: 'Open Sans Extrabold';
+	font-style: normal;
+	font-weight: 800;
+	src: local("Open Sans Extrabold"), local("OpenSans-Extrabold"),
+		url(fontes/EInbV5DfGHOiMmvb1Xr-hnhCUOGz7vYGh680lGh-uXM.woff)
+		format("woff")
+}
+/* Fim - Font */
+
+@font-face {
+	font-family: 'DINPro-Regular';
+	src: url('fontes/DINPro-Regular.eot');
+	src: url('fontes/DINPro-Regular.svg') format('svg'),
+		url('fontes/DINPro-Regular.woff') format('woff'),
+		url('fontes/DINPro-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINPro-Bold';
+	src: url('fontes/DINPro-Bold.eot');
+	src: url('fontes/DINPro-Bold.svg') format('svg'),
+		url('fontes/DINPro-Bold.woff') format('woff'),
+		url('fontes/DINPro-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+/* ==========================================================================
+   Layout Styles
+   ========================================================================== */
+body {
+	/* padding: 0; */
+	/* color: #fff; */
+	font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+	/* -webkit-text-size-adjust: none; */
+	-webkit-font-smoothing: antialiased;
+	/* background: #e8e8e8; */
+} 
+
+a {
+	color: #508ec7;
+	text-decoration: none;
+	font-weight: 400;
+}
+
+a:hover {
+	color: #13aa50;
+}
+
+.wrapper-content {
+	background: #fff;
+	padding-top: 10px;
+	padding-bottom: 40px;
+	min-height: 550px;
+}
+
+.line-through {
+	text-decoration: line-through !important;
+}
+
+[class^="icon-"].fa {
+	background-image: none;
+}
+
+.dropdown-menu>li>a:hover {
+	background: #eee;
+	color:black;
+}
+/* ==========================================================================
+   TOPO Barra Brasil
+   ========================================================================== */
+#sobre, #top-header {
+	background-color: rgba(22, 89, 191, 1);
+	width: 100%
+}
+
+#barra-brasil div, #barra-brasil a, #barra-brasil ul, #barra-brasil li {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline
+}
+
+#barra-brasil ul {
+	list-style: none
+}
+
+@font-face {
+	font-family: "Open Sans";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Open Sans Bold"), local("OpenSans-Bold"),
+		url("//barra.brasil.gov.br/static/opensans-bold.woff") format("woff")
+}
+
+#barra-brasil {
+	height: 32px;
+	background: #f1f1f1;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 32px;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	border-bottom: 1px solid #dfdfdf;
+	box-sizing: content-box
+}
+
+#barra-brasil a {
+	text-decoration: none
+}
+
+body.contraste #barra-brasil {
+	background: #000 !important
+}
+
+div#wrapper-barra-brasil {
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1170px;
+	height: 100%
+}
+
+#barra-brasil .brasil-flag {
+	float: left;
+	padding: 7px 0 6px;
+	width: 115px;
+	height: 19px;
+	border-right: 2px solid #dfdfdf
+}
+
+#barra-brasil .brasil-flag .link-barra {
+	display: block;
+	padding-left: 42px;
+	width: 43px;
+	background:
+		url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAATCAMAAAC5m+00AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACrUExURQCXSF27iQCWRQOWSQCWSRCdVACSSgCWRwCVSRKcVv/oAP/yAAIvh/bjBQKVTP/rAK3PF/3sARZBkg05ima2LCqiPg+ZRR9JoermBbGwLwEqkgCST1GwMRqdQZfIHdzgCSdSlTlYbEWrNyNKeouUPHOgtEJsn2WOrSClX2m/lF+6i3q8JsDVEBpCgWN2WefTD8i/IYSstzKmO3eIUaa2h3SOjfvlHjVfq6OmNShvDYIAAAFISURBVCjPbVHXksMgDNQBljC4l9iOndjp5VKv//+XnXByb7fDADO7rNAK9v4DngPv/h/24BHBuEhqB3pCeUxJIAWKtMZlIVCTciogH3yhWMpinM2t7ZctS5UgAR74kVICpMauNrfmaucTpMj5e+4VUNTOEvuzCoL8EvZLJCH1SIHAqKjtehowposwTmbIcqZIt+UpNV/3zWa3HYLp2sZ1gegoPXkNU5M238Ow3d132cIYEyel9MHDLo2NcX4519puPkPmbOIowrdTbGyTZXk2BEH1kZo4LPSjFgq2DFcVc3lWNZbt2rGWIIiwTOztzJZV9W77glCp8RsSNHdc1NfL6rxoxp5JCcmUC1cJjdx0GKZ1hxq0eqYBkuPlzLHrjXuiOAwaDUGQFJyWBpyU7EUaQI/xckGeA98jksqNQLmp8BnB4Xh8+ReHX640GNLt25uiAAAAAElFTkSuQmCC")
+		8px center no-repeat;
+	text-transform: uppercase;
+	line-height: 19px
+}
+
+#barra-brasil .acesso-info {
+	position: absolute;
+	left: 130px
+}
+
+#barra-brasil .list {
+	position: absolute;
+	top: 0;
+	right: 0
+}
+
+#barra-brasil .list .first {
+	border-left: 2px solid #dfdfdf
+}
+
+#barra-brasil .list-item {
+	display: inline-block;
+	height: 32px;
+	border-right: 2px solid #dfdfdf
+}
+
+#barra-brasil .list-item a {
+	padding: 8px 15px 8px 13px
+}
+
+#barra-brasil .link-barra {
+	color: #606060
+}
+
+body.contraste #barra-brasil .link-barra {
+	color: #FF0 !important;
+	text-decoration: underline
+}
+
+#menu-icon {
+	position: absolute;
+	top: 3px;
+	border-top: 15px double #606060;
+	border-bottom: 5px solid #606060;
+	display: none;
+	width: 20px;
+	right: 5px
+}
+
+@media only screen and (max-width: 959px) {
+	#barra-brasil #menu-icon {
+		display: inline-block;
+		padding: 5px 3px 0px 3px
+	}
+	#barra-brasil .list .first {
+		border-left: 1px solid #dfdfdf
+	}
+	#barra-brasil nav:hover #menu-icon, #barra-brasil nav:active #menu-icon,
+		#barra-brasil nav:focus #menu-icon {
+		background-color: #DDD
+	}
+	body.contraste #barra-brasil nav:hover #menu-icon, body.contraste #barra-brasil nav:active #menu-icon,
+		body.contraste #barra-brasil nav:focus #menu-icon {
+		background-color: #606060 !important
+	}
+	#barra-brasil ul.list, #barra-brasil ul.list:active, #barra-brasil ul.list:focus
+		{
+		overflow: hidden;
+		height: 0px;
+		transition: 0.3s;
+		padding-top: 32px;
+		width: auto;
+		position: absolute;
+		z-index: 9
+	}
+	#barra-brasil .list-item {
+		display: block;
+		text-align: center;
+		height: 30px;
+		background: #EEE;
+		border: 1px solid #dfdfdf
+	}
+	#barra-brasil .list-item a {
+		padding: 8px 30px 8px 28px
+	}
+	body.contraste #barra-brasil .list-item {
+		background: #000 !important
+	}
+	body.contraste #menu-icon {
+		border-top: 15px double #fff !important;
+		border-bottom: 5px solid #fff !important
+	}
+	#barra-brasil .list a:active li, #barra-brasil .list a:focus li,
+		#barra-brasil .list a:hover li {
+		background: #DDD
+	}
+	body.contraste #barra-brasil .list a:active li, body.contraste #barra-brasil .list a:focus li,
+		body.contraste #barra-brasil .list a:hover li {
+		background: #606060 !important
+	}
+	#barra-brasil nav:active ul.list, #barra-brasil nav:focus ul.list,
+		#barra-brasil nav:hover ul.list {
+		height: 150px;
+		transition: 0.5s
+	}
+	div#wrapper-barra-brasil {
+		overflow: visible
+	}
+}
+
+@media screen and (min-width: 960px) {
+	#wrapper-barra-brasil {
+		width: 960px
+	}
+}
+
+@media print {
+	#barra-brasil .list {
+		display: none
+	}
+	#barra-brasil .acesso-info .link-barra:after {
+		content: " - Barra GovBr"
+	}
+}
+
+#header {
+	background: radial-gradient(#1c67a1, #004761);
+	border-bottom: 1px solid #ebebeb;
+	margin: 0;
+	color: #fff;
+}
+
+.texto {
+	/*margin: 0px 0px 10px 0px;
+    color: #000;*/
+    /*font-size: 15px;*/
+    /*font-family: 'Open Sans Extrabold', Arial, Helvetica, sans-serif;*/
+    color: #777;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.header-logo {
+	height: 110px;
+	width: 230px;
+	display: block;
+	margin: 0;
+	background: none;
+	float: left;
+}
+
+#logo {
+	padding: 0px;
+	float: left;
+	color: #fff;
+	text-align: left;
+	font-size: 10px;
+}
+
+#logo a, #logo #portal-title {
+	color: #FFF;
+}
+
+#logo #portal-title {
+	margin: 0px 0px 10px 0px;
+	color: #FFF;
+	font-size: 40px;
+	font-family: 'Open Sans Extrabold', Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	line-height: 1em;
+	letter-spacing: -0.05em;
+}
+
+#logo #portal-description {
+	font-size: 1.2em;
+	text-transform: uppercase;
+}
+
+.header-logo-a {
+	height: 96px;
+	padding-top: 15px;
+	/*background: #fff;
+	border: 1px solid #ebebeb;*/
+	border-top: 0;
+	border-bottom: 0;
+	display: block;
+	text-align: center;
+}
+
+.header-logo-a:hover {
+	border-color: #ddd;
+}
+
+.header-login {
+	width: 542px;
+	padding-top: 18px;
+	float: right;
+}
+
+.header-login .input label {
+	display: none;
+}
+
+.header-login-titulo {
+	color: #bdbdbe;
+	font-size: 15px;
+	line-height: 1em;
+	margin-bottom: 14px;
+	padding-left: 8px;
+}
+
+.topo-login-fieldset {
+	position: relative;
+}
+
+.topo-login-fieldset .message {
+	bottom: -39px;
+	left: 0;
+	margin: 0;
+	position: absolute;
+	width: 505px;
+}
+
+.topo-login-form {
+	width: auto;
+}
+
+.topo-login-form div {
+	padding: 0;
+	margin: 0;
+	float: left;
+	clear: none;
+}
+
+.topo-login-form div input {
+	padding: 8px 9px;
+	width: auto;
+	font-size: 12px;
+}
+
+.topo-login-form .div-botao input {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.topo-login-form .text {
+	width: 242px;
+}
+
+.topo-login-form .text input {
+	width: 220px;
+}
+
+.topo-login-form .password {
+	width: 214px;
+	margin: 0px 8px;
+}
+
+.topo-login-form .password input {
+	width: 192px;
+}
+
+.topo-login-form .botao {
+	font-size: 13px;
+	float: left;
+}
+
+.topo-esqueci-senha-a {
+	position: absolute;
+	right: 173px;
+	top: 20px;
+}
+
+.topo-usuario {
+	width: 430px;
+	padding-top: 25px;
+	float: right;
+}
+
+.topo-usuario-login {
+	width: 185px;
+	margin: 0;
+	padding-top: 9px;
+	text-align: right;
+	float: left;
+}
+
+.topo-usuario-login .descricao {
+	font-family: 'Georgia', Times;
+}
+
+.topo-usuario-bloco {
+	float: right;
+	width: 214px;
+	padding: 8px;
+	background: #ffffff url(../img/bg-topo-usuario-bloco.png) repeat-x
+		bottom;
+	border: 1px solid #f1f1f1;
+	-webkit-box-shadow: 1px 1px 3px #e8e8e8;
+	-moz-box-shadow: 1px 1px 3px #e8e8e8;
+	box-shadow: 1px 1px 3px #e8e8e8;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.topo-usuario-bloco img {
+	float: left;
+	margin-right: 7px;
+}
+
+.topo-usuario-bloco .nome {
+	font-size: 13px;
+}
+
+.topo-usuario-bloco .links {
+	font-size: 11px;
+}
+/* ==========================================================================
+   NAV GLOBAL MENU
+   ========================================================================== */
+/*
+.nav-global, .navbar {
+	border-bottom: 1px solid #fff;
+	background: #f9f9f9 url(../img/bg-nav-global.png) repeat-x bottom;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+.navbar-static-top .navbar-inner {
+	border: 0;
+	background: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: 0;
+	-moz-box-shadow: 0;
+	box-shadow: 0;
+}
+
+.nav-global-ul, .nav {
+	padding: 5px 0;
+	
+}
+
+.navbar-inner {
+	min-height: 0px !important;
+}
+
+.navbar .nav>li>a {
+	padding: 4px 15px 5px !important;
+}
+
+.navbar-inner, .navbar-static-top .navbar-inner {
+	box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1)
+}
+
+.nav-global-ul>.nav-global-li, .nav>.nav-global-li, .nav-global-ul>li,
+	.nav>li {
+	float: left;
+	margin-left: 7px;
+	position: relative;
+}
+
+.nav-global-ul>.nav-global-li>a, .nav>.nav-global-li>a, .nav-global-ul>li>a,
+	.nav>li>a {
+	padding: 5px 6px;
+	color: #999;
+	font-size: 13px;
+	font-weight: 700;
+	text-decoration: none;
+	text-shadow: 0 2px 0 #fff;
+	position: relative;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.nav-global-ul>.nav-global-li>a:hover, .nav>.nav-global-li>a:hover,
+	.nav-global-ul>li>a:hover, .nav>li>a:hover {
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.nav-global-ul>li:first-child, .nav>li:first-child {
+	margin-left: 0;
+}
+
+.nav-global-li.com-submenu a {
+	padding-right: 26px;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+}
+
+.nav-global-li.com-submenu a .seta {
+	width: 14px;
+	height: 14px;
+	position: absolute;
+	right: 6px;
+	top: 6px;
+	background: url(../img/sprite.png) no-repeat 0 -54px;
+}
+
+.nav-global-li.com-submenu a:hover .seta {
+	background-position: -14px -54px;
+}
+
+.nav-global-li-ativo>a {
+	background: #13aa50;
+	color: #fff !important;
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.4) !important;
+	-webkit-box-shadow: 1px 1px 0 #ffffff;
+	-moz-box-shadow: 1px 1px 0 #ffffff;
+	box-shadow: 1px 1px 0 #ffffff;
+}
+
+.nav-global-li-ativo .seta {
+	background-position: -14px -54px !important;
+}
+
+.submenu {
+	width: 180px;
+	padding: 8px;
+	display: none;
+	margin: 0;
+	background: #13aa50;
+	position: absolute;
+	z-index: 10;
+	top: 25px;
+	left: 0;
+	overflow: hidden;
+	-webkit-border-radius: 0 5px 5px 5px;
+	-moz-border-radius: 0 5px 5px 5px;
+	border-radius: 0 5px 5px 5px;
+	-webkit-box-shadow: 2px 2px 7px #aaaaaa;
+	-moz-box-shadow: 2px 2px 7px #aaaaaa;
+	box-shadow: 2px 2px 7px #aaaaaa;
+}
+
+.submenu li {
+	padding: 0;
+	margin: 0;
+	border-bottom: 1px solid #b61b0f;
+	border-top: 1px solid #d8473c;
+}
+
+.submenu li a {
+	padding: 6px 0;
+	color: #f9cecb;
+	display: block;
+	font-size: 13px;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.submenu li a:hover {
+	color: #fff;
+}
+
+.submenu li:last-child {
+	border-bottom: 0;
+}
+
+.submenu li:first-child {
+	border-top: 0;
+}
+
+.nav-global-li-ativo .submenu {
+	display: block;
+}
+
+.nav-global-li.atual>a {
+	color: #13aa50;
+}
+
+.nav-global-li.atual>a .seta {
+	background-position: -28px -54px;
+}
+
+.ie9 .nav-global-li .seta {
+	top: 4px !important;
+}
+
+.ie9 .submenu {
+	top: 24px;
+}*/

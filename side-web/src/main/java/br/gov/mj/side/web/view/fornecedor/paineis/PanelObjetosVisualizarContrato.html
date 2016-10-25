@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<div class="form-group">
+		<label class="col-sm-3 control-label"> </label>
+		<div class="col-sm-6">
+			<div class="col-sm-6 feedbackPanelERROR" wicket:id="mensagemErro" id="mensagemErro"></div>
+		</div>
+	</div>
+
+	<div class="form-group" wicket:id="panelDrop">
+
+		<label class="col-sm-3 control-label" for="dropGrupoItem">* Grupo / Item</label>
+		<div class="col-sm-4">
+			<select class="basic-single" wicket:id="dropGrupoItem" id="dropGrupoItem" tabindex="7" style="width: 100%"></select>
+		</div>
+		<button wicket:id="btnAdicionarItem" title="Adicionar grupo/item" class="btn btn-success btn-sm" id="btnAdicionarGrupoItem">
+			<i class="fa fa-plus"></i>
+		</button>
+	</div>
+
+	<div class="form-group" wicket:id="panelDataView">
+		<label class="col-sm-1 control-label"> </label>
+		<div class="container col-sm-12">
+			<div class="col-sm-12">
+				<div>
+					<p class="text-left"></p>
+				</div>
+
+				<div class="panel panel-default" style="margin-left: 10px; margin-right: 10px;">
+					<div class="panel-body">
+					  <div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Grupo</th>
+									<th>Item</th>
+									<th>Descrição</th>
+									<th>Região</th>
+									<th>UF</th>
+									<th>Quantidade Imediata</th>
+								</tr>
+							</thead>
+							<tr wicket:id="dataGruposSelecionados">
+
+								<td wicket:id="containerRowspan" style="vertical-align: middle;">
+									<div wicket:id="panelNomeGrupo">
+										<span wicket:id="lblNomeGrupoItem"></span>
+									</div>
+								</td>
+
+								<td wicket:id="lblNomeBemGrupo"></td>
+								<td wicket:id="lblDescricaoBemGrupo"></td>
+								<td wicket:id="lblRegiaoGrupo"></td>
+								<td wicket:id="lblUfGrupo"></td>
+								<td wicket:id="lblQuantidadeARegistrarGrupo" style="text-align: center;"></td>
+							</tr>
+						</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</wicket:panel>

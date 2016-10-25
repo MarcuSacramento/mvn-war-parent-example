@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<wicket:panel xmlns:wicket="http://wicket.apache.org">
+
+	<!-- FORNECEDOR -->
+	
+	<div wicket:id="panelInformacoesFornecedor">
+		<div class="form-group">
+			<div class="col-md-4 control-label">
+				<label for="cnpjFornecedor"> CNPJ Fornecedor:</label>
+			</div>
+			<div class="col-md-3 col-smLabelTop">
+				<span wicket:id="cnpjFornecedor"></span>
+			</div>
+		</div>
+	</div>
+
+	<div wicket:id="panelDadosDoFornecedorEscolhido">
+	    
+	    <div class="form-group">
+			<label class="col-md-4 control-label" for="razaoSocial">Razão Social:</label>
+			<div class="row col-sm-7">
+				<div class="col-md-3 col-smLabelTop"><span wicket:id="razaoSocial"></span>
+				</div>
+				<label class="col-md-4 control-label" for="dropDownEstado">Estado:</label>
+				<div class="col-md-3 col-smLabelTop">
+					<span wicket:id="dropDownEstado"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+		    <label class="col-md-4 control-label" for="contato">Contato:</label>
+			<div class="row col-sm-7">
+				<div class="col-md-4 col-smLabelTop"><span wicket:id="contato"></span>
+				</div>
+				<label class="col-md-3 control-label" for="telefoneFornecedor">Telefone:</label>
+				<div class="col-md-3 col-smLabelTop">
+					<span wicket:id="telefoneFornecedor"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- PANEL PARA ADICIONAR REPRESENTANTE -->
+				<div wicket:id="panelDropRepresentante">
+				
+				    <div class="form-group">
+					    <label class="col-md-4 control-label" for="dropDownRepresentante"> Representante Legal Fornecedor:</label>
+						<div class="row col-sm-7">
+							<div class="col-md-4 col-smLabelTop"><span wicket:id="dropDownRepresentante"></span>
+							</div>
+							<label class="col-md-3 control-label" for="cpfRepresentanLegal">CPF:</label>
+							<div class="col-md-3 col-smLabelTop">
+								<span wicket:id="cpfRepresentanLegal"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+	<!-- PANEL PARA ADICIONAR PREPOSTO -->
+				<div wicket:id="panelDropPreposto">
+
+                    <div class="form-group">
+					    <label class="col-md-4 control-label" for="dropDownPreposto">Preposto Fornecedor:</label>
+						<div class="row col-sm-7">
+							<div class="col-md-4 col-smLabelTop"><span wicket:id="dropDownPreposto"></span>
+							</div>
+							<label class="col-md-3 control-label" for="cpfPreposto">CPF:</label>
+							<div class="col-md-3 col-smLabelTop">
+								<span wicket:id="cpfPreposto"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+   <br/>
+</wicket:panel>
